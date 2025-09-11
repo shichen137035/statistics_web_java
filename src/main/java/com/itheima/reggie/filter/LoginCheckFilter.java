@@ -29,17 +29,14 @@ public class LoginCheckFilter implements Filter{
         //1、获取本次请求的URI
         String requestURI = request.getRequestURI();// /backend/index.html
 
-        log.info("拦截到请求：{}",requestURI);
+        log.info("检查到：{}",requestURI);
 
         //定义不需要处理的请求路径
         String[] urls = new String[]{
-                "/employee/login",
+                "/templates",
                 "/employee/logout",
-                "/backend/**",
-                "/front/**",
                 "/common/**",
-                "/user/sendMsg",
-                "/user/login"
+                "/**"
         };
 
         //2、判断本次请求是否需要处理
@@ -47,7 +44,7 @@ public class LoginCheckFilter implements Filter{
 
         //3、如果不需要处理，则直接放行
         if(check){
-            log.info("本次请求{}不需要处理",requestURI);
+//            log.info("本次请求{}不需要处理",requestURI);
             filterChain.doFilter(request,response);
             return;
         }

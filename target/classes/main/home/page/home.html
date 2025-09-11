@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-page="home" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Course Homepage</title>
+    <link rel="stylesheet" href="../style/home.css">
+</head>
+<body>
+
+<div id="language_switch"></div>
+
+<h1 data-i18n="title"></h1>
+<p data-i18n="desc"></p>
+
+<div class="buttons">
+    <button data-i18n="btn.course"
+            onclick="location.href='/main/course/introduction/page/course_introduction.html'"></button>
+    <button data-i18n="btn.concept"
+            onclick="location.href='../../concept/introduction/page/concept_introduction.html'"></button>
+</div>
+
+<p data-i18n="announcement"></p>
+
+<!--<script>-->
+<!--    // 加载 header-->
+<!--    fetch("/component/language_switch.html")-->
+<!--        .then(res => res.text())-->
+<!--        .then(data => {-->
+<!--            document.getElementById("language_switch").innerHTML = data;-->
+<!--        });-->
+<!--</script>-->
+
+<script src="/common/js/global.js" defer></script>
+</body>
+</html>

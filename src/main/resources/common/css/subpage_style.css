@@ -1,0 +1,48 @@
+/* 子页面整体区域 */
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 14px;          /* 比全局小一号 */
+    line-height: 1.4;         /* 行距略小 */
+    color: #000000;
+    margin: 8px;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* 子页面标题 */
+h1, h2, h3 {
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: #000000;
+    margin: 0.8em 0 0.4em;    /* 缩小间距 */
+}
+
+h1 {
+    font-size: 1.6em;         /* 小于全局的 2.2em */
+    letter-spacing: 0.3px;
+}
+
+h2 {
+    font-size: 1.3em;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+/* 关键词在子页面依然高亮，但更低调一些 */
+.keyword {
+    font-weight: 600;
+    color: #005fa3;           /* 稍微深蓝 */
+    text-decoration: none;
+}
+
+.keyword:hover {
+    text-decoration: underline;
+    color: #004080;
+}
+
+/* 段落 */
+p {
+    margin: 0.6em 0;
+}

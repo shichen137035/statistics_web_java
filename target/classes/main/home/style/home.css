@@ -1,0 +1,57 @@
+/* 正文整体居中：标题、段落与按钮 */
+h1,
+p{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 960px;            /* 可按需调整正文宽度 */
+    padding: 0 16px;
+}
+
+/* 主标题与段落的细节 */
+h1 {
+    font-size: 2.2em;
+    margin: 40px auto 12px;
+}
+p {
+    font-size: 1.05em;
+    color: #4b5563;
+    margin: 0 auto 24px;
+}
+
+/* 按钮容器：让间距更开 */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 60px;        /* 按钮之间的间距更大 */
+    margin-top: 120px;
+}
+
+/* 按钮样式：大号 + 渐变浅蓝色 */
+.buttons button {
+    font-size: 3.0em;                   /* 字体放大 */
+    padding: 50px 50px;                 /* 增大点击区域 */
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #a8d8ff, #3b82f6); /* 渐变浅蓝色 */
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 4px 10px rgba(59,130,246,0.3);
+}
+
+.buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(59,130,246,0.4);
+}
+
+.buttons button:active {
+    transform: scale(0.97);
+}
+/* 小屏优化 */
+@media (max-width: 560px) {
+    h1 { font-size: 1.8em; }
+    .buttons { gap: 10px; }
+    .buttons button { font-size: 1em; padding: 10px 18px; }
+}

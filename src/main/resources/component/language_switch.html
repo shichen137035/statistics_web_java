@@ -1,0 +1,78 @@
+<header class="site-header">
+    <style>
+        /* --- 外层：真正固定并铺满整行的条带 --- */
+        .site-header{
+            position: fixed;
+            inset: 0 0 auto 0;   /* top:0; left:0; right:0 */
+            z-index: 1000;
+
+            /* 关键：无视任何全局 max-width / 居中容器影响 */
+            width: 100vw;
+            max-width: 100vw !important;
+            min-width: 100vw;
+            margin: 0 !important;
+            box-sizing: border-box;
+
+            background: #fff;
+            border-bottom: 1px solid #d9e2ec;
+        }
+
+        /* --- 内层：你的实际内容行（受 flex 布局） --- */
+        .site-header__inner{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            height: 60px;          /* 统一高度，便于预留占位 */
+            padding: 0 16px;       /* 原来的内边距放到这里 */
+            box-sizing: border-box;
+            color: #1f2937;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        }
+
+        /* 其余原来的样式保持不变（语言选择等） */
+        .brand{ font-weight:600; font-size:18px; letter-spacing:.2px; white-space:nowrap; }
+        .language-switch{ display:inline-flex; align-items:center; gap:10px; }
+        .language-switch label{ font-size:14px; color:#6b7280; user-select:none; }
+        .select-wrap{ position:relative; display:inline-block; }
+        .select-wrap::after{
+            content:""; position:absolute; right:12px; top:50%; transform:translateY(-50%);
+            width:0; height:0; border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid #6b7280; pointer-events:none;
+        }
+        .lang-select{
+            appearance:none; -webkit-appearance:none; -moz-appearance:none;
+            font-size:14px; padding:8px 36px 8px 12px; min-width:140px;
+            border:1px solid #d9e2ec; border-radius:10px;
+            background: linear-gradient(#fff,#fff), linear-gradient(to bottom, #e9f2ff, #fff);
+            box-shadow:0 1px 1.5px rgba(0,0,0,.06); cursor:pointer;
+            transition:border-color .15s, box-shadow .15s, transform .04s;
+            color:#1f2937;
+        }
+        .lang-select:hover{ border-color:#0d6efd; box-shadow:0 0 0 3px rgba(13,110,253,.12); }
+        .lang-select:focus{ outline:none; border-color:#0d6efd; box-shadow:0 0 0 3px rgba(13,110,253,.25); }
+        .lang-select:active{ transform:translateY(.5px); }
+
+        @media (max-width:560px){
+            .site-header__inner{ flex-wrap:wrap; row-gap:8px; justify-content:center; text-align:center; padding:8px 12px; height:auto; }
+            .brand{ width:100%; }
+        }
+
+        /* 页面全局：去掉默认外边距，给正文让出空间 */
+        html, body{ margin:0; }
+        body{ padding-top:60px; } /* 与 .site-header__inner 的高度一致 */
+    </style>
+
+    <div class="site-header__inner">
+        <div class="brand" data-i18n="COM_logo"></div>
+        <nav class="language-switch" aria-label="Language switcher">
+            <label for="lang-select">Language</label>
+            <div class="select-wrap">
+                <select id="lang-select" class="lang-select" aria-label="Language">
+                    <option value="en">English</option>
+                    <option value="ja">日本語</option>
+                    <option value="zh">中文</option>
+                </select>
+            </div>
+        </nav>
+    </div>
+</header>

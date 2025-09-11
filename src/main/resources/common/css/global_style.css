@@ -1,0 +1,72 @@
+/* 全局字体 & 正文 */
+body {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 16px;          /* 标准字号 */
+    line-height: 1.6;         /* 行距适中，阅读舒适 */
+    color: #000000;           /* 正文为黑色 */
+    margin: 0;
+    padding-top: 60px; /* 根据 header 高度调整 */
+    background-color: #ffffff; /* 白底，干净 */
+}
+
+/* 标题（所有 h1~h3） */
+h1, h2, h3 {
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    font-weight: bold;
+    color: #000000;           /* 全黑 */
+    margin: 1.2em 0 0.6em;
+}
+
+h1 {
+    font-size: 2.2em;         /* 醒目有张力 */
+    letter-spacing: 0.5px;    /* 稍微拉开间距 */
+}
+
+h2 {
+    font-size: 1.8em;
+}
+
+h3 {
+    font-size: 1.4em;
+}
+
+/* 关键词高亮 */
+.keyword {
+    font-weight: 600;          /* 微微加粗 */
+    color: #0077cc;            /* 蓝色，突出但不刺眼 */
+    text-decoration: none;     /* 默认不带下划线 */
+}
+
+.keyword:hover {
+    text-decoration: underline;
+    color: #005fa3;            /* hover 时稍微深蓝 */
+}
+
+/* 悬浮窗容器（主页面生效） */
+.keyword-popup{
+    position: fixed;                 /* 关键：脱离文档流，悬浮 */
+    top: var(--top, 0px);            /* 由 JS 注入坐标 */
+    left: var(--left, 0px);
+    width: 420px;
+    max-height: 320px;
+    display: none;                   /* 初始隐藏，由 .is-open 控制显示 */
+    background: #fff;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.18);
+    overflow: hidden;                /* 让内部 iframe 裁切 */
+    z-index: 2147483647;             /* 足够高，压过页面其它层 */
+}
+
+/* 显示态 */
+.keyword-popup.is-open{
+    display: block;
+}
+
+/* 内部 iframe 尺寸（主页面生效） */
+.keyword-popup__frame{
+    width: 100%;
+    height: 320px;
+    border: 0;
+    display: block;
+}

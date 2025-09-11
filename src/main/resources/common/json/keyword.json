@@ -1,0 +1,12 @@
+{
+  "statistic": {
+    "i18nKey": "keyword.statistic",
+    "mainPage": "/main/concept/statistic/page/statistic.html",
+    "subpage": "/subpages/statistic/statistic.html"
+  },
+  "distribution": {
+    "i18nKey": "keyword.distribution",
+    "mainPage": "/pages/distribution/index.html",
+    "subpage": "/subpages/distribution_type/distribution.html"
+  }
+}
