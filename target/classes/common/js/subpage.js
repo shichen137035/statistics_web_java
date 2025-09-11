@@ -1,28 +1,17 @@
-(function() {
-    // ----------- 注入全局 CSS -----------
-    const baseLink = document.createElement("link");
-    baseLink.rel = "stylesheet";
-    baseLink.href = "/common/css/global_style.css";
-    baseLink.href = "/common/css/subpage_style.css";
+// /common/js/init_config.js
+import { injectCss, injectJs } from "/common/js/util_tool.js";
 
-    const head = document.head;
-    if (head.firstChild) {
-        head.insertBefore(baseLink, head.firstChild);
-    } else {
-        head.appendChild(baseLink);
-    }
+(function () {
+    // 注入全局 CSS
+    injectCss([
+        "/common/css/subpage_style.css",
+        "/common/css/popup_style.css"
+    ]);
 
-    // ----------- 工具函数：注入 JS -----------
-    function injectJs(src) {
-        const script = document.createElement("script");
-        script.src = src;
-        script.defer = true;
-        head.appendChild(script);
-    }
-
-    // ----------- 注入全局 JS -----------
-    injectJs("/common/js/language_switch.js");   // 切换语言
-    injectJs("/common/js/keyword_popup.js");     // 悬浮显示子页面（你刚才的功能）
-    // 以后还可以继续加
-    // injectJs("/common/other.js");
+    // 注入全局 JS
+    injectJs([
+        "/common/js/adjust_subpage_size.js",
+        "/common/js/language_switch.js",
+        "/common/js/keyword_popup.js"
+    ]);
 })();

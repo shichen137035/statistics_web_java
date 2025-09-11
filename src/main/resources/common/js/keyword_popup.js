@@ -9,6 +9,8 @@
     let lockTimer = null;
     let locked = false;
     let lastXY = { x: 0, y: 0 };
+    const MAX_W = 560, MIN_W = 280;
+    const MAX_H = 420, MIN_H = 160;
 
     function ensurePopup() {
         if (popup) return popup;
@@ -46,6 +48,7 @@
             try { iframe.src = url; } catch { iframe.setAttribute("src", url); }
         }
         p.classList.add("is-open");
+        console.log("p:",p)
     }
 
     function hide() {
@@ -78,12 +81,37 @@
             }
         }, delay);
     }
+    function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+
+    function resizePopupByContent(width, height){
+        const popup  = document.querySelector(".keyword-popup");
+        const iframe = popup && popup.querySelector("iframe.keyword-popup__frame");
+        if (!popup || !iframe) return;
+
+        // 约束尺寸
+        const w = clamp(Math.round(width),  MIN_W, Math.min(MAX_W, window.innerWidth - 24));
+        const h = clamp(Math.round(height), MIN_H, Math.min(MAX_H, window.innerHeight - 24));
+
+        // 应用尺寸
+        popup.style.width  = w + "px";
+        iframe.style.height = h + "px";
+    }
+
+
 
     // --- 记录鼠标坐标，供矩形复核 ---
     document.addEventListener("mousemove", (e) => {
         lastXY.x = e.clientX;
         lastXY.y = e.clientY;
     }, true);
+
+    window.addEventListener("message", (e) => {
+        const data = e.data;
+        if (!data || data.type !== "SUBPAGE_SIZE") return;
+        resizePopupByContent(data.width, data.height);
+        console.log("Received height:",data.height)
+        console.log("Received width:",data.width)
+    });
 
     // --- 关键词进入：显示 & 启动短暂锁定窗口 ---
     document.addEventListener("mouseover", (e) => {
@@ -92,7 +120,13 @@
         if (activeKeyword === el) { inKeyword = true; return; }
 
         const url = el.dataset.subpage;
-        if (!url) return;
+        if(!url){
+            console.log("not find any url",url);
+            return;
+        }
+        else {
+            console.log("find the url:",url);
+        }
 
         activeKeyword = el;
         inKeyword = true;
@@ -101,6 +135,7 @@
         if (hideTimer) { clearTimeout(hideTimer); hideTimer = null; }
 
         show(el, url);
+        console.log("show")
         lockTimer = setTimeout(() => { locked = true; }, 500);
     }, true);
 

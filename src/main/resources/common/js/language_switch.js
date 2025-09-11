@@ -11,6 +11,7 @@
         if (p.endsWith('/')) p += 'index'; // 目录 → index
         // 去掉最后的 .html 扩展
         p = p.replace(/\.html?$/i, '');
+        console.log("Get the i18n path.")
         return p;
     }
 
@@ -66,7 +67,7 @@
                 // 默认规则：关键字的翻译 key = keyword.<变量名>
                 const translated = dict[info.i18nKey] || key;
                 const subpage = info.subpage || info.mainPage || "";
-                console.log("data-subpage 属性:", subpage);
+                console.log("data-subpage property:", subpage);
                 return `<a href="${info.mainPage}" class="keyword" data-subpage="${subpage}">${translated}</a>`;
             }
             return key; // 没找到就原样返回
@@ -108,11 +109,13 @@
     // -----------------------------
     // 7. 启动逻辑
     // -----------------------------
+    console.log("start_language switch")
 
 
     setLang(document.documentElement.getAttribute('lang') || 'en');
 
     if (select) {
         select.addEventListener('change', e => setLang(e.target.value));
+        console.log("language changed");
     }
 })();
