@@ -12,6 +12,6 @@ import { injectCss, injectJs } from "/common/js/util_tool.js";
     injectJs([
         "/common/js/adjust_subpage_size.js",
         "/common/js/language_switch.js",
-        "/common/js/keyword_popup.js"
+        "/common/js/subpage_keyword_listener.js"
     ]);
 })();

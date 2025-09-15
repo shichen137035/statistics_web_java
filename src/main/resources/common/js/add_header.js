@@ -2,5 +2,5 @@
 fetch("/component/language_switch.html")
     .then(res => res.text())
     .then(data => {
-        document.getElementById("language_switch").innerHTML = data;
+        document.getElementById("language-switch").innerHTML = data;
     });

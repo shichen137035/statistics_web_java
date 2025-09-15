@@ -1,0 +1,57 @@
+[ {
+  "name" : "1",
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1.1",
+    "type" : "folder",
+    "children" : [ ]
+  }, {
+    "name" : "1.2",
+    "type" : "folder",
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "2",
+  "type" : "folder",
+  "children" : [ {
+    "name" : "2.1",
+    "type" : "folder",
+    "children" : [ ]
+  }, {
+    "name" : "2.2",
+    "type" : "folder",
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "3",
+  "type" : "folder",
+  "children" : [ {
+    "name" : "3.1",
+    "type" : "folder",
+    "children" : [ ]
+  } ]
+}, {
+  "name" : "4",
+  "type" : "folder",
+  "children" : [ ]
+}, {
+  "name" : "Introduction",
+  "type" : "folder",
+  "children" : [ {
+    "name" : "js",
+    "type" : "folder",
+    "children" : [ ]
+  }, {
+    "name" : "page",
+    "type" : "folder",
+    "children" : [ {
+      "name" : "course_introduction.html",
+      "type" : "file",
+      "path" : "Introduction/page/course_introduction.html"
+    } ]
+  }, {
+    "name" : "style",
+    "type" : "folder",
+    "children" : [ ]
+  } ]
+} ]

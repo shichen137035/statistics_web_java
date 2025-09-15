@@ -1,0 +1,14 @@
+<!-- 侧栏导航组件 -->
+<aside class="course-nav" id="courseNav" aria-hidden="true">
+    <div class="course-nav__header">
+        <div class="course-nav__title">Course Catalog</div>
+        <button class="course-nav__close" aria-label="Close navigation" type="button">✕</button>
+    </div>
+    <div class="course-nav__scroll">
+        <ul class="course-nav__tree" id="courseTree" role="tree" aria-label="Course catalog"></ul>
+    </div>
+</aside>
+
+<!-- 遮罩与贴边开关按钮（与侧栏为兄弟以便 CSS 控制） -->
+<div class="course-nav__mask" id="courseNavMask" hidden></div>
+<button class="course-nav__toggle" id="courseNavToggle" type="button" aria-label="Open navigation">☰</button>

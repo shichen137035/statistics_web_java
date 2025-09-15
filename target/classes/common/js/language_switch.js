@@ -11,7 +11,6 @@
         if (p.endsWith('/')) p += 'index'; // 目录 → index
         // 去掉最后的 .html 扩展
         p = p.replace(/\.html?$/i, '');
-        console.log("Get the i18n path.")
         return p;
     }
 
@@ -58,16 +57,30 @@
     }
 
     // -----------------------------
-    // 4. 渲染关键字 [[Key]]
-    // -----------------------------
+    // 工具：首字母大写
+    function capitalizeFirst(str) {
+        if (!str) return "";
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+// 4. 渲染关键字 [[Key]]
+// -----------------------------
     function renderWithKeywords(text, dict, keywordDict) {
-        return text.replace(/\[\[(.+?)\]\]/g, (match, key) => {
+        return text.replace(/\[\[(.+?)\]\]/g, (match, key, offset) => {
             const info = keywordDict[key];
             if (info) {
-                // 默认规则：关键字的翻译 key = keyword.<变量名>
-                const translated = dict[info.i18nKey] || key;
+                let translated = dict[info.i18nKey] || key;
+
+                // 判断是否是句首
+                const before = text.slice(0, offset).trim();
+                const lastChar = before.slice(-1);
+                const isSentenceStart = before === "" || /[.!?]\s*$/.test(before);
+
+                if (isSentenceStart) {
+                    translated = capitalizeFirst(translated);
+                }
+
                 const subpage = info.subpage || info.mainPage || "";
-                console.log("data-subpage property:", subpage);
                 return `<a href="${info.mainPage}" class="keyword" data-subpage="${subpage}">${translated}</a>`;
             }
             return key; // 没找到就原样返回
@@ -109,7 +122,7 @@
     // -----------------------------
     // 7. 启动逻辑
     // -----------------------------
-    console.log("start_language switch")
+    // console.log("start_language switch")
 
 
     setLang(document.documentElement.getAttribute('lang') || 'en');

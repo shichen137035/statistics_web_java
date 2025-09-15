@@ -14,11 +14,10 @@
             b.scrollHeight,  b.offsetHeight,  b.clientHeight
         );
 
-        console.log("[SUBPAGE] report size", w, h);
+        // console.log("[SUBPAGE] report size", w, h);
         parent.postMessage({ type: "SUBPAGE_SIZE", width: w, height: h }, "*");
     }
 
-    console.log("initialization")
 
     // 初次 + 字体/图片等后续变化
     window.addEventListener("load", sendSize);

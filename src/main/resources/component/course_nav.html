@@ -1,0 +1,22 @@
+<!-- 目录面板 -->
+<aside class="course-nav" id="courseNav" aria-hidden="true">
+    <div class="course-nav__header">
+        <div class="course-nav__title">Course Catalog</div>
+        <button class="course-nav__close" aria-label="Close">✕</button>
+    </div>
+    <div class="course-nav__scroll">
+        <ul class="course-nav__tree" id="courseTree">
+            <!-- JS 渲染树：每个节点 li.course-nav__node
+                 文件夹：加 .is-folder（展开时再加 .is-open）
+                 文件：加 .is-file
+                 行：div.course-nav__row（里面放 .course-nav__icon .course-nav__name）
+                 子级：ul.course-nav__children -->
+        </ul>
+    </div>
+</aside>
+
+<!--&lt;!&ndash; 遮罩（可选） &ndash;&gt;-->
+<!--<div class="course-nav__mask" id="courseNavMask"></div>-->
+
+<!--&lt;!&ndash; 贴边开关按钮（可选） &ndash;&gt;-->
+<!--<button class="course-nav__toggle" id="courseNavToggle">目录</button>-->
