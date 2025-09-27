@@ -17,84 +17,98 @@ import java.nio.charset.StandardCharsets;
 @RequestMapping("/api/course")
 public class CourseController {
 
-    // 课程目录（读取的源目录）
     private final Path courseRoot = Paths.get("src/main/resources/main/course");
+    private final Path jsonFile = Paths.get("src/main/resources/component/course.json");
+    private final Path navFile = Paths.get("src/main/resources/component/course_nav_rendered.html");
+    private final Path buttonsFile = Paths.get("src/main/resources/component/course_buttons.html");
 
-    // 输出目录（目标 JSON 文件）
-    private final Path outputFile = Paths.get("src/main/resources/component/course.json");
+    // 缓存目录结构
+    private List<Map<String, Object>> cachedStructure;
 
-    /**
-     * Spring Boot 启动时自动生成 JSON 文件
-     */
     @PostConstruct
     public void init() throws IOException {
-        System.out.println(">>> 应用启动，自动生成课程目录 JSON...");
+        System.out.println(">>> 应用启动，初始化课程目录结构...");
+        cachedStructure = walkDir(courseRoot, 0);
+
         generateCourseJsonFile();
         generateCourseHtmlFile();
+        generateCourseButtonsFile();
     }
 
-    /**
-     * API: 返回目录结构（供前端使用）
-     */
+    /** API: 获取目录结构 */
     @GetMapping("/structure")
-    public List<Map<String, Object>> getCourseStructure() throws IOException {
-        return walkDir(courseRoot, 0);
+    public List<Map<String, Object>> getCourseStructure() {
+        return cachedStructure;
     }
 
-    /**
-     * API: 生成并写入 JSON 文件到 /component 下
-     */
-    @GetMapping("/generate")
+    /** API: 刷新目录结构 */
+    @GetMapping("/refresh")
+    public String refreshStructure() throws IOException {
+        cachedStructure = walkDir(courseRoot, 0);
+        return "目录结构已刷新";
+    }
+
+    /** 生成 JSON 文件 */
+    @GetMapping("/generateJson")
     public String generateCourseJsonFile() throws IOException {
-        List<Map<String, Object>> structure = walkDir(courseRoot, 0);
-
-        // 确保 component 目录存在
-        Files.createDirectories(outputFile.getParent());
-
-        // 使用 Jackson 写入 JSON 文件
+        Files.createDirectories(jsonFile.getParent());
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writerWithDefaultPrettyPrinter().writeValue(outputFile.toFile(), structure);
-
-        return "课程目录 JSON 已生成: " + outputFile.toAbsolutePath();
+        mapper.writerWithDefaultPrettyPrinter().writeValue(jsonFile.toFile(), cachedStructure);
+        return "课程目录 JSON 已生成: " + jsonFile.toAbsolutePath();
     }
 
-    @GetMapping("/generateHtml")
+    /** 生成目录 HTML */
+    @GetMapping("/generateNav")
     public String generateCourseHtmlFile() throws IOException {
-        // 1. 遍历目录生成 HTML 节点
-        List<Map<String, Object>> structure = walkDir(courseRoot, 0);
-        String treeHtml = renderNodesAsHtml(structure);
-
-        // 2. 读取模板
+        String treeHtml = renderNodesAsHtml(cachedStructure);
         Path templatePath = Paths.get("src/main/resources/component/course_nav.html");
         String template = new String(Files.readAllBytes(templatePath), StandardCharsets.UTF_8);
-
-        // 3. 替换占位符
         String finalHtml = template.replace("{{courseTree}}", treeHtml);
 
-        // 4. 输出到同一个文件夹（例如 course_nav_rendered.html）
-        Path out = Paths.get("src/main/resources/component/course_nav_rendered.html");
-        Files.write(out, finalHtml.getBytes(StandardCharsets.UTF_8));
-
-        return "生成成功: " + out.toAbsolutePath();
+        Files.write(navFile, finalHtml.getBytes(StandardCharsets.UTF_8));
+        return "目录 HTML 已生成: " + navFile.toAbsolutePath();
     }
 
+    /** 生成按钮 HTML */
+    @GetMapping("/generateButtons")
+    public String generateCourseButtonsFile() throws IOException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("<div class=\"course-grid\">\n");
 
+        for (Map<String, Object> node : cachedStructure) {
+            String type = (String) node.get("type");
+            String name = (String) node.get("name");
+            if (!"folder".equals(type)) continue;
+            if ("Introduction".equalsIgnoreCase(name)) continue;
 
-    /**
-     * 递归遍历目录，生成 JSON 结构
-     */
+            @SuppressWarnings("unchecked")
+            List<Map<String, Object>> children = (List<Map<String, Object>>) node.get("children");
+            if (children != null && !children.isEmpty()) {
+                Map<String, Object> firstFile = children.get(0);
+                String path = (String) firstFile.get("path");
+
+                sb.append("  <a href=\"/main/course/")
+                        .append(path).append("\" class=\"btn-link\">")
+                        .append("<button class=\"chapter-btn\">")
+                        .append(name).append("</button></a>\n");
+            }
+        }
+
+        sb.append("</div>\n");
+        Files.createDirectories(buttonsFile.getParent());
+        Files.write(buttonsFile, sb.toString().getBytes(StandardCharsets.UTF_8));
+        return "按钮 HTML 已生成: " + buttonsFile.toAbsolutePath();
+    }
+
+    /** 遍历文件目录结构（仅调用一次） */
     private List<Map<String, Object>> walkDir(Path dir, int level) throws IOException {
         List<Map<String, Object>> list = new ArrayList<>();
-
         try (Stream<Path> paths = Files.list(dir)) {
             List<Path> sorted = paths.sorted((p1, p2) -> {
                 String n1 = p1.getFileName().toString();
                 String n2 = p2.getFileName().toString();
-
-                // --- 変更 1: Introduction を最優先 ---
                 if (n1.equalsIgnoreCase("Introduction")) return -1;
                 if (n2.equalsIgnoreCase("Introduction")) return 1;
-
                 try {
                     return Integer.compare(
                             Integer.parseInt(n1.replaceAll("\\D", "")),
@@ -116,8 +130,7 @@ public class CourseController {
                     if (Files.exists(pageDir) && Files.isDirectory(pageDir)) {
                         List<Map<String, Object>> children = new ArrayList<>();
                         try (Stream<Path> pageFiles = Files.list(pageDir)) {
-                            pageFiles
-                                    .filter(Files::isRegularFile)
+                            pageFiles.filter(Files::isRegularFile)
                                     .filter(f -> f.toString().endsWith(".html"))
                                     .sorted()
                                     .forEach(f -> {
@@ -132,25 +145,21 @@ public class CourseController {
                         }
                         node.put("children", children);
                     }
-
                     list.add(node);
                 }
             }
         }
         return list;
     }
+
+    /** 渲染目录树 HTML */
     private String renderNodesAsHtml(List<Map<String, Object>> nodes) {
         return renderNodesAsHtml(nodes, 0);
     }
 
-    /**
-     * Java 8 没有 String.repeat()，自己实现
-     */
     private String repeat(String str, int count) {
         StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < count; i++) {
-            sb.append(str);
-        }
+        for (int i = 0; i < count; i++) sb.append(str);
         return sb.toString();
     }
 
@@ -165,7 +174,7 @@ public class CourseController {
             if ("folder".equals(type)) {
                 sb.append(indent).append("<li class=\"course-nav__node is-folder\">\n");
                 sb.append(indent).append("    <div class=\"course-nav__row\">\n");
-                sb.append(indent).append("        <span class=\"course-nav__icon\"><span class=\"course-nav__caret\">▶</span></span>\n");
+                sb.append(indent).append("        <span class=\"course-nav__icon\"><span class=\"course-nav__caret\"></span></span>\n");
                 sb.append(indent).append("        <span class=\"course-nav__name\">").append(name).append("</span>\n");
                 sb.append(indent).append("    </div>\n");
 
@@ -178,8 +187,6 @@ public class CourseController {
 
             } else if ("file".equals(type)) {
                 String path = (String) node.get("path");
-
-                // --- 変更 2: 表示名から拡張子を削除 ---
                 String displayName = name.replaceFirst("\\.html?$", "");
 
                 sb.append(indent).append("<li class=\"course-nav__node is-file\">\n");
@@ -195,3 +202,4 @@ public class CourseController {
         return sb.toString();
     }
 }
+

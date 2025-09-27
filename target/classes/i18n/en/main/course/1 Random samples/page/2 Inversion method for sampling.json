@@ -1,6 +1,6 @@
 {
   "meta.title": "Inverse Transform Method · Exponential Example · Bisection",
-  "intro.title": "Inverse Method",
+  "intro.title": "Inversion method for sampling",
 
   "section.uniform.title": "Uniform Distribution and Sampling in R",
   "section.uniform.desc1": "Uniform(0,1) is the base source of randomness. In R, many sampling tasks can be realized via runif().",

@@ -7,51 +7,75 @@
     "path" : "Introduction/page/Course introduction.html"
   } ]
 }, {
-  "name" : "0 R language introduction",
+  "name" : "0 R Language Introduction",
   "type" : "folder",
   "children" : [ {
     "name" : "1 Introduction to R.html",
     "type" : "file",
-    "path" : "0 R language introduction/page/1 Introduction to R.html"
+    "path" : "0 R Language Introduction/page/1 Introduction to R.html"
   }, {
     "name" : "2 Vector and Matrix.html",
     "type" : "file",
-    "path" : "0 R language introduction/page/2 Vector and Matrix.html"
+    "path" : "0 R Language Introduction/page/2 Vector and Matrix.html"
   }, {
     "name" : "3 Logic of R.html",
     "type" : "file",
-    "path" : "0 R language introduction/page/3 Logic of R.html"
+    "path" : "0 R Language Introduction/page/3 Logic of R.html"
   } ]
 }, {
-  "name" : "1 Random samples",
+  "name" : "1 Random Samples",
   "type" : "folder",
   "children" : [ {
     "name" : "1 Random variables.html",
     "type" : "file",
-    "path" : "1 Random samples/page/1 Random variables.html"
+    "path" : "1 Random Samples/page/1 Random variables.html"
   }, {
-    "name" : "2 Inverse method.html",
+    "name" : "2 Inversion method for sampling.html",
     "type" : "file",
-    "path" : "1 Random samples/page/2 Inverse method.html"
+    "path" : "1 Random Samples/page/2 Inversion method for sampling.html"
   } ]
 }, {
-  "name" : "2",
+  "name" : "2 Sufficient Statistic",
   "type" : "folder",
   "children" : [ {
-    "name" : "2.1.html",
+    "name" : "1 Sufficient statistic.html",
     "type" : "file",
-    "path" : "2/page/2.1.html"
+    "path" : "2 Sufficient Statistic/page/1 Sufficient statistic.html"
   }, {
-    "name" : "2.2.html",
+    "name" : "2 Basu's theorem.html",
     "type" : "file",
-    "path" : "2/page/2.2.html"
+    "path" : "2 Sufficient Statistic/page/2 Basu's theorem.html"
   } ]
 }, {
-  "name" : "3",
+  "name" : "3 Estimator",
   "type" : "folder",
   "children" : [ ]
 }, {
-  "name" : "4",
+  "name" : "4 Efficient Estimators",
   "type" : "folder",
   "children" : [ ]
+}, {
+  "name" : "5 Asymptotic Efficient Estimators",
+  "type" : "folder"
+}, {
+  "name" : "6 Maximum Likelihood Estimators",
+  "type" : "folder"
+}, {
+  "name" : "7 Interval Estimation",
+  "type" : "folder"
+}, {
+  "name" : "8 Most Powerful Test",
+  "type" : "folder"
+}, {
+  "name" : "9 Various Tests",
+  "type" : "folder"
+}, {
+  "name" : "10 Discriminant Analysis",
+  "type" : "folder"
+}, {
+  "name" : "11 Principal Component Analysis",
+  "type" : "folder"
+}, {
+  "name" : "12 Canonical Correlation Analysis",
+  "type" : "folder"
 } ]
