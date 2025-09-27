@@ -1,0 +1,24 @@
+{
+  "meta.title": "Foundations of Statistics B",
+
+  "intro.title": "Foundations of Statistics B",
+  "intro.p1": "This course provides a rigorous foundation in modern statistical theory, emphasizing both the mathematical principles and their practical applications. Students will learn how statistical methods are developed, analyzed, and applied in real-world research.",
+  "intro.p2": "We begin with the basics of R programming, which serves as a computational platform throughout the lectures. With this foundation, students can directly implement the concepts and methods covered in the course.",
+  "intro.p3": "The course then progresses through core statistical topics such as estimation, hypothesis testing, and multivariate analysis. Each lecture builds toward a deeper understanding of statistical efficiency, sufficiency, and inferential methods, providing the tools necessary for advanced research.",
+
+  "course_plan.title": "Course List",
+  "course_plan.1": "Introduction to R",
+  "course_plan.2": "Random Samples",
+  "course_plan.3": "Sufficient Statistics",
+  "course_plan.4": "Unbiased Estimators",
+  "course_plan.5": "Efficient Estimators",
+  "course_plan.6": "Asymptotic Efficient Estimators",
+  "course_plan.7": "Maximum Likelihood Estimators",
+  "course_plan.8": "Exercises",
+  "course_plan.9": "Interval Estimation",
+  "course_plan.10": "Most Powerful Test",
+  "course_plan.11": "Various Tests",
+  "course_plan.12": "Discriminant Analysis",
+  "course_plan.13": "Principal Component Analysis",
+  "course_plan.14": "Canonical Correlation Analysis"
+}

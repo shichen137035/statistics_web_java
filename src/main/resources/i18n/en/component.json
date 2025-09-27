@@ -1,3 +1,6 @@
 {
-  "COM_logo" : "\uD83C\uDF10 Website"
+  "COM_logo" : "\uD83C\uDF10 Website",
+  "course_nav_button": "Catalog",
+  "prev-btn": "&laquo; Prev",
+  "next-btn": "Next &raquo;"
 }

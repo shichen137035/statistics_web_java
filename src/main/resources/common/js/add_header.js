@@ -1,6 +1,6 @@
-// 加载 header
-fetch("/component/language_switch.html")
-    .then(res => res.text())
-    .then(data => {
-        document.getElementById("language-switch").innerHTML = data;
-    });
+import {loadComponent} from "/common/js/util_tool.js";
+(function () {
+    console.log("loading language selector.");
+    void loadComponent("/component/language_switch.html","language-switch");
+
+})();

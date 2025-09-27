@@ -1,14 +1,23 @@
-<!-- 侧栏导航组件 -->
+<!-- 目录面板 -->
 <aside class="course-nav" id="courseNav" aria-hidden="true">
     <div class="course-nav__header">
         <div class="course-nav__title">Course Catalog</div>
-        <button class="course-nav__close" aria-label="Close navigation" type="button">✕</button>
+        <button class="course-nav__close" aria-label="Close">✕</button>
     </div>
     <div class="course-nav__scroll">
-        <ul class="course-nav__tree" id="courseTree" role="tree" aria-label="Course catalog"></ul>
+        <ul class="course-nav__tree" id="courseTree">
+            {{courseTree}}
+            <!-- JS 渲染树：每个节点 li.course-nav__node
+                 文件夹：加 .is-folder（展开时再加 .is-open）
+                 文件：加 .is-file
+                 行：div.course-nav__row（里面放 .course-nav__icon .course-nav__name）
+                 子级：ul.course-nav__children -->
+        </ul>
     </div>
 </aside>
 
-<!-- 遮罩与贴边开关按钮（与侧栏为兄弟以便 CSS 控制） -->
-<div class="course-nav__mask" id="courseNavMask" hidden></div>
-<button class="course-nav__toggle" id="courseNavToggle" type="button" aria-label="Open navigation">☰</button>
+<!-- 遮罩（可选） -->
+<div class="course-nav__mask" id="courseNavMask"></div>
+
+<!-- 贴边开关按钮（可选） -->
+<button class="course-nav__toggle" id="courseNavToggle" data-i18n="course_nav_button"></button>

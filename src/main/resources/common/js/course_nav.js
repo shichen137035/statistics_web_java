@@ -1,23 +1,26 @@
 (function () {
     const nav = document.getElementById("course-nav");
     // console.log("nav:",nav)
-    const tree = document.getElementById("courseTree");
+    const nav_aside = document.getElementById("courseNav");
+    const tree = nav.querySelector(".course-nav__tree");
     const mask = document.getElementById("courseNavMask");
     const toggleBtn = document.getElementById("courseNavToggle");
     const closeBtn = nav.querySelector(".course-nav__close");
-    console.log(nav)
-    console.log(tree)
-    console.log(mask)
-    console.log(toggleBtn)
-    console.log(closeBtn)
+
+    // console.log(mask)
+    // console.log(toggleBtn)
+    // console.log(closeBtn)
 
     // ------------------------------
     // 1. 渲染目录树
     // ------------------------------
     async function loadCourseJson() {
+        console.log("Start loading json.")
         try {
             const res = await fetch("/component/course.json", { cache: "no-store" });
             const data = await res.json();
+            console.log("data:",data)
+            // console.log("tree:",tree)
             tree.innerHTML = "";
             renderNodes(data, tree);
             restoreState();
@@ -28,6 +31,7 @@
 
     function renderNodes(nodes, container) {
         nodes.forEach((node) => {
+            // console.log("node:",node)
             const li = document.createElement("li");
             li.className = "course-nav__node";
 
@@ -47,6 +51,7 @@
                 row.appendChild(icon);
                 row.appendChild(name);
                 li.appendChild(row);
+
 
                 const ul = document.createElement("ul");
                 ul.className = "course-nav__children";
@@ -71,7 +76,9 @@
                 li.appendChild(row);
             }
             container.appendChild(li);
+            // console.log(li)
         });
+        // console.log("container:",container)
     }
 
     // ------------------------------
@@ -111,13 +118,23 @@
     // 3. 显示/隐藏整个侧栏
     // ------------------------------
     function showNav() {
-        nav.classList.add("is-visible");
+        nav_aside.classList.add("is-visible");
         if (mask) mask.classList.add("is-visible");
+        console.log("show catalog.");
     }
     function hideNav() {
-        nav.classList.remove("is-visible");
+        nav_aside.classList.remove("is-visible");
         if (mask) mask.classList.remove("is-visible");
+        console.log("hide catalog.");
     }
+    // console.log("nav:",nav.outerHTML)
+    // console.log("tree:",tree.outerHTML)
+
+    document.addEventListener("DOMContentLoaded", () => {
+        void loadCourseJson();
+    });
+    console.log("tree:",tree)
+
 
     if (toggleBtn) toggleBtn.addEventListener("click", showNav);
     if (closeBtn) closeBtn.addEventListener("click", hideNav);
@@ -126,5 +143,7 @@
     // ------------------------------
     // 4. 初始化
     // ------------------------------
-    loadCourseJson();
+
+    // document.querySelector("#courseNav").classList.add("is-visible");
+    // console.log("nav:",nav)
 })();

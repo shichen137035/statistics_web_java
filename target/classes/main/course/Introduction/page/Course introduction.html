@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
+    <title data-i18n="meta.title"></title>
+    <style>
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .course-btn {
+            display: block;
+            padding: 1rem;
+            background: linear-gradient(135deg, #e0f2fe, #3b82f6);
+            color: #fff;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 12px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(59,130,246,0.25);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .course-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(59,130,246,0.35);
+        }
+    </style>
+
+</head>
+<body>
+<div id="language-switch"></div>
+<div id="course-nav"></div>
+<div id="pager"></div>
+<main class="container prose mx-auto">
+    <h1 data-i18n="intro.title"></h1>
+
+    <section id="intro">
+        <p data-i18n="intro.p1"></p>
+        <p data-i18n="intro.p2"></p>
+        <p data-i18n="intro.p3"></p>
+    </section>
+
+    <section id="course-plan">
+        <h2 data-i18n="course_plan.title"></h2>
+        <div class="course-grid">
+            <a href="/main/course/0 R language introduction/page/1 Introduction to R.html" class="course-btn" data-i18n="course_plan.1"></a>
+            <a href="/main/course/1 Random samples/page/1 Random variables.html" class="course-btn" data-i18n="course_plan.2"></a>
+            <a href="/lec2.html" class="course-btn" data-i18n="course_plan.3"></a>
+            <a href="/lec3.html" class="course-btn" data-i18n="course_plan.4"></a>
+            <a href="/lec4.html" class="course-btn" data-i18n="course_plan.5"></a>
+            <a href="/lec5.html" class="course-btn" data-i18n="course_plan.6"></a>
+            <a href="/lec6.html" class="course-btn" data-i18n="course_plan.7"></a>
+            <a href="/lec7.html" class="course-btn" data-i18n="course_plan.8"></a>
+            <a href="/lec8.html" class="course-btn" data-i18n="course_plan.9"></a>
+            <a href="/lec9.html" class="course-btn" data-i18n="course_plan.10"></a>
+            <a href="/lec10.html" class="course-btn" data-i18n="course_plan.11"></a>
+            <a href="/lec11.html" class="course-btn" data-i18n="course_plan.12"></a>
+            <a href="/lec12.html" class="course-btn" data-i18n="course_plan.13"></a>
+            <a href="/lec13.html" class="course-btn" data-i18n="course_plan.14"></a>
+        </div>
+    </section>
+</main>
+
+<script type="module" src="/common/js/course.js" defer></script>
+</body>
+
+</html>

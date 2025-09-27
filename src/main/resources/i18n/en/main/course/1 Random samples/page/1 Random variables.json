@@ -1,0 +1,39 @@
+{
+  "meta.title": "Combination · Probability Space · Sampling · Birthday Quiz",
+  "intro.title": "Random variables",
+
+  "section.combination.title": "Combination",
+  "section.combination.desc1": "We use choose(n, k) or factorials to compute the number of ways to select k items from n without order:",
+  "section.combination.code1": "choose(52, 3)\n## [1] 22100",
+  "section.combination.code2": "factorial(52) / factorial(49) / factorial(3)\n## [1] 22100",
+  "section.combination.desc2": "Example: probability of drawing 3 cards from the same suit (13 cards in a suit):",
+  "section.combination.code3": "choose(13, 3) / choose(52, 3)\n## [1] 0.01294118",
+  "section.combination.math": "$$\\binom{n}{k} = \\frac{n!}{(n-k)!k!}, \\quad P(\\text{3 from one suit}) = \\frac{\\binom{13}{3}}{\\binom{52}{3}}.$$",
+
+  "section.probspace.title": "Probability Space and Random Variables",
+  "section.probspace.math1": "$(\\Omega, \\mathcal{A}, \\mathbb{P})$",
+  "section.probspace.li1": "$\\Omega$: sample space",
+  "section.probspace.li2": "$\\mathcal{A}$: sigma-algebra of measurable events",
+  "section.probspace.li3": "$\\mathbb{P}$: probability measure on $\\mathcal{A}$",
+  "section.probspace.math2": "$$X: \\Omega \\to \\mathbb{R}, \\; \\omega \\mapsto x$$",
+  "section.probspace.math3": "$$F_X(x) = P(X \\leq x), \\quad f_X(x) = F_X'(x)$$",
+
+  "section.sampling.title": "Sampling",
+  "section.sampling.code1": "sample(1:100, 1)\n## [1] 19",
+  "section.sampling.code2": "sample(1:100, 10)\n## [1] 4 27 68 12 91 ...",
+  "section.sampling.note": "Each sample corresponds to an element of the sample space.",
+
+  "section.quiz.title": "Quiz 1: Birthday Paradox",
+  "section.quiz.question": "In a class of n students, what is the probability that at least two share a birthday (365 days, ignore leap years)?",
+  "section.quiz.desc1": "Compute by complement event:",
+  "section.quiz.math1": "$$P(\\text{at least two}) = 1 - P(\\text{all distinct})$$",
+  "section.quiz.desc2": "Probability all birthdays are distinct:",
+  "section.quiz.math2": "$$P(\\text{distinct}) = \\prod_{k=0}^{n-1}\\left(1 - \\tfrac{k}{365}\\right)$$",
+  "section.quiz.desc3": "Thus:",
+  "section.quiz.math3": "$$P(\\text{at least two}) = 1 - \\prod_{k=0}^{n-1}\\left(1 - \\tfrac{k}{365}\\right)$$",
+
+  "section.rquiz.title": "R Code: Birthday Probability",
+  "section.rquiz.code1": "birth <- function(n){\n  p <- 1 - prod(1 - (0:(n-1)/365))\n  return(p)\n}\n\nblist <- sapply(1:50, birth)",
+  "section.rquiz.note": "Optional: plot the probability curve (crosses 50% at around 23 people).",
+  "section.rquiz.code2": "plot(1:50, blist, type=\"b\", pch=19,\n     xlab=\"Class size (n)\",\n     ylab=\"P(at least two share a birthday)\",\n     main=\"Birthday Paradox\")\nabline(h=0.5, lty=2, col=\"gray\")"
+}

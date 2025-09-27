@@ -6,6 +6,7 @@
     </div>
     <div class="course-nav__scroll">
         <ul class="course-nav__tree" id="courseTree">
+            {{courseTree}}
             <!-- JS 渲染树：每个节点 li.course-nav__node
                  文件夹：加 .is-folder（展开时再加 .is-open）
                  文件：加 .is-file
@@ -15,8 +16,8 @@
     </div>
 </aside>
 
-<!--&lt;!&ndash; 遮罩（可选） &ndash;&gt;-->
-<!--<div class="course-nav__mask" id="courseNavMask"></div>-->
+<!-- 遮罩（可选） -->
+<div class="course-nav__mask" id="courseNavMask"></div>
 
-<!--&lt;!&ndash; 贴边开关按钮（可选） &ndash;&gt;-->
-<!--<button class="course-nav__toggle" id="courseNavToggle">目录</button>-->
+<!-- 贴边开关按钮（可选） -->
+<button class="course-nav__toggle" id="courseNavToggle" data-i18n="course_nav_button"></button>

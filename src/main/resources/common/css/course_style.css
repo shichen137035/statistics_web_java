@@ -1,0 +1,113 @@
+/* === Global Reset & Typography === */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    line-height: 1.6;
+    color: #1f2937; /* slate-800 */
+    background-color: #ffffff;
+}
+
+main.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* === Headings === */
+h1, h2, h3 {
+    font-weight: 600;
+    color: #111827; /* slate-900 */
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2rem;
+    border-bottom: 2px solid #e5e7eb; /* slate-200 */
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    border-left: 4px solid #3b82f6; /* blue-500 */
+    padding-left: 0.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #2563eb; /* blue-600 */
+}
+
+/* === Paragraphs & Lists === */
+p {
+    margin: 0.75rem 0;
+}
+
+ul {
+    margin: 0.5rem 0 1rem 1.5rem;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+/* === Blockquote === */
+blockquote {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    background: #f9fafb; /* slate-50 */
+    border-left: 4px solid #9ca3af; /* slate-400 */
+    font-style: italic;
+    color: #374151; /* slate-700 */
+}
+
+/* === Code Blocks === */
+/* 覆盖 Prism 默认背景色，换成浅绿色 */
+
+/*pre {*/
+/*    background: #f3f4f6; !* slate-100 *!*/
+/*    padding: 0.75rem 1rem;*/
+/*    border-radius: 6px;*/
+/*    overflow-x: auto;*/
+/*    margin: 1rem 0;*/
+/*}*/
+
+/*code {*/
+/*    font-family: "Fira Code", "Courier New", monospace;*/
+/*    font-size: 0.9rem;*/
+/*    color: #dc2626; !* red-600 for contrast *!*/
+/*}*/
+
+/*!* Inline code *!*/
+/*p code, li code {*/
+/*    background: #f3f4f6;*/
+/*    padding: 0.2rem 0.4rem;*/
+/*    border-radius: 4px;*/
+/*}*/
+
+/* === Links === */
+a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* === Horizontal Rule === */
+hr {
+    border: 0;
+    border-top: 1px solid #e5e7eb;
+    margin: 2rem 0;
+}
+
+/* === Responsive === */
+@media (max-width: 600px) {
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.2rem; }
+    main.container { padding: 0 0.75rem; }
+}

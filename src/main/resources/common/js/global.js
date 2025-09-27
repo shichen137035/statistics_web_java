@@ -1,5 +1,5 @@
 // /common/js/init_config.js
-import { injectCss, injectJs } from "/common/js/util_tool.js";
+import { injectCss, injectJsSequential } from "/common/js/util_tool.js";
 
 (function () {
     // 注入全局 CSS
@@ -9,7 +9,7 @@ import { injectCss, injectJs } from "/common/js/util_tool.js";
     ]);
 
     // 注入全局 JS
-    injectJs([
+    injectJsSequential([
         "/common/js/add_header.js",
         "/common/js/language_switch.js",
         "/common/js/keyword_popup.js"

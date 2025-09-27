@@ -26,6 +26,40 @@ export function injectCss(cssFiles) {
  * 批量注入 JS 文件
  * 注入的 script 永远排在现有 script 标签之前（优先级更低）
  */
+
+export async function injectJsSequential(jsFiles) {
+    const head = document.head;
+
+    for (const src of jsFiles) {
+        await new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.type = "module";
+            script.src = src;
+            script.async = false; // 禁止异步执行
+            script.onload = () => resolve();
+            script.onerror = () => reject(new Error(`Failed to load ${src}`));
+            head.appendChild(script);
+        });
+    }
+}
+
+
+export async function loadComponent(url, targetId) {
+    const res = await fetch(url);
+    if (!res.ok) {
+        throw new Error(`无法加载组件: ${url} (status ${res.status})`);
+    }
+    const data = await res.text();
+
+    const target = document.getElementById(targetId);
+    if (!target) {
+        throw new Error(`未找到目标容器: #${targetId}`);
+    }
+
+    target.innerHTML = data; // 同步注入
+    console.log(`组件 ${url} 已成功加载到 #${targetId}`);
+}
+
 export function injectJs(jsFiles) {
     const head = document.head;
     // 找到第一个已有的 script 标签

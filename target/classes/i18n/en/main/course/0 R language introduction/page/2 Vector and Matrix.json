@@ -1,0 +1,43 @@
+{
+  "meta.title": "Vectors, Matrices, and Arrays in R",
+  "intro.title": "Vectors, Matrices, and Arrays in R",
+
+  "section.vector.title": "Vector",
+  "section.vector.code1": "x <- c(1,4,7,3,9)\n\nx\n\n## [1] 1 4 7 3 9",
+  "section.vector.code2": "y <- x\n\ny\n\n## [1] 1 4 7 3 9",
+  "section.vector.code3": "y[[4]] <- 6\n\ny\n\n## [1] 1 4 7 6 9",
+
+  "section.vector_comp1.title": "Vector computation (I)",
+  "section.vector_comp1.code1": "x + y\n\n## [1]  2  8 14  9 18",
+  "section.vector_comp1.code2": "a <- c(x, y)\n\na\n\n[1] 1 4 7 3 9 1 4 7 6 9",
+  "section.vector_comp1.code3": "a <- c(c(x, y), x)\n\na\n\n[1] 1 4 7 3 9 1 4 7 6 9 1 4 7 3 9",
+
+  "section.vector_comp2.title": "Vector computation (II)",
+  "section.vector_comp2.code1": "z <- c(2,6,3,5,4)\n\nlength(z)\n\n## [1] 5",
+  "section.vector_comp2.code2": "sum(z)\n\n## [1] 20",
+  "section.vector_comp2.code3": "rm(z)",
+
+  "section.vector_names.title": "Vector with name",
+  "section.vector_names.code1": "z <- c(a = 2, b = 6, c = 3)\n\nlength(z)\n\n## [1] 3\n\nz[\"a\"]\n\n## a \n## 2",
+  "section.vector_names.code2": "d <- c(2, 6, 3)\n\nnames(d) <- c(\"a\", \"b\", \"c\")\n\nd[\"b\"]\n\n## b \n## 6",
+
+  "section.matrix.title": "Matrix",
+  "section.matrix.code1": "x = matrix(data=c(2,5,1,3), nrow=2, ncol=2)\n\nx\n\n##      [,1] [,2]\n## [1,]    2    1\n## [2,]    5    3",
+  "section.matrix.code2": "matrix(c(2,5,1,3), 2, 2, byrow=TRUE)\n\n##      [,1] [,2]\n## [1,]    2    5\n## [2,]    1    3",
+
+  "section.array.title": "Array",
+  "section.array.code1": "y <- array(1:12, c(2, 3, 2))\n\ny\n\n## , , 1\n## \n##      [,1] [,2] [,3]\n## [1,]    1    3    5\n## [2,]    2    4    6\n## \n## , , 2\n## \n##      [,1] [,2] [,3]\n## [1,]    7    9   11\n## [2,]    8   10   12",
+
+  "section.matrix_comp1.title": "Matrix computation (I)",
+  "section.matrix_comp1.code1": "sqrt(x)\n\n##          [,1]     [,2]\n## [1,] 1.414214 1.000000\n## [2,] 2.236068 1.732051",
+  "section.matrix_comp1.code2": "x^2\n\n##      [,1] [,2]\n## [1,]    4    1\n## [2,]   25    9",
+
+  "section.matrix_comp2.title": "Matrix computation (II)",
+  "section.matrix_comp2.code1": "solve(x)\n\n##      [,1] [,2]\n## [1,]    3   -1\n## [2,]   -5    2",
+  "section.matrix_comp2.code2": "x %*% solve(x)\n\n##      [,1]         [,2]\n## [1,]    1 2.220446e-16\n## [2,]    0 1.000000e+00",
+  "section.matrix_comp2.code3": "round(solve(x) %*% x, 1)\n\n##      [,1] [,2]\n## [1,]    1    0\n## [2,]    0    1",
+
+  "section.sequences.title": "Sequences",
+  "section.sequences.code1": "x = seq(1,15)\n\nx\n\n##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15",
+  "section.sequences.code2": "x = 1:15\n\nx\n\n##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15"
+}

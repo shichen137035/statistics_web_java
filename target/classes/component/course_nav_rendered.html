@@ -1,0 +1,119 @@
+<!-- 目录面板 -->
+<aside class="course-nav" id="courseNav" aria-hidden="true">
+    <div class="course-nav__header">
+        <div class="course-nav__title">Course Catalog</div>
+        <button class="course-nav__close" aria-label="Close">✕</button>
+    </div>
+    <div class="course-nav__scroll">
+        <ul class="course-nav__tree" id="courseTree">
+            <li class="course-nav__node is-folder">
+    <div class="course-nav__row">
+        <span class="course-nav__icon"><span class="course-nav__caret">▶</span></span>
+        <span class="course-nav__name">Introduction</span>
+    </div>
+    <ul class="course-nav__children">
+        <li class="course-nav__node is-file">
+            <div class="course-nav__row">
+                <span class="course-nav__icon"></span>
+                <a class="course-nav__link" href="/main/course/Introduction/page/Course introduction.html">Course introduction</a>
+            </div>
+        </li>
+    </ul>
+</li>
+<li class="course-nav__node is-folder">
+    <div class="course-nav__row">
+        <span class="course-nav__icon"><span class="course-nav__caret">▶</span></span>
+        <span class="course-nav__name">0 R language introduction</span>
+    </div>
+    <ul class="course-nav__children">
+        <li class="course-nav__node is-file">
+            <div class="course-nav__row">
+                <span class="course-nav__icon"></span>
+                <a class="course-nav__link" href="/main/course/0 R language introduction/page/1 Introduction to R.html">1 Introduction to R</a>
+            </div>
+        </li>
+        <li class="course-nav__node is-file">
+            <div class="course-nav__row">
+                <span class="course-nav__icon"></span>
+                <a class="course-nav__link" href="/main/course/0 R language introduction/page/2 Vector and Matrix.html">2 Vector and Matrix</a>
+            </div>
+        </li>
+        <li class="course-nav__node is-file">
+            <div class="course-nav__row">
+                <span class="course-nav__icon"></span>
+                <a class="course-nav__link" href="/main/course/0 R language introduction/page/3 Logic of R.html">3 Logic of R</a>
+            </div>
+        </li>
+    </ul>
+</li>
+<li class="course-nav__node is-folder">
+    <div class="course-nav__row">
+        <span class="course-nav__icon"><span class="course-nav__caret">▶</span></span>
+        <span class="course-nav__name">1 Random samples</span>
+    </div>
+    <ul class="course-nav__children">
+        <li class="course-nav__node is-file">
+            <div class="course-nav__row">
+                <span class="course-nav__icon"></span>
+                <a class="course-nav__link" href="/main/course/1 Random samples/page/1 Random variables.html">1 Random variables</a>
+            </div>
+        </li>
+        <li class="course-nav__node is-file">
+            <div class="course-nav__row">
+                <span class="course-nav__icon"></span>
+                <a class="course-nav__link" href="/main/course/1 Random samples/page/2 Inverse method.html">2 Inverse method</a>
+            </div>
+        </li>
+    </ul>
+</li>
+<li class="course-nav__node is-folder">
+    <div class="course-nav__row">
+        <span class="course-nav__icon"><span class="course-nav__caret">▶</span></span>
+        <span class="course-nav__name">2</span>
+    </div>
+    <ul class="course-nav__children">
+        <li class="course-nav__node is-file">
+            <div class="course-nav__row">
+                <span class="course-nav__icon"></span>
+                <a class="course-nav__link" href="/main/course/2/page/2.1.html">2.1</a>
+            </div>
+        </li>
+        <li class="course-nav__node is-file">
+            <div class="course-nav__row">
+                <span class="course-nav__icon"></span>
+                <a class="course-nav__link" href="/main/course/2/page/2.2.html">2.2</a>
+            </div>
+        </li>
+    </ul>
+</li>
+<li class="course-nav__node is-folder">
+    <div class="course-nav__row">
+        <span class="course-nav__icon"><span class="course-nav__caret">▶</span></span>
+        <span class="course-nav__name">3</span>
+    </div>
+    <ul class="course-nav__children">
+    </ul>
+</li>
+<li class="course-nav__node is-folder">
+    <div class="course-nav__row">
+        <span class="course-nav__icon"><span class="course-nav__caret">▶</span></span>
+        <span class="course-nav__name">4</span>
+    </div>
+    <ul class="course-nav__children">
+    </ul>
+</li>
+
+            <!-- JS 渲染树：每个节点 li.course-nav__node
+                 文件夹：加 .is-folder（展开时再加 .is-open）
+                 文件：加 .is-file
+                 行：div.course-nav__row（里面放 .course-nav__icon .course-nav__name）
+                 子级：ul.course-nav__children -->
+        </ul>
+    </div>
+</aside>
+
+<!-- 遮罩（可选） -->
+<div class="course-nav__mask" id="courseNavMask"></div>
+
+<!-- 贴边开关按钮（可选） -->
+<button class="course-nav__toggle" id="courseNavToggle" data-i18n="course_nav_button"></button>

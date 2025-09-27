@@ -1,0 +1,13 @@
+/* 覆盖 Prism 默认背景色，换成浅绿色 */
+pre[class*="language-"],
+code[class*="language-"] {
+    background: #f0fff4 !important;  /* very light green */
+    color: #1a202c;                  /* dark gray text for可读性 */
+}
+
+/* 内联代码块的浅绿色背景 */
+:not(pre) > code[class*="language-"] {
+    background: #e6fffa !important;  /* slightly aqua green */
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+}

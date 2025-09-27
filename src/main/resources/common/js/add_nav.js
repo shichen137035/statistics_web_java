@@ -1,6 +1,7 @@
 // 加载 nav
-fetch("/component/course_nav.html")
-    .then(res => res.text())
-    .then(data => {
-        document.getElementById("course-nav").innerHTML = data;
-    });
+import {loadComponent} from "/common/js/util_tool.js";
+(function () {
+    console.log("loading nav.");
+    void loadComponent("/component/course_nav_rendered.html","course-nav");
+
+})();

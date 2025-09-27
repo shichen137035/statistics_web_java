@@ -11,6 +11,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.nio.charset.StandardCharsets;
 
 @RestController
 @RequestMapping("/api/course")
@@ -29,6 +30,7 @@ public class CourseController {
     public void init() throws IOException {
         System.out.println(">>> 应用启动，自动生成课程目录 JSON...");
         generateCourseJsonFile();
+        generateCourseHtmlFile();
     }
 
     /**
@@ -56,6 +58,28 @@ public class CourseController {
         return "课程目录 JSON 已生成: " + outputFile.toAbsolutePath();
     }
 
+    @GetMapping("/generateHtml")
+    public String generateCourseHtmlFile() throws IOException {
+        // 1. 遍历目录生成 HTML 节点
+        List<Map<String, Object>> structure = walkDir(courseRoot, 0);
+        String treeHtml = renderNodesAsHtml(structure);
+
+        // 2. 读取模板
+        Path templatePath = Paths.get("src/main/resources/component/course_nav.html");
+        String template = new String(Files.readAllBytes(templatePath), StandardCharsets.UTF_8);
+
+        // 3. 替换占位符
+        String finalHtml = template.replace("{{courseTree}}", treeHtml);
+
+        // 4. 输出到同一个文件夹（例如 course_nav_rendered.html）
+        Path out = Paths.get("src/main/resources/component/course_nav_rendered.html");
+        Files.write(out, finalHtml.getBytes(StandardCharsets.UTF_8));
+
+        return "生成成功: " + out.toAbsolutePath();
+    }
+
+
+
     /**
      * 递归遍历目录，生成 JSON 结构
      */
@@ -66,6 +90,11 @@ public class CourseController {
             List<Path> sorted = paths.sorted((p1, p2) -> {
                 String n1 = p1.getFileName().toString();
                 String n2 = p2.getFileName().toString();
+
+                // --- 変更 1: Introduction を最優先 ---
+                if (n1.equalsIgnoreCase("Introduction")) return -1;
+                if (n2.equalsIgnoreCase("Introduction")) return 1;
+
                 try {
                     return Integer.compare(
                             Integer.parseInt(n1.replaceAll("\\D", "")),
@@ -77,24 +106,92 @@ public class CourseController {
             }).collect(Collectors.toList());
 
             for (Path path : sorted) {
-                Map<String, Object> node = new LinkedHashMap<>();
-                String name = path.getFileName().toString();
-
-                if (Files.isDirectory(path)) {
-                    node.put("name", name);
+                if (Files.isDirectory(path) && level == 0) {
+                    Map<String, Object> node = new LinkedHashMap<>();
+                    String folderName = path.getFileName().toString();
+                    node.put("name", folderName);
                     node.put("type", "folder");
-                    if (level < 2) {
-                        node.put("children", walkDir(path, level + 1));
+
+                    Path pageDir = path.resolve("page");
+                    if (Files.exists(pageDir) && Files.isDirectory(pageDir)) {
+                        List<Map<String, Object>> children = new ArrayList<>();
+                        try (Stream<Path> pageFiles = Files.list(pageDir)) {
+                            pageFiles
+                                    .filter(Files::isRegularFile)
+                                    .filter(f -> f.toString().endsWith(".html"))
+                                    .sorted()
+                                    .forEach(f -> {
+                                        Map<String, Object> fileNode = new LinkedHashMap<>();
+                                        String fileName = f.getFileName().toString();
+                                        fileNode.put("name", fileName);
+                                        fileNode.put("type", "file");
+                                        fileNode.put("path",
+                                                courseRoot.relativize(f).toString().replace("\\", "/"));
+                                        children.add(fileNode);
+                                    });
+                        }
+                        node.put("children", children);
                     }
-                } else if (name.endsWith(".html")) {
-                    node.put("name", name);
-                    node.put("type", "file");
-                    // 额外加一个完整路径，前端可以直接访问
-                    node.put("path", courseRoot.relativize(path).toString().replace("\\", "/"));
+
+                    list.add(node);
                 }
-                list.add(node);
             }
         }
         return list;
+    }
+    private String renderNodesAsHtml(List<Map<String, Object>> nodes) {
+        return renderNodesAsHtml(nodes, 0);
+    }
+
+    /**
+     * Java 8 没有 String.repeat()，自己实现
+     */
+    private String repeat(String str, int count) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < count; i++) {
+            sb.append(str);
+        }
+        return sb.toString();
+    }
+
+    private String renderNodesAsHtml(List<Map<String, Object>> nodes, int level) {
+        StringBuilder sb = new StringBuilder();
+        String indent = repeat("    ", level);
+
+        for (Map<String, Object> node : nodes) {
+            String type = (String) node.get("type");
+            String name = (String) node.get("name");
+
+            if ("folder".equals(type)) {
+                sb.append(indent).append("<li class=\"course-nav__node is-folder\">\n");
+                sb.append(indent).append("    <div class=\"course-nav__row\">\n");
+                sb.append(indent).append("        <span class=\"course-nav__icon\"><span class=\"course-nav__caret\">▶</span></span>\n");
+                sb.append(indent).append("        <span class=\"course-nav__name\">").append(name).append("</span>\n");
+                sb.append(indent).append("    </div>\n");
+
+                @SuppressWarnings("unchecked")
+                List<Map<String, Object>> children = (List<Map<String, Object>>) node.get("children");
+                sb.append(indent).append("    <ul class=\"course-nav__children\">\n");
+                if (children != null) sb.append(renderNodesAsHtml(children, level + 2));
+                sb.append(indent).append("    </ul>\n");
+                sb.append(indent).append("</li>\n");
+
+            } else if ("file".equals(type)) {
+                String path = (String) node.get("path");
+
+                // --- 変更 2: 表示名から拡張子を削除 ---
+                String displayName = name.replaceFirst("\\.html?$", "");
+
+                sb.append(indent).append("<li class=\"course-nav__node is-file\">\n");
+                sb.append(indent).append("    <div class=\"course-nav__row\">\n");
+                sb.append(indent).append("        <span class=\"course-nav__icon\"></span>\n");
+                sb.append(indent).append("        <a class=\"course-nav__link\" href=\"/main/course/")
+                        .append(path).append("\">")
+                        .append(displayName).append("</a>\n");
+                sb.append(indent).append("    </div>\n");
+                sb.append(indent).append("</li>\n");
+            }
+        }
+        return sb.toString();
     }
 }

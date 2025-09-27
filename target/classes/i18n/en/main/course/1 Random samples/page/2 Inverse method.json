@@ -1,0 +1,71 @@
+{
+  "meta.title": "Inverse Transform Method · Exponential Example · Bisection",
+  "intro.title": "Inverse Method",
+
+  "section.uniform.title": "Uniform Distribution and Sampling in R",
+  "section.uniform.desc1": "Uniform(0,1) is the base source of randomness. In R, many sampling tasks can be realized via runif().",
+  "section.uniform.code1": "runif(10)\n##  [1] 0.68579349 0.38735918 0.02155683 0.17998037 0.97176500 0.36771509 ...",
+  "section.uniform.desc2": "Example: sampling integers can be implemented via runif() as well.",
+  "section.uniform.code2": "sample(1:6, 2, rep = TRUE)\n## [1] 6 5",
+  "section.uniform.code3": "ceiling(runif(2, 0, 6))\n## [1] 6 5",
+
+  "section.inversion.title": "Inversion Method",
+  "section.inversion.theorem": "$$\\textbf{Theorem.}\\; \\text{If } U\\sim\\mathrm{Unif}(0,1) \\text{ and } F \\text{ is a CDF, then } X=F^{-1}(U) \\text{ has CDF } F.$$",
+  "section.inversion.proof": "$$\\mathbb{P}(X\\le x)=\\mathbb{P}(F^{-1}(U)\\le x)=\\mathbb{P}(U\\le F(x))=F(x).$$",
+
+  "section.quiz2.title": "Quiz 2: Generate an Exponential Distribution",
+  "section.quiz2.q": "Let $U\\sim\\mathrm{Unif}(0,1)$. Define $X = -\\log(U)/3$. What is the distribution of $X$?",
+  "section.quiz2.step1": "Compute: $\\mathbb{P}(X\\le x)=\\mathbb{P}(-\\log U/3\\le x)=\\mathbb{P}(U \\ge e^{-3x})=1-e^{-3x}$ for $x\\ge 0$.",
+  "section.quiz2.step2": "Thus, $X\\sim \\mathrm{Exp}(\\text{rate}=3)$ (mean $1/3$).",
+  "section.quiz2.code1": "uvec <- 1 - runif(10^6)\nx <- -log(uvec)/3\n# Compare with R's built-in:\ny <- rexp(10^6, rate = 3)",
+  "section.quiz2.code2": "# (Optional) Compare histograms / means / variances as diagnostics",
+
+  "section.remark.title": "Remark",
+  "section.remark.p1": "We assumed that the inverse CDF $F^{-1}$ is explicitly available.",
+  "section.remark.p2": "Sometimes the inverse is not in closed form. We need numerical methods such as the bisection method.",
+
+
+  "section.bisect.title": "Bisection Method (Numerical Inversion of CDF)",
+  "section.bisect.desc": "Given a target probability u in (0,1), find x such that F(x)=u by repeated halving of an interval containing the solution.",
+  "section.bisect.code": "bisect_inverse <- function(F, u, itv = c(0, 1), delta = 1e-8, N = 1000) {\n  # Check u\n  if (u <= 0 || u >= 1) {\n    stop(\"u must be strictly between 0 and 1.\")\n  }\n  # Define target function g(x) = F(x) - u\n  g <- function(x) F(x) - u\n\n  a <- itv[1]; b <- itv[2]\n  fa <- g(a); fb <- g(b)\n\n  # Check if root is bracketed\n  if (fa * fb > 0) {\n    stop(\"g(a) and g(b) must have opposite signs. The root is not bracketed.\")\n  }\n\n  iter <- 0; err <- Inf; pt <- NA\n  while (err > delta && iter < N) {\n    pt <- (a + b)/2\n    val <- g(pt)\n    err <- abs(val)\n\n    if (val == 0) {\n      break  # exact root found\n    } else if (fa * val < 0) {\n      b <- pt; fb <- val\n    } else {\n      a <- pt; fa <- val\n    }\n\n    iter <- iter + 1\n  }\n\n  if (iter >= N) {\n    warning(\"Maximum number of iterations reached without full convergence.\")\n  }\n\n  return(pt)\n}",
+
+
+  "section.quant.title": "Quantile Function Cross-check",
+  "section.quant.desc": "For distributions with implemented quantile functions, numerical inversion should agree with built-in quantiles.",
+  "section.quant.code1": "qexp(0.1, rate = 3)\n## [1] 0.03512017",
+  "section.quant.code2": "sapply((1:10)*0.1, qexp, rate = 3)\n## [1] 0.03512017 0.07438118 0.11889165 0.17027521 0.23104906 0.30543024 ...",
+
+  "algo.bisect.title": "Bisection Method",
+
+  "algo.bisect.input.label": "Input:",
+  "algo.bisect.input": "Function $f$, interval $[a,b]$ with $f(a)f(b)<0$, tolerance $\\delta$, max iterations $N$",
+
+  "algo.bisect.output.label": "Output:",
+  "algo.bisect.output": "Approximate root $c$",
+
+  "algo.bisect.step.init": "1: Initialize $\\delta_1 := +\\infty$, $k := 0$",
+
+  "algo.bisect.loop.type": "while",
+  "algo.bisect.loop.cond": "$\\delta_1 \\geq \\delta$ and $k < N$",
+  "algo.bisect.loop.step.midpoint": "Compute $c := (a+b)/2$",
+  "algo.bisect.loop.step.eval": "Set $\\delta_1 := |f(c)|$",
+  "algo.bisect.loop.step.update": "If $f(a)f(c)<0$ then $b := c$ else $a := c$",
+  "algo.bisect.loop.step.iter": "Set $k := k+1$",
+
+  "algo.bisect.step.return": "3: return $c$",
+
+  "proof.title": "Proof of inversion method",
+  "theorem.label": "Theorem of inversion method",
+  "theorem.statement.1": "Let \\(F\\) be a continuous distribution function on \\(\\mathbb{R}\\) with inverse",
+  "theorem.formula.1": "$$F^{-1}(u)=\\inf\\{x\\in\\mathbb{R};\\ F(x)=u\\}.$$",
+  "theorem.statement.2": "Let \\(U\\) be a uniform \\([0,1]\\) random variable, then \\(F^{-1}(U)\\) has distribution function \\(F\\). Furthermore, if \\(X\\) has the distribution function \\(F\\), then \\(F(X)\\) is uniformly distributed on \\([0,1]\\).",
+  "proof.label": "Proof.",
+  "proof.step.1": "Let \\(Y = F^{-1}(U)\\). We have",
+  "proof.eq.1": "$$\\mathbb{P}(Y \\le y) = \\mathbb{P}(F^{-1}(U) \\le y) = \\mathbb{P}(U \\le F(y)) = F(y).$$",
+  "proof.step.2": "Thus, the distribution function of \\(F^{-1}(U)\\) is \\(F\\). Also, we have",
+  "proof.eq.2": "$$\\mathbb{P}(F(X) \\le x) = \\mathbb{P}(X \\le F^{-1}(x)) = F(F^{-1}(x)) = x,$$",
+  "proof.step.3": "which shows that \\(F(X)\\) follows the uniform distribution."
+
+}
+
+

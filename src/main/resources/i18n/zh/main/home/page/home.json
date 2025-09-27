@@ -1,0 +1,9 @@
+{
+  "meta.title": "课程主页",
+  "lang.label": "语言",
+  "title": "课程主页",
+  "desc": "欢迎来到 [[statistic]] 课程主页。请选择你的学习路径。",
+  "btn.course": "课程",
+  "btn.concept": "概念",
+  "announcement": "一个使用 R 学习计算统计学的网站。"
+}

@@ -1,5 +1,6 @@
 (function () {
-    const select = document.getElementById('lang-select');
+    let select = document.getElementById('lang-select');
+    console.log("select:",select)
 
     // -----------------------------
     // 1. 路径 & 文件加载逻辑（保持不变）
