@@ -12,24 +12,32 @@
 
 .page-btn {
     pointer-events: auto;
-    background: #2563eb;
+    background: linear-gradient(135deg, #06b6d4, #3b82f6); /* 青绿 → 亮蓝渐变 */
     color: #fff;
     border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 6px;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-    transition: background 0.2s ease, transform 0.1s ease;
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4); /* 青色发光 */
+    transition: background 0.3s ease, transform 0.15s ease, box-shadow 0.3s ease;
 }
 
 .page-btn:hover:not(:disabled) {
-    background: #1e40af;
-    transform: translateY(-2px);
+    background: linear-gradient(135deg, #0ea5e9, #6366f1); /* 亮蓝 → 科技紫 */
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5); /* 紫色发光 */
 }
 
 .page-btn:disabled {
-    background: #9ca3af;
+    background: #475569; /* 深灰蓝，低饱和度科技灰 */
+    color: #cbd5e1;
     cursor: not-allowed;
+    box-shadow: none;
+}
+
+.page-btn:active:not(:disabled) {
+    transform: translateY(1px) scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) inset; /* 内阴影，仿佛被按下 */
 }

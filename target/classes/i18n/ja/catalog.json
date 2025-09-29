@@ -1,0 +1,22 @@
+{
+  "catalogtitle.Course introduction": "コース紹介",
+  "catalogtitle.R Language Introduction": "R言語入門",
+  "catalogtitle.Random Samples": "標本抽出",
+  "catalogtitle.Sufficient Statistic": "十分統計量",
+  "catalogtitle.Estimator": "推定量",
+  "catalogtitle.Efficient Estimators": "有効推定量",
+  "catalogtitle.Asymptotic Efficient Estimators": "漸近的有効推定量",
+  "catalogtitle.Maximum Likelihood Estimators": "最尤推定量",
+  "catalogtitle.Interval Estimation": "区間推定",
+  "catalogtitle.Most Powerful Test": "最強検定",
+  "catalogtitle.Various Tests": "各種検定",
+  "catalogtitle.Discriminant Analysis": "判別分析",
+  "catalogtitle.Principal Component Analysis": "主成分分析",
+  "catalogtitle.Canonical Correlation Analysis": "正準相関分析",
+  "catalogtitle.Introduction": "序論",
+  "catalogtitle.Introduction to R": "Rの入門",
+  "catalogtitle.Vector and Matrix": "ベクトルと行列",
+  "catalogtitle.Logic of R": "Rの論理",
+  "catalogtitle.Random variables": "確率変数",
+  "catalogtitle.Inversion method for sampling": "逆変換法による標本抽出"
+}

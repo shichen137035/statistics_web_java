@@ -1,6 +1,8 @@
 {
-  "COM_logo" : "\uD83C\uDF10 网页",
+  "COM_logo" : "统计学基础",
   "course_nav_button": "目录",
   "prev-btn": "&laquo; 上一页",
-  "next-btn": "下一页 &raquo;"
+  "next-btn": "下一页 &raquo;",
+  "Course Catalog Title": "课程目录",
+  "lang select title": "语言"
 }

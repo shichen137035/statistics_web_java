@@ -87,10 +87,25 @@ public class CourseController {
                 Map<String, Object> firstFile = children.get(0);
                 String path = (String) firstFile.get("path");
 
+                // —— 拆分序号与标题 —— //
+                NameParts np = splitSeqAndTitle(name, false);
+                String seq = np.seq;
+                String title = np.title;
+                String i18nKey = "catalogtitle." + title;
+
                 sb.append("  <a href=\"/main/course/")
-                        .append(path).append("\" class=\"btn-link\">")
-                        .append("<button class=\"chapter-btn\">")
-                        .append(name).append("</button></a>\n");
+                        .append(esc(path)).append("\" class=\"btn-link\">")
+                        .append("<button class=\"chapter-btn\">");
+
+                if (!seq.isEmpty()) {
+                    sb.append("<span class=\"chapter-seq\">")
+                            .append(esc(seq)).append("</span> ");
+                }
+                sb.append("<span class=\"chapter-title\" data-i18n=\"")
+                        .append(esc(i18nKey)).append("\">")
+                        .append(esc(title)).append("</span>");
+
+                sb.append("</button></a>\n");
             }
         }
 
@@ -175,7 +190,23 @@ public class CourseController {
                 sb.append(indent).append("<li class=\"course-nav__node is-folder\">\n");
                 sb.append(indent).append("    <div class=\"course-nav__row\">\n");
                 sb.append(indent).append("        <span class=\"course-nav__icon\"><span class=\"course-nav__caret\"></span></span>\n");
-                sb.append(indent).append("        <span class=\"course-nav__name\">").append(name).append("</span>\n");
+
+                // —— 序号 + 标题 拆分 —— //
+                NameParts np = splitSeqAndTitle(name, false); // folder
+                String seq = np.seq;              // 可能为空
+                String title = np.title;          // 去掉序号后的标题
+                String i18nKey = "catalogtitle." + title;
+
+                sb.append(indent).append("        <span class=\"course-nav__name\">");
+                if (!seq.isEmpty()) {
+                    sb.append("<span class=\"course-nav__seq\">")
+                            .append(esc(seq)).append("</span> ");
+                }
+                sb.append("<span class=\"course-nav__title\" data-i18n=\"")
+                        .append(esc(i18nKey)).append("\">")
+                        .append(esc(title)).append("</span>");
+                sb.append("</span>\n");
+
                 sb.append(indent).append("    </div>\n");
 
                 @SuppressWarnings("unchecked")
@@ -187,19 +218,67 @@ public class CourseController {
 
             } else if ("file".equals(type)) {
                 String path = (String) node.get("path");
-                String displayName = name.replaceFirst("\\.html?$", "");
+                String rawName = name.replaceFirst("\\.html?$", "");
+
+                // —— 序号 + 标题 拆分 —— //
+                NameParts np = splitSeqAndTitle(rawName, true); // file
+                String seq = np.seq;
+                String title = np.title;
+                String i18nKey = "catalogtitle." + title;
 
                 sb.append(indent).append("<li class=\"course-nav__node is-file\">\n");
                 sb.append(indent).append("    <div class=\"course-nav__row\">\n");
                 sb.append(indent).append("        <span class=\"course-nav__icon\"></span>\n");
+
+                // ⬇️ 保留超链接；i18n 只绑在标题 span 上
                 sb.append(indent).append("        <a class=\"course-nav__link\" href=\"/main/course/")
-                        .append(path).append("\">")
-                        .append(displayName).append("</a>\n");
+                        .append(esc(path)).append("\">");
+                if (!seq.isEmpty()) {
+                    sb.append("<span class=\"course-nav__seq\">")
+                            .append(esc(seq)).append("</span> ");
+                }
+                sb.append("<span class=\"course-nav__title\" data-i18n=\"")
+                        .append(esc(i18nKey)).append("\">")
+                        .append(esc(title)).append("</span>");
+                sb.append("</a>\n");
+
                 sb.append(indent).append("    </div>\n");
                 sb.append(indent).append("</li>\n");
             }
         }
         return sb.toString();
+    }
+
+    /** 把名字按第一个空格拆分为「序号」与「标题」。Introduction 作为纯标题处理。 */
+    private NameParts splitSeqAndTitle(String raw, boolean isFile) {
+        String name = raw == null ? "" : raw.trim();
+        // 特判：没有序号的纯 Introduction
+        if ("Introduction".equals(name)) {
+            return new NameParts("", "Introduction");
+        }
+        int idx = name.indexOf(' ');
+        if (idx > 0 && idx < name.length() - 1) {
+            String seq = name.substring(0, idx).trim();   // 如 "1." / "1" / "1.1"
+            String title = name.substring(idx + 1).trim();// 如 "Random Samples"
+            return new NameParts(seq, title);
+        }
+        // 没有空格就视为纯标题（无序号）
+        return new NameParts("", name);
+    }
+
+    private static final class NameParts {
+        final String seq;
+        final String title;
+        NameParts(String s, String t) { this.seq = s; this.title = t; }
+    }
+
+    /** 最简单的 HTML 转义，避免标题中含 <>&" 破坏结构 */
+    private String esc(String s) {
+        if (s == null) return "";
+        return s.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;")
+                .replace("\"", "&quot;");
     }
 }
 

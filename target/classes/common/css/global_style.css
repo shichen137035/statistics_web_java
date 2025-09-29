@@ -5,8 +5,13 @@ body {
     line-height: 1.6;         /* 行距适中，阅读舒适 */
     color: #000000;           /* 正文为黑色 */
     margin: 0;
-    padding-top: 60px; /* 根据 header 高度调整 */
-    background-color: #ffffff; /* 白底，干净 */
+    padding-top: 60px;        /* 根据 header 高度调整 */
+
+    /* 背景：白底 + 左上角淡蓝光晕 + 右下角淡紫光晕 */
+    background:
+            radial-gradient(circle at top left,  #e0f2fe, transparent 60%),
+            radial-gradient(circle at bottom right, #f5f3ff, transparent 60%),
+            #ffffff;
 }
 
 /* 标题（所有 h1~h3） */

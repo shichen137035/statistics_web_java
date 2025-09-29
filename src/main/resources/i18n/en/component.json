@@ -1,6 +1,8 @@
 {
-  "COM_logo" : "\uD83C\uDF10 Website",
+  "COM_logo" : "Foundations of Statistic",
   "course_nav_button": "Catalog",
   "prev-btn": "&laquo; Prev",
-  "next-btn": "Next &raquo;"
+  "next-btn": "Next &raquo;",
+  "Course Catalog Title": "Course Catalog",
+  "lang select title": "Language"
 }

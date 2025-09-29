@@ -1,23 +1,42 @@
 (function () {
-    let select = document.getElementById('lang-select');
-    console.log("select:",select)
+    const select = document.getElementById('lang-select');
+    const STORAGE_KEY = "globalLang";
+
+    // -----------------------------
+    // 读取全局语言（无则默认 en）
+    function getStoredLang() {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) return stored;
+
+        // 从浏览器语言获取前两个字符
+        const browserLang = (navigator.language || navigator.userLanguage || "en").slice(0,2).toLowerCase();
+
+        // 支持的语言列表（可以根据你项目调整）
+        const supported = ["en", "ja", "zh"];
+        if (supported.includes(browserLang)) {
+            return browserLang;
+        }
+        return "en"; // 都不符合 → 回退英语
+    }
+    function storeLang(lang) {
+        localStorage.setItem(STORAGE_KEY, lang);
+    }
 
     // -----------------------------
     // 1. 路径 & 文件加载逻辑（保持不变）
-    // -----------------------------
     function normalizePathname() {
         let p = location.pathname || '/';
-        p = p.replace(/\/{2,}/g, '/'); // 清理重复斜杠
+        p = p.replace(/\/{2,}/g, '/');
         if (p === '/') return '/index';
-        if (p.endsWith('/')) p += 'index'; // 目录 → index
-        // 去掉最后的 .html 扩展
+        if (p.endsWith('/')) p += 'index';
         p = p.replace(/\.html?$/i, '');
         return p;
     }
 
     function makePageI18nUrl(lang) {
         const p = normalizePathname();
-        return `/i18n/${lang}${p}.json`;
+        let pp = `/i18n/${lang}${p}.json`
+        return pp;
     }
 
     async function fetchJson(url) {
@@ -27,26 +46,25 @@
     }
 
     // -----------------------------
-    // 2. 加载所有字典（页面 + component + keyword）
-    // -----------------------------
+    // 2. 加载所有字典
     async function loadAllDicts(lang) {
         const base = `/i18n/${lang}`;
         const urls = [
-            `${base}/keyword.json`,    // 低优先级
-            `${base}/component.json`,  // 中优先级
-            makePageI18nUrl(lang)      // 高优先级（页面）
+            `${base}/keyword.json`,
+            `${base}/component.json`,
+            `${base}/catalog.json`,
+            makePageI18nUrl(lang)
         ];
-
+        // console.log(urls);
         const results = await Promise.allSettled(urls.map(fetchJson));
         const dicts = results.map(r => (r.status === 'fulfilled' ? r.value : {}));
 
-        // 合并：keyword < component < page
-        return Object.assign({}, dicts[0], dicts[1], dicts[2]);
+
+        return Object.assign({}, ...dicts);
     }
 
     // -----------------------------
-    // 3. 加载关键字配置（共通）
-    // -----------------------------
+    // 3. 加载关键字配置
     let keywordMeta = {};
     async function loadKeywordMeta() {
         try {
@@ -58,38 +76,21 @@
     }
 
     // -----------------------------
-    // 工具：首字母大写
-    function capitalizeFirst(str) {
-        if (!str) return "";
-        return str.charAt(0).toUpperCase() + str.slice(1);
-    }
-
-// 4. 渲染关键字 [[Key]]
-// -----------------------------
+    // 4. 渲染关键字
     function renderWithKeywords(text, dict, keywordDict) {
-        return text.replace(/\[\[(.+?)\]\]/g, (match, key, offset) => {
+        return text.replace(/\[\[(.+?)\]\]/g, (match, key) => {
             const info = keywordDict[key];
             if (info) {
-                let translated = dict[info.i18nKey] || key;
-
-                // 判断是否是句首
-                const before = text.slice(0, offset).trim();
-                const lastChar = before.slice(-1);
-                const isSentenceStart = before === "" || /[.!?]\s*$/.test(before);
-
-                if (isSentenceStart) {
-                    translated = capitalizeFirst(translated);
-                }
-
+                const translated = dict[info.i18nKey] || key;
                 const subpage = info.subpage || info.mainPage || "";
                 return `<a href="${info.mainPage}" class="keyword" data-subpage="${subpage}">${translated}</a>`;
             }
-            return key; // 没找到就原样返回
+            return key;
         });
     }
+
     // -----------------------------
-    // 5. 应用翻译到页面
-    // -----------------------------
+    // 5. 应用翻译
     function apply(dict, lang) {
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
@@ -108,13 +109,13 @@
 
     // -----------------------------
     // 6. 设置语言
-    // -----------------------------
     async function setLang(lang) {
         try {
-            await loadKeywordMeta(); // 确保 keywordMeta 已经加载
+            await loadKeywordMeta();
             const dict = await loadAllDicts(lang);
             apply(dict, lang);
-            if (select) select.value = lang;
+            storeLang(lang); // 保存全局语言
+            if (select) select.value = lang; // 同步下拉框
         } catch (e) {
             console.error(e);
         }
@@ -122,14 +123,11 @@
 
     // -----------------------------
     // 7. 启动逻辑
-    // -----------------------------
-    // console.log("start_language switch")
-
-
-    setLang(document.documentElement.getAttribute('lang') || 'en');
+    const initialLang = getStoredLang();
+    setLang(initialLang);
 
     if (select) {
+        select.value = initialLang; // 页面有下拉框 → 初始值同步
         select.addEventListener('change', e => setLang(e.target.value));
-        console.log("language changed");
     }
 })();

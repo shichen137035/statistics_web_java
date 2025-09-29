@@ -1,0 +1,15 @@
+{
+  "beta.title": "Beta Distribution",
+
+  "beta.section1.title": "1. Definition",
+  "beta.section1.intro": "The Beta distribution is a continuous distribution on $(0,1)$ with two shape parameters $\\alpha$ and $\\beta$, often used to model proportions or probabilities.",
+  "beta.section1.rel1": "When $\\alpha = \\beta = 1$, it reduces to Uniform$(0,1)$.",
+
+  "beta.section2.title": "2. PDF and CDF",
+  "beta.section2.pdf": "PDF: $$f(x;\\alpha,\\beta) = \\tfrac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha,\\beta)}, \\; 0<x<1$$",
+  "beta.section2.cdf": "CDF: $$F(x;\\alpha,\\beta) = I_x(\\alpha,\\beta)$$",
+
+  "beta.section3.title": "3. Graphs",
+  "beta.section3.pdfcaption": "PDF",
+  "beta.section3.cdfcaption": "CDF"
+}

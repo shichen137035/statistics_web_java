@@ -89,9 +89,9 @@ function setPagerButtons(prev, next) {
 async function initPager() {
     const courseData = await loadCourseJson();
     const files = flattenFiles(courseData);
-    console.log("files:",files);
+    // console.log("files:",files);
     const current = getCurrentPath();
-    console.log("current:",current);
+    // console.log("current:",current);
     const { prev, next } = findPrevNext(files, current);
     setPagerButtons(prev, next);
 }

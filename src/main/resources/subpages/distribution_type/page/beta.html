@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/common/css/plot_style.css">
+</head>
+<body>
+    <section class="distribution-page">
+        <!-- 1. 定义 -->
+        <h1 data-i18n="beta.title"></h1>
+        <h2 data-i18n="beta.section1.title"></h2>
+        <p data-i18n="beta.section1.intro"></p>
+        <ul>
+            <li data-i18n="beta.section1.rel1"></li>
+        </ul>
+
+        <!-- 2. PDF / CDF -->
+        <h2 data-i18n="beta.section2.title"></h2>
+        <p data-i18n="beta.section2.pdf"></p>
+        <p data-i18n="beta.section2.cdf"></p>
+
+        <!-- 3. 图像 -->
+        <h2 data-i18n="beta.section3.title"></h2>
+        <div class="plots">
+            <figure>
+                <img src="../img/beta_pdf.png" alt="PDF of Beta distribution">
+                <figcaption data-i18n="beta.section3.pdfcaption"></figcaption>
+            </figure>
+            <figure>
+                <img src="../img/beta_cdf.png" alt="CDF of Beta distribution">
+                <figcaption data-i18n="beta.section3.cdfcaption"></figcaption>
+            </figure>
+        </div>
+    </section>
+<script type="module" src="/common/js/subpage.js" defer></script>
+</body>
+</html>

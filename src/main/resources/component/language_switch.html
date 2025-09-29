@@ -13,8 +13,9 @@
             margin: 0 !important;
             box-sizing: border-box;
 
-            background: #fff;
-            border-bottom: 1px solid #d9e2ec;
+            /* 蓝紫渐变背景（浅色科技感） */
+            background: linear-gradient(90deg, #dbeafe 0%, #ede9fe 100%);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
         }
 
         /* --- 内层：你的实际内容行（受 flex 布局） --- */
@@ -31,7 +32,6 @@
         }
 
         /* 其余原来的样式保持不变（语言选择等） */
-        .brand{ font-weight:600; font-size:18px; letter-spacing:.2px; white-space:nowrap; }
         .language-switch{ display:inline-flex; align-items:center; gap:10px; }
         .language-switch label{ font-size:14px; color:#6b7280; user-select:none; }
         .select-wrap{ position:relative; display:inline-block; }
@@ -60,12 +60,34 @@
         /* 页面全局：去掉默认外边距，给正文让出空间 */
         html, body{ margin:0; }
         body{ padding-top:60px; } /* 与 .site-header__inner 的高度一致 */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 8px; /* 图标与文字之间间距 */
+        }
+
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .brand-text {
+            font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #4f46e5; /* 蓝紫色调 */
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
     </style>
 
     <div class="site-header__inner">
-        <div class="brand" data-i18n="COM_logo"></div>
+        <div class="brand">
+            <img src="/common/img/course_logo.png" alt="Logo" class="brand-icon">
+            <a class="brand-text" data-i18n="COM_logo" href="/main/home/page/home.html"></a>
+        </div>
         <nav class="language-switch" aria-label="Language switcher">
-            <label for="lang-select">Language</label>
+            <label for="lang-select" data-i18n="lang select title"></label>
             <div class="select-wrap">
                 <select id="lang-select" class="lang-select" aria-label="Language">
                     <option value="en">English</option>

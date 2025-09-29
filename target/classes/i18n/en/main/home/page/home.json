@@ -1,8 +1,8 @@
 {
   "meta.title": "Course Homepage",
   "lang.label": "Language",
-  "title": "Course Homepage",
-  "desc": "Welcome to the [[statistic]] course home. Please choose your learning path.",
+  "title": "Foundations of Statistic",
+  "desc": "This is the homepage of foundations of [[statistic]]. Please click the button on the left to enter the main content of the course, or click the button on the right to view the concepts involved in this course.",
   "btn.course": "Course",
   "btn.concept": "Concept",
   "announcement": "A website for studying computational statistic by R."

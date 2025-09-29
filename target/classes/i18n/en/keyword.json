@@ -1,4 +1,25 @@
 {
   "keyword.statistic": "statistic",
-  "keyword.distribution": "distribution"
+
+  "keyword.distribution": "distribution",
+
+  "keyword.beta distribution": "beta distribution",
+  "keyword.binomial distribution": "binomial distribution",
+  "keyword.Cauchy distribution": "Cauchy distribution",
+  "keyword.chi-squared distribution": "chi-squared distribution",
+  "keyword.exponential distribution": "exponential distribution",
+  "keyword.F distribution": "F distribution",
+  "keyword.Gamma distribution": "Gamma distribution",
+  "keyword.geometric distribution": "geometric distribution",
+  "keyword.hypergeometric distribution": "hypergeometric distribution",
+  "keyword.log-normal distribution": "log-normal distribution",
+  "keyword.logistic distribution": "logistic distribution",
+  "keyword.negative-binomial distribution": "negative-binomial distribution",
+  "keyword.normal distribution": "normal distribution",
+  "keyword.Poisson distribution": "Poisson distribution",
+  "keyword.signed-rank distribution": "signed-rank distribution",
+  "keyword.t distribution": "t distribution",
+  "keyword.uniform distribution": "uniform distribution",
+  "keyword.Weibull distribution": "Weibull distribution",
+  "keyword.Wilcox distribution": "Wilcox distribution"
 }

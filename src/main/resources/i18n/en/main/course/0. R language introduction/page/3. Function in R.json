@@ -1,0 +1,67 @@
+{
+  "meta.title": "Logics, Loops, and Functions in R",
+  "intro.title": "Logics, Loops, and Functions in R",
+
+  "section.logics.title": "Logics",
+  "section.logics.code1": "3 > 5\n\n## [1] FALSE",
+  "section.logics.code2": "5 > 3\n\n## [1] TRUE",
+  "section.logics.code3": "a\n\n##  [1] 1 4 7 3 9 1 4 7 6 9 1 4 7 3 9",
+  "section.logics.code4": "a[a > 5]\n\n## [1] 7 9 7 6 9 7 9",
+
+  "section.element_pos.title": "Element at specific position",
+  "section.element_pos.code1": "a\n\n##  [1] 1 4 7 3 9 1 4 7 6 9 1 4 7 3 9\n\na[c(4, 6, 9)]\n\n## [1] 3 1 6",
+  "section.element_pos.code2": "a[-c(2, 4)]\n\n##  [1] 1 7 9 1 4 7 6 9 1 4 7 3 9",
+  "section.element_pos.code3": "a\n\n##  [1] 1 4 7 3 9 1 4 7 6 9 1 4 7 3 9",
+
+  "section.scan.title": "Online generation of a vector",
+  "section.scan.code1": "x <- scan()\n\nStop\n\nby\n\nEnter  or Ctrl + D  on Mac\n\nor\n\nCtrl + Z  on Windows",
+
+  "section.loop.title": "Loop",
+  "section.loop.code1": "carbrands <-c(\"Honda\", \"Toyota\", \"Nissan\", \"GM\", \"BMW\")\n\nfor(brand in carbrands) print(brand)\n\n## [1] \"Honda\"\n## [1] \"Toyota\"\n## [1] \"Nissan\"\n## [1] \"GM\"\n## [1] \"BMW\"",
+
+  "section.dates.title": "Dates",
+  "section.dates.code1": "today <- Sys.Date()\n\ntoday\n\n## [1] \"2024-10-05\"",
+
+  "section.pyt.title": "Simple example: Pythagorean Triples",
+  "section.pyt.code1": "pyt <- function(z){\n\n  a <- abs(z[1]^2 - z[2]^2)\n  b <- 2 * z[1] * z[2]\n  c <- z[1]^2 + z[2]^2\n\n  print(c(a, b, c))\n}\n\npyt(c(1, 2))\n\n## [1] 3 4 5",
+
+  "section.help.title": "Help",
+  "section.help.code1": "?sum\n\nhelp(sum)",
+  "section.help.code2": "?Sys.Date\n\nhelp(Sys.Date)",
+
+  "section.r_basics.title": "R Basics: Procedural Logic",
+  "section.r_basics.desc": "R is primarily a procedural language. Computations are carried out step by step, with statements executed in order. Most tasks in R are expressed through functions that operate on vectors, data frames, or other objects. This procedural nature makes R intuitive for statistical workflows.",
+  "section.r_basics.code1": "# Example of simple procedural steps\nx <- 1:5\nmean(x)\n## [1] 3",
+
+  "section.functions.title": "Functions in R",
+  "section.functions.desc": "Functions are first-class objects in R. They are defined using the function keyword, take arguments, and return values. Arguments can have default values, and functions can be stored in variables or passed as arguments.",
+  "section.functions.code1": "square <- function(x) {\n  return(x^2)\n}\n\nsquare(4)\n## [1] 16",
+  "section.functions.code2": "add <- function(a, b = 0) {\n  a + b\n}\n\nadd(3)\n## [1] 3\nadd(3, 5)\n## [1] 8",
+
+  "section.func_notes.title": "Notes on Functions in R",
+  "section.func_notes.desc": "When working with functions in R, there are some special features and behaviors to keep in mind:",
+
+  "section.func_notes.point1": "Arguments are matched by name or by position. If both are provided, named matching has priority.",
+  "section.func_notes.code1": "add <- function(a, b) { a + b }\n\nadd(2, 3)\n## [1] 5\nadd(b = 3, a = 2)\n## [1] 5   # Named arguments override position",
+
+  "section.func_notes.point2": "R uses lazy evaluation: arguments are not evaluated until they are actually used inside the function body.",
+  "section.func_notes.code2": "lazy_fun <- function(x, y) {\n  return(x)\n}\n\nlazy_fun(10, stop(\"This error never occurs\"))\n## [1] 10   # y is never evaluated",
+
+  "section.func_notes.point3": "Functions can return any R object. To return multiple values, it is common to use a list.",
+  "section.func_notes.code3": "multi_return <- function(x) {\n  list(square = x^2, cube = x^3)\n}\n\nmulti_return(3)\n## $square\n## [1] 9\n## $cube\n## [1] 27",
+
+  "section.logics.desc": "R supports logical operators such as <, >, ==, !=, & (AND), | (OR). These can be applied directly to vectors, returning logical values. Logical indexing is often used to filter elements.",
+
+  "section.element_pos.desc": "Elements in a vector can be accessed by index. Indexing starts at 1, unlike many other languages. Negative indices exclude elements.",
+
+  "section.scan.desc": "The scan() function reads input from the console or from a file and converts it into a vector. This is useful for quickly entering data.",
+
+  "section.loop.desc": "R provides loops such as for and while. In practice, vectorized operations are preferred, but loops are still useful for iterative tasks.",
+
+  "section.dates.desc": "R has built-in support for dates and times. You can create dates using as.Date() and perform operations such as differences and formatting.",
+
+  "section.pyt.desc": "As a simple example, we can compute values based on the Pythagorean theorem using R. This demonstrates how R can be used for mathematical calculations.",
+
+  "section.help.desc": "R includes an extensive help system. Use ?function_name or help(function_name) to open documentation, and help.search() to look for related topics."
+
+}

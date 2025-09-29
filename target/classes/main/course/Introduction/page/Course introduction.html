@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1" />-->
     <title data-i18n="meta.title"></title>
     <style>
@@ -14,10 +14,10 @@
 
         .course-grid .chapter-btn {
             width: 100%;
-            height: 80px;
+            height: 70px;
             border: 2px solid #000;   /* 深黑色边框 */
             border-radius: 10px;
-            font-size: 1rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: #fff;              /* 白色文字更显眼 */
             cursor: pointer;
@@ -51,12 +51,24 @@
 <div id="course-nav"></div>
 <div id="pager"></div>
 <main class="container prose mx-auto">
-    <h1 data-i18n="intro.title"></h1>
+<!--    <h1 data-i18n="intro.title"></h1>-->
 
-    <section id="intro">
+    <section id="course-introduction" class="course-intro">
+        <h1 data-i18n="intro.title"></h1>
+
         <p data-i18n="intro.p1"></p>
-        <p data-i18n="intro.p2"></p>
-        <p data-i18n="intro.p3"></p>
+
+        <h2 data-i18n="intro.includes.title"></h2>
+        <ul class="course-outline">
+            <li data-i18n="intro.includes.l1"></li>
+            <li data-i18n="intro.includes.l2"></li>
+            <li data-i18n="intro.includes.l3"></li>
+            <li data-i18n="intro.includes.l4"></li>
+            <li data-i18n="intro.includes.l5"></li>
+            <li data-i18n="intro.includes.l6"></li>
+        </ul>
+
+        <p data-i18n="intro.end"></p>
     </section>
 
     <section id="course-plan">

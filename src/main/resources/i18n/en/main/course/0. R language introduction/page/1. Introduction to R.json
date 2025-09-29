@@ -1,0 +1,51 @@
+{
+  "meta.title": "Introduction to R",
+  "intro.title": "Introduction to R",
+
+  "section.what_is_r.title": "What is R?",
+  "section.what_is_r.li1": "R is a programming language specifically designed for statistical computing and data analysis.",
+  "section.what_is_r.li2": "Its philosophy emphasizes interactive statistical modeling and vectorized operations, allowing concise and efficient code.",
+  "section.what_is_r.li3": "R is widely used in statistics, machine learning, bioinformatics, and finance, with a large ecosystem of community-contributed packages.",
+  "section.what_is_r.li4": "R is open-source and maintained under the GNU General Public License.",
+  "section.what_is_r.quote": "Think of R as the engine that performs statistical computations.",
+
+  "section.rstudio.title": "RStudio: The Integrated Development Environment (IDE)",
+  "section.rstudio.lead": "RStudio is not R itself, but an IDE that provides:",
+  "section.rstudio.li1": "A user-friendly interface to write and run R code.",
+  "section.rstudio.li2": "It provides a user-friendly interface to write and run R code, with built-in support for plotting, package management, and version control.",
+  "section.rstudio.li3": "While RStudio is widely used, R can also be run independently without RStudio.",
+  "section.rstudio.quote": "If R is the engine, then RStudio is the cockpit where you control and monitor the engine.",
+
+  "section.install.title": "Installation",
+  "section.install.r.title": "1. Install R",
+  "section.install.r.p1": "Download R from the Comprehensive R Archive Network (CRAN):",
+  "section.install.r.link_text": "http://cran.r-project.org/",
+  "section.install.r.p2": "Choose the version for your operating system (Windows, macOS, Linux).",
+
+  "section.install.rstudio.title": "2. Install RStudio",
+  "section.install.rstudio.p1": "Download RStudio Desktop (the free version is sufficient for most users):",
+  "section.install.rstudio.link_text": "https://rstudio.com/products/rstudio/download/",
+
+  "section.install.verify.title": "3. Verify Installation",
+  "section.install.verify.p1": "Open RStudio. In the console, type:",
+  "section.install.verify.code": "R.version",
+  "section.install.verify.p2": "This displays your current R version and confirms the installation.",
+
+  "section.packages.title": "Package Installation",
+  "section.packages.p1": "R extends its functionality through packages (collections of functions, data, and documentation).",
+  "section.packages.p2": "Most packages are distributed via CRAN, but others may come from GitHub or Bioconductor.",
+
+  "section.packages.install.title": "Installing Packages",
+  "section.packages.install.code": "# Install from CRAN\ninstall.packages(\"ggplot2\")\n\n# Install multiple packages at once\ninstall.packages(c(\"dplyr\", \"tidyr\", \"readr\"))",
+
+  "section.packages.load.title": "Loading Packages",
+  "section.packages.load.code": "# Make a package available in your session\nlibrary(ggplot2)\n\n# Check if a package is installed\nrequire(dplyr)",
+
+  "section.packages.update.title": "Updating Packages",
+  "section.packages.update.code": "# Update all installed packages\nupdate.packages(ask = FALSE)",
+
+  "section.packages.other_sources.title": "Installing from Other Sources",
+  "section.packages.other_sources.code": "# From GitHub (requires remotes package)\ninstall.packages(\"remotes\")\nremotes::install_github(\"tidyverse/ggplot2\")\n\n# From Bioconductor (bioinformatics focus)\nif (!requireNamespace(\"BiocManager\", quietly = TRUE))\n    install.packages(\"BiocManager\")\nBiocManager::install(\"GenomicFeatures\")",
+
+  "section.packages.tip": "Tip: Always check the package documentation with ?function_name or help(package = \"pkgname\")."
+}

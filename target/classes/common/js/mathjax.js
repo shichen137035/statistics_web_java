@@ -11,5 +11,5 @@ window.MathJax = {
     script.src = "https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js";
     script.async = true;
     document.head.appendChild(script);
-    console.log("successfully load latex format.")
+    // console.log("successfully load latex format.");
 })();

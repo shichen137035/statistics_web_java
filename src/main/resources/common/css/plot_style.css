@@ -1,0 +1,20 @@
+.plots {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;   /* 小屏幕时自动换行 */
+}
+
+.plots figure {
+    display: flex;
+    flex-direction: column;    /* 图像在上，注释在下 */
+    align-items: center;       /* 注释居中 */
+    max-width: 47%;            /* 防止过大 */
+}
+
+
+.plots img {
+    width: 100%;       /* 占满 figure 宽度 */
+    height: auto;      /* 保持比例 */
+    max-height: 240px; /* 防止过大撑出弹窗，可以按需求调 */
+}

@@ -1,4 +1,6 @@
+// import {loadComponent} from "/common/js/util_tool.js";
 (function () {
+    // void loadComponent("/component/course_nav_rendered.html","course-nav");
     const nav = document.getElementById("course-nav");
     // console.log("nav:",nav)
     const nav_aside = document.getElementById("courseNav");

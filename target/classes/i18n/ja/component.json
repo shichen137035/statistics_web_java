@@ -1,6 +1,8 @@
 {
-  "COM_logo" : "\uD83C\uDF10 ウェブページ",
+  "COM_logo" : "統計学基礎",
   "course_nav_button": "目次",
   "prev-btn": "&laquo; 先",
-  "next-btn": "次 &raquo;"
+  "next-btn": "次 &raquo;",
+  "Course Catalog Title": "コース目次",
+  "lang select title": "言語"
 }

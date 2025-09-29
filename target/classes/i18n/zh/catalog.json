@@ -1,0 +1,22 @@
+{
+  "catalogtitle.Course introduction": "课程介绍",
+  "catalogtitle.R Language Introduction": "R语言入门",
+  "catalogtitle.Random Samples": "随机样本",
+  "catalogtitle.Sufficient Statistic": "充分统计量",
+  "catalogtitle.Estimator": "估计量",
+  "catalogtitle.Efficient Estimators": "有效估计量",
+  "catalogtitle.Asymptotic Efficient Estimators": "渐近有效估计量",
+  "catalogtitle.Maximum Likelihood Estimators": "最大似然估计量",
+  "catalogtitle.Interval Estimation": "区间估计",
+  "catalogtitle.Most Powerful Test": "最强检验",
+  "catalogtitle.Various Tests": "各种检验",
+  "catalogtitle.Discriminant Analysis": "判别分析",
+  "catalogtitle.Principal Component Analysis": "主成分分析",
+  "catalogtitle.Canonical Correlation Analysis": "典型相关分析",
+  "catalogtitle.Introduction": "引言",
+  "catalogtitle.Introduction to R": "R的介绍",
+  "catalogtitle.Vector and Matrix": "向量与矩阵",
+  "catalogtitle.Logic of R": "R的逻辑",
+  "catalogtitle.Random variables": "随机变量",
+  "catalogtitle.Inversion method for sampling": "抽样的逆变换法"
+}

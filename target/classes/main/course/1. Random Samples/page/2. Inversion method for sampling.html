@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="meta.title"></title>
+</head>
+<body>
+<!-- Global components (fixed position area) -->
+<div id="language-switch"></div>
+<div id="course-nav"></div>
+<div id="pager"></div>
+
+<main class="container prose mx-auto">
+    <h1 data-i18n="intro.title"></h1>
+
+    <!-- Uniform distribution -->
+    <section id="uniform">
+        <h2 data-i18n="section.uniform.title"></h2>
+        <p data-i18n="section.uniform.desc1"></p>
+        <pre><code data-i18n="section.uniform.code1"></code></pre>
+        <p data-i18n="section.uniform.desc2"></p>
+        <pre><code data-i18n="section.uniform.code2"></code></pre>
+        <pre><code data-i18n="section.uniform.code3"></code></pre>
+    </section>
+
+    <hr/>
+
+    <!-- Inversion Method -->
+    <section id="inversion">
+        <h2 data-i18n="section.inversion.title"></h2>
+        <p data-i18n="section.inversion.theorem"></p>
+        <p data-i18n="section.inversion.proof"></p>
+    </section>
+
+    <hr/>
+
+    <!-- Quiz 2: Exponential via inverse transform -->
+    <section id="quiz2">
+        <h2 data-i18n="section.quiz2.title"></h2>
+        <p data-i18n="section.quiz2.q"></p>
+        <p data-i18n="section.quiz2.step1"></p>
+        <p data-i18n="section.quiz2.step2"></p>
+        <pre><code data-i18n="section.quiz2.code1"></code></pre>
+        <pre><code data-i18n="section.quiz2.code2"></code></pre>
+    </section>
+
+    <hr/>
+
+    <!-- Remark: non-explicit inverse -->
+    <section id="remark">
+        <h2 data-i18n="section.remark.title"></h2>
+        <p data-i18n="section.remark.p1"></p>
+        <p data-i18n="section.remark.p2"></p>
+    </section>
+
+    <hr/>
+    <section class="course-section proof-container">
+        <h1 data-i18n="proof.title"></h1>
+
+        <div class="theorem">
+            <div class="theorem__label" data-i18n="theorem.label"></div>
+            <p data-i18n="theorem.statement.1"></p>
+            <div class="eq" data-i18n="theorem.formula.1"></div>
+            <p data-i18n="theorem.statement.2"></p>
+        </div>
+
+        <div class="proof">
+            <p class="smallmuted" data-i18n="proof.label"></p>
+            <p data-i18n="proof.step.1"></p>
+            <div class="eq" data-i18n="proof.eq.1"></div>
+            <p data-i18n="proof.step.2"></p>
+            <div class="eq" data-i18n="proof.eq.2"></div>
+            <p data-i18n="proof.step.3"></p>
+        </div>
+    </section>
+
+
+    <hr/>
+    <section id="algo-bisection" class="algo algo--bisection">
+        <div class="algo__header">
+            <strong data-i18n="algo.bisect.title"></strong>
+        </div>
+
+        <div class="algo__io">
+            <span class="algo__label" data-i18n="algo.bisect.input.label"></span>
+            <span data-i18n="algo.bisect.input"></span><br>
+            <span class="algo__label" data-i18n="algo.bisect.output.label"></span>
+            <span data-i18n="algo.bisect.output"></span>
+        </div>
+
+        <ol class="algo__steps">
+            <li data-i18n="algo.bisect.step.init"></li>
+
+            <!-- 循环块 -->
+            <li>
+                <div class="loop">
+                    <div class="loop__header">
+                        <span class="loop__type" data-i18n="algo.bisect.loop.type"></span>
+                        <span class="loop__cond" data-i18n="algo.bisect.loop.cond"></span>
+                    </div>
+                    <div class="loop__body">
+                        <ul>
+                            <li data-i18n="algo.bisect.loop.step.midpoint"></li>
+                            <li data-i18n="algo.bisect.loop.step.eval"></li>
+                            <li data-i18n="algo.bisect.loop.step.update"></li>
+                            <li data-i18n="algo.bisect.loop.step.iter"></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+
+            <li data-i18n="algo.bisect.step.return"></li>
+        </ol>
+    </section>
+
+    <hr/>
+
+    <section id="distributions" class="distributions">
+        <h2 data-i18n="dist.title"></h2>
+        <div class="table-wrapper">
+            <table class="dist-table">
+                <thead>
+                <tr>
+                    <th data-i18n="dist.symbols"></th>
+                    <th data-i18n="dist.names"></th>
+                    <th data-i18n="dist.symbols"></th>
+                    <th data-i18n="dist.names"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr><td>beta</td><td data-i18n="dist.beta"></td><td>logis</td><td data-i18n="dist.logis"></td></tr>
+                <tr><td>binom</td><td data-i18n="dist.binom"></td><td>nbinom</td><td data-i18n="dist.nbinom"></td></tr>
+                <tr><td>cauchy</td><td data-i18n="dist.cauchy"></td><td>norm</td><td data-i18n="dist.norm"></td></tr>
+                <tr><td>chisq</td><td data-i18n="dist.chisq"></td><td>pois</td><td data-i18n="dist.pois"></td></tr>
+                <tr><td>exp</td><td data-i18n="dist.exp"></td><td>signrank</td><td data-i18n="dist.signrank"></td></tr>
+                <tr><td>f</td><td data-i18n="dist.f"></td><td>t</td><td data-i18n="dist.t"></td></tr>
+                <tr><td>gamma</td><td data-i18n="dist.gamma"></td><td>unif</td><td data-i18n="dist.unif"></td></tr>
+                <tr><td>geom</td><td data-i18n="dist.geom"></td><td>weibull</td><td data-i18n="dist.weibull"></td></tr>
+                <tr><td>hyper</td><td data-i18n="dist.hyper"></td><td>wilcox</td><td data-i18n="dist.wilcox"></td></tr>
+                <tr><td>lnorm</td><td data-i18n="dist.lnorm"></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <hr/>
+
+    <!-- Bisection method for inverse CDF -->
+    <section id="bisection">
+        <h2 data-i18n="section.bisect.title"></h2>
+        <p data-i18n="section.bisect.desc"></p>
+        <pre><code data-i18n="section.bisect.code"></code></pre>
+    </section>
+
+    <hr/>
+
+    <!-- Quantile function cross-check -->
+    <section id="quantiles">
+        <h2 data-i18n="section.quant.title"></h2>
+        <p data-i18n="section.quant.desc"></p>
+        <pre><code data-i18n="section.quant.code1"></code></pre>
+        <pre><code data-i18n="section.quant.code2"></code></pre>
+    </section>
+</main>
+
+<script type="module" src="/common/js/course.js" defer></script>
+</body>
+</html>

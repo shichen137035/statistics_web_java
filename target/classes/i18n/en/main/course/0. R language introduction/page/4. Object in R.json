@@ -1,0 +1,29 @@
+{
+  "meta.title": "Object-Oriented Programming in R (R6)",
+
+  "intro.title": "Object-Oriented Programming in R",
+
+  "section.oop_overview.title": "Overview: OOP in R",
+  "section.oop_overview.desc": "Although R is primarily procedural, it supports object-oriented programming through three systems: S3 (simple, widely used), S4 (strict, used in large frameworks), and R6 (modern, closer to traditional OOP). In this lesson, we focus on R6, which provides classes, objects, encapsulation, inheritance, and polymorphism similar to other languages.",
+  "section.oop_overview.code1": "# Load R6 package\nlibrary(R6)",
+
+  "section.r6_class_object.title": "Classes and Objects",
+  "section.r6_class_object.desc": "In R6, classes are defined with R6Class(), and objects are created using the new() method. A class definition includes fields (attributes) and methods.",
+  "section.r6_class_object.code1": "Person <- R6Class(\"Person\",\n  public = list(\n    name = NULL,\n    age = NULL,\n    initialize = function(name, age) {\n      self$name <- name\n      self$age <- age\n    },\n    greet = function() {\n      cat(\"Hi, I'm\", self$name, \"and I'm\", self$age, \"years old.\\n\")\n    }\n  )\n)\n\nalice <- Person$new(\"Alice\", 25)\nalice$greet()",
+
+  "section.r6_attributes.title": "Attributes",
+  "section.r6_attributes.desc": "Attributes (fields) are stored in the object. They can be modified directly, as objects in R6 use reference semantics.",
+  "section.r6_attributes.code1": "alice$age\n## [1] 25\nalice$age <- 26\nalice$greet()\n## Hi, I'm Alice and I'm 26 years old.",
+
+  "section.r6_encapsulation.title": "Encapsulation",
+  "section.r6_encapsulation.desc": "R6 supports encapsulation by allowing fields and methods to be public or private. Private members can only be accessed inside the class.",
+  "section.r6_encapsulation.code1": "SecurePerson <- R6Class(\"SecurePerson\",\n  public = list(\n    name = NULL,\n    initialize = function(name, password) {\n      self$name <- name\n      private$password <- password\n    },\n    checkPassword = function(p) {\n      p == private$password\n    }\n  ),\n  private = list(\n    password = NULL\n  )\n)\n\nbob <- SecurePerson$new(\"Bob\", \"1234\")\nbob$checkPassword(\"1234\")\n## [1] TRUE\nbob$password\n## Error: object 'password' not found",
+
+  "section.r6_inheritance.title": "Inheritance",
+  "section.r6_inheritance.desc": "R6 classes support inheritance. A subclass can extend or override methods of its parent class.",
+  "section.r6_inheritance.code1": "Student <- R6Class(\"Student\",\n  inherit = Person,\n  public = list(\n    grade = NULL,\n    initialize = function(name, age, grade) {\n      super$initialize(name, age)\n      self$grade <- grade\n    },\n    greet = function() {\n      cat(\"Hi, I'm\", self$name, \", a\", self$grade, \"student.\\n\")\n    }\n  )\n)\n\ncharlie <- Student$new(\"Charlie\", 20, \"college\")\ncharlie$greet()",
+
+  "section.r6_polymorphism.title": "Polymorphism",
+  "section.r6_polymorphism.desc": "Polymorphism is achieved when subclasses override methods, and the same method call produces different results depending on the object's class.",
+  "section.r6_polymorphism.code1": "alice$greet()\n## Hi, I'm Alice and I'm 26 years old.\n\ncharlie$greet()\n## Hi, I'm Charlie, a college student."
+}

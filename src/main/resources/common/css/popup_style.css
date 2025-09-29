@@ -1,5 +1,5 @@
 .keyword-popup{
-    position: fixed;
+    position: absolute;
     top: var(--top, 0px);
     left: var(--left, 0px);
     width: 320px;       /* 初始宽度，收到尺寸后会被覆盖 */

@@ -2,11 +2,106 @@
   "statistic": {
     "i18nKey": "keyword.statistic",
     "mainPage": "/main/concept/statistic/page/statistic.html",
-    "subpage": "/subpages/statistic/statistic.html"
+    "subpage": "/subpages/statistic/page/statistic.html"
   },
   "distribution": {
     "i18nKey": "keyword.distribution",
-    "mainPage": "/pages/distribution/index.html",
-    "subpage": "/subpages/distribution_type/distribution.html"
+    "mainPage": "/main/concept/distribution_type/page/distribution.html",
+    "subpage": "/subpages/distribution_type/page/distribution.html"
+  },
+  "beta distribution": {
+    "i18nKey": "keyword.beta distribution",
+    "mainPage": "/main/concept/distribution_type/page/beta.html",
+    "subpage": "/subpages/distribution_type/page/beta.html"
+  },
+  "binomial distribution": {
+    "i18nKey": "keyword.binomial distribution",
+    "mainPage": "/main/concept/distribution_type/page/binom.html",
+    "subpage": "/subpages/distribution_type/page/binom.html"
+  },
+  "Cauchy distribution": {
+    "i18nKey": "keyword.Cauchy distribution",
+    "mainPage": "/main/concept/distribution_type/page/cauchy.html",
+    "subpage": "/subpages/distribution_type/page/cauchy.html"
+  },
+  "chi-squared distribution": {
+    "i18nKey": "keyword.chi-squared distribution",
+    "mainPage": "/main/concept/distribution_type/page/chisq.html",
+    "subpage": "/subpages/distribution_type/page/chisq.html"
+  },
+  "exponential distribution": {
+    "i18nKey": "keyword.exponential distribution",
+    "mainPage": "/main/concept/distribution_type/page/exp.html",
+    "subpage": "/subpages/distribution_type/page/exp.html"
+  },
+  "F distribution": {
+    "i18nKey": "keyword.F distribution",
+    "mainPage": "/main/concept/distribution_type/page/f.html",
+    "subpage": "/subpages/distribution_type/page/f.html"
+  },
+  "Gamma distribution": {
+    "i18nKey": "keyword.Gamma distribution",
+    "mainPage": "/main/concept/distribution_type/page/gamma.html",
+    "subpage": "/subpages/distribution_type/page/gamma.html"
+  },
+  "geometric distribution": {
+    "i18nKey": "keyword.geometric distribution",
+    "mainPage": "/main/concept/distribution_type/page/geom.html",
+    "subpage": "/subpages/distribution_type/page/geom.html"
+  },
+  "hypergeometric distribution": {
+    "i18nKey": "keyword.hypergeometric distribution",
+    "mainPage": "/main/concept/distribution_type/page/hyper.html",
+    "subpage": "/subpages/distribution_type/page/hyper.html"
+  },
+  "log-normal distribution": {
+    "i18nKey": "keyword.log-normal distribution",
+    "mainPage": "/main/concept/distribution_type/page/lnorm.html",
+    "subpage": "/subpages/distribution_type/page/lnorm.html"
+  },
+  "logistic distribution": {
+    "i18nKey": "keyword.logistic distribution",
+    "mainPage": "/main/concept/distribution_type/page/logis.html",
+    "subpage": "/subpages/distribution_type/page/logis.html"
+  },
+  "negative-binomial distribution": {
+    "i18nKey": "keyword.negative-binomial distribution",
+    "mainPage": "/main/concept/distribution_type/page/nbinom.html",
+    "subpage": "/subpages/distribution_type/page/nbinom.html"
+  },
+  "normal distribution": {
+    "i18nKey": "keyword.normal distribution",
+    "mainPage": "/main/concept/distribution_type/page/norm.html",
+    "subpage": "/subpages/distribution_type/page/norm.html"
+  },
+  "Poisson distribution": {
+    "i18nKey": "keyword.Poisson distribution",
+    "mainPage": "/main/concept/distribution_type/page/pois.html",
+    "subpage": "/subpages/distribution_type/page/pois.html"
+  },
+  "signed-rank distribution": {
+    "i18nKey": "keyword.signed-rank distribution",
+    "mainPage": "/main/concept/distribution_type/page/signrank.html",
+    "subpage": "/subpages/distribution_type/page/signrank.html"
+  },
+  "t distribution": {
+    "i18nKey": "keyword.t distribution",
+    "mainPage": "/main/concept/distribution_type/page/t.html",
+    "subpage": "/subpages/distribution_type/page/t.html"
+  },
+  "uniform distribution": {
+    "i18nKey": "keyword.uniform distribution",
+    "mainPage": "/main/concept/distribution_type/page/unif.html",
+    "subpage": "/subpages/distribution_type/page/unif.html"
+  },
+  "Weibull distribution": {
+    "i18nKey": "keyword.Weibull distribution",
+    "mainPage": "/main/concept/distribution_type/page/weibull.html",
+    "subpage": "/subpages/distribution_type/page/weibull.html"
+  },
+  "Wilcox distribution": {
+    "i18nKey": "keyword.Wilcox distribution",
+    "mainPage": "/main/concept/distribution_type/page/wilcox.html",
+    "subpage": "/subpages/distribution_type/page/wilcox.html"
   }
 }

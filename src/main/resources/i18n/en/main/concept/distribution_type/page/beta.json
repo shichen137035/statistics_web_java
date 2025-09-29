@@ -1,0 +1,33 @@
+{
+  "beta.title": "Beta Distribution",
+
+  "beta.section1.title": "1. Definition and Interpretation",
+  "beta.section1.intro": "The Beta distribution is a continuous probability distribution defined on the interval $(0,1)$ with two shape parameters $\\alpha$ and $\\beta$.",
+  "beta.section1.intuition": "It models random variables that represent proportions or probabilities, such as the success rate in a Bernoulli trial.",
+  "beta.section1.scenarios": "Common scenarios include Bayesian inference, modeling of proportions, and reliability analysis.",
+  "beta.section1.rel1": "When $\\alpha = \\beta = 1$, it reduces to the Uniform$(0,1)$ distribution.",
+  "beta.section1.rel2": "It is the conjugate prior of the Binomial, Negative Binomial, and Geometric distributions.",
+  "beta.section1.rel3": "It has transformation relationships with the Gamma and F distributions.",
+
+  "beta.section2.title": "2. Analytical Forms",
+  "beta.section2.pdf": "PDF: $$f(x;\\alpha,\\beta) = \\frac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha,\\beta)}, \\quad 0 < x < 1$$",
+  "beta.section2.cdf": "CDF: $$F(x;\\alpha,\\beta) = I_x(\\alpha,\\beta)$$, where $I_x$ is the regularized incomplete Beta function.",
+  "beta.section2.ppf": "PPF (inverse CDF): no closed form, computed numerically.",
+
+  "beta.section3.title": "3. Graphs",
+  "beta.section3.pdfcaption": "PDF of $\\text{Beta}(\\alpha, \\beta)$.",
+  "beta.section3.cdfcaption": "CDF of $\\text{Beta}(\\alpha, \\beta)$.",
+
+  "beta.section4.title": "4. Additional Notes",
+  "beta.section4.mean": "Expectation: $E[X] = \\frac{\\alpha}{\\alpha+\\beta}$",
+  "beta.section4.var": "Variance: $Var(X) = \\frac{\\alpha\\beta}{(\\alpha+\\beta)^2(\\alpha+\\beta+1)}$",
+  "beta.section4.special": "Special cases: $\\alpha = \\beta = 1 \\Rightarrow U(0,1)$$; $$\\alpha = 1, \\beta > 1$ gives a decreasing distribution; $\\alpha > 1, \\beta = 1$ gives an increasing distribution.",
+  "beta.section4.usage": "Widely used as a prior in Bayesian statistics due to conjugacy with the Binomial distribution.",
+
+  "beta.section5.title": "5. Functions in R",
+  "beta.section5.desc": "Common R calls for the Beta distribution:",
+  "beta.section5.code": "## PDF\ndbeta(x, shape1 = alpha, shape2 = beta)\n\n## CDF\npbeta(x, shape1 = alpha, shape2 = beta)\n\n## Quantile (PPF)\nqbeta(p, shape1 = alpha, shape2 = beta)\n\n## Random generation\nrbeta(n, shape1 = alpha, shape2 = beta)",
+  "beta.section5.paramNote": "Parameters: shape1 = alpha > 0, shape2 = beta > 0; functions are vectorized in x (or p)."
+
+
+}

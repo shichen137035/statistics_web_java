@@ -1,20 +1,17 @@
 (function () {
-
-    // console.log("start.");
-    // document.addEventListener("DOMContentLoaded", () => {
-    //     console.log("start listening.");
-    // });
+    console.log("start building...");
     let nav_aside = document.getElementById("courseNav");
     let tree = document.getElementById("courseTree");
     let mask = document.getElementById("courseNavMask");
     let toggleBtn = document.getElementById("courseNavToggle");
     let closeBtn = nav_aside.querySelector(".course-nav__close");
-
+    console.log(nav_aside)
 
     // ------------------------------
     // 1. 给目录绑定展开/收起事件
     // ------------------------------
     function bindFolderEvents() {
+        console.log("build event.")
         tree.querySelectorAll(".course-nav__node.is-folder > .course-nav__row").forEach((row) => {
             row.addEventListener("click", () => {
                 const li = row.parentElement;
@@ -73,15 +70,7 @@
     if (closeBtn) closeBtn.addEventListener("click", hideNav);
     if (mask) mask.addEventListener("click", hideNav);
 
-    console.log("start building...");
     bindFolderEvents();
     restoreState();
-
-
-
-
-    // ------------------------------
-    // 4. 初始化
-    // ------------------------------
 
 })();
