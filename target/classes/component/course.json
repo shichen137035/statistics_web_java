@@ -50,36 +50,4 @@
     "type" : "file",
     "path" : "2. Sufficient Statistic/page/2. Basu's theorem.html"
   } ]
-}, {
-  "name" : "3. Estimator",
-  "type" : "folder",
-  "children" : [ ]
-}, {
-  "name" : "4. Efficient Estimators",
-  "type" : "folder",
-  "children" : [ ]
-}, {
-  "name" : "5. Asymptotic Efficient Estimators",
-  "type" : "folder"
-}, {
-  "name" : "6. Maximum Likelihood Estimators",
-  "type" : "folder"
-}, {
-  "name" : "7. Interval Estimation",
-  "type" : "folder"
-}, {
-  "name" : "8. Most Powerful Test",
-  "type" : "folder"
-}, {
-  "name" : "9. Various Tests",
-  "type" : "folder"
-}, {
-  "name" : "10. Discriminant Analysis",
-  "type" : "folder"
-}, {
-  "name" : "11. Principal Component Analysis",
-  "type" : "folder"
-}, {
-  "name" : "12. Canonical Correlation Analysis",
-  "type" : "folder"
 } ]
