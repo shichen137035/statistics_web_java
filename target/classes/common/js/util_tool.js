@@ -33,9 +33,9 @@ export async function injectJsSequential(jsFiles) {
     for (const src of jsFiles) {
         await new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.type = "module";
             script.src = src;
-            script.async = false; // 禁止异步执行
+            script.type = "module";    // 建议强制用 module，避免依赖顺序问题
+            script.async = false;      // 禁止异步执行
             script.onload = () => resolve();
             script.onerror = () => reject(new Error(`Failed to load ${src}`));
             head.appendChild(script);

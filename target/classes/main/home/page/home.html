@@ -10,26 +10,40 @@
 
 <div id="language-switch"></div>
 
+<main>
 <h1 data-i18n="title"></h1>
-<p data-i18n="desc"></p>
+<p class="description-text" data-i18n="desc"></p>
 
 <div class="buttons">
-    <button data-i18n="btn.course"
-            onclick="location.href='/main/course/Introduction/page/Course introduction.html'"></button>
-    <button data-i18n="btn.concept"
-            onclick="location.href='../../concept/Introduction/page/Concept introduction.html'"></button>
+    <a class="btn-card" href="/main/course/Introduction/page/Course introduction.html">
+        <img src="../img/icon-course.png" alt="Course icon">
+<!--        <span class="title" data-i18n="btn.course"></span>-->
+        <span class="overlay">
+          <span data-i18n="btn.course.desc"></span>
+      </span>
+        <span class="label" data-i18n="btn.course">Course</span>
+    </a>
+
+    <a class="btn-card" href="../../concept/Introduction/page/Concept introduction.html">
+        <img src="../img/icon-concept.png" alt="Concept icon">
+<!--        <span class="title" data-i18n="btn.concept"></span>-->
+        <span class="overlay">
+          <span data-i18n="btn.concept.desc"></span>
+      </span>
+        <span class="label" data-i18n="btn.concept">Concept</span>
+    </a>
 </div>
 
-<p data-i18n="announcement"></p>
+<p class="footer-text" data-i18n="announcement"></p>
 
-<!--<script>-->
-<!--    // 加载 header-->
-<!--    fetch("/component/language_switch.html")-->
-<!--        .then(res => res.text())-->
-<!--        .then(data => {-->
-<!--            document.getElementById("language_switch").innerHTML = data;-->
-<!--        });-->
-<!--</script>-->
+</main>
+
+<footer class="site-footer">
+    <p>Created by SHI CHEN &amp; RINKA SAGAWA</p>
+    <p>Graduate School of Fundamental Science and Engineering, Waseda University</p>
+    <p>Feedback: <a href="mailto:shi.chen137035@akane.waseda.jp">shi.chen137035@akane.waseda.jp</a></p>
+    <p>© 2025 Foundations of Statistic – For educational use only</p>
+</footer>
 
 <script type="module" src="/common/js/global.js" defer></script>
 </body>

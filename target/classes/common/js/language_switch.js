@@ -1,4 +1,4 @@
-(function () {
+(async function () {
     const select = document.getElementById('lang-select');
     const STORAGE_KEY = "globalLang";
 
@@ -33,10 +33,24 @@
         return p;
     }
 
-    function makePageI18nUrl(lang) {
+
+    async function makePageI18nUrl(lang) {
         const p = normalizePathname();
-        let pp = `/i18n/${lang}${p}.json`
-        return pp;
+        let pp = `/i18n/${lang}${p}.json`;
+
+        try {
+            // 尝试获取文件 (仅 HEAD 请求即可)
+            const res = await fetch(pp, { method: 'HEAD' });
+            if (res.ok) {
+                return pp;  // 文件存在
+            } else {
+                console.warn(`i18n file not found: ${pp}, fallback to English`);
+                return `/i18n/en${p}.json`;
+            }
+        } catch (e) {
+            console.error(`Error checking i18n file ${pp}:`, e);
+            return `/i18n/en${p}.json`;
+        }
     }
 
     async function fetchJson(url) {
@@ -53,7 +67,7 @@
             `${base}/keyword.json`,
             `${base}/component.json`,
             `${base}/catalog.json`,
-            makePageI18nUrl(lang)
+            await makePageI18nUrl(lang)
         ];
         // console.log(urls);
         const results = await Promise.allSettled(urls.map(fetchJson));
@@ -116,6 +130,7 @@
             apply(dict, lang);
             storeLang(lang); // 保存全局语言
             if (select) select.value = lang; // 同步下拉框
+            document.dispatchEvent(new Event("i18nApplied"));
         } catch (e) {
             console.error(e);
         }
@@ -124,7 +139,9 @@
     // -----------------------------
     // 7. 启动逻辑
     const initialLang = getStoredLang();
-    setLang(initialLang);
+    await setLang(initialLang);
+    console.log("json file loaded");
+    document.dispatchEvent(new Event("i18nApplied"));
 
     if (select) {
         select.value = initialLang; // 页面有下拉框 → 初始值同步

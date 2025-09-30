@@ -7,40 +7,46 @@
     <style>
         .course-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 每行固定 2 列 */
+            grid-template-columns: repeat(2, 1fr);
             gap: 16px;
             margin: 20px 0;
         }
 
+        /* 基础按钮样式 */
         .course-grid .chapter-btn {
             width: 100%;
             height: 70px;
-            border: 2px solid #000;   /* 深黑色边框 */
+            border: 2px solid #000;
             border-radius: 10px;
             font-size: 1.2rem;
             font-weight: 600;
-            color: #fff;              /* 白色文字更显眼 */
+            color: #fff;
             cursor: pointer;
-
-            /* 渐变科技色 */
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6); /* 蓝 → 紫 */
-
-            /* 光晕和科技感阴影 */
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             box-shadow: 0 4px 12px rgba(59,130,246,0.4),
             0 0 12px rgba(139,92,246,0.5);
-
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
-        .course-grid .chapter-btn:hover {
+        /* Hover (仅正常按钮有效) */
+        .course-grid .chapter-btn:hover:not(:disabled) {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 6px 18px rgba(59,130,246,0.6),
-            0 0 16px rgba(139,92,246,0.7);
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
         }
 
-        .course-grid .chapter-btn:active {
-            transform: scale(0.97);
-            box-shadow: 0 2px 6px rgba(59,130,246,0.5);
+        /* 点击 (仅正常按钮有效) */
+        .course-grid .chapter-btn:active:not(:disabled) {
+            transform: translateY(1px) scale(0.97);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3) inset;
+        }
+
+        /* 禁用状态 */
+        .course-grid .chapter-btn:disabled {
+            background: #475569;  /* 灰色 */
+            color: #cbd5e1;
+            cursor: not-allowed;
+            box-shadow: none;
         }
 
     </style>

@@ -18,12 +18,24 @@
   "section.probspace.math2": "$$X: \\Omega \\to \\mathbb{R}, \\; \\omega \\mapsto x$$",
   "section.probspace.math3": "$$F_X(x) = P(X \\leq x), \\quad f_X(x) = F_X'(x)$$",
 
-  "section.sampling.title": "Sampling",
-  "section.sampling.code1": "sample(1:100, 1)\n## [1] 19",
-  "section.sampling.code2": "sample(1:100, 10)\n## [1] 4 27 68 12 91 ...",
-  "section.sampling.note": "Each sample corresponds to an element of the sample space.",
+  "r.sample.title": "Sampling",
+  "r.sample.desc": "The function `sample()` in R is used to randomly select elements from a given set, with or without replacement, and with optional probabilities.",
 
-  "section.quiz.title": "Quiz 1: Birthday Paradox",
+  "r.sample.ex1": "sample(1:100, 1)\n## [1] 19",
+  "r.sample.ex2": "sample(1:100, 10)\n## [1] 4 27 68 12 91 ...",
+  "r.sample.note1": "Each sample corresponds to an element of the sample space.",
+
+  "r.sample.more.title": "More Examples",
+  "r.sample.more.desc": "The behavior of `sample()` can be adjusted with parameters such as `replace` and `prob`.",
+
+  "r.sample.ex3": "sample(1:5, 10, replace = TRUE)\n## [1] 2 5 1 4 2 3 1 5 5 2",
+  "r.sample.note2": "`replace = TRUE` allows repeated sampling (sampling with replacement).",
+
+  "r.sample.ex4": "sample(c('A','B','C'), 10, replace = TRUE, prob = c(0.7, 0.2, 0.1))\n## [1] \"A\" \"A\" \"B\" \"A\" \"C\" ...",
+  "r.sample.note3": "The `prob` parameter specifies the probability of each element being selected.",
+
+
+  "section.quiz.title": "Quiz 1: Birthday Problem",
   "section.quiz.question": "In a class of n students, what is the probability that at least two share a birthday (365 days, ignore leap years)?",
   "section.quiz.desc1": "Compute by complement event:",
   "section.quiz.math1": "$$P(\\text{at least two}) = 1 - P(\\text{all distinct})$$",
@@ -32,8 +44,19 @@
   "section.quiz.desc3": "Thus:",
   "section.quiz.math3": "$$P(\\text{at least two}) = 1 - \\prod_{k=0}^{n-1}\\left(1 - \\tfrac{k}{365}\\right)$$",
 
-  "section.rquiz.title": "R Code: Birthday Probability",
-  "section.rquiz.code1": "birth <- function(n){\n  p <- 1 - prod(1 - (0:(n-1)/365))\n  return(p)\n}\n\nblist <- sapply(1:50, birth)",
-  "section.rquiz.note": "Optional: plot the probability curve (crosses 50% at around 23 people).",
-  "section.rquiz.code2": "plot(1:50, blist, type=\"b\", pch=19,\n     xlab=\"Class size (n)\",\n     ylab=\"P(at least two share a birthday)\",\n     main=\"Birthday Paradox\")\nabline(h=0.5, lty=2, col=\"gray\")"
+  "r.birthday.title": "Birthday Probability",
+  "r.birthday.desc": "We use R to compute and visualize the probability that at least two people in a group share the same birthday.",
+
+  "r.birthday.code": "# Function to compute the probability that at least two people \n# in a group of size n share the same birthday\nbirthday_prob <- function(n) {\n  # Complement event: 1 - P(all birthdays distinct)\n  p <- 1 - prod(1 - (0:(n - 1)) / 365)\n  return(p)\n}\n\n# Compute probabilities for group sizes from 1 to 50\nprob_list <- sapply(1:50, birthday_prob)\n\n# Plot the probability curve\nplot(1:50, prob_list, type = \"b\", pch = 19,\n     xlab = \"Class size (n)\",\n     ylab = \"P(at least two share a birthday)\",\n     main = \"Birthday Paradox\")\n\n# Add reference line at 50%\nabline(h = 0.5, lty = 2, col = \"gray\")\n\n# Print the first n where probability exceeds 0.5\nn_threshold <- min(which(prob_list > 0.5))\ncat(\"The probability exceeds 50% when class size is\", n_threshold, \"students.\\n\")",
+
+  "r.birthday.explain": "Explanation of the code:",
+  "r.birthday.point1": "`birthday_prob()` computes the probability using the complement event formula.",
+  "r.birthday.point2": "`prob_list` stores probabilities for class sizes from 1 to 50.",
+  "r.birthday.point3": "The plot shows the probability curve and adds a gray dashed line at 50%.",
+  "r.birthday.point4": "The code prints the minimum class size where the probability exceeds 50%.",
+
+  "r.birthday.conclusion": "Conclusion: With about 23 students in a class, the probability that at least two share a birthday already exceeds 50%.",
+
+  "r.birthday.caption": "Probability of at least two people have the same birthday in class."
+
 }

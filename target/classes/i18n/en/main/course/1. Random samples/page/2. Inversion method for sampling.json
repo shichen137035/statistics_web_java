@@ -52,7 +52,7 @@
   "algo.bisect.loop.step.update": "If $f(a)f(c)<0$ then $b := c$ else $a := c$",
   "algo.bisect.loop.step.iter": "Set $k := k+1$",
 
-  "algo.bisect.step.return": "3: return $c$",
+  "algo.bisect.step.return": "Return $c$",
 
   "proof.title": "Proof of inversion method",
   "theorem.label": "Theorem of inversion method",

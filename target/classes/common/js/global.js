@@ -10,10 +10,20 @@ await loadComponent("/component/language_switch.html", "language-switch");
         "/common/css/popup_style.css"
     ]);
 
+    document.addEventListener("i18nApplied", () => {
+        console.log("✅ All JSON loaded and applied");
+        injectJsSequential([
+            "/common/js/mathjax.js",
+            "/common/js/code_highlight.js"
+        ])
+    });
+
     // 注入全局 JS
     void injectJsSequential([
         // "/common/js/add_header.js",
         "/common/js/language_switch.js",
         "/common/js/keyword_popup.js"
     ]);
+
+
 })();

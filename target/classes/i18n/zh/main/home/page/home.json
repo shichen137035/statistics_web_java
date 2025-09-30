@@ -2,8 +2,12 @@
   "meta.title": "课程主页",
   "lang.label": "语言",
   "title": "统计学基础",
-  "desc": "欢迎来到 [[statistic]] 基础课程主页。请点击左侧的按钮进入课程主内容的学习，或者点击右侧按钮，查看此课程所涉及的概念。",
+  "desc": "这是 [[statistic]] 基础的主页。点击左边的按钮进入课程的主要内容，或者点击右边的按钮查看课程涉及的概念。",
   "btn.course": "课程",
+  "btn.course.desc": "按顺序学习的课程路径。",
+
   "btn.concept": "概念",
-  "announcement": "一个使用 R 学习计算统计学的网站。"
+  "btn.concept.desc": "像字典一样介绍课程涉及的概念。",
+
+  "announcement": "一个用于通过 R 学习计算统计的网页。"
 }

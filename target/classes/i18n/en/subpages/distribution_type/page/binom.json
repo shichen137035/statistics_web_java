@@ -1,0 +1,16 @@
+{
+  "meta.title": "Binomial Distribution (Subpage)",
+  "binom.title": "Binomial Distribution",
+
+  "binom.section1.title": "1. Definition",
+  "binom.section1.intro": "Models the number of successes in n independent Bernoulli(p) trials.",
+  "binom.section1.rel1": "Special case: n=1 gives the Bernoulli distribution.",
+
+  "binom.section2.title": "2. PMF and CDF",
+  "binom.section2.pmf": "PMF: $$P(X=k)=\\binom{n}{k}p^k(1-p)^{n-k}$$",
+  "binom.section2.cdf": "CDF: $$F(k)=\\sum_{i=0}^k \\binom{n}{i}p^i(1-p)^{n-i}$$",
+
+  "binom.section3.title": "3. Graphs",
+  "binom.section3.pmfcaption": "PMF",
+  "binom.section3.cdfcaption": "CDF"
+}

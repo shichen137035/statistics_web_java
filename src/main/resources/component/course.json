@@ -42,13 +42,13 @@
   "name" : "2. Sufficient Statistic",
   "type" : "folder",
   "children" : [ {
-    "name" : "1 Sufficient statistic.html",
+    "name" : "1. Sufficient statistic.html",
     "type" : "file",
-    "path" : "2. Sufficient Statistic/page/1 Sufficient statistic.html"
+    "path" : "2. Sufficient Statistic/page/1. Sufficient statistic.html"
   }, {
-    "name" : "2 Basu's theorem.html",
+    "name" : "2. Basu's theorem.html",
     "type" : "file",
-    "path" : "2. Sufficient Statistic/page/2 Basu's theorem.html"
+    "path" : "2. Sufficient Statistic/page/2. Basu's theorem.html"
   } ]
 }, {
   "name" : "3. Estimator",

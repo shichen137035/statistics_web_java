@@ -1,0 +1,73 @@
+/* === Container 保持一致 === */
+body{
+    background: linear-gradient(to bottom, #fff1f2, #ffffff); /* rose-50 渐变到白色 */
+}
+main.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+
+}
+
+/* === Headings === */
+h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #111827; /* slate-900 */
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-bottom: 2px solid #e5e7eb; /* slate-200 */
+    padding-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #111827;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    border-left: 4px solid #ef4444; /* red-500 替换蓝色 */
+    padding-left: 0.5rem;
+}
+
+h3 {
+    font-size: 1.2rem;
+    color: #dc2626; /* red-600 替换蓝色 */
+}
+
+/* === Paragraphs & Lists 保持一致 === */
+p {
+    margin: 0.75rem 0;
+}
+
+ul {
+    margin: 0.5rem 0 1rem 1.5rem;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
+/* === Figures 新增样式 === */
+figure {
+    background: #f9fafb; /* slate-50 */
+    border: 1px solid #e5e7eb; /* slate-200 */
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+}
+
+figure figcaption {
+    font-size: 0.9rem;
+    color: #6b7280; /* slate-500 */
+    margin-top: 0.5rem;
+}

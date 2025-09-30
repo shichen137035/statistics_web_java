@@ -1,0 +1,16 @@
+{
+  "meta.title": "Logistic Distribution (Subpage)",
+  "logis.title": "Logistic Distribution",
+
+  "logis.section1.title": "1. Definition",
+  "logis.section1.intro": "A location–scale distribution on $\\mathbb{R}$ with CDF $F(x)=\\tfrac{1}{1+e^{-(x-\\mu)/s}}$; heavier tails than Normal.",
+  "logis.section1.rel1": "Standard Logistic when $\\mu=0, s=1$.",
+
+  "logis.section2.title": "2. PDF and CDF",
+  "logis.section2.pdf": "PDF: $$f(x)=\\frac{e^{-(x-\\mu)/s}}{s\\,[1+e^{-(x-\\mu)/s}]^{2}}$$",
+  "logis.section2.cdf": "CDF: $$F(x)=\\frac{1}{1+e^{-(x-\\mu)/s}}$$",
+
+  "logis.section3.title": "3. Graphs",
+  "logis.section3.pdfcaption": "PDF",
+  "logis.section3.cdfcaption": "CDF"
+}

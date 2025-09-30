@@ -83,29 +83,38 @@ public class CourseController {
 
             @SuppressWarnings("unchecked")
             List<Map<String, Object>> children = (List<Map<String, Object>>) node.get("children");
-            if (children != null && !children.isEmpty()) {
-                Map<String, Object> firstFile = children.get(0);
-                String path = (String) firstFile.get("path");
 
-                // —— 拆分序号与标题 —— //
-                NameParts np = splitSeqAndTitle(name, false);
-                String seq = np.seq;
-                String title = np.title;
-                String i18nKey = "catalogtitle." + title;
+            // —— 拆分序号与标题 —— //
+            NameParts np = splitSeqAndTitle(name, false);
+            String seq = np.seq;
+            String title = np.title;
+            String i18nKey = "catalogtitle." + title;
 
+            boolean hasContent = (children != null && !children.isEmpty());
+            String path = hasContent ? (String) children.get(0).get("path") : null;
+
+            if (hasContent) {
+                // 正常按钮（带链接）
                 sb.append("  <a href=\"/main/course/")
                         .append(esc(path)).append("\" class=\"btn-link\">")
                         .append("<button class=\"chapter-btn\">");
+            } else {
+                // 禁用按钮（无链接，置灰）
+                sb.append("  <button class=\"chapter-btn\" disabled>");
+            }
 
-                if (!seq.isEmpty()) {
-                    sb.append("<span class=\"chapter-seq\">")
-                            .append(esc(seq)).append("</span> ");
-                }
-                sb.append("<span class=\"chapter-title\" data-i18n=\"")
-                        .append(esc(i18nKey)).append("\">")
-                        .append(esc(title)).append("</span>");
+            if (!seq.isEmpty()) {
+                sb.append("<span class=\"chapter-seq\">")
+                        .append(esc(seq)).append("</span> ");
+            }
+            sb.append("<span class=\"chapter-title\" data-i18n=\"")
+                    .append(esc(i18nKey)).append("\">")
+                    .append(esc(title)).append("</span>");
 
+            if (hasContent) {
                 sb.append("</button></a>\n");
+            } else {
+                sb.append("</button>\n");
             }
         }
 

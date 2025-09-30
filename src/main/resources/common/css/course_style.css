@@ -64,6 +64,15 @@ blockquote {
     color: #374151; /* slate-700 */
 }
 
+main img {
+    max-width: 100%;      /* 不超过正文宽度 */
+    height: auto;         /* 保持比例 */
+    display: block;       /* 避免行内元素留空隙 */
+    margin: 16px auto;    /* 居中并留出上下间距 */
+    border-radius: 6px;   /* 稍微圆角，更美观，可选 */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* 添加淡淡阴影，可选 */
+}
+
 /* === Code Blocks === */
 /* 覆盖 Prism 默认背景色，换成浅绿色 */
 
@@ -104,6 +113,7 @@ hr {
     border-top: 1px solid #e5e7eb;
     margin: 2rem 0;
 }
+
 
 /* === Responsive === */
 @media (max-width: 600px) {

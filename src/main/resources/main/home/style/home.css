@@ -1,7 +1,7 @@
 /* 整体背景：蓝紫渐变 */
 body {
     margin: 0;
-    min-height: 100vh;
+    min-height: 94vh;
     /*background: linear-gradient(135deg, #3b82f6, #8b5cf6); !* 蓝 → 紫 *!*/
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@ p {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    max-width: 960px;            /* 可按需调整正文宽度 */
+    max-width: 1480px;            /* 可按需调整正文宽度 */
     padding: 0 16px;
 }
 
@@ -30,43 +30,51 @@ h1 {
 }
 p{
     font-size: 1.2em;
-    color: #475569;  /* 深灰蓝 */
+    color: #0d6efd;  /* 深灰蓝 */
     margin: 0 auto 30px;
     max-width: 720px;
     line-height: 1.6;
 }
 
-/* 按钮容器：让间距更大 */
 .buttons {
     display: flex;
     justify-content: center;
-    gap: 160px;       /* 按钮之间间距加大 */
-    margin-top: 40px;
-    margin-bottom: 30px;
+    gap: 80px;       /* 左右间距 */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-direction: row; /* ✅ 确保横向排列 */
+    flex-wrap: nowrap;   /* ✅ 禁止自动换行 */
 }
 
-/* 按钮样式：固定大小 + 蓝紫渐变 */
-.buttons button {
-    width: 160px;                 /* 固定宽度 */
-    height: 80px;                /* 固定高度 */
-    font-size: 2rem;
-    font-weight: 600;
+/* 卡片按钮 */
+.buttons .btn-card {
+    position: relative;
+    width: 240px;
+    height: 240px;
     border: none;
-    border-radius: 12px;
-    color: #fff;
+    border-radius: 16px;
     cursor: pointer;
-
-    /* 强烈蓝紫渐变 */
+    overflow: hidden;
+    padding: 0;
     background: linear-gradient(135deg, #2563eb, #4f46e5, #8b5cf6);
-    background-size: 200% 200%;   /* 增强渐变层次 */
+    background-size: 200% 200%;
     box-shadow: 0 4px 12px rgba(59,130,246,0.5),
     0 0 16px rgba(139,92,246,0.6);
-
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-position 0.5s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
 }
 
-/* 悬停效果：浮动+渐变动画 */
-.buttons button:hover {
+/* 图标占满 */
+.btn-card img {
+    width: 100%;     /* 相对按钮宽度缩放 */
+    /*height: auto;   !* 保持比例 *!*/
+    max-width: 240px; /* 限制最大宽度 */
+    max-height: 240px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* 悬停效果 */
+.buttons .btn-card:hover {
     transform: translateY(-4px) scale(1.05);
     box-shadow: 0 6px 18px rgba(59,130,246,0.7),
     0 0 20px rgba(139,92,246,0.8);
@@ -74,22 +82,133 @@ p{
 }
 
 /* 点击效果 */
-.buttons button:active {
+.buttons .btn-card:active {
     transform: scale(0.9);
+}
+
+/*!* 左上角始终显示的标题 *!*/
+/*.buttons .btn-card .title {*/
+/*    position: absolute;*/
+/*    top: 8px;*/
+/*    left: 12px;*/
+/*    font-size: 0.9rem;*/
+/*    font-weight: 600;*/
+/*    color: #fff;*/
+/*    text-shadow: 0 2px 4px rgba(0,0,0,0.5);*/
+/*    pointer-events: none;*/
+/*}*/
+
+/* 让 label 微微闪动（呼吸感） */
+.btn-card .label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #c2185b;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    pointer-events: none;
+
+    /* 动画 */
+    animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* 定义动画 */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 0.85;
+        transform: translate(-50%, -50%) scale(1.05);
+    }
+}
+
+
+/* 下方悬浮遮罩 */
+.buttons .btn-card .overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+/* 悬浮时显示遮罩，同时可让中间大字淡出 */
+.buttons .btn-card:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+.buttons .btn-card:hover .label {
+    opacity: 0;
+}
+
+.footer-text {
+    font-family: "Georgia", "Times New Roman", serif;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: #374151;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.description-text {
+    font-family: "Georgia", "Times New Roman", serif; /* 保持学院风 */
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: #444;   /* 比 footer 深灰更轻 */
+    line-height: 1.6;
+    letter-spacing: 0.3px; /* 比脚注更紧凑 */
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 24px;
+}
+
+.site-footer {
+    width: 100%;              /* 铺满屏幕 */
+    padding: 20px;
+    font-size: 0.9rem;
+    background-color: #111827; /* 黑色底 */
+    color: #0ea5e9;            /* 天蓝色文字 */
+    border-top: 2px solid #2d1f33;
+    line-height: 1.6;
+    margin-top: auto;          /* 保证推到最底部 */
+    box-sizing: border-box;    /* 防止 padding 影响宽度 */
+}
+
+.site-footer p {
+    text-align: left;
+    max-width: none;  /* 取消正文居中限制 */
+    margin: 6px 0;
+    padding: 0;
+}
+
+.site-footer a {
+    color: #0ea5e9;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
 }
 
 /* 小屏优化 */
 @media (max-width: 560px) {
-    h1 { font-size: 1.8em; }
     .buttons {
         flex-direction: column;
-        gap: 20px; /* 小屏时按钮上下堆叠 */
+        gap: 20px;
         margin-top: 60px;
     }
-    .buttons button {
+    .buttons .btn-card {
         width: 100%;
         max-width: 260px;
-        height: 80px;
-        font-size: 1.2rem;
+        height: 160px;
     }
 }

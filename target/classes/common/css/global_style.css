@@ -47,3 +47,14 @@ h3 {
     color: #005fa3;            /* hover 时稍微深蓝 */
 }
 
+
+
+figcaption {
+    margin-top: 8px;
+    font-family: "Georgia", "Times New Roman", serif; /* 和正文区分开，学院风 */
+    font-size: 0.95rem;
+    font-style: italic;   /* 常见的说明风格 */
+    color: #4b5563;       /* 灰色，弱化一点 */
+    text-align: center;   /* 居中 */
+}
+

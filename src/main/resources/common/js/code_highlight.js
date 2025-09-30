@@ -30,5 +30,5 @@
         };
     };
     document.head.appendChild(script);
-    console.log("successfully load latex format.")
+    console.log("successfully load code format.")
 })();

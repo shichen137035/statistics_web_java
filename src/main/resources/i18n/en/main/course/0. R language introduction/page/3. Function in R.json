@@ -58,7 +58,7 @@
 
   "section.loop.desc": "R provides loops such as for and while. In practice, vectorized operations are preferred, but loops are still useful for iterative tasks.",
 
-  "section.dates.desc": "R has built-in support for dates and times. You can create dates using as.Date() and perform operations such as differences and formatting.",
+  "section.dates.desc": "R has built-in support for dates and times. You can create dates using as. Date() and perform operations such as differences and formatting.",
 
   "section.pyt.desc": "As a simple example, we can compute values based on the Pythagorean theorem using R. This demonstrates how R can be used for mathematical calculations.",
 

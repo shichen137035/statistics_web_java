@@ -2,7 +2,7 @@
     position: absolute;
     top: var(--top, 0px);
     left: var(--left, 0px);
-    width: 320px;       /* 初始宽度，收到尺寸后会被覆盖 */
+    width: 480px;       /* 初始宽度，收到尺寸后会被覆盖 */
     max-width: 90vw;
     background: #fff;
     border: 1px solid #d0d7de;
