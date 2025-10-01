@@ -30,12 +30,17 @@
         if (p === '/') return '/index';
         if (p.endsWith('/')) p += 'index';
         p = p.replace(/\.html?$/i, '');
+
+        // ✅ 新增逻辑：把 URL 编码解码回来（如 %20 -> 空格）
+        p = decodeURIComponent(p);
+
         return p;
     }
 
 
     async function makePageI18nUrl(lang) {
         const p = normalizePathname();
+        console.log("path:",p)
         let pp = `/i18n/${lang}${p}.json`;
 
         try {
@@ -63,14 +68,17 @@
     // 2. 加载所有字典
     async function loadAllDicts(lang) {
         const base = `/i18n/${lang}`;
+        const pp =await makePageI18nUrl(lang);
         const urls = [
             `${base}/keyword.json`,
             `${base}/component.json`,
             `${base}/catalog.json`,
-            await makePageI18nUrl(lang)
+             pp
         ];
-        // console.log(urls);
+        // console.log("pp:",pp)
+        console.log(urls);
         const results = await Promise.allSettled(urls.map(fetchJson));
+        console.log("Finding result:",results);
         const dicts = results.map(r => (r.status === 'fulfilled' ? r.value : {}));
 
 
