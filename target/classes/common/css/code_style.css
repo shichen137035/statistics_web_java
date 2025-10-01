@@ -1,9 +1,74 @@
-/* 覆盖 Prism 默认背景色，换成浅绿色 */
+.code-block {
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 1em 0;
+    background: #f0fff4;      /* 和 pre 一致 */
+}
+
+/* header 行用同样背景色 */
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f0fff4;      /* 和 pre 一致 */
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 0.8em;
+    font-family: monospace;
+    color: #1a202c;
+    margin-bottom: 0;
+    border-bottom: 1px solid #cce4f7;  /* 淡蓝色细线 */
+}
+
+.code-header .lang-label {
+    font-weight: bold;
+}
+
+.code-header .copy-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 2px;
+    opacity: 0.7;
+}
+
+.code-header .copy-btn:hover {
+    opacity: 1;
+}
+
+.code-header .copy-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.code-block pre {
+    margin-top: 0;                 /* 去掉默认外边距 */
+    padding-left: 8px;
+    padding-right: 8px;
+    background: #f0fff4;       /* 改成和 header 一样的背景 */
+    overflow-x: auto;
+}
+
+
 pre[class*="language-"],
 code[class*="language-"] {
     background: #f0fff4 !important;  /* very light green */
     color: #1a202c;                  /* dark gray text for可读性 */
+}pre[class*="language-"],
+ code[class*="language-"] {
+     background: #f0fff4 !important;  /* very light green */
+     color: #1a202c;                  /* dark gray text for可读性 */
+ }
+
+/* 内联代码块的浅绿色背景 */
+:not(pre) > code[class*="language-"] {
+    background: #e6fffa !important;  /* slightly aqua green */
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
 }
+
 
 /* 内联代码块的浅绿色背景 */
 :not(pre) > code[class*="language-"] {
