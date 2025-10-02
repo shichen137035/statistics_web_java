@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" data-page="home" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Course Homepage</title>
+    <link rel="stylesheet" href="./home/style/home.css">
+</head>
+<body>
+
+<div id="language-switch"></div>
+
+<main>
+<h1 data-i18n="title"></h1>
+<p class="description-text" data-i18n="desc"></p>
+
+<div class="buttons">
+    <a class="btn-card" href="/main/course/Introduction/page/Course Introduction.html">
+        <img src="./home/img/icon-course.png" alt="Course icon">
+<!--        <span class="title" data-i18n="btn.course"></span>-->
+        <span class="overlay">
+          <span data-i18n="btn.course.desc"></span>
+      </span>
+        <span class="label" data-i18n="btn.course">Course</span>
+    </a>
+
+    <a class="btn-card" href="/main/concept/Introduction/page/Concept introduction.html">
+        <img src="./home/img/icon-concept.png" alt="Concept icon">
+<!--        <span class="title" data-i18n="btn.concept"></span>-->
+        <span class="overlay">
+          <span data-i18n="btn.concept.desc"></span>
+      </span>
+        <span class="label" data-i18n="btn.concept">Concept</span>
+    </a>
+</div>
+
+<p class="footer-text" data-i18n="announcement"></p>
+
+</main>
+
+<footer class="site-footer">
+    <p>Created by SHI CHEN &amp; RINKA SAGAWA</p>
+    <p>Graduate School of Fundamental Science and Engineering, Waseda University</p>
+    <p>Feedback: <a href="mailto:shi.chen137035@akane.waseda.jp">shi.chen137035@akane.waseda.jp</a></p>
+    <p>© 2025 Foundations of Statistic – For educational use only</p>
+</footer>
+
+<script type="module" src="/common/js/global.js" defer></script>
+</body>
+</html>

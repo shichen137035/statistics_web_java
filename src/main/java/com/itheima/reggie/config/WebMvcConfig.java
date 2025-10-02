@@ -31,6 +31,7 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
           registry.addResourceHandler("/common/**").addResourceLocations("classpath:/common/");
           registry.addResourceHandler("/i18n/**").addResourceLocations("classpath:/i18n/");
           registry.addResourceHandler("/subpages/**").addResourceLocations("classpath:/subpages/");
+        registry.addResourceHandler("/**").addResourceLocations("classpath:/");
 
     }
 
