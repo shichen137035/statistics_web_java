@@ -13,11 +13,12 @@
 
         // 支持的语言列表（可以根据你项目调整）
         const supported = ["en", "ja", "zh"];
-        if (supported.includes(browserLang)) {
-            return browserLang;
-        }
+        // if (supported.includes(browserLang)) {
+        //     return browserLang;
+        // }
         return "en"; // 都不符合 → 回退英语
     }
+
     function storeLang(lang) {
         localStorage.setItem(STORAGE_KEY, lang);
     }
@@ -68,20 +69,33 @@
     // 2. 加载所有字典
     async function loadAllDicts(lang) {
         const base = `/i18n/${lang}`;
-        const pp =await makePageI18nUrl(lang);
+        const pp = await makePageI18nUrl(lang);
+
+        // 获取当前页面路径
+        const pathname = window.location.pathname || "";
+
+        // 固定的几个字典
         const urls = [
             `${base}/keyword.json`,
             `${base}/component.json`,
-            `${base}/catalog.json`,
-             pp
         ];
-        // console.log("pp:",pp)
-        console.log(urls);
+
+        // 根据路径动态追加
+        if (pathname.startsWith("/main/course")) {
+            urls.push(`${base}/catalog.json`);
+        } else if (pathname.startsWith("/main/concept")) {
+            urls.push(`${base}/concept_dic.json`);
+        }
+
+        // 页面专属字典（最高优先级）
+        urls.push(pp);
+
+        console.log("加载的字典列表:", urls);
+
         const results = await Promise.allSettled(urls.map(fetchJson));
-        console.log("Finding result:",results);
-        const dicts = results.map(r => (r.status === 'fulfilled' ? r.value : {}));
+        const dicts = results.map(r => (r.status === "fulfilled" ? r.value : {}));
 
-
+        // 合并所有字典
         return Object.assign({}, ...dicts);
     }
 

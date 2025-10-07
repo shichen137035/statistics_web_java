@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import com.fasterxml.jackson.core.type.TypeReference;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.nio.file.*;
@@ -18,9 +18,12 @@ import java.nio.charset.StandardCharsets;
 public class CourseController {
 
     private final Path courseRoot = Paths.get("src/main/resources/main/course");
-    private final Path jsonFile = Paths.get("src/main/resources/component/course.json");
+    private final Path conceptRoot = Paths.get("src/main/resources/main/concept");
+    private final Path jsonFile_course = Paths.get("src/main/resources/component/course.json");
+    private final Path jsonFile_concept = Paths.get("src/main/resources/component/concept.json");
     private final Path navFile = Paths.get("src/main/resources/component/course_nav_rendered.html");
     private final Path buttonsFile = Paths.get("src/main/resources/component/course_buttons.html");
+    private final Path conceptComponentFile = Paths.get("src/main/resources/component/concept_component.html");
 
     // 缓存目录结构
     private List<Map<String, Object>> cachedStructure;
@@ -30,9 +33,14 @@ public class CourseController {
         System.out.println(">>> 应用启动，初始化课程目录结构...");
         cachedStructure = walkDir(courseRoot, 0);
 
-        generateCourseJsonFile();
+        generateCoursejsonFile(jsonFile_course);
         generateCourseHtmlFile();
         generateCourseButtonsFile();
+
+        cachedStructure = walkDir(conceptRoot, 0);
+        generateCoursejsonFile(jsonFile_concept);
+        generateConceptComponent(4);
+        generateAllSectionIndex();
     }
 
     /** API: 获取目录结构 */
@@ -43,19 +51,188 @@ public class CourseController {
 
     /** API: 刷新目录结构 */
     @GetMapping("/refresh")
-    public String refreshStructure() throws IOException {
-        cachedStructure = walkDir(courseRoot, 0);
+    public String refreshStructure(Path file_root) throws IOException {
+        cachedStructure = walkDir(file_root, 0);
         return "目录结构已刷新";
     }
 
     /** 生成 JSON 文件 */
     @GetMapping("/generateJson")
-    public String generateCourseJsonFile() throws IOException {
-        Files.createDirectories(jsonFile.getParent());
+    public String generateCoursejsonFile(Path file_root) throws IOException {
+        Files.createDirectories(file_root.getParent());
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writerWithDefaultPrettyPrinter().writeValue(jsonFile.toFile(), cachedStructure);
-        return "课程目录 JSON 已生成: " + jsonFile.toAbsolutePath();
+        mapper.writerWithDefaultPrettyPrinter().writeValue(file_root.toFile(), cachedStructure);
+        return "课程目录 JSON 已生成: " + file_root.toAbsolutePath();
     }
+
+
+    @GetMapping("/generateConcept")
+    public String generateConceptComponent(int m) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Map<String, Object>> conceptStructure =
+                mapper.readValue(jsonFile_concept.toFile(),
+                        new TypeReference<List<Map<String, Object>>>() {});
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("<section class=\"concept-grid\">\n");
+
+        for (Map<String, Object> node : conceptStructure) {
+            String type = (String) node.get("type");
+            String name = (String) node.get("name");
+
+            if (!"folder".equals(type)) continue;
+            if ("Introduction".equalsIgnoreCase(name)) continue;
+
+            @SuppressWarnings("unchecked")
+            List<Map<String, Object>> children = (List<Map<String, Object>>) node.get("children");
+
+            sb.append("  <div class=\"concept-group\">\n");  // 每个文件夹一个组
+
+            if (children == null || children.isEmpty()) {
+                // 没有内容 → 禁用主按钮
+                sb.append("    <button class=\"concept-btn\" disabled data-i18n=\"concept-title.")
+                        .append(esc(name))
+                        .append("\"></button>\n");
+            } else {
+                // 主按钮 → 指向 section_index_template.html
+                String basePath = (String) children.get(0).get("path");
+                String folderPath = basePath.substring(0, basePath.lastIndexOf("/"));
+                String sectionIndexPath = folderPath + "/section_index.html";
+
+                sb.append("    <a href=\"/main/concept/")
+                        .append(esc(sectionIndexPath))
+                        .append("\" class=\"btn-link\">")
+                        .append("<button class=\"concept-btn\" data-i18n=\"concept-title.")
+                        .append(esc(name))
+                        .append("\"></button></a>\n");
+
+                // 子按钮容器
+                sb.append("    <div class=\"sub-btns\">\n");
+
+                int count = 0;
+                for (Map<String, Object> child : children) {
+                    String filePath = (String) child.get("path");
+                    if (filePath.endsWith("section_index_template.html")) continue;
+                    if (count >= m) break;
+
+                    String fileBaseName = filePath.substring(filePath.lastIndexOf("/") + 1).replace(".html", "");
+
+                    sb.append("      <a href=\"/main/concept/")
+                            .append(esc(filePath))
+                            .append("\" class=\"btn-link sub-btn\">")
+                            .append("<button class=\"concept-sub-btn\" data-i18n=\"concept-section.")
+                            .append(esc(fileBaseName))
+                            .append("\"></button></a>\n");
+
+                    count++;
+                }
+
+                sb.append("    </div>\n"); // 子按钮容器结束
+            }
+
+            sb.append("  </div>\n"); // 组结束
+        }
+
+        sb.append("</section>\n");
+        Files.createDirectories(conceptComponentFile.getParent());
+        Files.write(conceptComponentFile, sb.toString().getBytes(StandardCharsets.UTF_8));
+        return "概念 HTML 组件已生成: " + conceptComponentFile.toAbsolutePath();
+    }
+
+    @GetMapping("/generateSectionIndex")
+    public String generateSectionIndex(String folderName) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Map<String, Object>> conceptStructure =
+                mapper.readValue(jsonFile_concept.toFile(),
+                        new TypeReference<List<Map<String, Object>>>() {});
+
+        // 找到目标文件夹
+        Map<String, Object> targetFolder = conceptStructure.stream()
+                .filter(node -> "folder".equals(node.get("type")))
+                .filter(node -> folderName.equals(node.get("name")))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("在 concept.json 中未找到文件夹: " + folderName));
+
+        @SuppressWarnings("unchecked")
+        List<Map<String, Object>> children = (List<Map<String, Object>>) targetFolder.get("children");
+        if (children == null || children.isEmpty()) {
+            throw new IllegalStateException("文件夹 " + folderName + " 没有任何页面");
+        }
+
+        // 确定目标路径
+        Path folderPath = conceptRoot.resolve(folderName).resolve("page");
+        Path sectionIndexPath = folderPath.resolve("section_index.html");
+        Path templatePath = Paths.get("/component/section_index_template.html");
+
+        // 如果不存在，复制模板
+        if (!Files.exists(sectionIndexPath)) {
+            Files.createDirectories(folderPath);
+            String template = new String(Files.readAllBytes(templatePath), StandardCharsets.UTF_8);
+            Files.write(sectionIndexPath, template.getBytes(StandardCharsets.UTF_8));
+        }
+
+        // 构造需要写入的 HTML 内容
+        StringBuilder innerHtml = new StringBuilder();
+        innerHtml.append("<h1 data-i18n=\"concept-title.").append(esc(folderName)).append("\"></h1>\n");
+        innerHtml.append("<ul class=\"concept-list\">\n");
+
+        for (Map<String, Object> child : children) {
+            String filePath = (String) child.get("path");
+            if (filePath.endsWith("section_index.html")) continue;
+
+            String fileBaseName = filePath.substring(filePath.lastIndexOf("/") + 1).replace(".html", "");
+            innerHtml.append("  <li><a href=\"/main/concept/")
+                    .append(esc(filePath))
+                    .append("\" data-i18n=\"concept-section.")
+                    .append(esc(fileBaseName))
+                    .append("\"></a></li>\n");
+        }
+        innerHtml.append("</ul>\n");
+
+        // 读取原始 section_index.html
+        String html = new String(Files.readAllBytes(sectionIndexPath), StandardCharsets.UTF_8);
+
+        // 简单替换 id=concept-list-domain 内容（这里假设模板有占位符）
+        String updated = html.replaceAll(
+                "(?s)(<div id=\"concept-list-domain\">).*?(</div>)",
+                "$1\n" + innerHtml.toString() + "$2"
+        );
+
+        Files.write(sectionIndexPath, updated.getBytes(StandardCharsets.UTF_8));
+
+        return "section_index.html 已生成/更新: " + sectionIndexPath.toAbsolutePath();
+    }
+
+    @GetMapping("/generateAllSectionIndex")
+    public String generateAllSectionIndex() throws IOException {
+        // 读取 concept.json
+        ObjectMapper mapper = new ObjectMapper();
+        List<Map<String, Object>> conceptStructure =
+                mapper.readValue(jsonFile_concept.toFile(),
+                        new TypeReference<List<Map<String, Object>>>() {});
+
+        StringBuilder sb = new StringBuilder();
+
+        for (Map<String, Object> node : conceptStructure) {
+            if (!"folder".equals(node.get("type"))) continue;
+
+            String name = (String) node.get("name");
+            if ("Introduction".equalsIgnoreCase(name)) continue; // 跳过 Introduction
+
+            try {
+                // 直接复用你已实现的“单文件夹生成”函数
+                String msg = generateSectionIndex(name);
+                sb.append(msg).append('\n');
+            } catch (Exception e) {
+                sb.append("生成失败 [").append(name).append("]: ")
+                        .append(e.getMessage()).append('\n');
+            }
+        }
+
+        return sb.toString();
+    }
+
+
 
     /** 生成目录 HTML */
     @GetMapping("/generateNav")
@@ -163,7 +340,7 @@ public class CourseController {
                                         fileNode.put("name", fileName);
                                         fileNode.put("type", "file");
                                         fileNode.put("path",
-                                                courseRoot.relativize(f).toString().replace("\\", "/"));
+                                                dir.relativize(f).toString().replace("\\", "/"));
                                         children.add(fileNode);
                                     });
                         }

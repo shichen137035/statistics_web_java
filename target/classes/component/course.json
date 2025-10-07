@@ -2,9 +2,9 @@
   "name" : "Introduction",
   "type" : "folder",
   "children" : [ {
-    "name" : "Course Introduction.html",
+    "name" : "Course introduction.html",
     "type" : "file",
-    "path" : "Introduction/page/Course Introduction.html"
+    "path" : "Introduction/page/Course introduction.html"
   } ]
 }, {
   "name" : "0. R Language Introduction",

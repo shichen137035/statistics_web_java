@@ -1,0 +1,37 @@
+[ {
+  "name" : "Introduction",
+  "type" : "folder",
+  "children" : [ {
+    "name" : "Concept introduction.html",
+    "type" : "file",
+    "path" : "Introduction/page/Concept introduction.html"
+  } ]
+}, {
+  "name" : "distribution_type",
+  "type" : "folder",
+  "children" : [ {
+    "name" : "beta.html",
+    "type" : "file",
+    "path" : "distribution_type/page/beta.html"
+  }, {
+    "name" : "binom.html",
+    "type" : "file",
+    "path" : "distribution_type/page/binom.html"
+  }, {
+    "name" : "logis.html",
+    "type" : "file",
+    "path" : "distribution_type/page/logis.html"
+  }, {
+    "name" : "nbinom.html",
+    "type" : "file",
+    "path" : "distribution_type/page/nbinom.html"
+  } ]
+}, {
+  "name" : "statistic",
+  "type" : "folder",
+  "children" : [ {
+    "name" : "statistic.html",
+    "type" : "file",
+    "path" : "statistic/page/statistic.html"
+  } ]
+} ]

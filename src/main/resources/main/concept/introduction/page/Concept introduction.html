@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Concept Homepage</title>
+    <link rel="stylesheet" href="../style/concept-home.css">
+</head>
+<body>
+<div id="language-switch"></div>
+
+<h1 data-i18n="concept-title"></h1>
+
+<main>
+    <section id="concept-list"></section>
+</main>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        fetch("/component/concept_component.html")   // 后端生成好的静态文件
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById("concept-list").innerHTML = html;
+            })
+            .catch(err => console.error("加载按钮失败:", err));
+    });
+</script>
+
+<script type="module" src="/common/js/concept.js" defer></script>
+</body>
+</html>
