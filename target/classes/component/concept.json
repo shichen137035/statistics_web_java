@@ -25,11 +25,19 @@
     "name" : "nbinom.html",
     "type" : "file",
     "path" : "distribution_type/page/nbinom.html"
+  }, {
+    "name" : "section_index.html",
+    "type" : "file",
+    "path" : "distribution_type/page/section_index.html"
   } ]
 }, {
   "name" : "statistic",
   "type" : "folder",
   "children" : [ {
+    "name" : "section_index.html",
+    "type" : "file",
+    "path" : "statistic/page/section_index.html"
+  }, {
     "name" : "statistic.html",
     "type" : "file",
     "path" : "statistic/page/statistic.html"

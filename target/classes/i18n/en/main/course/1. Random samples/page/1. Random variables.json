@@ -57,6 +57,16 @@
 
   "r.birthday.conclusion": "Conclusion: With about 23 students in a class, the probability that at least two share a birthday already exceeds 50%.",
 
-  "r.birthday.caption": "Probability of at least two people have the same birthday in class."
+  "r.birthday.caption": "Probability of at least two people have the same birthday in class.",
+
+  "def-combination.title": "Combination Formula (Definition)",
+  "def-probspace.title": "Probability Space (Definition)",
+  "def-rv.title": "Random Variable (Definition)",
+  "def-cdf.title": "Distribution Function (Definition)",
+  "thm-birthday.title": "Birthday Problem (Theorem)",
+  "remark-sample.title": "Interpretation",
+  "remark-birthday.title": "Explanation of Code",
+  "remark-conclusion.title": "Conclusion"
+
 
 }

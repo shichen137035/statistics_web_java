@@ -1,10 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title data-i18n="meta.title">Sufficient Statistics</title>
+
+    <!-- 新增：定理风格样式 -->
+    <link rel="stylesheet" href="/common/css/theorem_style.css"/>
 </head>
 <body>
+<!-- Global placeholders (filled by course.js) -->
+<div id="language-switch"></div>
+<div id="course-nav"></div>
+<div id="pager"></div>
 
+<main class="container" data-ch="3">
+    <!-- Intro -->
+    <h1 data-i18n="intro.title">Sufficient Statistics: Why and What</h1>
+    <p data-i18n="intro.lead"></p>
+
+    <hr/>
+
+    <!-- What is it sufficient to do? -->
+    <section id="what">
+        <h2 data-i18n="info.title"></h2>
+        <p data-i18n="info.p1"></p>
+
+        <!-- 备注卡片（带风格） -->
+        <aside class="statement remark" id="remark-sufficient" data-title="(Interpretation)">
+            <p data-i18n="info.remark"></p>
+        </aside>
+    </section>
+
+    <hr/>
+
+    <!-- Definition -->
+    <section id="definition">
+        <h2 data-i18n="def.title"></h2>
+
+        <!-- 定义卡片（自动编号：Definition 3.x） -->
+        <aside class="statement definition" id="def-suff" data-ch="2" data-title="(Sufficiency)">
+            <p data-i18n="def.text"></p>
+        </aside>
+    </section>
+
+    <hr/>
+
+    <!-- Factorization Theorem -->
+    <section id="factorization">
+        <h2 data-i18n="thm.factor.title"></h2>
+
+        <!-- 定理卡片（自动编号：Theorem 3.x） -->
+        <aside class="statement theorem" id="thm-factor" data-ch="2" data-title="(Factorization Theorem)">
+            <p data-i18n="thm.factor.statement"></p>
+            <div class="eq" data-i18n="thm.factor.eq"></div>
+        </aside>
+
+        <ul>
+            <li data-i18n="thm.factor.note1"></li>
+            <li data-i18n="thm.factor.note2"></li>
+        </ul>
+    </section>
+
+    <hr/>
+
+    <!-- Proof sketches -->
+    <section id="proofs">
+        <h2 data-i18n="proof.title"></h2>
+
+        <!-- Sufficiency 方向的证明草图 -->
+        <h3 data-i18n="proof.suff.title"></h3>
+        <div class="proof">
+            <ol>
+                <li data-i18n="proof.suff.step1"></li>
+                <li data-i18n="proof.suff.step2"></li>
+            </ol>
+            <p class="qed"></p>
+        </div>
+
+        <!-- Necessity 方向的证明草图 -->
+        <h3 data-i18n="proof.nec.title"></h3>
+        <div class="proof">
+            <ol>
+                <li data-i18n="proof.nec.step1"></li>
+                <li data-i18n="proof.nec.step2"></li>
+            </ol>
+            <p class="qed"></p>
+        </div>
+    </section>
+
+    <hr/>
+
+    <!-- Minimal sufficiency -->
+    <section id="minimal">
+        <h2 data-i18n="minimal.title"></h2>
+
+        <!-- “最小充分”也作为一个定义卡片展示 -->
+        <aside class="statement definition" id="def-minimal" data-ch="2" data-title="(Minimal Sufficiency)">
+            <p data-i18n="minimal.def"></p>
+            <p class="note" data-i18n="minimal.criterion"></p>
+        </aside>
+    </section>
+
+    <hr/>
+
+    <!-- Exponential family connection -->
+    <section id="expfam">
+        <h2 data-i18n="expfam.title"></h2>
+        <p data-i18n="expfam.p1"></p>
+        <p data-i18n="expfam.p2"></p>
+    </section>
+
+    <hr/>
+
+    <!-- Numerical illustration (R) -->
+    <section id="numerical">
+        <h2 data-i18n="example.num.title"></h2>
+        <p data-i18n="example.num.desc"></p>
+
+        <pre class="code-block">
+        <code data-i18n="example.num.code1"></code>
+      </pre>
+
+        <p class="smallmuted" data-i18n="example.num.note"></p>
+    </section>
+
+    <hr/>
+
+    <!-- Quick check -->
+    <section id="quiz">
+        <h2 data-i18n="quiz1.title"></h2>
+        <p data-i18n="quiz1.q"></p>
+        <ul>
+            <li data-i18n="quiz1.a1"></li>
+            <li data-i18n="quiz1.a2"></li>
+            <li data-i18n="quiz1.a3"></li>
+            <li data-i18n="quiz1.a4"></li>
+        </ul>
+        <p class="smallmuted" data-i18n="quiz1.hint"></p>
+    </section>
+</main>
+
+<!-- Boot the shared course runtime (injects CSS/JS, MathJax, i18n loader, etc.) -->
+<script type="module" src="/common/js/course.js" defer></script>
 </body>
 </html>

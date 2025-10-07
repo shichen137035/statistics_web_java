@@ -1,22 +1,32 @@
 // /common/js/init_config.js
 import {injectCss, injectJsSequential,loadComponent} from "/common/js/util_tool.js";
-// import "./add_nav.js";
-// import "./add_header.js";
-// import "./add_pager.js";
+
+await injectJsSequential([
+    "/common/js/global_config.js"
+])
 await Promise.all([
     // loadComponent("/component/course_nav_rendered.html", "course-nav"),
-    loadComponent("/component/language_switch.html", "language-switch"),
+    loadComponent("/component/language_switch.html", "language-switch")
     // loadComponent("/component/pager.html", "pager")
 ]);
+if (window.location.pathname === "/main/concept/Introduction/page/Concept%20introduction.html"){
+    console.log("pass");
+}
+else {
+    await Promise.all([
+        loadComponent("/component/c_pager.html","c-pager")
+    ])
+}
+
 console.log("所有组件加载完成。");
 
 // 注入全局 CSS
 injectCss([
     "/common/css/global_style.css",
-    "/common/css/course_style.css",
     "/common/css/code_style.css",
     "/common/css/popup_style.css",
     "/common/css/concept_style.css",
+    "/common/css/c_pager.css",
     // "/common/css/course_nav.css",
     "/common/css/algorithm_style.css",
     "/common/css/table.css"
@@ -35,7 +45,8 @@ document.addEventListener("i18nApplied", () => {
 injectJsSequential([
 
     "/common/js/language_switch.js",
-    "/common/js/keyword_popup.js"
+    "/common/js/keyword_popup.js",
+    "/common/js/c_pager.js"
     // "/common/js/pager.js",
     // "/common/js/course_nav_event_controller.js",
 

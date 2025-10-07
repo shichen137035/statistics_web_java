@@ -1,0 +1,149 @@
+/* ===========================
+   Theorem/Definition Styles
+   =========================== */
+
+/* ---- 基础变量（浅色主题） ---- */
+:root{
+    --stmt-bg: #f8fafc;        /* 卡片背景 */
+    --stmt-fg: #0f172a;        /* 文字 */
+    --stmt-border: #e5e7eb;    /* 边框 */
+    --stmt-shadow: 0 2px 10px rgba(0,0,0,.04);
+    --stmt-radius: 12px;
+    --stmt-pad: 14px 16px;
+    --stmt-muted: #64748b;
+
+    /* 各类型强调色 */
+    --acc-definition: #06b6d4;   /* cyan-500 */
+    --acc-theorem:    #3b82f6;   /* blue-500 */
+    --acc-lemma:      #a78bfa;   /* violet-400 */
+    --acc-prop:       #0ea5e9;   /* sky-500 */
+    --acc-corollary:  #10b981;   /* emerald-500 */
+    --acc-remark:     #f59e0b;   /* amber-500 */
+    --acc-example:    #ec4899;   /* pink-500 */
+}
+
+/* ---- 深色主题自动适配 ---- */
+@media (prefers-color-scheme: dark){
+    :root{
+        --stmt-bg: #0b1220;
+        --stmt-fg: #e5e7eb;
+        --stmt-border: #1f2937;
+        --stmt-shadow: 0 2px 12px rgba(0,0,0,.35);
+        --stmt-muted: #9aa7b2;
+    }
+}
+
+/* ---- 在主要容器里为各类语句建立计数器（纯CSS自动编号） ---- */
+main.container{
+    counter-reset: definition theorem lemma proposition corollary example;
+}
+
+/* ---- 统一卡片底座 ---- */
+.statement{
+    position: relative;
+    background: var(--stmt-bg);
+    color: var(--stmt-fg);
+    border: 1px solid var(--stmt-border);
+    border-left-width: 6px;
+    border-radius: var(--stmt-radius);
+    padding: var(--stmt-pad);
+    box-shadow: var(--stmt-shadow);
+    margin: 1.25rem 0;
+}
+
+/* 内文与弱化文字 */
+.statement p{ margin: 0.25rem 0; }
+.statement .small, .statement .note{ color: var(--stmt-muted); font-size: .96em; }
+
+/* 悬浮时显示锚点提示（若有 id） */
+.statement[id]::after{
+    content: "🔗";
+    position: absolute; top: 10px; right: 12px;
+    opacity: 0; transition: opacity .2s ease;
+    font-size: .9em;
+}
+.statement[id]:hover::after{ opacity: .8; }
+
+/* ---- 类型与编号（支持章节号 data-ch）----
+   用法：<aside class="statement theorem" data-ch="3" data-title="(Factorization Theorem)">...</aside>
+   会渲染：Theorem 3.1 (Factorization Theorem)
+------------------------------------------------ */
+
+/* Definition */
+.statement.definition{ border-left-color: var(--acc-definition); }
+.statement.definition::before{
+    counter-increment: definition;
+    content: "Definition " attr(data-ch) "." counter(definition) " " attr(data-title);
+    display: block; font-weight: 700; color: var(--acc-definition); margin-bottom: .35rem;
+}
+
+/* Theorem */
+.statement.theorem{ border-left-color: var(--acc-theorem); }
+.statement.theorem::before{
+    counter-increment: theorem;
+    content: "Theorem " attr(data-ch) "." counter(theorem) " " attr(data-title);
+    display: block; font-weight: 700; color: var(--acc-theorem); margin-bottom: .35rem;
+}
+
+/* Lemma */
+.statement.lemma{ border-left-color: var(--acc-lemma); }
+.statement.lemma::before{
+    counter-increment: lemma;
+    content: "Lemma " attr(data-ch) "." counter(lemma) " " attr(data-title);
+    display: block; font-weight: 700; color: var(--acc-lemma); margin-bottom: .35rem;
+}
+
+/* Proposition */
+.statement.proposition{ border-left-color: var(--acc-prop); }
+.statement.proposition::before{
+    counter-increment: proposition;
+    content: "Proposition " attr(data-ch) "." counter(proposition) " " attr(data-title);
+    display: block; font-weight: 700; color: var(--acc-prop); margin-bottom: .35rem;
+}
+
+/* Corollary */
+.statement.corollary{ border-left-color: var(--acc-corollary); }
+.statement.corollary::before{
+    counter-increment: corollary;
+    content: "Corollary " attr(data-ch) "." counter(corollary) " " attr(data-title);
+    display: block; font-weight: 700; color: var(--acc-corollary); margin-bottom: .35rem;
+}
+
+/* Example （也按序编号） */
+.statement.example{ border-left-color: var(--acc-example); }
+.statement.example::before{
+    counter-increment: example;
+    content: "Example " attr(data-ch) "." counter(example) " " attr(data-title);
+    display: block; font-weight: 700; color: var(--acc-example); margin-bottom: .35rem;
+}
+
+/* Remark（默认不编号；若要编号，改为 .statement.remark + counter） */
+.statement.remark{ border-left-color: var(--acc-remark); }
+.statement.remark::before{
+    content: "Remark " attr(data-title);
+    display: block; font-weight: 700; color: var(--acc-remark); margin-bottom: .35rem;
+}
+
+/* ---- 证明块 ---- */
+.proof{
+    position: relative;
+    border: 1px dashed var(--stmt-border);
+    border-left: 4px solid var(--acc-theorem);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin: 1rem 0;
+    background: linear-gradient(0deg, color-mix(in srgb, var(--acc-theorem) 8%, transparent), transparent);
+}
+.proof::before{
+    content: "Proof.";
+    font-weight: 700; color: var(--acc-theorem); margin-right: .5ch;
+}
+.proof .qed{ text-align: right; }
+.proof .qed::after{ content: "∎"; margin-left: .25ch; }
+
+/* ---- 兼容你现有的 .eq（MathJax） ---- */
+.eq{ text-align: center; margin: .75rem auto; }
+.eq mjx-container{ font-size: 1.05em; }
+
+/* ---- 单行紧凑模式（可选）：在很短的定义/备注时使用 .is-compact ---- */
+.statement.is-compact{ display: flex; gap: .5rem; align-items: baseline; padding: 10px 12px; }

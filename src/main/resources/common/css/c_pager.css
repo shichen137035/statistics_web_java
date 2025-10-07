@@ -1,0 +1,47 @@
+/* === 页面导航按钮容器 === */
+.c-page-nav {
+    position: fixed;
+    bottom: 1.5rem;       /* 距离底部 */
+    left: 1.5rem;         /* 距离左侧 */
+    display: flex;
+    gap: 0.6rem;          /* 按钮间距 */
+    z-index: 9999;        /* 始终在最上层 */
+}
+
+/* === 按钮通用样式 === */
+.c-page-nav .page-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background-color: #f87171; /* red-400 */
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+}
+
+/* 悬浮时的效果 */
+.c-page-nav .page-btn:hover {
+    background-color: #ef4444; /* red-500 */
+    transform: scale(1.08);
+}
+
+/* === 按钮图标 === */
+.c-page-nav .page-btn.home::before {
+    content: "🏠";       /* 房子图标（可换为字体图标） */
+    font-size: 1.2rem;
+}
+
+.c-page-nav .page-btn.section::before {
+    content: "📑";       /* 文档图标（或可改为 "→"） */
+    font-size: 1.1rem;
+}
+
+/* 隐藏按钮（section_index 页面隐藏 section-btn） */
+#section-btn[style*="display: none"] {
+    display: none !important;
+}

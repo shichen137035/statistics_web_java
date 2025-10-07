@@ -66,6 +66,11 @@
   "proof.eq.2": "$$\\mathbb{P}(F(X) \\le x) = \\mathbb{P}(X \\le F^{-1}(x)) = F(F^{-1}(x)) = x,$$",
   "proof.step.3": "which shows that \\(F(X)\\) follows the uniform distribution.",
 
+  "thm-inversion.title": "Inversion Method (Theorem)",
+  "remark-inverse.title": "Numerical Inversion (Remark)",
+  "remark-solution.title": "Solution Steps (Remark)",
+  "thm-proof.title": "Theorem of Inversion Method (Formal Statement)",
+
   "dist.title": "Distributions",
   "dist.symbols": "Symbols",
   "dist.names": "distribution",

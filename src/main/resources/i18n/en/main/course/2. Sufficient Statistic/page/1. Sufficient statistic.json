@@ -1,0 +1,50 @@
+{
+  "meta.title": "Ch.3 §1 — Sufficient Statistics: Definition, Factorization, and Minimal Sufficiency",
+
+  "intro.title": "Sufficient Statistics: Why and What",
+  "intro.lead": "A statistic $T=T(X)$ is called sufficient for parameter $\\theta$ if, given $T(X)=t$, the conditional distribution of the full sample $X$ does not depend on $\\theta$. Intuitively, someone who only sees $T(X)$ has just as much information about $\\theta$ as someone who sees the entire sample.",
+
+  "info.title": "What is it sufficient to do?",
+  "info.p1": "Sufficiency means no information about $\\theta$ is lost when the data are compressed to $T(X)$. If Statistician A has the full sample $X$ and Statistician B only has $T(X)$, then B can make inferences about $\\theta$ just as well as A.",
+  "info.remark": "Formally: $T$ is sufficient if $P_\\theta\\{X\\in A\\mid T(X)=t\\}$ is free of $\\theta$ for any measurable set $A$.",
+
+  "def.title": "Formal Definition",
+  "def.text": "Let $X=(X_1,\\dots,X_n)\\sim P_\\theta$ with joint density/pmf $f(x\\mid\\theta)$. A statistic $T=T(X)$ is sufficient for $\\theta$ if the conditional distribution $f(x\\mid T(x)=t,\\theta)$ does not depend on $\\theta$.",
+
+  "thm.factor.title": "Main Theorem: Factorization Theorem",
+  "thm.factor.statement": "A statistic $T=T(X)$ is sufficient for $\\theta$ if and only if the joint density/pmf factorizes as $f(x\\mid\\theta)=g(T(x),\\theta)\\,h(x)$ for some nonnegative functions $g$ and $h$ (not depending on $\\theta$ through $h$).",
+  "thm.factor.note1": "The forward direction (factorization ⇒ sufficiency) follows by writing the conditional law of $X$ given $T(X)=t$ and checking that $\\theta$ cancels.",
+  "thm.factor.note2": "The converse (sufficiency ⇒ factorization) is obtained by setting $g(t,\\theta)=f_{T}(t\\mid\\theta)$ and $h(x)=\\frac{f(x\\mid\\theta)}{f_{T}(T(x)\\mid\\theta)}$, which is free of $\\theta$ by sufficiency.",
+
+  "proof.suff.title": "Proof Sketch — Sufficiency",
+  "proof.suff.step1": "Assume $f(x\\mid\\theta)=g(T(x),\\theta)h(x)$.",
+  "proof.suff.step2": "Then $$f(x\\mid T(x)=t,\\theta)=\\dfrac{g(t,\\theta)h(x)}{\\int_{\\{y:T(y)=t\\}} g(t,\\theta)h(y)\\,dy}=\\dfrac{h(x)}{\\int_{\\{y:T(y)=t\\}} h(y)\\,dy},$$ which is free of $\\theta$.",
+
+  "proof.nec.title": "Proof Sketch — Necessity",
+  "proof.nec.step1": "Assume $T$ is sufficient. Define $g(t,\\theta)=f_{T}(t\\mid\\theta)$ and $h(x)=f(x\\mid T(x),\\theta)/f_{T}(T(x)\\mid\\theta)$.",
+  "proof.nec.step2": "By sufficiency, $h(x)$ is independent of $\\theta$, hence $f(x\\mid\\theta)=g(T(x),\\theta)h(x)$.",
+
+  "quiz1.title": "Quick Check",
+  "quiz1.q": "Give some sufficient statistics for a normal sample $X_1,\\dots,X_n\\sim\\mathcal N(\\mu,\\sigma^2)$ with known $\\sigma^2$.",
+  "quiz1.a1": "The full sample $T(X)=(X_1,\\dots,X_n)$ (trivial).",
+  "quiz1.a2": "The order statistics $T(X)=(X_{(1)},\\dots,X_{(n)})$.",
+  "quiz1.a3": "A split-sum pair $T(X)=(\\sum_{i=1}^{m}X_i,\\,\\sum_{i=m+1}^{n}X_i)$.",
+  "quiz1.a4": "The total sum $T(X)=\\sum_{i=1}^{n}X_i$ (and equivalently the sample mean).",
+  "quiz1.hint": "Use the factorization theorem with the joint normal density.",
+
+  "minimal.title": "Minimal Sufficiency",
+  "minimal.def": "A sufficient statistic $T$ is minimal sufficient if it is a function of every other sufficient statistic.",
+  "minimal.criterion": "A common criterion: for densities $f(x\\mid\\theta)$, $T$ is minimal sufficient iff for any two samples $x,y$, the likelihood ratio $\\dfrac{f(x\\mid\\theta)}{f(y\\mid\\theta)}$ is free of $\\theta$ exactly when $T(x)=T(y)$.",
+
+  "expfam.title": "Exponential Family Connection (Example: Bernoulli)",
+  "expfam.p1": "Bernoulli($p$) can be written as $p(x)=\\exp\\{x\\,\\eta - A(\\eta)\\}$ with natural parameter $\\eta=\\log\\tfrac{p}{1-p}$, cumulant $A(\\eta)=\\log(1+e^{\\eta})$, base measure $h(x)\\equiv1$, and sufficient statistic $T(x)=x$.",
+  "expfam.p2": "For i.i.d. samples, $\\sum_i X_i$ is sufficient — a hallmark of one-parameter exponential families.",
+
+  "example.num.title": "Numerical Illustration of Sufficiency (R)",
+  "example.num.desc": "Simulate 100 independent pairs from Bernoulli($p_0=0.1$). Count how often each pair pattern occurs; then compress each pair to the sum, which is sufficient.",
+  "example.num.code1": "p0 <- 0.1\nsample1 <- replicate(100, rbinom(2, 1, p0))\ncolSums(rbind(\n  both0 = apply(sample1, 2, function(x) all(x == c(0,0))),\n  one10 = apply(sample1, 2, function(x) all(x == c(1,0))),\n  one01 = apply(sample1, 2, function(x) all(x == c(0,1))),\n  both1 = apply(sample1, 2, function(x) all(x == c(1,1)))\n))",
+  "example.num.note": "Grouping by the sufficient statistic (pair sum) aggregates the two single-one cases.",
+
+  "proof.title": "Proof Sketches",
+  "thm.factor.eq": "$$f(x\\mid\\theta)=g(T(x),\\theta)\\,h(x)$$"
+}

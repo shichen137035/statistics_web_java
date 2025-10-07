@@ -4,24 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="meta.title"></title>
+
+    <!-- 新增定理与定义样式 -->
+    <link rel="stylesheet" href="/common/css/theorem_style.css" />
 </head>
 <body>
 <div id="language-switch"></div>
 <div id="course-nav"></div>
 <div id="pager"></div>
 
-<main class="container prose mx-auto">
+<main class="container prose mx-auto" data-ch="1">
     <h1 data-i18n="intro.title"></h1>
 
     <!-- Combination -->
     <section id="combination">
         <h2 data-i18n="section.combination.title"></h2>
         <p data-i18n="section.combination.desc1"></p>
+
         <pre><code data-i18n="section.combination.code1"></code></pre>
         <pre><code data-i18n="section.combination.code2"></code></pre>
+
         <p data-i18n="section.combination.desc2"></p>
         <pre><code data-i18n="section.combination.code3"></code></pre>
-        <p data-i18n="section.combination.math"></p>
+
+        <div class="eq" data-i18n="section.combination.math"></div>
     </section>
 
     <hr/>
@@ -29,14 +35,17 @@
     <!-- Probability space -->
     <section id="probability-space">
         <h2 data-i18n="section.probspace.title"></h2>
-        <p data-i18n="section.probspace.math1"></p>
-        <ul>
-            <li data-i18n="section.probspace.li1"></li>
-            <li data-i18n="section.probspace.li2"></li>
-            <li data-i18n="section.probspace.li3"></li>
-        </ul>
-        <p data-i18n="section.probspace.math2"></p>
-        <p data-i18n="section.probspace.math3"></p>
+
+        <aside class="statement definition" data-ch="1" data-title="(Probability Space and Random Variables)">
+            <div class="eq" data-i18n="section.probspace.math1"></div>
+            <ul>
+                <li data-i18n="section.probspace.li1"></li>
+                <li data-i18n="section.probspace.li2"></li>
+                <li data-i18n="section.probspace.li3"></li>
+            </ul>
+            <div class="eq" data-i18n="section.probspace.math2"></div>
+            <div class="eq" data-i18n="section.probspace.math3"></div>
+        </aside>
     </section>
 
     <hr/>
@@ -49,7 +58,10 @@
         <pre><code data-i18n="r.sample.ex1"></code></pre>
         <pre><code data-i18n="r.sample.ex2"></code></pre>
 
-        <p data-i18n="r.sample.note1"></p>
+        <!-- 仅保留第一个解释为 remark -->
+        <aside class="statement remark" data-title="(Interpretation)">
+            <p data-i18n="r.sample.note1"></p>
+        </aside>
 
         <h3 data-i18n="r.sample.more.title"></h3>
         <p data-i18n="r.sample.more.desc"></p>
@@ -66,13 +78,17 @@
     <!-- Quiz: Birthday paradox -->
     <section id="quiz-birthday">
         <h2 data-i18n="section.quiz.title"></h2>
-        <p data-i18n="section.quiz.question"></p>
+
+        <aside class="statement example" id="thm-birthday" data-ch="1" data-title="(Birthday Problem)">
+            <p data-i18n="section.quiz.question"></p>
+        </aside>
+
         <p data-i18n="section.quiz.desc1"></p>
-        <p data-i18n="section.quiz.math1"></p>
+        <div class="eq" data-i18n="section.quiz.math1"></div>
         <p data-i18n="section.quiz.desc2"></p>
-        <p data-i18n="section.quiz.math2"></p>
+        <div class="eq" data-i18n="section.quiz.math2"></div>
         <p data-i18n="section.quiz.desc3"></p>
-        <p data-i18n="section.quiz.math3"></p>
+        <div class="eq" data-i18n="section.quiz.math3"></div>
     </section>
 
     <hr/>
@@ -84,7 +100,10 @@
 
         <pre><code data-i18n="r.birthday.code"></code></pre>
 
-        <p data-i18n="r.birthday.explain"></p>
+        <aside class="statement remark" id="remark-birthday" data-title="(Explanation)">
+            <p data-i18n="r.birthday.explain"></p>
+        </aside>
+
         <ul>
             <li data-i18n="r.birthday.point1"></li>
             <li data-i18n="r.birthday.point2"></li>
@@ -92,7 +111,10 @@
             <li data-i18n="r.birthday.point4"></li>
         </ul>
 
-        <p data-i18n="r.birthday.conclusion"></p>
+        <aside class="statement remark" data-title="(Conclusion)">
+            <p data-i18n="r.birthday.conclusion"></p>
+        </aside>
+
         <figure>
             <img src="../img/birthday.png" alt="Birthday">
             <figcaption data-i18n="r.birthday.caption"></figcaption>

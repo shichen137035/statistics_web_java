@@ -1,6 +1,9 @@
 // /common/js/init_config.js
 import { injectCss, injectJsSequential, loadComponent } from "/common/js/util_tool.js";
 // import "./add_header.js";
+await injectJsSequential([
+    "/common/js/global_config.js"
+])
 await loadComponent("/component/language_switch.html", "language-switch");
 
 (function () {

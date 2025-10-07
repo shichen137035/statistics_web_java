@@ -1,6 +1,9 @@
 
 import {injectCss, injectJsSequential,loadComponent} from "/common/js/util_tool.js";
 
+await injectJsSequential([
+    "/common/js/global_config.js"
+])
 await Promise.all([
     loadComponent("/component/course_nav_rendered.html", "course-nav"),
     loadComponent("/component/language_switch.html", "language-switch"),
@@ -16,6 +19,7 @@ injectCss([
     "/common/css/popup_style.css",
     "/common/css/course_nav.css",
     "/common/css/algorithm_style.css",
+    "/common/css/theorem_style.css",
     "/common/css/table.css",
     "/common/css/pager.css"
 ]);

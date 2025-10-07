@@ -141,6 +141,7 @@ public class CourseController {
 
     @GetMapping("/generateSectionIndex")
     public String generateSectionIndex(String folderName) throws IOException {
+        System.out.println("building index file");
         ObjectMapper mapper = new ObjectMapper();
         List<Map<String, Object>> conceptStructure =
                 mapper.readValue(jsonFile_concept.toFile(),
@@ -159,21 +160,20 @@ public class CourseController {
             throw new IllegalStateException("文件夹 " + folderName + " 没有任何页面");
         }
 
-        // 确定目标路径
+        // 路径设置
         Path folderPath = conceptRoot.resolve(folderName).resolve("page");
         Path sectionIndexPath = folderPath.resolve("section_index.html");
-        Path templatePath = Paths.get("/component/section_index_template.html");
+        Path templatePath = Paths.get("src/main/resources/component/section_index_template.html");
 
-        // 如果不存在，复制模板
-        if (!Files.exists(sectionIndexPath)) {
-            Files.createDirectories(folderPath);
-            String template = new String(Files.readAllBytes(templatePath), StandardCharsets.UTF_8);
-            Files.write(sectionIndexPath, template.getBytes(StandardCharsets.UTF_8));
-        }
+        // 始终从模板创建新的 section_index.html
+        Files.createDirectories(folderPath);
+        String template = new String(Files.readAllBytes(templatePath), StandardCharsets.UTF_8);
 
-        // 构造需要写入的 HTML 内容
+        // 构造 HTML 内容
         StringBuilder innerHtml = new StringBuilder();
-        innerHtml.append("<h1 data-i18n=\"concept-title.").append(esc(folderName)).append("\"></h1>\n");
+        innerHtml.append("<h1 data-i18n=\"concept-title.")
+                .append(esc(folderName))
+                .append("\"></h1>\n");
         innerHtml.append("<ul class=\"concept-list\">\n");
 
         for (Map<String, Object> child : children) {
@@ -189,19 +189,19 @@ public class CourseController {
         }
         innerHtml.append("</ul>\n");
 
-        // 读取原始 section_index.html
-        String html = new String(Files.readAllBytes(sectionIndexPath), StandardCharsets.UTF_8);
+        System.out.println(innerHtml.toString());
 
-        // 简单替换 id=concept-list-domain 内容（这里假设模板有占位符）
-        String updated = html.replaceAll(
-                "(?s)(<div id=\"concept-list-domain\">).*?(</div>)",
-                "$1\n" + innerHtml.toString() + "$2"
+        // 在模板中的 <main id="concept-list-domain"> 内部写入
+        String updated = template.replaceAll(
+                "(?s)(<main id=\"concept-list-domain\">)(.*?)(</main>)",
+                "$1\n" + innerHtml.toString() + "\n$3"
         );
 
         Files.write(sectionIndexPath, updated.getBytes(StandardCharsets.UTF_8));
 
-        return "section_index.html 已生成/更新: " + sectionIndexPath.toAbsolutePath();
+        return "section_index.html 已重新生成: " + sectionIndexPath.toAbsolutePath();
     }
+
 
     @GetMapping("/generateAllSectionIndex")
     public String generateAllSectionIndex() throws IOException {
