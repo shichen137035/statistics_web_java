@@ -46,5 +46,10 @@
   "example.num.note": "Grouping by the sufficient statistic (pair sum) aggregates the two single-one cases.",
 
   "proof.title": "Proof Sketches",
-  "thm.factor.eq": "$$f(x\\mid\\theta)=g(T(x),\\theta)\\,h(x)$$"
+  "thm.factor.eq": "$$f(x\\mid\\theta)=g(T(x),\\theta)\\,h(x)$$",
+
+  "info.remarkTitle": "Interpretation",
+  "def.titleShort": "Sufficiency",
+  "thm.factor.titleShort": "Factorization Theorem",
+  "minimal.titleShort": "Minimal Sufficiency"
 }

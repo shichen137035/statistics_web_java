@@ -128,6 +128,7 @@
     // -----------------------------
     // 5. 应用翻译
     function apply(dict, lang) {
+        // --- 基本 i18n 文本替换 ---
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (key in dict) {
@@ -139,6 +140,29 @@
                 }
             }
         });
+
+        // --- 支持 data-xxx-i18n 属性的翻译 ---
+        document.querySelectorAll('*').forEach(el => {
+            // 遍历所有属性
+            for (const attr of el.attributes) {
+                const name = attr.name;
+                // 匹配形如 data-*-i18n 的属性
+                if (name.endsWith('-i18n')) {
+                    const key = attr.value; // JSON 字典键名
+                    const baseAttr = name.replace(/-i18n$/, ''); // 去掉 -i18n 得到目标属性名
+                    if (key in dict) {
+                        const text = String(dict[key]);
+                        el.setAttribute(baseAttr, text);
+                        // 对 data-title-i18n 特别处理，保持视觉一致
+                        if (baseAttr === 'data-title') {
+                            el.setAttribute('aria-label', text);
+                        }
+                    }
+                }
+            }
+        });
+
+        // --- 更新标题与语言属性 ---
         if (dict['meta.title']) document.title = dict['meta.title'];
         document.documentElement.setAttribute('lang', lang);
     }

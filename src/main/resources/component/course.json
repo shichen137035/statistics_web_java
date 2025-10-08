@@ -61,25 +61,43 @@
     "name" : "2. Rao-Blackwell theorem and UMVUE.html",
     "type" : "file",
     "path" : "3. Estimator/page/2. Rao-Blackwell theorem and UMVUE.html"
+  }, {
+    "name" : "3. How to find UMVUE.html",
+    "type" : "file",
+    "path" : "3. Estimator/page/3. How to find UMVUE.html"
   } ]
 }, {
   "name" : "4. Efficient Estimators",
   "type" : "folder",
   "children" : [ {
-    "name" : "1. Variance Bounds and Fisher Information.html",
+    "name" : "1. Variance comparison.html",
     "type" : "file",
-    "path" : "4. Efficient Estimators/page/1. Variance Bounds and Fisher Information.html"
+    "path" : "4. Efficient Estimators/page/1. Variance comparison.html"
   }, {
-    "name" : "2. Regular estimating function.html",
+    "name" : "2. Fisher information.html",
     "type" : "file",
-    "path" : "4. Efficient Estimators/page/2. Regular estimating function.html"
+    "path" : "4. Efficient Estimators/page/2. Fisher information.html"
+  }, {
+    "name" : "3. Regular estimating function.html",
+    "type" : "file",
+    "path" : "4. Efficient Estimators/page/3. Regular estimating function.html"
   } ]
 }, {
   "name" : "5. Asymptotic Efficient Estimators",
-  "type" : "folder"
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1. Central limit theorem and asymptotic estimator.html",
+    "type" : "file",
+    "path" : "5. Asymptotic Efficient Estimators/page/1. Central limit theorem and asymptotic estimator.html"
+  } ]
 }, {
   "name" : "6. Maximum Likelihood Estimators",
-  "type" : "folder"
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1. Maximum likelihood estimator.html",
+    "type" : "file",
+    "path" : "6. Maximum Likelihood Estimators/page/1. Maximum likelihood estimator.html"
+  } ]
 }, {
   "name" : "7. Interval Estimation",
   "type" : "folder"

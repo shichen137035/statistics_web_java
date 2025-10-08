@@ -36,5 +36,11 @@
 
   "sec.num.cont.title": "Numerical Example (cont.)",
   "sec.num.code2": "# a simple rule demonstrating grouping by sufficient statistic\nrule <- function(x){\n  if(all(x == c(0,0))) return('Case 1')\n  if(all(x == c(1,1))) return('Case 2')\n  if(sum(x)==1) return('Cases')\n}\napply(sample1, 2, rule)",
-  "sec.num.cont.note": "Outcomes with the same sufficient statistic value are treated identically by such rules."
+  "sec.num.cont.note": "Outcomes with the same sufficient statistic value are treated identically by such rules.",
+
+  "sec.complete.titleShort": "Complete Statistic",
+  "sec.basu.titleShort": "Basu's Theorem",
+  "sec.expfam.titleShort": "Exponential Family — Form",
+  "sec.expfam.bern.titleShort": "Bernoulli in Exponential Form"
+
 }

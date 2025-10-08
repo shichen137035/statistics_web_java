@@ -1,0 +1,44 @@
+{
+  "meta.title": "Consistent and Asymptotically Efficient Estimators",
+
+  "intro.title": "Consistent and Asymptotically Efficient Estimators",
+
+  "sec.consistent.title": "Consistent Estimator",
+  "sec.consistent.titleShort": "Consistent Estimator",
+  "sec.consistent.text": "An estimator θ̂ₙ = θ̂ₙ(X) is said to be a consistent estimator if for every θ ∈ Θ and any ε > 0, it holds that",
+  "sec.consistent.eq": "$$\\hat{\\theta}_n \\xrightarrow{P} \\theta, \\quad \\text{under } P_\\theta.$$",
+
+  "sec.clt.title": "Central Limit Theorem",
+  "sec.clt.thm1.titleShort": "Central Limit Theorem (Univariate)",
+  "sec.clt.thm1.text": "Suppose that (Xₙ)ₙ≥1 are i.i.d. random variables with mean μ and variance σ² > 0. Then",
+  "sec.clt.thm1.eq": "$$\\sqrt{n}\\, \\frac{\\bar{X}_n - \\mu}{\\sigma} \\xrightarrow{d} \\mathcal{N}(0,1).$$",
+
+  "sec.clt.thm2.titleShort": "Cramér–Wold Device",
+  "sec.clt.thm2.text": "Let Xₙ = (Xₙ₁,…,Xₙd) ∈ ℝᵈ and Y = (Y₁,…,Yd) ∈ ℝᵈ. Then Xₙ → Y in distribution if and only if Σₖ tₖXₙₖ → Σₖ tₖYₖ for all t ∈ ℝᵈ.",
+
+  "sec.clt.thm3.titleShort": "Multivariate Central Limit Theorem",
+  "sec.clt.thm3.text": "Let (Xₙ)ₙ≥1 be i.i.d. random vectors in ℝᵈ with mean μ and covariance matrix Σ. Then",
+  "sec.clt.thm3.eq": "$$\\sqrt{n}(\\bar{X}_n - \\mu) \\xrightarrow{d} \\mathcal{N}(0, \\Sigma).$$",
+
+  "sec.asymp.title": "Asymptotically Efficient Estimator",
+  "sec.asymp.intro": "Let Δₙ be defined as",
+  "sec.asymp.eq1": "$$\\Delta_n = \\frac{1}{n} \\frac{\\partial}{\\partial \\theta} \\log p_n(X|\\theta),$$",
+  "sec.asymp.where": "where $$p_n(X|\\theta) = \\prod_i p(X_i|\\theta) = L(\\theta)$$ is the likelihood function.",
+  "sec.asymp.eq2": "$$p_n(X|\\theta) = \\prod_i p(X_i|\\theta) = L(\\theta).$$",
+  "sec.asymp.titleShort": "Asymptotically Efficient Estimator",
+  "sec.asymp.def": "A consistent estimator θ̂ₙ is said to be an asymptotically efficient estimator if",
+  "sec.asymp.eq3": "$$\\sqrt{n}\\,\\|\\hat{\\theta}_n - \\theta - I(\\theta)^{-1} \\Delta_n\\| \\xrightarrow{P} 0,$$",
+
+  "sec.prop.title": "Properties of Asymptotically Efficient Estimator",
+  "sec.prop.thm.titleShort": "Asymptotic Distribution",
+  "sec.prop.thm.text": "If θ̂ₙ is an asymptotically efficient estimator, then",
+  "sec.prop.thm.eq": "$$\\sqrt{n}(\\hat{\\theta}_n - \\theta) \\xrightarrow{d} \\mathcal{N}(0, I(\\theta)^{-1}).$$",
+
+  "sec.prop.remark.titleShort": "Fisher Information and Efficiency",
+  "sec.prop.remark.text": "The inverse of the Fisher information is the lower bound of the variance of the UMVUE in finite samples. Even as n → ∞, it remains a useful lower bound. The estimator is said to be efficient if its asymptotic variance attains this bound.",
+
+  "sec.quiz2.title": "Quiz 2",
+  "sec.quiz2.q": "Which is the asymptotically efficient estimator? Unbiased sample variance or sample variance?",
+  "sec.quiz2.ansTitle": "Answer",
+  "sec.quiz2.ans": "<strong style='color:red'>Both!</strong>"
+}

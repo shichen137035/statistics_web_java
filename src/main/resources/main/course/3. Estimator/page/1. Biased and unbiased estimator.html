@@ -1,129 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title data-i18n="meta.title"></title>
-  <link rel="stylesheet" href="/common/css/theorem_style.css" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title data-i18n="meta.title">Unbiased Estimation and U-statistics</title>
 </head>
+
 <body>
-<!-- Global components -->
 <div id="language-switch"></div>
 <div id="course-nav"></div>
 <div id="pager"></div>
 
-<!-- lec1.pdf p.68–75 -->
-<main class="container prose mx-auto" data-ch="3">
+<main class="container prose mx-auto" data-ch="3.1">
   <h1 data-i18n="intro.title"></h1>
   <p data-i18n="intro.lead"></p>
 
   <hr/>
 
-  <!-- lec1.pdf p.68 -->
-  <section id="unbiased-def">
-    <h2 data-i18n="sec.unbiased.title"></h2>
-    <aside class="statement definition" data-ch="3" data-title="(Unbiased Estimator)">
-      <p data-i18n="sec.unbiased.def1"></p>
-      <div class="eq" data-i18n="sec.unbiased.eq1"></div>
-      <p data-i18n="sec.unbiased.def2"></p>
+  <!-- Definition -->
+  <section id="definition">
+    <h2 data-i18n="sec.def.title"></h2>
+
+    <aside class="statement definition" data-ch="3.1" data-title-i18n="sec.def.caption">
+      <p data-i18n="sec.def.p1"></p>
+      <div class="eq" data-i18n="sec.def.eq1"></div>
+      <p data-i18n="sec.def.p2"></p>
     </aside>
   </section>
 
   <hr/>
 
-  <!-- lec1.pdf p.69 -->
-  <section id="bias-def">
-    <h2 data-i18n="sec.bias.title"></h2>
-    <aside class="statement definition" data-ch="3" data-title="(Bias)">
-      <p data-i18n="sec.bias.def1"></p>
-      <div class="eq" data-i18n="sec.bias.eq1"></div>
-      <p data-i18n="sec.bias.def2"></p>
+  <!-- Example 1 -->
+  <section id="example1">
+    <h2 data-i18n="sec.ex1.title"></h2>
+    <aside class="statement example" data-ch="3.1" data-title-i18n="sec.ex1.caption">
+      <p data-i18n="sec.ex1.text1"></p>
+      <div class="eq" data-i18n="sec.ex1.eq1"></div>
+      <div class="eq" data-i18n="sec.ex1.eq2"></div>
+      <div class="eq" data-i18n="sec.ex1.eq3"></div>
+      <p data-i18n="sec.ex1.text2"></p>
+      <div class="eq" data-i18n="sec.ex1.eq4"></div>
+      <div class="eq" data-i18n="sec.ex1.eq5"></div>
     </aside>
   </section>
 
   <hr/>
 
-  <!-- lec1.pdf p.70 -->
-  <section id="mse">
-    <h2 data-i18n="sec.mse.title"></h2>
+  <!-- Counterexample -->
+  <section id="counterexample">
+    <h2 data-i18n="sec.counter.title"></h2>
+    <aside class="statement example" data-ch="3.1" data-title-i18n="sec.counter.caption">
+      <p data-i18n="sec.counter.text1"></p>
+      <div class="eq" data-i18n="sec.counter.eq1"></div>
+      <div class="eq" data-i18n="sec.counter.eq2"></div>
+      <div class="eq" data-i18n="sec.counter.eq3"></div>
+      <p data-i18n="sec.counter.text2"></p>
+    </aside>
+  </section>
 
-    <aside class="statement definition" data-ch="3" data-title="(Mean Squared Error)">
-      <p data-i18n="sec.mse.def"></p>
-      <div class="eq" data-i18n="sec.mse.eq0"></div>
+  <hr/>
+
+  <!-- U-statistics -->
+  <section id="u-stat">
+    <h2 data-i18n="sec.ustat.title"></h2>
+
+    <aside class="statement definition" data-ch="3.1" data-title-i18n="sec.ustat.caption">
+      <div class="eq" data-i18n="sec.ustat.eq1"></div>
+      <p data-i18n="sec.ustat.text1"></p>
     </aside>
 
-    <aside class="statement theorem" data-ch="3" data-title="(Bias–Variance Decomposition)">
-      <p data-i18n="sec.mse.thm"></p>
-      <div class="eq" data-i18n="sec.mse.eq1"></div>
+    <aside class="statement example" data-ch="3.1" data-title-i18n="sec.ustat.ex.caption1">
+      <div class="eq" data-i18n="sec.ustat.eq2"></div>
+      <div class="eq" data-i18n="sec.ustat.eq3"></div>
+      <div class="eq" data-i18n="sec.ustat.eq4"></div>
     </aside>
 
-    <div class="proof">
-      <p class="smallmuted" data-i18n="sec.mse.proof.label"></p>
-      <ol>
-        <li data-i18n="sec.mse.proof.s1"></li>
-        <li data-i18n="sec.mse.proof.s2"></li>
-        <li data-i18n="sec.mse.proof.s3"></li>
+    <aside class="statement example" data-ch="3.1" data-title-i18n="sec.ustat.ex.caption2">
+      <div class="eq" data-i18n="sec.ustat.eq5"></div>
+      <div class="eq" data-i18n="sec.ustat.eq6"></div>
+      <div class="eq" data-i18n="sec.ustat.eq7"></div>
+    </aside>
+
+    <aside class="statement example" data-ch="3.1" data-title-i18n="sec.ustat.ex.caption3">
+      <p data-i18n="sec.ustat.text2"></p>
+      <div class="eq" data-i18n="sec.ustat.eq8"></div>
+      <div class="eq" data-i18n="sec.ustat.eq9"></div>
+    </aside>
+  </section>
+
+  <hr/>
+
+  <!-- Algorithmic summary -->
+  <section id="algorithm">
+    <h2 data-i18n="sec.algo.title"></h2>
+
+    <div class="algo" id="algo-ustat">
+      <div class="algo__header" data-i18n="sec.algo.header"></div>
+
+      <div class="algo__io">
+        <span class="algo__label" data-i18n="sec.algo.input.label"></span>
+        <span data-i18n="sec.algo.input"></span><br>
+        <span class="algo__label" data-i18n="sec.algo.output.label"></span>
+        <span data-i18n="sec.algo.output"></span>
+      </div>
+
+      <ol class="algo__steps">
+        <li data-i18n="sec.algo.step1"></li>
+        <li data-i18n="sec.algo.step2"></li>
+
+        <li>
+          <div class="loop" data-title-i18n="sec.algo.loop.caption">
+            <div class="loop__header">
+              <span class="loop__type" data-i18n="sec.algo.loop.type"></span>
+              <span class="loop__cond" data-i18n="sec.algo.loop.cond"></span>
+            </div>
+            <div class="loop__body">
+              <ul>
+                <li data-i18n="sec.algo.loop.body1"></li>
+                <li data-i18n="sec.algo.loop.body2"></li>
+                <li data-i18n="sec.algo.loop.body3"></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <li data-i18n="sec.algo.step3"></li>
       </ol>
-      <p class="qed"></p>
     </div>
+  </section>
 
-    <aside class="statement remark" data-title="(MSE as a Risk)">
-      <p data-i18n="sec.mse.remark"></p>
+  <hr/>
+
+  <!-- Reference: V-statistics -->
+  <section id="v-stat">
+    <h2 data-i18n="sec.vstat.title"></h2>
+    <aside class="statement definition" data-ch="3.1" data-title-i18n="sec.vstat.caption">
+      <div class="eq" data-i18n="sec.vstat.eq1"></div>
+      <p data-i18n="sec.vstat.text1"></p>
     </aside>
-  </section>
-
-  <hr/>
-
-  <!-- lec1.pdf p.71 -->
-  <section id="examples">
-    <h2 data-i18n="sec.ex.title"></h2>
-
-    <h3 data-i18n="sec.ex.mean.title"></h3>
-    <p data-i18n="sec.ex.mean.p1"></p>
-    <div class="eq" data-i18n="sec.ex.mean.eq"></div>
-
-    <h3 data-i18n="sec.ex.variance.title"></h3>
-    <p data-i18n="sec.ex.variance.p1"></p>
-    <div class="eq" data-i18n="sec.ex.variance.eq1"></div>
-    <p data-i18n="sec.ex.variance.p2"></p>
-    <div class="eq" data-i18n="sec.ex.variance.eq2"></div>
-  </section>
-
-  <hr/>
-
-  <!-- lec1.pdf p.72 -->
-  <section id="biased-better">
-    <h2 data-i18n="sec.better.title"></h2>
-    <aside class="statement remark" data-title="(Trade-off)">
-      <p data-i18n="sec.better.text1"></p>
-      <p data-i18n="sec.better.text2"></p>
-    </aside>
-    <pre><code data-i18n="sec.better.code1"></code></pre>
-    <pre><code data-i18n="sec.better.code2"></code></pre>
-  </section>
-
-  <hr/>
-
-  <!-- lec1.pdf p.73–74 -->
-  <section id="umvue-bridge">
-    <h2 data-i18n="sec.umvue.title"></h2>
-    <aside class="statement theorem" data-ch="3" data-title="(From Unbiased to UMVUE)">
-      <p data-i18n="sec.umvue.text"></p>
-    </aside>
-    <p data-i18n="sec.umvue.explain"></p>
-    <pre><code data-i18n="sec.umvue.code"></code></pre>
-  </section>
-
-  <hr/>
-
-  <!-- lec1.pdf p.75 -->
-  <section id="quiz">
-    <h2 data-i18n="sec.quiz.title"></h2>
-    <p data-i18n="sec.quiz.exp1"></p>
-    <pre><code data-i18n="sec.quiz.code1"></code></pre>
-
-    <p data-i18n="sec.quiz.exp2"></p>
-    <pre><code data-i18n="sec.quiz.code2"></code></pre>
   </section>
 </main>
 

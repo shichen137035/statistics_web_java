@@ -1,0 +1,69 @@
+{
+  "meta.title": "Maximum Likelihood Estimator",
+  "intro.title": "Maximum Likelihood Estimator",
+
+  "sec.mle.title": "Definition of Maximum Likelihood Estimator",
+  "sec.mle.titleShort": "Definition",
+  "sec.mle.eq1": "$$L(\\hat{\\theta}(x), x) = p(x\\mid \\hat{\\theta}(x)) = \\max_{\\theta\\in\\Theta} p(x\\mid \\theta).$$",
+  "sec.mle.desc": "The statistic $T(X)=\\hat{\\theta}(X)$ is referred to as the maximum likelihood estimator (MLE).",
+
+  "sec.thm.title": "Main Theorem",
+  "sec.thm.titleShort": "Main Theorem",
+  "sec.thm.text": "Suppose that $p_n(x\\mid \\theta)$ is three times continuously differentiable with respect to $\\theta$. The maximum likelihood estimator $\\hat{\\theta}_n$, if it exists, is asymptotically efficient and",
+  "sec.thm.eq": "$$\\sqrt{n}\\,(\\hat{\\theta}_n-\\theta) \\xrightarrow{d} \\mathcal{N}\\big(0, I(\\theta)^{-1}\\big).$$",
+
+  "sec.taylor.title": "Taylor Expansion and Proof",
+  "sec.taylor.intro": "For simplicity, let",
+  "sec.taylor.eq1": "$$l_n(\\theta) = \\frac{\\partial}{\\partial\\theta} \\log p_n(X\\mid \\theta).$$",
+  "sec.taylor.def": "This is the derivative of the log-likelihood. If $\\hat{\\theta}_n$ exists, then $l_n(\\hat{\\theta}_n)=0$.",
+  "sec.taylor.eq2": "$$0 = l_n(\\theta) + \\frac{\\partial}{\\partial\\theta} l_n(\\theta)\\,(\\hat{\\theta}_n-\\theta) + \\frac{\\partial^2}{\\partial\\theta^2} l_n(\\theta^*)\\,(\\hat{\\theta}_n-\\theta)^2,$$",
+  "sec.taylor.explain": "where $\\theta^*$ lies between $\\theta$ and $\\hat{\\theta}_n$. Thus we have",
+  "sec.taylor.eq3": "$$\\sqrt{n}(\\hat{\\theta}_n-\\theta) = -\\Big( \\frac{1}{n}\\frac{\\partial}{\\partial\\theta} l_n(\\theta) \\Big)^{-1} \\frac{1}{\\sqrt{n}} \\Big( l_n(\\theta) - \\frac{\\partial^2}{\\partial\\theta^2} l_n(\\theta^*)\\,(\\hat{\\theta}_n-\\theta)^2 \\Big).$$",
+
+  "sec.asymp.title": "Asymptotic Behavior",
+  "sec.asymp.text1": "Using $\\hat{\\theta}_n-\\theta = O_p(n^{-1/2})$, the second term is $o_p(1)$. By the law of large numbers and Theorem 5.6,",
+  "sec.asymp.eq1": "$$\\Big( \\frac{1}{n} \\frac{\\partial}{\\partial\\theta} l_n(\\theta) \\Big)^{-1} \\xrightarrow{P} I(\\theta)^{-1}.$$",
+  "sec.asymp.text2": "Noting that $l_n(\\theta) = \\sqrt{n}\\,\\Delta_n$ and by the central limit theorem,",
+  "sec.asymp.eq2": "$$\\sqrt{n}\\, l_n(\\theta) \\xrightarrow{d} \\mathcal{N}\\big(0, I(\\theta)\\big).$$",
+
+  "sec.quiz.title": "Quiz 1",
+  "sec.quiz.titleShort": "Normal distribution",
+  "sec.quiz.q": "What is the MLE of normal samples?",
+  "sec.quiz.text": "Let $X_1,\\dots,X_n$ be i.i.d. as $\\mathcal{N}(\\mu,\\sigma^2)$. The log-likelihood function is",
+  "sec.quiz.eq": "$$\\log p_n(X\\mid \\theta) = -\\frac{n}{2}\\log(2\\pi) - n\\log\\sigma - \\frac{1}{2\\sigma^2}\\sum_{i=1}^n (X_i-\\mu)^2.$$",
+
+
+  "sec.ex.title": "Deriving the MLEs",
+  "sec.ex.eq1": "$$\\log p_n(X\\mid \\theta) = -\\frac{n}{2}\\log(2\\pi) - n\\log\\sigma - \\frac{1}{2\\sigma^2}\\sum_{i=1}^n (X_i-\\mu)^2.$$",
+  "sec.ex.text1": "The MLEs for $\\mu$ and $\\sigma^2$ are",
+  "sec.ex.eq2": "$$\\hat{\\mu}_n = \\frac{1}{n}\\sum_{i=1}^n X_i = \\bar{X}_n,$$",
+  "sec.ex.eq3": "$$\\hat{\\sigma}_n^2 = \\frac{1}{n}\\sum_{i=1}^n (X_i-\\bar{X}_n)^2.$$",
+
+  "sec.ex2.title": "Properties of the MLEs",
+  "sec.ex2.eq1": "$$\\hat{\\mu}_n = \\bar{X}_n, \\qquad \\hat{\\sigma}_n^2 = \\frac{1}{n}\\sum_{i=1}^n (X_i-\\bar{X}_n)^2.$$",
+  "sec.ex2.eq2": "$$\\hat{\\mu}_n \\xrightarrow{P} \\mu, \\qquad \\hat{\\sigma}_n^2 \\xrightarrow{P} \\sigma^2.$$",
+  "sec.ex2.text1": "By the law of large numbers these estimators are consistent; by the CLT we have",
+  "sec.ex2.eq3": "$$\\sqrt{n}\\,(\\hat{\\mu}_n-\\mu) \\xrightarrow{d} \\mathcal{N}(0,\\sigma^2),$$",
+  "sec.ex2.text2": "and",
+  "sec.ex2.eq4": "$$\\sqrt{n}\\,(\\hat{\\sigma}_n^2-\\sigma^2) \\xrightarrow{d} \\mathcal{N}(0,2\\sigma^4).$$",
+
+  "sec.rprep.title": "Preparation for R Exercise",
+  "sec.rprep.desc": "Before running the MLE examples, ensure that the required R package is installed and loaded.",
+  "sec.rprep.pkg": "We use the <code>EstimationTools</code> package, which provides user-friendly functions for likelihood-based estimation.",
+  "sec.rprep.code1": "install.packages('EstimationTools')\nlibrary(EstimationTools)",
+
+  "sec.rcode1.title": "MLE in R (1) — Basic Estimation",
+  "sec.rcode1.desc": "We start by generating normal samples and estimating the parameters μ and σ using the <code>maxlogL()</code> function.",
+  "sec.rcode1.code": "# Generate normal samples and perform MLE\nset.seed(1000)\nz <- rnorm(n = 1000, mean = 10, sd = 1)\nfit1 <- maxlogL(x = z, dist = 'dnorm', start = c(2, 3), lower = c(-15, 0))",
+
+  "sec.rcode2.title": "MLE in R (2) — Output and Warnings",
+  "sec.rcode2.desc": "When no lower or upper bounds are provided, R may generate numerical warnings. These do not always indicate failure but rather convergence issues to be checked.",
+  "sec.rcode2.code": "fit2 <- maxlogL(x = z, dist = 'dnorm', start = c(2, 3))\n\n## Warning in dnorm(...): NaNs produced\n## Warning in nlminb(...): convergence warning",
+
+  "sec.rcode3.title": "MLE in R (3) — Profile Likelihood for Fixed Mean",
+  "sec.rcode3.desc": "We now illustrate how to compute the *profile likelihood* by fixing the mean μ and estimating the standard deviation σ. This allows us to explore the log-likelihood surface with respect to μ.",
+  "sec.rcode3.code": "# Define a helper function to estimate σ while fixing μ\nestsd <- function(mu){\n  fixmu <- maxlogL(x = z, dist = 'dnorm', fixed = list(mean = mu), start = c(1))\n  return(fixmu$fit$par['sd'])\n}\n\n# Example: compute σ̂ when μ = 3\nestsd(3)",
+
+  "sec.rcode3.note": "By varying μ and repeating this computation, one can trace the profile likelihood curve of σ̂(μ). Such curves are valuable for visualizing parameter uncertainty and constructing confidence intervals."
+
+}

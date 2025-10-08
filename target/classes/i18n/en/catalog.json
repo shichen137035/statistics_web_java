@@ -22,8 +22,11 @@
   "catalogtitle.Sufficient statistic": "Sufficient statistic",
   "catalogtitle.Basu's theorem": "Basu's theorem",
   "catalogtitle.Biased and unbiased estimator": "Biased and unbiased estimator",
-  "catalogtitle.Rao-Blackwell theorem and UMVUE": "Rao-Blackwell theorem and UMVUE",
-  "catalogtitle.Variance Bounds and Fisher Information": "Variance Bounds and Fisher Information",
-  "catalogtitle.Regular estimating function": "Regular estimating function"
+  "catalogtitle.Rao-Blackwell theorem and UMVUE": "UMVUE and Rao-Blackwell theorem",
+  "catalogtitle.How to find UMVUE": "How to find UMVUE",
+  "catalogtitle.Variance comparison": "Variance comparison",
+  "catalogtitle.Regular estimating function": "Regular estimating function",
+  "catalogtitle.Central limit theorem and asymptotic estimator": "Central limit theorem and asymptotic estimator",
+  "catalogtitle.Maximum likelihood estimator": "Maximum likelihood estimator"
 }
 

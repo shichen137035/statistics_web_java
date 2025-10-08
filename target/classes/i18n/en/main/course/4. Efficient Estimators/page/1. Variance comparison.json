@@ -1,0 +1,36 @@
+{
+  "meta.title": "Variance comparison",
+  "intro.title": "Variance comparison",
+
+  "sec.theorem.title": "Variance comparison theorem",
+  "sec.theorem.text1": "Suppose $\\mathbf{X} \\sim \\mathbb{P}_\\theta$, $\\theta \\in \\Theta \\subset \\mathbb{R}$, and $\\mathbf{X}$ has probability density function $f_\\theta(x)$, $x \\in \\mathbb{R}^n$. Let $T(\\mathbf{X})$ be an arbitrary unbiased estimator of $g(\\theta)$, and denote",
+  "sec.theorem.eq1": "$$A(\\phi, \\theta) \\equiv \\mathbb{V}_\\theta \\left[ \\frac{f_\\phi(\\mathbf{X})}{f_\\theta(\\mathbf{X})} \\right].$$",
+  "sec.theorem.eq2": "$$\\mathbb{V}_\\theta(T) \\ge \\sup_{\\phi \\in \\Theta} \\frac{\\{ g(\\phi) - g(\\theta) \\}^2}{A(\\phi, \\theta)}.$$",
+  "sec.theorem.text2": "This inequality provides a general lower bound for the variance of any unbiased estimator of $g(\\theta)$.",
+
+  "sec.proof.title": "Proof",
+  "sec.proof.text1": "We begin by noting that for any unbiased estimator $T(\\mathbf{X})$, the following holds:",
+  "sec.proof.eq1": "$$\\mathbb{E}_\\phi[T(\\mathbf{X})] = g(\\phi).$$",
+  "sec.proof.eq2": "$$\\mathbb{E}_\\theta \\left[ \\{T(\\mathbf{X}) - g(\\theta)\\} \\left\\{ \\frac{f_\\phi(\\mathbf{X})}{f_\\theta(\\mathbf{X})} - 1 \\right\\} \\right] = g(\\phi) - g(\\theta).$$",
+  "sec.proof.eq3": "$$\\int (T(x) - g(\\theta)) \\left( \\frac{f_\\phi(x)}{f_\\theta(x)} - 1 \\right) f_\\theta(x) dx = g(\\phi) - g(\\theta).$$",
+  "sec.proof.eq4": "$$\\{ g(\\phi) - g(\\theta) \\}^2 \\le \\mathbb{V}_\\theta(T) \\cdot \\mathbb{V}_\\theta \\left( \\frac{f_\\phi(\\mathbf{X})}{f_\\theta(\\mathbf{X})} \\right).$$",
+  "sec.proof.eq5": "$$\\Rightarrow \\; \\mathbb{V}_\\theta(T) \\ge \\frac{\\{ g(\\phi) - g(\\theta) \\}^2}{A(\\phi, \\theta)}.$$",
+  "sec.proof.text2": "This completes the proof of the inequality.",
+
+  "sec.change.title": "Change rate form",
+  "sec.change.eq1": "$$\\mathbb{V}_\\theta(T) \\ge \\frac{\\{ g(\\phi) - g(\\theta) \\}^2}{A(\\phi, \\theta)} = \\frac{\\left\\{ \\frac{g(\\phi) - g(\\theta)}{\\phi - \\theta} \\right\\}^2}{\\mathbb{V}_\\theta \\left[ \\frac{f_\\phi(\\mathbf{X}) / f_\\theta(\\mathbf{X})}{\\phi - \\theta} \\right]}.$$",
+  "sec.change.eq2": "$$\\approx \\frac{[g'(\\theta)]^2}{J(\\theta)}.$$",
+  "sec.change.text": "This representation connects the variance bound to the local change rate of $g(\\theta)$ with respect to the Fisher information.",
+
+  "sec.limit.title": "Limit expression and Fisher information",
+  "sec.limit.eq1": "$$A(\\phi, \\theta) = \\mathbb{V}_\\theta \\left[ \\frac{f_\\phi(\\mathbf{X})}{f_\\theta(\\mathbf{X})} \\right] = \\mathbb{V}_\\theta \\left[ \\frac{f_\\phi(\\mathbf{X})}{f_\\theta(\\mathbf{X})} - 1 \\right].$$",
+  "sec.limit.eq2": "$$J(\\theta) = \\lim_{\\phi \\to \\theta} \\frac{A(\\phi, \\theta)}{(\\phi - \\theta)^2} = \\lim_{\\phi \\to \\theta} \\int \\frac{\\{f_\\phi(x) - f_\\theta(x)\\}^2}{(\\phi - \\theta)^2 f_\\theta(x)} dx.$$",
+  "sec.limit.eq3": "$$\\frac{\\partial}{\\partial \\theta} \\log f_\\theta(x) = \\frac{1}{f_\\theta(x)} \\frac{\\partial f_\\theta(x)}{\\partial \\theta} = \\lim_{\\phi \\to \\theta} \\frac{f_\\phi(x) - f_\\theta(x)}{(\\phi - \\theta) f_\\theta(x)}.$$",
+  "sec.limit.eq4": "$$J(\\theta) = \\int \\left( \\frac{\\partial}{\\partial \\theta} \\log f_\\theta(x) \\right)^2 f_\\theta(x) dx.$$",
+  "sec.limit.eq5": "$$= \\mathbb{E}_\\theta \\left[ \\left( \\frac{\\partial}{\\partial \\theta} \\log f_\\theta(\\mathbf{X}) \\right)^2 \\right].$$",
+
+  "sec.crlb.title": "Cramér–Rao lower bound",
+  "sec.crlb.eq1": "$$\\mathbb{V}_\\theta(T) \\ge \\frac{[g'(\\theta)]^2}{J(\\theta)}.$$",
+  "sec.crlb.eq2": "$$J(\\theta) = \\int \\left( \\frac{\\partial}{\\partial \\theta} \\log f_\\theta(x) \\right)^2 f_\\theta(x) dx.$$",
+  "sec.crlb.eq3": "$$= \\mathbb{E}_\\theta \\left[ \\left( \\frac{\\partial}{\\partial \\theta} \\log f_\\theta(\\mathbf{X}) \\right)^2 \\right].$$"
+}

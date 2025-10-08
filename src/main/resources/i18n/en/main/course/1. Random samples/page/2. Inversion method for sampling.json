@@ -92,7 +92,13 @@
   "dist.t": "[[t distribution]]",
   "dist.unif": "[[uniform distribution]]",
   "dist.weibull": "[[Weibull distribution]]",
-  "dist.wilcox": "[[Wilcox distribution]]"
+  "dist.wilcox": "[[Wilcox distribution]]",
+
+  "section.inversion.titleShort": "Inversion Method",
+  "section.quiz2.remarkTitle": "Solution Steps",
+  "section.remark.titleShort": "Numerical Inversion",
+  "theorem.titleShort": "Theorem of Inversion Method"
+
 
 
 }

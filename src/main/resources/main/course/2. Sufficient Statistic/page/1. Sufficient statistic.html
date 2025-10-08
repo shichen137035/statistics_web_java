@@ -3,20 +3,18 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title data-i18n="meta.title">Sufficient Statistics</title>
+    <title data-i18n="meta.title"></title>
 
-    <!-- 新增：定理风格样式 -->
-    <link rel="stylesheet" href="/common/css/theorem_style.css"/>
 </head>
 <body>
-<!-- Global placeholders (filled by course.js) -->
+<!-- Global placeholders -->
 <div id="language-switch"></div>
 <div id="course-nav"></div>
 <div id="pager"></div>
 
-<main class="container" data-ch="3">
-    <!-- Intro -->
-    <h1 data-i18n="intro.title">Sufficient Statistics: Why and What</h1>
+<!-- lec1.pdf p.45–55 -->
+<main class="container" data-ch="2.1">
+    <h1 data-i18n="intro.title"></h1>
     <p data-i18n="intro.lead"></p>
 
     <hr/>
@@ -26,8 +24,7 @@
         <h2 data-i18n="info.title"></h2>
         <p data-i18n="info.p1"></p>
 
-        <!-- 备注卡片（带风格） -->
-        <aside class="statement remark" id="remark-sufficient" data-title="(Interpretation)">
+        <aside class="statement remark" id="remark-sufficient" data-title-i18n="info.remarkTitle">
             <p data-i18n="info.remark"></p>
         </aside>
     </section>
@@ -38,8 +35,7 @@
     <section id="definition">
         <h2 data-i18n="def.title"></h2>
 
-        <!-- 定义卡片（自动编号：Definition 3.x） -->
-        <aside class="statement definition" id="def-suff" data-ch="2" data-title="(Sufficiency)">
+        <aside class="statement definition" id="def-suff" data-ch="2.1" data-title-i18n="def.titleShort">
             <p data-i18n="def.text"></p>
         </aside>
     </section>
@@ -50,8 +46,7 @@
     <section id="factorization">
         <h2 data-i18n="thm.factor.title"></h2>
 
-        <!-- 定理卡片（自动编号：Theorem 3.x） -->
-        <aside class="statement theorem" id="thm-factor" data-ch="2" data-title="(Factorization Theorem)">
+        <aside class="statement theorem" id="thm-factor" data-ch="2.1" data-title-i18n="thm.factor.titleShort">
             <p data-i18n="thm.factor.statement"></p>
             <div class="eq" data-i18n="thm.factor.eq"></div>
         </aside>
@@ -68,7 +63,6 @@
     <section id="proofs">
         <h2 data-i18n="proof.title"></h2>
 
-        <!-- Sufficiency 方向的证明草图 -->
         <h3 data-i18n="proof.suff.title"></h3>
         <div class="proof">
             <ol>
@@ -78,7 +72,6 @@
             <p class="qed"></p>
         </div>
 
-        <!-- Necessity 方向的证明草图 -->
         <h3 data-i18n="proof.nec.title"></h3>
         <div class="proof">
             <ol>
@@ -95,8 +88,7 @@
     <section id="minimal">
         <h2 data-i18n="minimal.title"></h2>
 
-        <!-- “最小充分”也作为一个定义卡片展示 -->
-        <aside class="statement definition" id="def-minimal" data-ch="2" data-title="(Minimal Sufficiency)">
+        <aside class="statement definition" id="def-minimal" data-ch="2.1" data-title-i18n="minimal.titleShort">
             <p data-i18n="minimal.def"></p>
             <p class="note" data-i18n="minimal.criterion"></p>
         </aside>
@@ -113,7 +105,7 @@
 
     <hr/>
 
-    <!-- Numerical illustration (R) -->
+    <!-- Numerical illustration -->
     <section id="numerical">
         <h2 data-i18n="example.num.title"></h2>
         <p data-i18n="example.num.desc"></p>
@@ -139,7 +131,6 @@
     </section>
 </main>
 
-<!-- Boot the shared course runtime (injects CSS/JS, MathJax, i18n loader, etc.) -->
 <script type="module" src="/common/js/course.js" defer></script>
 </body>
 </html>

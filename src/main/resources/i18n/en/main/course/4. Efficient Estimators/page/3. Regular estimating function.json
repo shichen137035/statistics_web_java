@@ -1,0 +1,50 @@
+{
+  "meta.title": "Regular estimating function",
+  "intro.title": "Regular estimating function",
+
+  "sec.regular.title": "Definition of regular estimating function",
+  "sec.regular.text1": "Suppose $\\mathcal{X}$ is an abstract space with measure $\\mu$. The parametric probability density function $p(x \\mid \\theta)$, parameterized by $\\theta \\in \\Theta$, is defined with respect to $\\mu$. A function $g(x,\\theta)$ on $\\mathcal{X}\\times\\Theta$ is called a regular estimating function if it satisfies the following conditions:",
+  "sec.regular.cond1": "(i) $\\mathbb{E}[g(X,\\theta)\\mid \\theta]=0$ for all $\\theta \\in \\Theta$;",
+  "sec.regular.cond2": "(ii) For almost all $x$, $\\partial g / \\partial \\theta$ exists for all $\\theta \\in \\Theta$;",
+  "sec.regular.cond3": "(iii) $\\int g(x,\\theta)p(x\\mid\\theta)d\\mu$ is differentiable under the integral;",
+  "sec.regular.cond4": "(iv) $[\\mathbb{E}(\\partial g/\\partial \\theta\\mid\\theta)]^2>0$ for all $\\theta\\in\\Theta$.",
+
+  "sec.opt.title": "Optimum estimating function",
+  "sec.opt.text1": "Let $\\mathcal{G}$ be the class of all regular estimating functions. A function $g^*\\in\\mathcal{G}$ is said to be an optimum estimating function if",
+  "sec.opt.eq1": "$$\\frac{\\mathbb{E}[g^{*2}\\mid\\theta]}{[\\mathbb{E}(\\partial g^*/\\partial\\theta\\mid\\theta)]^2} \\le \\frac{\\mathbb{E}[g^2\\mid\\theta]}{[\\mathbb{E}(\\partial g/\\partial\\theta\\mid\\theta)]^2}, \\quad \\forall g\\in\\mathcal{G},\\ \\theta\\in\\Theta.$$",
+
+  "sec.thm.title": "Main theorem",
+  "sec.thm.text1": "Assume the regularity conditions above. Then, for all $g\\in\\mathcal{G}$, we have:",
+  "sec.thm.eq1": "$$\\frac{\\mathbb{E}[g^2\\mid\\theta]}{[\\mathbb{E}(\\partial g/\\partial\\theta\\mid\\theta)]^2} \\ge \\frac{1}{\\mathbb{E}[(\\partial \\log p/\\partial\\theta)^2\\mid\\theta]}.$$",
+
+  "sec.exp.title": "Exponential family",
+  "sec.exp.text1": "Suppose samples $X_1,\\ldots,X_n$ are i.i.d. with density of the form",
+  "sec.exp.eq1": "$$f(x\\mid\\theta)=\\exp\\{c(\\theta)T(x)+d(\\theta)+S(x)\\}.$$",
+  "sec.exp.text2": "The joint p.d.f. of samples is given by",
+  "sec.exp.eq2": "$$p(x\\mid\\theta)=\\prod_{i=1}^n f(x_i\\mid\\theta)=\\prod_{i=1}^n \\exp\\{c(\\theta)T(x_i)+d(\\theta)+S(x_i)\\}.$$",
+  "sec.exp.text3": "The optimal estimating function is obtained as",
+  "sec.exp.eq3": "$$g^*=\\frac{\\partial}{\\partial\\theta}\\log p(x\\mid\\theta)=c'(\\theta)\\sum_{i=1}^n T(x_i)+nd'(\\theta).$$",
+  "sec.exp.text4": "The maximum likelihood estimator $\\hat{\\theta}_n$ satisfies $g^*=0$, i.e.,",
+  "sec.exp.eq4": "$$-\\frac{d'(\\hat{\\theta}_n)}{c'(\\hat{\\theta}_n)}=\\frac{1}{n}\\sum_{i=1}^n T(X_i).$$",
+
+  "sec.ex2.title": "",
+  "sec.ex2.text1": "For the Bernoulli distribution, we have",
+  "sec.ex2.eq1": "$$f(x\\mid p)=\\exp\\left(x\\log\\frac{p}{1-p}+\\log(1-p)\\right).$$",
+  "sec.ex2.text2": "Here $T(x)=x$, $c(p)=\\log p - \\log(1-p)$, and $d(p)=\\log(1-p)$. The MLE is",
+  "sec.ex2.eq2": "$$\\hat{p}_n=-\\frac{d'(\\hat{p}_n)}{c'(\\hat{p}_n)}=\\frac{1}{n}\\sum_{i=1}^n X_i.$$",
+  "sec.ex2.text3": "For the Poisson distribution, we have",
+  "sec.ex2.eq3": "$$f(x\\mid\\lambda)=\\exp(x\\log\\lambda - \\lambda + \\log(x!)).$$",
+  "sec.ex2.eq4": "Here $T(x)=x$, $c(\\lambda)=\\log\\lambda$, and $d(\\lambda)=-\\lambda$. The MLE is",
+  "sec.ex2.eq5": "$$\\hat{\\lambda}_n=-\\frac{d'(\\hat{\\lambda}_n)}{c'(\\hat{\\lambda}_n)}=\\frac{1}{n}\\sum_{i=1}^n X_i.$$",
+
+  "sec.ex3.title": "",
+  "sec.ex3.text1": "For the exponential distribution,",
+  "sec.ex3.eq1": "$$f(x\\mid\\mu)=\\exp\\left(-\\frac{x}{\\mu}-\\log\\mu\\right).$$",
+  "sec.ex3.text2": "Here $T(x)=x$, $c(\\mu)=-1/\\mu$, and $d(\\mu)=-\\log\\mu$. The MLE is",
+  "sec.ex3.eq2": "$$\\hat{\\mu}_n=-\\frac{d'(\\hat{\\mu}_n)}{c'(\\hat{\\mu}_n)}=\\frac{1}{n}\\sum_{i=1}^n X_i.$$",
+  "sec.ex3.text3": "For the normal distribution,",
+  "sec.ex3.eq3": "$$f(x\\mid\\mu)=\\exp\\left\\{-\\frac{1}{2}\\left(\\frac{x-\\mu}{\\sigma}\\right)^2 - \\log(\\sqrt{2\\pi}\\sigma)\\right\\}.$$",
+  "sec.ex3.text4": "Here $T(x)=x$, $c(\\mu)=\\mu/\\sigma^2$, and $d(\\mu)=-\\mu^2/(2\\sigma^2)$. The MLE is",
+  "sec.ex3.eq4": "$$\\hat{\\mu}_n=-\\frac{d'(\\hat{\\mu}_n)}{c'(\\hat{\\mu}_n)}=\\frac{1}{n}\\sum_{i=1}^n X_i.$$",
+  "sec.ex3.eq5": "$$\\therefore\\; \\text{all four distributions lead to MLE as the sample mean.}$$"
+}

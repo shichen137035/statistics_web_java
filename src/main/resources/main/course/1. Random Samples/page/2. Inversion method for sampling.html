@@ -4,9 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title data-i18n="meta.title"></title>
-
-    <!-- 添加定理样式支持 -->
-    <link rel="stylesheet" href="/common/css/theorem_style.css" />
 </head>
 <body>
 <!-- Global components -->
@@ -14,7 +11,8 @@
 <div id="course-nav"></div>
 <div id="pager"></div>
 
-<main class="container prose mx-auto" data-ch="2">
+<!-- lec1.pdf p.10–20 -->
+<main class="container prose mx-auto" data-ch="1.2">
     <h1 data-i18n="intro.title"></h1>
 
     <!-- Uniform distribution -->
@@ -33,12 +31,10 @@
     <section id="inversion">
         <h2 data-i18n="section.inversion.title"></h2>
 
-        <!-- 定理环境：反变换法 -->
-        <aside class="statement theorem" id="thm-inversion" data-ch="2" data-title="(Inversion Method)">
+        <aside class="statement theorem" id="thm-inversion" data-ch="1.2" data-title-i18n="section.inversion.titleShort">
             <div class="eq" data-i18n="section.inversion.theorem"></div>
         </aside>
 
-        <!-- 证明简述 -->
         <div class="proof">
             <p class="smallmuted" data-i18n="proof.label"></p>
             <div class="eq" data-i18n="section.inversion.proof"></div>
@@ -52,7 +48,7 @@
         <h2 data-i18n="section.quiz2.title"></h2>
         <p data-i18n="section.quiz2.q"></p>
 
-        <aside class="statement remark" data-title="(Solution Steps)">
+        <aside class="statement remark" data-title-i18n="section.quiz2.remarkTitle">
             <p data-i18n="section.quiz2.step1"></p>
             <p data-i18n="section.quiz2.step2"></p>
         </aside>
@@ -67,7 +63,7 @@
     <section id="remark">
         <h2 data-i18n="section.remark.title"></h2>
 
-        <aside class="statement remark" id="remark-inverse" data-title="(Numerical Inversion)">
+        <aside class="statement remark" id="remark-inverse" data-title-i18n="section.remark.titleShort">
             <p data-i18n="section.remark.p1"></p>
             <p data-i18n="section.remark.p2"></p>
         </aside>
@@ -79,7 +75,7 @@
     <section class="course-section proof-container">
         <h1 data-i18n="proof.title"></h1>
 
-        <aside class="statement theorem" id="thm-proof" data-ch="2" data-title="(Theorem of Inversion Method)">
+        <aside class="statement theorem" id="thm-proof" data-ch="1.2" data-title-i18n="theorem.titleShort">
             <p data-i18n="theorem.statement.1"></p>
             <div class="eq" data-i18n="theorem.formula.1"></div>
             <p data-i18n="theorem.statement.2"></p>

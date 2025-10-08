@@ -1,0 +1,42 @@
+{
+  "meta.title": "Fisher information",
+  "intro.title": "Fisher information",
+
+  "sec1.title": "Introduction to Fisher information matrix",
+
+  "sec.def.title": "Definition of Fisher information",
+  "sec.def.text1": "The Fisher information measures how much information the observable random variable $X$ carries about the parameter $\\theta$. It is defined as:",
+  "sec.def.eq1": "$$I(\\theta) = \\mathbb{E}\\left[\\left( \\frac{\\partial}{\\partial \\theta} \\log p(X \\mid \\theta) \\right)^2\\right].$$",
+
+  "sec.crlb.title": "Cramér–Rao lower bound",
+  "sec.crlb.text1": "Let $T(X)$ be an unbiased estimator of $g(\\theta)$. Then the Cramér–Rao inequality states that:",
+  "sec.crlb.eq1": "$$\\operatorname{Var}(T(X)) \\ge \\left[\\frac{\\partial g(\\theta)}{\\partial \\theta}\\right]^{\\!\\top} I(\\theta)^{-1} \\frac{\\partial g(\\theta)}{\\partial \\theta}.$$",
+  "sec.crlb.text2": "The right-hand side represents the minimum possible variance for unbiased estimators of $g(\\theta)$.",
+
+  "sec.prop.title": "Properties of Fisher information",
+  "sec.prop.text1": "(i) If $X$ and $Y$ are independent random variables with Fisher information matrices $I_X(\\theta)$ and $I_Y(\\theta)$ respectively, then the joint Fisher information is additive:",
+  "sec.prop.eq1": "$$I_{(X,Y)}(\\theta) = I_X(\\theta) + I_Y(\\theta).$$",
+  "sec.prop.text2": "(ii) If $p(X \\mid \\theta)$ is twice differentiable with respect to $\\theta$, then an equivalent expression for the Fisher information is given by:",
+  "sec.prop.eq2": "$$I(\\theta) = -\\mathbb{E}\\left[\\frac{\\partial^2}{\\partial \\theta^2} \\log p(X \\mid \\theta)\\right].$$",
+
+  "sec.log.title": "Log density identity",
+  "sec.log.eq1": "$$\\mathbb{E}_\\theta\\left[\\frac{\\partial}{\\partial \\theta}\\log f_\\theta(X)\\right] = \\mathbb{E}_\\theta\\left[\\frac{1}{f_\\theta(X)}\\frac{\\partial f_\\theta(X)}{\\partial \\theta}\\right].$$",
+  "sec.log.eq2": "$$= \\int \\frac{\\partial f_\\theta(x)}{\\partial \\theta} dx = \\frac{\\partial}{\\partial \\theta} \\int f_\\theta(x) dx = 0.$$",
+  "sec.log.eq3": "$$\\therefore \\; \\mathbb{E}_\\theta\\left[\\frac{\\partial}{\\partial \\theta}\\log f_\\theta(X)\\right] = 0.$$",
+
+  "sec.relation.title": "Relation between derivatives and expectation",
+  "sec.relation.eq1": "$$\\frac{\\partial^2}{\\partial \\theta^2}\\log f_\\theta(x) = \\frac{\\partial}{\\partial \\theta}\\left(\\frac{1}{f_\\theta(x)}\\frac{\\partial f_\\theta(x)}{\\partial \\theta}\\right).$$",
+  "sec.relation.eq2": "$$= \\frac{\\frac{\\partial^2 f_\\theta(x)}{\\partial \\theta^2}}{f_\\theta(x)} - \\left(\\frac{\\partial f_\\theta(x)/\\partial \\theta}{f_\\theta(x)}\\right)^2.$$",
+  "sec.relation.eq3": "$$\\mathbb{E}_\\theta\\left[\\frac{\\partial^2 f_\\theta(X)}{\\partial \\theta^2 f_\\theta(X)}\\right] = 0.$$",
+  "sec.relation.eq4": "$$\\Rightarrow \\; \\mathbb{E}_\\theta\\left[\\left(\\frac{\\partial}{\\partial \\theta}\\log f_\\theta(X)\\right)^2\\right] = -\\mathbb{E}_\\theta\\left[\\frac{\\partial^2}{\\partial \\theta^2}\\log f_\\theta(X)\\right].$$",
+
+  "sec.ex.title": "Example of information matrix",
+  "sec.ex.text1": "Let $X_1,\\dots,X_n$ be i.i.d. random variables with p.d.f. $\\sigma^{-1} f(\\sigma^{-1}(x-\\mu))$, and let $\\theta = (\\mu,\\sigma)$. Then the Fisher information matrix is:",
+  "sec.ex.eq1": "$$I(\\theta) = \\frac{n}{\\sigma^2}\\begin{pmatrix} \\int \\frac{[f'(x)]^2}{f(x)}dx & \\int \\frac{f'(x)[x f'(x) + f(x)]}{f(x)}dx \\\\ \\int \\frac{f'(x)[x f'(x) + f(x)]}{f(x)}dx & \\int \\frac{[x f'(x) + f(x)]^2}{f(x)}dx \\end{pmatrix}.$$",
+
+  "sec.exp.title": "Exponential family and efficiency",
+  "sec.exp.text1": "An estimator $T(X)$ is efficient if it achieves the Cramér–Rao lower bound. The equality holds in the Cauchy–Schwarz inequality when $T(X)$ and $\\frac{\\partial}{\\partial \\theta}\\log f_\\theta(X)$ are linearly related. That is,",
+  "sec.exp.eq1": "$$T(X) = a_1(\\theta) \\frac{\\partial}{\\partial \\theta}\\log f_\\theta(X) + a_2(\\theta).$$",
+  "sec.exp.eq2": "$$\\Rightarrow f_\\theta(x) = \\exp\\left\\{\\int \\frac{T(x) - a_2(\\theta)}{a_1(\\theta)} d\\theta \\right\\}.$$",
+  "sec.exp.eq3": "$$\\therefore f_\\theta(x) \\text{ belongs to an exponential family, and } T(X) \\text{ is sufficient.}$$"
+}
