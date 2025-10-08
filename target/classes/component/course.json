@@ -53,7 +53,15 @@
 }, {
   "name" : "3. Estimator",
   "type" : "folder",
-  "children" : [ ]
+  "children" : [ {
+    "name" : "1. Biased and unbiased estimator.html",
+    "type" : "file",
+    "path" : "3. Estimator/page/1. Biased and unbiased estimator.html"
+  }, {
+    "name" : "2. Rao-Blackwell theorem and UMVUE.html",
+    "type" : "file",
+    "path" : "3. Estimator/page/2. Rao-Blackwell theorem and UMVUE.html"
+  } ]
 }, {
   "name" : "4. Efficient Estimators",
   "type" : "folder",

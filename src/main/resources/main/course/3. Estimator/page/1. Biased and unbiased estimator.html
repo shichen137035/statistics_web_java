@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title data-i18n="meta.title"></title>
+  <link rel="stylesheet" href="/common/css/theorem_style.css" />
+</head>
+<body>
+<!-- Global components -->
+<div id="language-switch"></div>
+<div id="course-nav"></div>
+<div id="pager"></div>
+
+<!-- lec1.pdf p.68–75 -->
+<main class="container prose mx-auto" data-ch="3">
+  <h1 data-i18n="intro.title"></h1>
+  <p data-i18n="intro.lead"></p>
+
+  <hr/>
+
+  <!-- lec1.pdf p.68 -->
+  <section id="unbiased-def">
+    <h2 data-i18n="sec.unbiased.title"></h2>
+    <aside class="statement definition" data-ch="3" data-title="(Unbiased Estimator)">
+      <p data-i18n="sec.unbiased.def1"></p>
+      <div class="eq" data-i18n="sec.unbiased.eq1"></div>
+      <p data-i18n="sec.unbiased.def2"></p>
+    </aside>
+  </section>
+
+  <hr/>
+
+  <!-- lec1.pdf p.69 -->
+  <section id="bias-def">
+    <h2 data-i18n="sec.bias.title"></h2>
+    <aside class="statement definition" data-ch="3" data-title="(Bias)">
+      <p data-i18n="sec.bias.def1"></p>
+      <div class="eq" data-i18n="sec.bias.eq1"></div>
+      <p data-i18n="sec.bias.def2"></p>
+    </aside>
+  </section>
+
+  <hr/>
+
+  <!-- lec1.pdf p.70 -->
+  <section id="mse">
+    <h2 data-i18n="sec.mse.title"></h2>
+
+    <aside class="statement definition" data-ch="3" data-title="(Mean Squared Error)">
+      <p data-i18n="sec.mse.def"></p>
+      <div class="eq" data-i18n="sec.mse.eq0"></div>
+    </aside>
+
+    <aside class="statement theorem" data-ch="3" data-title="(Bias–Variance Decomposition)">
+      <p data-i18n="sec.mse.thm"></p>
+      <div class="eq" data-i18n="sec.mse.eq1"></div>
+    </aside>
+
+    <div class="proof">
+      <p class="smallmuted" data-i18n="sec.mse.proof.label"></p>
+      <ol>
+        <li data-i18n="sec.mse.proof.s1"></li>
+        <li data-i18n="sec.mse.proof.s2"></li>
+        <li data-i18n="sec.mse.proof.s3"></li>
+      </ol>
+      <p class="qed"></p>
+    </div>
+
+    <aside class="statement remark" data-title="(MSE as a Risk)">
+      <p data-i18n="sec.mse.remark"></p>
+    </aside>
+  </section>
+
+  <hr/>
+
+  <!-- lec1.pdf p.71 -->
+  <section id="examples">
+    <h2 data-i18n="sec.ex.title"></h2>
+
+    <h3 data-i18n="sec.ex.mean.title"></h3>
+    <p data-i18n="sec.ex.mean.p1"></p>
+    <div class="eq" data-i18n="sec.ex.mean.eq"></div>
+
+    <h3 data-i18n="sec.ex.variance.title"></h3>
+    <p data-i18n="sec.ex.variance.p1"></p>
+    <div class="eq" data-i18n="sec.ex.variance.eq1"></div>
+    <p data-i18n="sec.ex.variance.p2"></p>
+    <div class="eq" data-i18n="sec.ex.variance.eq2"></div>
+  </section>
+
+  <hr/>
+
+  <!-- lec1.pdf p.72 -->
+  <section id="biased-better">
+    <h2 data-i18n="sec.better.title"></h2>
+    <aside class="statement remark" data-title="(Trade-off)">
+      <p data-i18n="sec.better.text1"></p>
+      <p data-i18n="sec.better.text2"></p>
+    </aside>
+    <pre><code data-i18n="sec.better.code1"></code></pre>
+    <pre><code data-i18n="sec.better.code2"></code></pre>
+  </section>
+
+  <hr/>
+
+  <!-- lec1.pdf p.73–74 -->
+  <section id="umvue-bridge">
+    <h2 data-i18n="sec.umvue.title"></h2>
+    <aside class="statement theorem" data-ch="3" data-title="(From Unbiased to UMVUE)">
+      <p data-i18n="sec.umvue.text"></p>
+    </aside>
+    <p data-i18n="sec.umvue.explain"></p>
+    <pre><code data-i18n="sec.umvue.code"></code></pre>
+  </section>
+
+  <hr/>
+
+  <!-- lec1.pdf p.75 -->
+  <section id="quiz">
+    <h2 data-i18n="sec.quiz.title"></h2>
+    <p data-i18n="sec.quiz.exp1"></p>
+    <pre><code data-i18n="sec.quiz.code1"></code></pre>
+
+    <p data-i18n="sec.quiz.exp2"></p>
+    <pre><code data-i18n="sec.quiz.code2"></code></pre>
+  </section>
+</main>
+
+<script type="module" src="/common/js/course.js" defer></script>
+</body>
+</html>

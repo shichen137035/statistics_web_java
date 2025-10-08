@@ -1,0 +1,40 @@
+{
+  "meta.title": "Ch.3 §2 — Complete Statistics · Basu's Theorem · Exponential Family",
+  "intro.title": "Complete Statistics, Basu's Theorem, and Exponential Family",
+
+  "sec.complete.title": "Complete Statistics",
+  "sec.complete.def1": "For a family $\\{P_\\theta\\}$ and a statistic $T=T(X)$, we say that $T$ is complete if, for every measurable function $g$,",
+  "sec.complete.eq1": "$$\\mathbb{E}_\\theta[g(T)]=0\\ \\text{for all }\\theta\\ \\Rightarrow\\ g(T)=0\\ \\text{ a.s.}$$",
+  "sec.complete.def2": "Equivalently, the only unbiased estimator of $0$ that is a function of $T$ is the trivial one.",
+
+  "sec.basu.title": "Basu's Theorem",
+  "sec.basu.statement": "If $T(X)$ is complete and sufficient for $\\theta$ and $A(X)$ is ancillary (its distribution does not depend on $\\theta$), then $T$ and $A$ are independent.",
+
+  "sec.basu.proof.title": "Proof for Basu's Theorem",
+  "sec.basu.proof.label": "Sketch:",
+  "sec.basu.proof.step1": "Let $h$ be any bounded measurable function. Consider $g(T)=\\mathbb{E}[h(A)\\mid T]-\\mathbb{E}[h(A)]$.",
+  "sec.basu.proof.step2": "By sufficiency of $T$, $\\mathbb{E}[h(A)\\mid T]$ does not depend on $\\theta$; by ancillarity of $A$, $\\mathbb{E}[h(A)]$ does not depend on $\\theta$ either.",
+  "sec.basu.proof.step3": "Hence $\\mathbb{E}_\\theta[g(T)]=0$ for all $\\theta$. By completeness of $T$, $g(T)=0$ a.s.",
+  "sec.basu.proof.step4": "Thus $\\mathbb{E}[h(A)\\mid T]=\\mathbb{E}[h(A)]$ a.s. for all $h$, which is equivalent to independence of $T$ and $A$.",
+
+  "sec.ex1.title": "Example 1",
+  "sec.ex1.text1": "In the normal model with known variance $\\sigma^2$, the sample mean $\\bar X$ is sufficient (and, in the one-parameter setting, complete) for $\\mu$; the centered sample variance $S^2=\\tfrac{1}{n-1}\\sum_i (X_i-\\bar X)^2$ is ancillary for $\\mu$.",
+  "sec.ex1.text2": "By Basu's theorem, $\\bar X$ and $S^2$ are independent.",
+
+  "sec.expfam.title": "Exponential Family",
+  "sec.expfam.form": "$$f(x\\mid\\theta)=h(x)\\exp\\{\\eta(\\theta)\\,T(x)-A(\\theta)\\},$$",
+  "sec.expfam.bern.text": "Bernoulli($p$) fits this form with $T(x)=x$, natural parameter $\\eta=\\log\\tfrac{p}{1-p}$, and $h(x)\\equiv 1$:",
+  "sec.expfam.bern.eq": "$$p(x)=p^x(1-p)^{1-x}=\\exp\\{x\\log\\tfrac{p}{1-p}+\\log(1-p)\\}.$$",
+  "sec.expfam.bern.sum": "For i.i.d. data, $\\sum_i X_i$ is the associated sufficient statistic (and is complete in the regular one-parameter setting).",
+  "sec.expfam.ex.title": "Example",
+  "sec.expfam.ex.text": "In Poisson($\\lambda$), $\\sum_i X_i\\sim\\mathrm{Poi}(n\\lambda)$ is the canonical sufficient statistic and is complete in the one-parameter family.",
+
+  "sec.num.title": "Numerical Example of Sufficient Statistics",
+  "sec.num.desc": "Simulate $100$ independent pairs from Bernoulli($p_0=0.1$); group outcomes by the sufficient statistic (pair sum).",
+  "sec.num.code1": "p0 <- 0.1\nset.seed(1)\nsample1 <- replicate(100, rbinom(2, 1, p0))\n# counts of each pair pattern\ncolSums(rbind(\n  both0 = apply(sample1, 2, function(x) all(x == c(0,0))),\n  one10 = apply(sample1, 2, function(x) all(x == c(1,0))),\n  one01 = apply(sample1, 2, function(x) all(x == c(0,1))),\n  both1 = apply(sample1, 2, function(x) all(x == c(1,1)))\n))",
+  "sec.num.note": "The two single-one cases aggregate once grouped by the sufficient statistic (sum).",
+
+  "sec.num.cont.title": "Numerical Example (cont.)",
+  "sec.num.code2": "# a simple rule demonstrating grouping by sufficient statistic\nrule <- function(x){\n  if(all(x == c(0,0))) return('Case 1')\n  if(all(x == c(1,1))) return('Case 2')\n  if(sum(x)==1) return('Cases')\n}\napply(sample1, 2, rule)",
+  "sec.num.cont.note": "Outcomes with the same sufficient statistic value are treated identically by such rules."
+}

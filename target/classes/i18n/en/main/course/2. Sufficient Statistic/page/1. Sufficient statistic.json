@@ -34,7 +34,7 @@
 
   "minimal.title": "Minimal Sufficiency",
   "minimal.def": "A sufficient statistic $T$ is minimal sufficient if it is a function of every other sufficient statistic.",
-  "minimal.criterion": "A common criterion: for densities $f(x\\mid\\theta)$, $T$ is minimal sufficient iff for any two samples $x,y$, the likelihood ratio $\\dfrac{f(x\\mid\\theta)}{f(y\\mid\\theta)}$ is free of $\\theta$ exactly when $T(x)=T(y)$.",
+  "minimal.criterion": "A common criterion: for densities $f(x\\mid\\theta)$, $T$ is minimal sufficient if for any two samples $x,y$, the likelihood ratio $\\dfrac{f(x\\mid\\theta)}{f(y\\mid\\theta)}$ is free of $\\theta$ exactly when $T(x)=T(y)$.",
 
   "expfam.title": "Exponential Family Connection (Example: Bernoulli)",
   "expfam.p1": "Bernoulli($p$) can be written as $p(x)=\\exp\\{x\\,\\eta - A(\\eta)\\}$ with natural parameter $\\eta=\\log\\tfrac{p}{1-p}$, cumulant $A(\\eta)=\\log(1+e^{\\eta})$, base measure $h(x)\\equiv1$, and sufficient statistic $T(x)=x$.",

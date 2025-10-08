@@ -65,7 +65,7 @@
   "proof.step.2": "Thus, the distribution function of \\(F^{-1}(U)\\) is \\(F\\). Also, we have",
   "proof.eq.2": "$$\\mathbb{P}(F(X) \\le x) = \\mathbb{P}(X \\le F^{-1}(x)) = F(F^{-1}(x)) = x,$$",
   "proof.step.3": "which shows that \\(F(X)\\) follows the uniform distribution.",
-  
+
   "thm-inversion.title": "Inversion Method (Theorem)",
   "remark-inverse.title": "Numerical Inversion (Remark)",
   "remark-solution.title": "Solution Steps (Remark)",

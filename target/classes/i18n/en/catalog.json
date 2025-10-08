@@ -18,6 +18,10 @@
   "catalogtitle.Vector and Matrix": "Vector and Matrix",
   "catalogtitle.Logic of R": "Logic of R",
   "catalogtitle.Random variables": "Random variables",
-  "catalogtitle.Inversion method for sampling": "Inversion method for sampling"
+  "catalogtitle.Inversion method for sampling": "Inversion method for sampling",
+  "catalogtitle.Sufficient statistic": "Sufficient statistic",
+  "catalogtitle.Basu's theorem": "Basu's theorem",
+  "catalogtitle.Biased and unbiased estimator": "Biased and unbiased estimator",
+  "catalogtitle.Rao-Blackwell theorem and UMVUE": "Rao-Blackwell theorem and UMVUE"
 }
 

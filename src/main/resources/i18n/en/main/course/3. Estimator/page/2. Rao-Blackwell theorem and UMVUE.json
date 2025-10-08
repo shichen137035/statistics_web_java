@@ -1,0 +1,36 @@
+{
+  "meta.title": "Ch.3 §4 — Rao–Blackwell · Lehmann–Scheffé · Finding the UMVUE",
+  "intro.title": "Rao–Blackwell and Lehmann–Scheffé Theorems; How to Find a UMVUE",
+  "intro.lead": "Starting from any unbiased estimator, conditioning on a sufficient statistic reduces variance (Rao–Blackwell). Under completeness, the result is the unique UMVUE (Lehmann–Scheffé).",
+
+  "sec.rb.title": "Rao–Blackwell Theorem",
+  "sec.rb.statement1": "Let $S(X)$ be an unbiased estimator of $q(\\theta)$ and $T(X)$ be sufficient for $\\theta$. Then $\\mathbb{E}[S\\mid T]$ is unbiased for $q(\\theta)$ and no worse in variance.",
+  "sec.rb.eq.var": "$$\\operatorname{Var}_\\theta\\big(\\mathbb{E}[S\\mid T]\\big)\\;\\le\\;\\operatorname{Var}_\\theta(S).$$",
+  "sec.rb.statement2": "Equality holds iff $S$ is (a.s.) a function of $T$.",
+  "sec.rb.proof.label": "Proof sketch:",
+  "sec.rb.proof.s1": "By the law of total expectation, $\\mathbb{E}[\\mathbb{E}[S\\mid T]]=\\mathbb{E}[S]=q(\\theta)$, so $\\mathbb{E}[S\\mid T]$ is unbiased.",
+  "sec.rb.proof.s2": "Use the law of total variance: $\\operatorname{Var}(S)=\\mathbb{E}[\\operatorname{Var}(S\\mid T)]+\\operatorname{Var}(\\mathbb{E}[S\\mid T])\\ge\\operatorname{Var}(\\mathbb{E}[S\\mid T])$.",
+  "sec.rb.proof.s3": "The inequality becomes equality iff $\\operatorname{Var}(S\\mid T)=0$ a.s., i.e., $S$ is a function of $T$.",
+  "sec.rb.ex1.title": "Example (Bernoulli $p$): UMVUE for $p^2$ via Rao–Blackwell",
+  "sec.rb.ex1.text1": "Let $X_1,\\dots,X_n\\overset{iid}{\\sim}\\mathrm{Ber}(p)$ and $K=\\sum_i X_i$. The naive unbiased estimator $S=X_1X_2$ ignores sufficiency.",
+  "sec.rb.ex1.text2": "Rao–Blackwellizing gives $\\mathbb{E}[X_1X_2\\mid K]=K(K-1)/\\{n(n-1)\\}$, which already equals the UMVUE once completeness holds (see below).",
+  "sec.rb.ex1.code1": "unbiased_naive <- function(x){ x[1] * x[2] }\nrb_p2 <- function(x){ n <- length(x); k <- sum(x); (k*(k-1))/(n*(n-1)) }",
+  "sec.rb.ex1.code2": "set.seed(1)\nsim <- function(n=10,p=0.3,B=10000){\n  s_raw <- s_rb <- numeric(B)\n  for(b in 1:B){ x <- rbinom(n,1,p); s_raw[b] <- unbiased_naive(x); s_rb[b] <- rb_p2(x) }\n  c(mean_raw = mean(s_raw), mean_rb = mean(s_rb), var_raw = var(s_raw), var_rb = var(s_rb))\n}\nprint(sim())",
+
+  "sec.ls.title": "Lehmann–Scheffé Theorem",
+  "sec.ls.statement1": "If $T(X)$ is complete and sufficient for $\\theta$, and $\\delta(T)$ is unbiased for $q(\\theta)$, then $\\delta(T)$ is the unique UMVUE of $q(\\theta)$.",
+  "sec.ls.statement2": "Equivalently, for any unbiased $S(X)$, $\\mathbb{E}[S\\mid T]=\\delta(T)$ a.s.",
+  "sec.ls.ex.title": "Example (Bernoulli)",
+  "sec.ls.ex.text": "In $\\mathrm{Ber}(p)$, $K=\\sum_i X_i$ is complete and sufficient; thus $K(K-1)/\\{n(n-1)\\}$ is the UMVUE for $p^2$, and $K(n-K)/\\{n(n-1)\\}$ is the UMVUE for $p(1-p)$.",
+
+  "sec.umvue.title": "How to Find a UMVUE (Workflow)",
+  "sec.umvue.step1": "Identify a sufficient statistic $T(X)$ for the model (e.g., by the factorization theorem).",
+  "sec.umvue.step2": "Find any unbiased estimator $S(X)$ of the target $q(\\theta)$.",
+  "sec.umvue.step3": "Apply Rao–Blackwell: set $\\tilde S(X)=\\mathbb{E}[S\\mid T]$.",
+  "sec.umvue.step4": "If $T$ is complete, conclude by Lehmann–Scheffé that $\\tilde S$ is the UMVUE (and unique).",
+  "sec.umvue.ex.title": "Worked example (Bernoulli $p$)",
+  "sec.umvue.ex.text1": "Target: $q(p)=p^2$. Sufficient statistic: $K=\\sum X_i$. A naive unbiased $S=X_1X_2$.",
+  "sec.umvue.ex.text2": "Rao–Blackwellization yields $\\tilde S=K(K-1)/\\{n(n-1)\\}$. Since $K$ is complete, $\\tilde S$ is the UMVUE.",
+  "sec.umvue.ex.code1": "umvue_p2 <- function(x){ n <- length(x); k <- sum(x); (k*(k-1))/(n*(n-1)) }\nset.seed(2); x <- rbinom(12,1,0.4); c(K=sum(x), UMVUE=umvue_p2(x))",
+  "sec.umvue.ex.code2": "check_unbiased <- function(n=12,p=0.4,B=10000){\n  est <- replicate(B, umvue_p2(rbinom(n,1,p)))\n  c(mean_est = mean(est), target = p^2)\n}\nset.seed(3); print(check_unbiased())"
+}

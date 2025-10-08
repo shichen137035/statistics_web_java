@@ -1,0 +1,60 @@
+{
+  "meta.title": "Biased and Unbiased Estimators",
+
+  "intro.title": "Biased and Unbiased Estimators",
+  "intro.lead": "We formalize unbiasedness and bias, introduce mean squared error (MSE), prove the bias–variance decomposition, and compare estimators through examples and a short UMVUE bridge.",
+
+  "sec.unbiased.title": "Unbiased Estimator",
+  "sec.unbiased.def1": "Let $X=(X_1,\\dots,X_n)\\sim P_\\theta$. An estimator $T(X)$ of a target $q(\\theta)$ is unbiased if",
+  "sec.unbiased.eq1": "$$\\mathbb{E}_\\theta[T(X)] = q(\\theta)\\quad (\\forall\\,\\theta).$$",
+  "sec.unbiased.def2": "Unbiasedness means the estimator hits the target in expectation for every parameter value.",
+
+  "sec.bias.title": "Bias",
+  "sec.bias.def1": "The bias of an estimator $T$ of $q(\\theta)$ at $\\theta$ is defined by",
+  "sec.bias.eq1": "$$\\operatorname{Bias}_\\theta(T) := \\mathbb{E}_\\theta[T] - q(\\theta).$$",
+  "sec.bias.def2": "$T$ is unbiased iff $\\operatorname{Bias}_\\theta(T)=0$ for all $\\theta$.",
+
+  "sec.mse.title": "Mean Squared Error (MSE)",
+  "sec.mse.def": "For an estimator $T$ of $q(\\theta)$, the mean squared error is",
+  "sec.mse.eq0": "$$\\operatorname{MSE}_\\theta(T) := \\mathbb{E}_\\theta\\big[(T - q(\\theta))^2\\big].$$",
+  "sec.mse.thm": "Bias–Variance decomposition:",
+  "sec.mse.eq1": "$$\\operatorname{MSE}_\\theta(T) = \\operatorname{Var}_\\theta(T) + \\operatorname{Bias}_\\theta(T)^2.$$",
+  "sec.mse.proof.label": "Proof sketch:",
+  "sec.mse.proof.s1": "Write $T-q(\\theta) = \\big(T-\\mathbb{E}_\\theta[T]\\big) + \\big(\\mathbb{E}_\\theta[T]-q(\\theta)\\big)$.",
+  "sec.mse.proof.s2": "Square and take expectations; the cross term vanishes because $\\mathbb{E}_\\theta[T-\\mathbb{E}_\\theta[T]]=0$.",
+  "sec.mse.proof.s3": "This yields $\\operatorname{Var}_\\theta(T)+\\operatorname{Bias}_\\theta(T)^2$.",
+  "sec.mse.remark": "For unbiased estimators, MSE equals variance; among unbiased estimators, minimizing variance minimizes MSE.",
+
+  "sec.ex.title": "Examples",
+  "sec.ex.mean.title": "Sample Mean",
+  "sec.ex.mean.p1": "If $X_i$ are i.i.d. with mean $\\mu$ and variance $\\sigma^2$, the sample mean $\\bar X$ is unbiased for $\\mu$:",
+  "sec.ex.mean.eq": "$$\\mathbb{E}[\\bar X]=\\mu,\\quad \\operatorname{Var}(\\bar X)=\\sigma^2/n.$$",
+
+  "sec.ex.variance.title": "Sample Variance",
+  "sec.ex.variance.p1": "Define $S^2=\\tfrac{1}{n-1}\\sum_{i=1}^n (X_i-\\bar X)^2$. Then $S^2$ is unbiased for $\\sigma^2$.",
+  "sec.ex.variance.eq1": "$$\\mathbb{E}[S^2]=\\sigma^2.$$",
+  "sec.ex.variance.p2": "By contrast, the plug-in $\\tilde S^2=\\tfrac{1}{n}\\sum_{i=1}^n (X_i-\\bar X)^2$ is biased downward:",
+  "sec.ex.variance.eq2": "$$\\mathbb{E}[\\tilde S^2]=\\tfrac{n-1}{n}\\,\\sigma^2.$$",
+
+  "sec.better.title": "When a Biased Estimator Has Smaller MSE",
+  "sec.better.text1": "Because $\\operatorname{MSE}=\\operatorname{Var}+\\operatorname{Bias}^2$, a small amount of bias can reduce MSE if it substantially lowers variance.",
+  "sec.better.text2": "Illustration in the normal mean model: shrink the unbiased $\\bar X$ to $c\\bar X$ and compare MSE.",
+  "sec.better.code1": "# Analytic MSE of c * Xbar under X_i ~ N(mu, sigma^2)\n# MSE(c * Xbar) = c^2 * sigma^2 / n + (c - 1)^2 * mu^2\nmse_cxbar <- function(n, sigma, mu, c){\n  (c^2) * sigma^2 / n + (c - 1)^2 * mu^2\n}\n\n# Analytic optimizer: c* = mu^2 / (mu^2 + sigma^2/n)\nc_star <- function(n, sigma, mu){\n  v <- sigma^2 / n; mu2 <- mu^2\n  if (mu2 + v == 0) return(1)\n  mu2 / (mu2 + v)\n}\n\n# Tabulate MSE over a grid of c values\nmse_table <- function(n = 20, sigma = 1, mu = 0.5, c_grid = seq(0.6, 1.4, by = 0.05)){\n  data.frame(c = c_grid,\n             MSE = sapply(c_grid, function(c) mse_cxbar(n, sigma, mu, c)))\n}\n\n# Example\nprint(mse_table(n = 20, sigma = 1, mu = 0.5))\ncat(\"Analytic c* =\", c_star(20, 1, 0.5), \"\\n\")",
+  "sec.better.code2": "# Simulation to verify MSE ranking of c * Xbar\nset.seed(1)\nsim_mse_c <- function(n = 20, sigma = 1, mu = 0.5, c_grid = seq(0.6, 1.4, by = 0.1), B = 5000){\n  xb <- replicate(B, mean(rnorm(n, mu, sigma)))\n  out <- sapply(c_grid, function(c) mean((c * xb - mu)^2))\n  data.frame(c = c_grid, MSE = out)\n}\n\nprint(sim_mse_c())",
+
+
+  "sec.umvue.title": "Unbiased Estimators and UMVUE (Bridge)",
+  "sec.umvue.text": "Given an unbiased estimator $S(X)$ of $q(\\theta)$, conditioning on a sufficient statistic $T$ (Rao–Blackwell) reduces variance; with completeness (Lehmann–Scheffé), $\\mathbb{E}[S\\mid T]$ is the UMVUE.",
+  "sec.umvue.explain": "Compare the naive unbiased $X_1X_2$ with the Rao–Blackwellized estimator $\\mathbb{E}[X_1X_2\\mid K] = K(K-1)/(n(n-1))$, where $K=\\sum_i X_i$.",
+  "sec.umvue.code": "unbiased_naive <- function(x){ x[1] * x[2] }\nrb_umvue_p2 <- function(x){ n <- length(x); k <- sum(x); (k * (k - 1)) / (n * (n - 1)) }\nsimulate_compare <- function(n = 10, p = 0.3, B = 10000){\n  s_raw <- numeric(B); s_rb <- numeric(B)\n  for(b in 1:B){ x <- rbinom(n, 1, p); s_raw[b] <- unbiased_naive(x); s_rb[b] <- rb_umvue_p2(x) }\n  data.frame(estimator = c(\"Raw X1*X2\", \"RB/UMVUE\"),\n             mean = c(mean(s_raw), mean(s_rb)),\n             variance = c(var(s_raw), var(s_rb)),\n             mse = c(mean((s_raw - p^2)^2), mean((s_rb - p^2)^2))) }\nset.seed(1)\nprint(simulate_compare(n = 10, p = 0.3, B = 5000))\nx <- rbinom(10, 1, 0.3)\ncat(\"naive X1*X2 =\", unbiased_naive(x), \"\\n\")\ncat(\"RB/UMVUE =\", rb_umvue_p2(x), \"\\n\")",
+
+
+  "sec.quiz.title": "Quick Check",
+
+  "sec.quiz.exp1": "Analytic MSE of the unbiased sample variance $S^2$ versus the biased $\\tilde S^2$ under the normal model; tabulate values over several $n$.",
+  "sec.quiz.code1": "mse_S2 <- function(n, sigma){ 2 * sigma^4 / (n - 1) }\nmse_tildeS2 <- function(n, sigma){ var <- 2 * sigma^4 * (n - 1) / n^2; bias <- - sigma^2 / n; var + bias^2 }\ncompare_mse_var <- function(n_vec = seq(5, 30, by = 5), sigma = 2){\n  data.frame(n = n_vec,\n             MSE_S2 = sapply(n_vec, mse_S2, sigma = sigma),\n             MSE_tilde = sapply(n_vec, mse_tildeS2, sigma = sigma)) }\nprint(compare_mse_var(n_vec = seq(5, 30, 5), sigma = 1))",
+
+  "sec.quiz.exp2": "Optimal shrinkage for $c\\,\\bar X$ in the normal mean model: compute $c^*$ analytically and confirm empirically by simulation.",
+  "sec.quiz.code2": "mse_cxbar <- function(n, sigma, mu, c){ (c^2) * sigma^2 / n + (c - 1)^2 * mu^2 }\nc_star <- function(n, sigma, mu){ mu^2 / (mu^2 + sigma^2 / n) }\nn <- 20; sigma <- 1; mu <- 0.5\ncat(\"c* =\", c_star(n, sigma, mu), \"\\n\")\nset.seed(42)\nB <- 5000\nxb <- replicate(B, mean(rnorm(n, mu, sigma)))\ncgrid <- seq(0.6, 1.4, by = 0.02)\nmse <- sapply(cgrid, function(c) mean((c * xb - mu)^2))\nbest_c <- cgrid[which.min(mse)]\ncat(\"argmin c ≈\", best_c, \"\\n\")"
+
+}
