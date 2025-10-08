@@ -100,7 +100,16 @@
   } ]
 }, {
   "name" : "7. Interval Estimation",
-  "type" : "folder"
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1. Confidence interval.html",
+    "type" : "file",
+    "path" : "7. Interval Estimation/page/1. Confidence interval.html"
+  }, {
+    "name" : "2. Interval estimation example.html",
+    "type" : "file",
+    "path" : "7. Interval Estimation/page/2. Interval estimation example.html"
+  } ]
 }, {
   "name" : "8. Most Powerful Test",
   "type" : "folder"

@@ -1,0 +1,62 @@
+{
+  "meta.title": "7.2 Interval estimation example",
+  "intro.title": "Interval estimation example",
+
+  "known.title": "Normal distribution with known variance",
+  "known.p1": "Suppose the sample mean \\(\\bar{X}_n\\) follows a normal distribution \\(N(\\mu,\\sigma^2/n)\\). Then we can standardize it as:",
+  "known.eq1": "$$T(X)=\\frac{\\sqrt{n}(\\bar{X}_n-\\mu)}{\\sigma}.$$",
+  "known.p2": "This standardized form is very useful for constructing confidence intervals.",
+  "known.quiz.title": "Quiz",
+  "known.quiz.q1": "Do you remember what distribution T(X) follows?",
+  "known.p3": "Because \\(\\bar{X}_n\\) is normal, we have \\(T(X)\\sim N(0,1)\\). Let \\(z_\\alpha\\) be the upper 100α% percentile of the standard normal distribution.",
+  "known.eq2": "$$P_\\mu(-z_{\\alpha/2}\\le T(X)\\le z_{\\alpha/2})=1-\\alpha.$$",
+  "known.p4": "Transforming back to μ gives:",
+  "known.eq3": "$$\\bar{X}_n-\\frac{\\sigma z_{\\alpha/2}}{\\sqrt{n}}\\le\\mu\\le\\bar{X}_n+\\frac{\\sigma z_{\\alpha/2}}{\\sqrt{n}}.$$",
+  "known.p5": "This is the 100(1−α)% confidence interval for μ when σ is known.",
+  "known.eq4": "$$\\text{CI: } \\bar{X}_n\\pm\\frac{\\sigma z_{\\alpha/2}}{\\sqrt{n}}.$$",
+
+  "t.title": "t-distribution",
+  "t.p1": "If we replace σ by its sample estimate, we need another distribution. Let V follow a chi-squared distribution with k degrees of freedom, independent of X₁, and define:",
+  "t.eq1": "$$U=\\frac{X_1}{\\sqrt{V/k}}.$$",
+  "t.p2": "Then U follows a t-distribution with k degrees of freedom, denoted \\(t_k\\). Its density is:",
+  "t.eq2": "$$f(x)=\\frac{\\Gamma((k+1)/2)}{\\sqrt{\\pi k}\\,\\Gamma(k/2)}\\left(1+\\frac{x^2}{k}\\right)^{-(k+1)/2}.$$",
+  "t.p3": "The t-distribution has heavier tails than the normal distribution, reflecting the uncertainty in estimating σ.",
+
+  "unknown.title": "Normal distribution with unknown variance",
+  "unknown.p1": "Now suppose σ is unknown. We use the unbiased sample variance:",
+  "unknown.eq1": "$$\\hat{\\sigma}_n^2=\\frac{1}{n-1}\\sum_{i=1}^n(X_i-\\bar{X}_n)^2.$$",
+  "unknown.eq2": "$$(n-1)\\frac{\\hat{\\sigma}_n^2}{\\sigma^2}\\sim\\chi^2(n-1).$$",
+  "unknown.p2": "Then define the statistic:",
+  "unknown.eq3": "$$S(X)=\\frac{\\sqrt{n}(\\bar{X}_n-\\mu)}{\\hat{\\sigma}_n}.$$",
+  "unknown.quiz.title": "Question",
+  "unknown.quiz.q1": "What is the distribution of S(X)?",
+  "unknown.p3": "In fact, S(X) follows a t-distribution with n−1 degrees of freedom. Let \\(t_{\\alpha/2}(n−1)\\) be the upper 100α/2% point of that distribution.",
+  "unknown.eq4": "$$P(-t_{\\alpha/2}(n−1)\\le S(X)\\le t_{\\alpha/2}(n−1))=1−\\alpha.$$",
+  "unknown.p4": "Transforming back to μ gives:",
+  "unknown.eq5": "$$\\bar{X}_n\\pm\\frac{\\hat{\\sigma}_n t_{\\alpha/2}(n−1)}{\\sqrt{n}}.$$",
+
+  "var.title": "Confidence interval for variance",
+  "var.p1": "We can also build an interval for σ² itself. From the previous chi-squared relationship:",
+  "var.eq1": "$$(n−1)\\frac{\\hat{\\sigma}_n^2}{\\sigma^2}\\sim\\chi^2(n−1).$$",
+  "var.eq2": "$$P_{\\sigma^2}\\left(\\chi^2_{1−\\alpha/2}(n−1)\\le (n−1)\\frac{\\hat{\\sigma}_n^2}{\\sigma^2}\\le \\chi^2_{\\alpha/2}(n−1)\\right)=1−\\alpha.$$",
+  "var.p2": "Solving for σ² gives the 100(1−α)% confidence interval:",
+  "var.eq3": "$$\\left(\\frac{(n−1)\\hat{\\sigma}_n^2}{\\chi^2_{\\alpha/2}(n−1)},\\ \\frac{(n−1)\\hat{\\sigma}_n^2}{\\chi^2_{1−\\alpha/2}(n−1)}\\right).$$",
+  "var.p3": "The wider tails of the chi-squared distribution make variance intervals asymmetric.",
+  "var.eq4": "",
+
+  "asymp.title": "Asymptotic evaluation",
+  "asymp.item1": "Law of Large Numbers",
+  "asymp.item2": "Central Limit Theorem",
+  "asymp.p1": "A consistent estimator \\(\\hat{\\theta}_n\\) satisfies \\(\\hat{\\theta}_n\\to_p\\theta\\). Under regular conditions, we have:",
+  "asymp.eq1": "$$\\sqrt{n}\\frac{\\bar{X}_n-\\mu}{\\sigma}\\xrightarrow{d}N(0,1).$$",
+
+  "r.title": "Confidence interval in R",
+
+  "r.ex1.title": "Example: Generating data",
+  "r.ex1.p1": "We can simulate a small sample from N(10,1) and view the results:",
+  "r.ex1.code": "set.seed(100)\nz <- rnorm(n = 10, mean = 10, sd = 1)\nprint(z)\n\n# install.packages('BSDA')\nlibrary(BSDA)",
+
+  "r.ex2.title": "Example: Computing CI",
+  "r.ex2.p1": "Using the built-in t-test, R directly reports the 95% confidence interval:",
+  "r.ex2.code": "t.test(x = z)\n\n# One Sample t-test\n# 95 percent confidence interval:\n# 9.580643 10.383443\n# mean of x = 9.982043"
+}

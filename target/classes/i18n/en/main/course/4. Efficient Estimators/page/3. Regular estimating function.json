@@ -17,7 +17,7 @@
   "sec.thm.text1": "Assume the regularity conditions above. Then, for all $g\\in\\mathcal{G}$, we have:",
   "sec.thm.eq1": "$$\\frac{\\mathbb{E}[g^2\\mid\\theta]}{[\\mathbb{E}(\\partial g/\\partial\\theta\\mid\\theta)]^2} \\ge \\frac{1}{\\mathbb{E}[(\\partial \\log p/\\partial\\theta)^2\\mid\\theta]}.$$",
 
-  "sec.exp.title": "Example 3.1 (Exponential family)",
+  "sec.exp.title": "Exponential family",
   "sec.exp.text1": "Suppose samples $X_1,\\ldots,X_n$ are i.i.d. with density of the form",
   "sec.exp.eq1": "$$f(x\\mid\\theta)=\\exp\\{c(\\theta)T(x)+d(\\theta)+S(x)\\}.$$",
   "sec.exp.text2": "The joint p.d.f. of samples is given by",
@@ -27,7 +27,7 @@
   "sec.exp.text4": "The maximum likelihood estimator $\\hat{\\theta}_n$ satisfies $g^*=0$, i.e.,",
   "sec.exp.eq4": "$$-\\frac{d'(\\hat{\\theta}_n)}{c'(\\hat{\\theta}_n)}=\\frac{1}{n}\\sum_{i=1}^n T(X_i).$$",
 
-  "sec.ex2.title": "Example 2",
+  "sec.ex2.title": "",
   "sec.ex2.text1": "For the Bernoulli distribution, we have",
   "sec.ex2.eq1": "$$f(x\\mid p)=\\exp\\left(x\\log\\frac{p}{1-p}+\\log(1-p)\\right).$$",
   "sec.ex2.text2": "Here $T(x)=x$, $c(p)=\\log p - \\log(1-p)$, and $d(p)=\\log(1-p)$. The MLE is",
@@ -37,7 +37,7 @@
   "sec.ex2.eq4": "Here $T(x)=x$, $c(\\lambda)=\\log\\lambda$, and $d(\\lambda)=-\\lambda$. The MLE is",
   "sec.ex2.eq5": "$$\\hat{\\lambda}_n=-\\frac{d'(\\hat{\\lambda}_n)}{c'(\\hat{\\lambda}_n)}=\\frac{1}{n}\\sum_{i=1}^n X_i.$$",
 
-  "sec.ex3.title": "Example 3",
+  "sec.ex3.title": "",
   "sec.ex3.text1": "For the exponential distribution,",
   "sec.ex3.eq1": "$$f(x\\mid\\mu)=\\exp\\left(-\\frac{x}{\\mu}-\\log\\mu\\right).$$",
   "sec.ex3.text2": "Here $T(x)=x$, $c(\\mu)=-1/\\mu$, and $d(\\mu)=-\\log\\mu$. The MLE is",

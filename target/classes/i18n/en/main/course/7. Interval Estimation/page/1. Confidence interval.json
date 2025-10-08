@@ -1,0 +1,72 @@
+{
+  "meta.title": "Confidence Intervals – From Intuition to Formal Definition",
+
+  "intro.title": "Which Restaurant Should We Trust?",
+  "intro.ex1.title": "Restaurant example",
+  "intro.p1": "You’re choosing between two restaurants on a review app. Restaurant A has 9 positives out of 10 reviews; Restaurant B has 88 positives out of 100 reviews. A’s sample proportion (0.90) looks higher than B’s (0.88).",
+  "intro.p2": "But A’s sample is tiny—one or two unlucky experiences could flip the impression. B has far more data, so its estimate should fluctuate less.",
+  "intro.p3": "So the real question isn’t merely “which proportion is bigger?”, but rather: how certain are we about each restaurant’s true positive rate?",
+  "intro.q1": "We seek a plausible range of true ratings for each restaurant, justified by the observed data.",
+
+  "model.title": "Modeling and Sampling Variation",
+  "model.p1": "Treat each review as a Bernoulli trial. If the true positive rate is p and we observe n reviews with X positives, then",
+  "model.eq.1": "$$X \\sim \\mathrm{Binomial}(n,p), \\quad \\hat{p}=X/n.$$",
+  "model.p2": "The estimator \\(\\hat{p}\\) is unbiased and its variance depends on both p and n:",
+  "model.eq.2": "$$\\mathrm{Var}(\\hat{p})=\\frac{p(1-p)}{n}.$$",
+  "model.p3": "With moderate n, the Central Limit Theorem tells us",
+  "model.eq.3": "$$\\frac{\\hat{p}-p}{\\sqrt{p(1-p)/n}} \\approx N(0,1).$$",
+  "model.note": "Thus we can quantify how far \\(\\hat{p}\\) might wander from p by chance.",
+
+  "wilson.title": "From Randomness to Confidence",
+  "wilson.p1": "We want p values that make the standardized deviation fall within a central region of the standard normal. With 95% confidence (z=1.96):",
+  "wilson.eq.1": "$$-z \\le \\frac{\\hat{p}-p}{\\sqrt{p(1-p)/n}} \\le z.$$",
+  "wilson.p2": "Solving this inequality for p gives the Wilson interval:",
+  "wilson.eq.2": "$$p \\in \\frac{\\hat{p} + \\tfrac{z^2}{2n} \\ \\pm\\ z \\sqrt{\\tfrac{\\hat{p}(1-\\hat{p})}{n} + \\tfrac{z^2}{4n^2}}}{1 + \\tfrac{z^2}{n}}.$$",
+  "wilson.p3": "This method automatically stays within [0,1] and is more reliable for small n.",
+
+  "numbers.title": "Numerical Illustration",
+  "numbers.p1": "Applying the 95% Wilson interval to both restaurants gives:",
+  "numbers.th.restaurant": "Restaurant",
+  "numbers.th.pos": "Positive",
+  "numbers.th.total": "Total",
+  "numbers.th.phat": "Sample Proportion",
+  "numbers.th.ci": "95% CI",
+  "numbers.rowA.name": "A",
+  "numbers.rowA.pos": "9",
+  "numbers.rowA.total": "10",
+  "numbers.rowA.phat": "0.90",
+  "numbers.rowA.ci": "(0.596, 0.982)",
+  "numbers.rowB.name": "B",
+  "numbers.rowB.pos": "88",
+  "numbers.rowB.total": "100",
+  "numbers.rowB.phat": "0.88",
+  "numbers.rowB.ci": "(0.802, 0.930)",
+  "numbers.p2": "A’s point estimate is higher, but its interval is very wide. B’s estimate is slightly lower, yet its uncertainty is much smaller.",
+
+  "theory.title": "Formal Definition and Theory",
+
+  "theory.def1.title": "Confidence Interval and Confidence Level",
+  "def.ci.p1": "A random interval [T, T̄] formed by two statistics T and T̄ (with T ≤ T̄) is a level (1−α) confidence interval for q(θ) if, for all θ ∈ Θ,",
+  "def.ci.eq1": "$$P_\\theta(T \\le q(\\theta) \\le \\bar{T}) \\ge 1-\\alpha.$$",
+  "def.ci.p2": "The quantity 1−α is called the confidence level.",
+
+  "theory.def2.title": "Lower and Upper Confidence Bounds",
+  "def.bound.p1": "A statistic T(X) is called a level (1−α) lower confidence bound (L.C.B.) for q(θ) if, for every θ,",
+  "def.bound.eq1": "$$P_\\theta(T(X) \\le q(\\theta)) \\ge 1-\\alpha.$$",
+  "def.bound.p2": "Similarly, a statistic \\(\\bar{T}(X)\\) is a level (1−α) upper confidence bound (U.C.B.) if",
+  "def.bound.eq2": "$$P_\\theta(\\bar{T}(X) \\ge q(\\theta)) \\ge 1-\\alpha.$$",
+
+  "def.nonunique.title": "Non-uniqueness of the Confidence Interval",
+  "def.nonunique.p1": "If 1−α′ ≤ 1−α for some α′, then clearly for all θ ∈ Θ,",
+  "def.nonunique.eq1": "$$P_\\theta(T \\le q(\\theta) \\le \\bar{T}) \\ge 1-\\alpha \\ge 1-\\alpha'.$$",
+  "def.nonunique.p2": "To ensure uniqueness, one often defines the interval satisfying",
+  "def.nonunique.eq2": "$$\\inf_{\\theta\\in\\Theta} P_\\theta(T \\le q(\\theta) \\le \\bar{T}) = 1-\\alpha.$$",
+  "def.nonunique.p3": "T and T̄ are then referred to as the confidence coefficient functions.",
+
+  "theory.ex1.title": "Typical Confidence Interval Formulas",
+  "def.formula.item1": "Normal mean, σ known: $$T=\\bar{X}_n - \\frac{\\sigma z_{\\alpha/2}}{\\sqrt{n}},\\ \\ \\bar{T}=\\bar{X}_n + \\frac{\\sigma z_{\\alpha/2}}{\\sqrt{n}}.$$",
+  "def.formula.item2": "Normal mean, σ unknown: $$T=\\bar{X}_n - \\frac{\\hat{\\sigma}_n t_{(n-1)\\alpha/2}}{\\sqrt{n}},\\ \\ \\bar{T}=\\bar{X}_n + \\frac{\\hat{\\sigma}_n t_{(n-1)\\alpha/2}}{\\sqrt{n}}.$$",
+  "def.formula.item3": "For variance: $$T=\\frac{(n-1)\\hat{\\sigma}_n^2}{\\chi^2_{(n-1)\\alpha/2}},\\ \\ \\bar{T}=\\frac{(n-1)\\hat{\\sigma}_n^2}{\\chi^2_{(n-1)(1-\\alpha/2)}}.$$",
+  "def.formula.item4": "For a proportion (ratio): $$T=\\bar{X}_n - z_{\\alpha/2}\\sqrt{\\frac{\\bar{X}_n(1-\\bar{X}_n)}{n}},\\ \\ \\bar{T}=\\bar{X}_n + z_{\\alpha/2}\\sqrt{\\frac{\\bar{X}_n(1-\\bar{X}_n)}{n}}.$$"
+
+}
