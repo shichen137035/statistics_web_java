@@ -65,7 +65,15 @@
 }, {
   "name" : "4. Efficient Estimators",
   "type" : "folder",
-  "children" : [ ]
+  "children" : [ {
+    "name" : "1. Variance Bounds and Fisher Information.html",
+    "type" : "file",
+    "path" : "4. Efficient Estimators/page/1. Variance Bounds and Fisher Information.html"
+  }, {
+    "name" : "2. Regular estimating function.html",
+    "type" : "file",
+    "path" : "4. Efficient Estimators/page/2. Regular estimating function.html"
+  } ]
 }, {
   "name" : "5. Asymptotic Efficient Estimators",
   "type" : "folder"

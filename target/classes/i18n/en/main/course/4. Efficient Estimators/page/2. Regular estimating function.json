@@ -1,0 +1,40 @@
+{
+  "meta.title": "Ch.4 §3 — Regular Estimating Functions",
+  "intro.title": "Regular Estimating Functions",
+  "intro.lead": "We formalize estimating functions, their regularity, and the asymptotic variance (sandwich form). This ties the previous variance bounds to a constructive route for building estimators.",
+
+  "sec.def.title": "Definition and Setup",
+  "sec.def.p1": "Given i.i.d. data $X_1,\\dots,X_n\\sim P_{\\theta}$ and a $p$-dimensional parameter $\\theta$, an estimating function is a map $\\psi(x,\\theta)\\in\\mathbb{R}^p$ with the unbiasedness property at the true parameter.",
+  "sec.def.eq1": "$$\\mathbb{E}_{\\theta}[\\,\\psi(X,\\theta)\\,]=0,\\qquad \\hat{\\theta}\\;\\text{solves }\\; \\sum_{i=1}^n \\psi(X_i,\\hat{\\theta})=0.$$",
+  "sec.def.p2": "The root $\\hat{\\theta}$ of the estimating equation is the associated estimator.",
+  "sec.def.reg1": "Regularity (informal): differentiability in $\\theta$, finite second moments, and interchange of expectation and differentiation where needed.",
+  "sec.def.reg2": "These conditions ensure root-$n$ consistency and asymptotic normality of solutions.",
+
+  "sec.asymp.title": "Asymptotics and Sandwich Variance",
+  "sec.asymp.thm1": "Under regularity, if $\\hat{\\theta}$ solves $\\sum_{i=1}^n\\psi(X_i,\\hat{\\theta})=0$, then $\\sqrt{n}(\\hat{\\theta}-\\theta_0)\\xrightarrow{d}\\mathcal N\\big(0,\\,K(\\theta_0)^{-1}V(\\theta_0)K(\\theta_0)^{-\\top}\\big)$ with",
+  "sec.asymp.eqK": "$$K(\\theta) = -\\,\\mathbb{E}_{\\theta}\\big[\\,\\partial_{\\theta}\\,\\psi(X,\\theta)\\,\\big],$$",
+  "sec.asymp.eqV": "$$V(\\theta) = \\operatorname{Var}_{\\theta}\\big(\\,\\psi(X,\\theta)\\,\\big),$$",
+  "sec.asymp.eqVar": "$$\\operatorname{Avar}(\\hat{\\theta}) = \\frac{1}{n}\\,K(\\theta)^{-1}V(\\theta)K(\\theta)^{-\\top}.$$",
+
+
+  "sec.opt.title": "Optimal Estimating Function",
+  "sec.opt.thm": "Among unbiased estimating functions, Godambe information $G(\\theta)=K(\\theta)^{\\top}V(\\theta)^{-1}K(\\theta)$ orders efficiency: larger $G$ (Loewner sense) yields smaller asymptotic variance.",
+  "sec.opt.eqG": "$$G(\\theta) = K(\\theta)^{\\top}V(\\theta)^{-1}K(\\theta).$$",
+  "sec.opt.remark": "In a correctly specified parametric model, the score $\\psi(x,\\theta)=\\partial_{\\theta}\\log f(x\\mid\\theta)$ is optimal: $K(\\theta)=V(\\theta)=I_1(\\theta)$, giving $\\operatorname{Avar}(\\hat{\\theta})=\\{nI_1(\\theta)\\}^{-1}$.",
+
+
+  "sec.ex1.title": "Example 1",
+  "sec.ex1.ex-title": "Bernoulli Mean via Estimating Equation",
+  "sec.ex1.p1": "Let $X\\sim\\mathrm{Ber}(p)$. Take $\\psi(x,p)=x-p$ so that $\\mathbb{E}[\\psi(X,p)]=0$ at the true $p$.",
+  "sec.ex1.eqPsi": "$$\\sum_{i=1}^n (X_i - p) = 0 \\;\\Rightarrow\\; \\hat p = \\bar X.$$",
+  "sec.ex1.p2": "A simple implementation and a sandwich variance estimate:",
+  "sec.ex1.code": "est_bern <- function(x){\n  p_hat <- mean(x)\n  K <- 1                 # -E[d/dp (x-p)] = 1\n  V <- p_hat*(1-p_hat)   # Var(x-p) at plug-in\n  avar <- V / (length(x) * K^2)\n  list(p_hat = p_hat, avar = avar)\n}\nset.seed(1); x <- rbinom(40,1,0.3)\nprint(est_bern(x))",
+
+
+  "sec.ex2.title": "Example 2",
+  "sec.ex2.ex-title": "Exponential Rate via Estimating Equation",
+  "sec.ex2.p1": "If $X\\sim\\mathrm{Exp}(\\lambda)$ (rate), choose $\\psi(x,\\lambda)=1/\\lambda - x$.",
+  "sec.ex2.eqPsi": "$$\\sum_{i=1}^n \\Big(\\frac{1}{\\lambda} - X_i\\Big)=0 \\;\\Rightarrow\\; \\hat\\lambda = \\frac{1}{\\bar X}.$$",
+  "sec.ex2.p2": "A direct solver with sandwich variance:",
+  "sec.ex2.code": "est_exp <- function(x){\n  lam_hat <- 1/mean(x)\n  # K = -E[d/dlambda(1/lambda - X)] = 1/lambda^2  -> plug-in\n  K <- 1/lam_hat^2\n  # V = Var(1/lambda - X) = Var(X) = 1/lambda^2  -> plug-in\n  V <- 1/lam_hat^2\n  avar <- (1/length(x)) * (1/K) * V * (1/K)  # scalar sandwich\n  list(lambda_hat = lam_hat, avar = avar)\n}\nset.seed(2); y <- rexp(60, rate=0.8)\nprint(est_exp(y))"
+}
