@@ -156,5 +156,14 @@
   } ]
 }, {
   "name" : "12. Canonical Correlation Analysis",
-  "type" : "folder"
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1. Canonical correlation.html",
+    "type" : "file",
+    "path" : "12. Canonical Correlation Analysis/page/1. Canonical correlation.html"
+  }, {
+    "name" : "2. Numerical example for canonical correlation.html",
+    "type" : "file",
+    "path" : "12. Canonical Correlation Analysis/page/2. Numerical example for canonical correlation.html"
+  } ]
 } ]

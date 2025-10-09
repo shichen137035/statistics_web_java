@@ -1,0 +1,43 @@
+{
+  "meta.title": "Numerical example for canonical correlation",
+  "intro.title": "12.2 Numerical example for canonical correlation",
+
+  "exam.title": "Exam score data — Description",
+  "exam.text1": "88 students who took examinations in 5 subjects:",
+  "exam.b1": "Mechanics — Closed book exam",
+  "exam.b2": "Vectors — Closed book exam",
+  "exam.b3": "Algebra — Open book exam",
+  "exam.b4": "Analysis — Open book exam",
+  "exam.b5": "Statistics — Open book exam",
+
+  "exam2.title": "Exam score data (II)",
+  "exam2.code": "library(caret)\nlibrary(calibrate)\n\ndata(examScor)\ndim(examScor)\n## [1] 88  5\n\nnames(examScor)\n## [1] \"mechanics\" \"vectors\" \"algebra\" \"analysis\" \"statistics\"",
+
+  "corr.title": "Sample correlation",
+  "corr.code": "cor(examScor)\n##              mechanics   vectors    algebra    analysis  statistics\n## mechanics     1.0000000  0.5534052  0.5467511  0.4093920  0.3890993\n## vectors       0.5534052  1.0000000  0.6096447  0.4850813  0.4364487\n## algebra       0.5467511  0.6096447  1.0000000  0.7108059  0.6647357\n## analysis      0.4093920  0.4850813  0.7108059  1.0000000  0.6071743\n## statistics    0.3890993  0.4364487  0.6647357  0.6071743  1.0000000",
+
+  "can1.title": "Canonical correlation",
+  "can1.code": "cancor(examScor[1:3], examScor[4:5])\n\n## $cor\n## [1] 0.77142572 0.03098189\n\n## $xcoef\n##                 [,1]         [,2]         [,3]\n## mechanics  0.0001109191 -0.004530740  0.006301187\n## vectors    0.0007519381  0.010444615  0.003042632\n## algebra    0.0093917674 -0.004358211 -0.008542239\n\n## $ycoef\n##              [,1]         [,2]\n## analysis  0.004587097  0.007846712\n## statistics 0.002967723 -0.007234449\n\n## $xcenter\n##  mechanics   vectors   algebra\n##   38.95455   50.59091  50.60227\n\n## $ycenter\n##  analysis  statistics\n##  50.59091   50.59091",
+
+  "can2.title": "Canonical correlation (II)",
+  "can2.code": "cancor(examScor[1:2], examScor[3:5])\n\n## $cor\n## [1] 0.66305211 0.04094594\n\n## $xcoef\n##               [,1]        [,2]\n## mechanics 0.002769608  0.006820239\n## vectors   0.005517014 -0.008088354\n\n## $ycoef\n##              [,1]         [,2]         [,3]\n## algebra   0.0087816197  0.009687244  0.0088433854\n## analysis  0.0008598730 -0.010549747  0.0008906466\n## statistics 0.0003703994  0.001536399 -0.0084575453\n\n## $xcenter\n## mechanics  vectors\n##  38.95455  50.59091",
+
+  "soc.title": "Social class data",
+  "soc.code": "data(Glass)\ndf_dummy <- dummyVars(~., data = Glass)\ndf_dummy2 <- as.data.frame(predict(df_dummy, Glass))\ndf.expanded2 <- df_dummy2[rep(row.names(df_dummy2), df_dummy2$Freq), ]",
+
+  "soc2.title": "Social class data (II)",
+  "soc2.code": "cancor(df.expanded2[,1:5], df.expanded2[,6:10])\n\n## $cor\n## [1] 0.49636390 0.26681781 0.12282259 0.05913161\n\n## $xcoef\n##                      [,1]        [,2]        [,3]        [,4]\n## father.Managerial  -0.030671695 -0.04351887 -0.009681074  0.01646449\n## father.Professional -0.083496679  0.02833540  0.032482626  0.01007332\n## father.Skilled      -0.006578456 -0.01881360  0.027754854  0.02596031\n## father.Supervisory  -0.013887935 -0.03353838  0.036507217 -0.02143064\n\n## $ycoef\n##                   [,1]        [,2]        [,3]        [,4]\n## son.Managerial   -0.032864717 -0.03910087 -0.01217780  0.0164622994\n## son.Professional -0.087192709  0.03549462  0.03942145 -0.0008712388\n## son.Skilled      -0.006635089 -0.02024375  0.02893226  0.0198031996\n## son.Supervisory  -0.013156049 -0.03569895  0.02729909 -0.0311319174",
+
+  "head.title": "Head size data — Description",
+  "head.text1": "25 observations with 4 variables:",
+  "head.b1": "First Son — Head Length",
+  "head.b2": "First Son — Head Breadth",
+  "head.b3": "Second Son — Head Length",
+  "head.b4": "Second Son — Head Breadth",
+
+  "head2.title": "Head size data",
+  "head2.code": "data(heads)\ndim(heads)\n## [1] 25  4\n\nsummary(heads)\n##       X1             X2             Y1             Y2     \n##  Min.   :163.0   Min.   :137.0   Min.   :161.0   Min.   :130.0\n##  1st Qu.:179.0   1st Qu.:147.0   1st Qu.:178.0   1st Qu.:147.0\n##  Median :188.0   Median :151.0   Median :185.0   Median :149.0\n##  Mean   :185.7   Mean   :151.1   Mean   :183.8   Mean   :149.2\n##  3rd Qu.:192.0   3rd Qu.:155.0   3rd Qu.:189.0   3rd Qu.:152.0\n##  Max.   :208.0   Max.   :167.0   Max.   :201.0   Max.   :159.0",
+
+  "head3.title": "Head size data (III)",
+  "head3.code": "cancor(as.matrix(heads[1:2]), as.matrix(heads[3:4]))\n\n## $cor\n## [1] 0.7885079 0.0537397\n\n## $xcoef\n##        [,1]        [,2]\n## X1 0.01154653 -0.02857148\n## X2 0.01443910  0.038166093\n\n## $ycoef\n##        [,1]        [,2]\n## Y1 0.01025573 -0.03595605\n## Y2 0.01637533  0.05349758\n\n## $xcenter\n##      X1     X2\n##  185.72  151.12\n\n## $ycenter\n##      Y1     Y2\n##  183.84  149.24"
+}

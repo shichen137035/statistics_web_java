@@ -36,6 +36,8 @@
   "catalogtitle.Discovery rate": "Discovery rate",
   "catalogtitle.Discriminant analysis": "Discriminant analysis",
   "catalogtitle.Principal component": "Principal component",
-  "catalogtitle.Sample principal component": "Sample principal component"
+  "catalogtitle.Sample principal component": "Sample principal component",
+  "catalogtitle.Canonical correlation": "Canonical correlation",
+  "catalogtitle.Numerical example for canonical correlation": "Numerical example for canonical correlation"
 }
 
