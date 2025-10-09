@@ -1,0 +1,44 @@
+{
+  "meta.title": "8.1 Hypothesis test",
+  "intro.title": "Hypothesis test",
+
+  "from.title": "From interval estimation to hypothesis testing",
+  "from.p1": "Let $X = (X_1, \\ldots, X_n)$ be a sample from $N(\\xi, \\sigma^2)$. Suppose we construct an interval $I = [L, \\bar{L}]$.",
+  "from.eq1": "$$I = [L, \\bar{L}]$$",
+  "from.p2": "We can define a decision rule or loss function that indicates whether the true parameter $\\xi$ lies inside the interval:",
+  "from.eq2": "$$d(\\xi, I) = \\begin{cases} 1, & \\text{if } \\xi \\notin I, \\\\ 0, & \\text{if } \\xi \\in I. \\end{cases}$$",
+  "from.p3": "This function shows when our interval 'fails' to capture the true value. We can extend this idea as follows:",
+  "from.li1": "$\\xi \\in I$ or $\\xi \\notin I$",
+  "from.li2": "$X \\in \\mathcal{F}$ or $X \\notin \\mathcal{F}$",
+  "from.p4": "This leads naturally to the idea of hypothesis testing — deciding which set a value (or sample) belongs to.",
+
+  "def.title": "Definition of hypothesis testing",
+  "def.p1": "Let $\\mathcal{F}$ be a family of probability distributions, and let $\\mathcal{F}_0$ and $\\mathcal{F}_1$ be two disjoint subsets of $\\mathcal{F}$.",
+  "def.eq1": "$$H_0 : F \\in \\mathcal{F}_0 \\quad \\text{vs} \\quad H_1 : F \\in \\mathcal{F}_1.$$",
+  "def.p2": "Let $F^{(n)}$ be the distribution of the sample $X = (X_1, \\ldots, X_n)$.",
+  "def.p3": "A test is a decision procedure to determine whether $F^{(n)}$ belongs to $H_0$ or $H_1$.",
+
+  "param.title": "Parametric model",
+  "param.p1": "Sometimes we assume a parametric family $\\mathcal{P} = \\{ P_\\theta,\\, \\theta \\in \\Theta \\}$. In that case, hypothesis testing can be formulated in terms of parameters rather than distributions.",
+  "param.p2": "The null hypothesis specifies $\\theta \\in \\Theta_0$ (a subset of $\\Theta$), while the alternative specifies $\\theta \\in \\Theta_1$, with $\\Theta_0 \\cap \\Theta_1 = \\emptyset$.",
+  "param.p3": "Based on the observed data $X$, we decide whether to accept $H$ (that $\\theta \\in \\Theta_0$) or to reject $H$ and accept $K$ (that $\\theta \\in \\Theta_1$).",
+
+  "simple.title": "Simple hypothesis",
+  "simple.p1": "If $\\Theta_0$ consists of only one point, the hypothesis $H$ is called simple.",
+  "simple.p2": "If $\\Theta_0$ contains more than one point, then $H$ is called composite.",
+
+  "ex.title": "Example: Coin tossing",
+  "ex.p1": "Consider tossing a coin, and let $p$ denote the probability of getting a head.",
+  "ex.p2": "Simple hypothesis: $H : p = 1/2.$",
+  "ex.p3": "Alternative hypotheses:",
+  "ex.p4": "$K_1 : p \\neq 1/2$ (the coin is not fair).",
+  "ex.p5": "$K_2 : p > 1/2$ (the coin is biased toward heads); $K_3 : p < 1/2$ (the coin is biased toward tails).",
+
+  "ex.quiz1.title": "Quiz 1",
+  "ex.quiz1.p1": "How would you decide whether $p = 1/2$?",
+
+  "ex.quiz2.title": "Quiz 2",
+  "ex.quiz2.p1": "We might estimate $p$ by $\\hat{p}$ (for example, by the maximum likelihood estimator).",
+  "ex.quiz2.p2": "Quiz 2: How would you use the estimate $\\hat{p}$ to make a decision?",
+  "ex.quiz2.p3": "These questions motivate the development of formal statistical hypothesis testing."
+}

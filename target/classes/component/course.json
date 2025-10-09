@@ -112,7 +112,20 @@
   } ]
 }, {
   "name" : "8. Most Powerful Test",
-  "type" : "folder"
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1. Hypothesis test.html",
+    "type" : "file",
+    "path" : "8. Most Powerful Test/page/1. Hypothesis test.html"
+  }, {
+    "name" : "2. Properties of hypothesis test.html",
+    "type" : "file",
+    "path" : "8. Most Powerful Test/page/2. Properties of hypothesis test.html"
+  }, {
+    "name" : "3. Neyman–Pearson lemma and UMP test.html",
+    "type" : "file",
+    "path" : "8. Most Powerful Test/page/3. Neyman–Pearson lemma and UMP test.html"
+  } ]
 }, {
   "name" : "9. Various Tests",
   "type" : "folder"

@@ -1,0 +1,77 @@
+{
+  "meta.title": "8.3 Neyman–Pearson Lemma and UMP Tests",
+  "intro.title": "Neyman–Pearson Lemma and UMP Tests",
+
+  "simple.title": "Simple hypothesis",
+  "simple.p1": "From now on, both the null hypothesis and the alternative hypothesis are simple. That is, $H: \\theta = \\theta_0 \\; \\text{versus} \\; K: \\theta = \\theta_1$. Let $P_0, P_1$ be the distributions corresponding to $\\theta_0, \\theta_1$ respectively, with densities $p_0, p_1$ with respect to a measure $\\mu$.",
+
+  "theorem.title": "Main theorem",
+  "theorem.th.title": "UMP test",
+  "theorem.th.p1": "Suppose that the family of distributions of $X$ is a one-parameter exponential family with density",
+  "theorem.eq1": "$$p(x, \\theta) = [\\exp\\{c(\\theta)T(x) + d(\\theta) + S(x)\\}]1_A(x)$$",
+  "theorem.th.p2": "where $c(\\theta)$ is strictly increasing in $\\theta$. Then:",
+  "theorem.th.li1": "$T(X)$ is an optimal test statistic for $H: \\theta \\le \\theta_0$ versus $K: \\theta > \\theta_0$.",
+  "theorem.th.li2": "If $F_{\\theta_0}$ is continuous, the critical value of the UMP level $\\alpha$ test is the $(1-\\alpha)$ quantile of $F_{\\theta_0}$.",
+  "theorem.th.li3": "The power function of the UMP test increases with $\\theta$.",
+
+  "lemma.title": "Neyman–Pearson Lemma",
+  "lemma.th.title": "Neyman–Pearson",
+  "lemma.th.li1": "For any given $\\alpha$, there exists a UMP test of size $\\alpha$ given by",
+  "lemma.eq1": "$$T(X)=\\begin{cases}1,&q_n(X)>cp_n(X);\\\\\\gamma,&q_n(X)=cp_n(X);\\\\0,&q_n(X)<cp_n(X)\\end{cases}$$",
+  "lemma.th.p1": "where $\\gamma\\in[0,1]$ and $c\\ge 0$ are chosen so that $\\mathbb{E}[T(X)]=\\alpha$ under $P_n$.",
+  "lemma.th.li2": "If $S$ is a uniformly most powerful test of size $\\alpha$, then",
+  "lemma.eq2": "$$S(X)=\\begin{cases}1,&q_n(X)>cp_n(X);\\\\0,&q_n(X)<cp_n(X)\\end{cases}\\quad \\text{a.s. } P$$",
+
+  "ump.title": "Proof sketch for UMP property",
+  "ump.eq1": "$$\\mathbb{E}_q[T(X)] - \\mathbb{E}_q[\\varphi(X)] = c\\big(\\alpha - \\mathbb{E}_p[\\varphi(X)]\\big) \\ge 0$$",
+
+  "cont.title": "Continuous distributions",
+  "cont.ex1.title": "",
+  "cont.ex1.p1": "Let $X=(X_1,\\dots,X_n)\\sim \\text{i.i.d. }\\mathcal{N}(\\theta,\\sigma^2)$ with $\\sigma^2$ known. Test $H_0: \\theta=\\theta_0$ versus $H_1: \\theta=\\theta_1\\,(>\\theta_0)$.",
+  "cont.ex1.eq1": "$$\\varphi(X)=\\begin{cases}1,&\\overline{X}_n\\ge \\theta_0+z_{\\alpha}\\sigma/\\sqrt{n};\\\\0,&\\text{otherwise}\\end{cases}$$",
+  "cont.ex1.p2": "Then $\\overline{X}_n$ is the optimal statistic, which follows from the Neyman–Pearson lemma.",
+  "cont.ex1.eq2": "$$z_\\alpha\\text{: upper }\\alpha\\text{-percentile of }\\mathcal{N}(0,1)$$",
+
+  "cont2.title": "Continuous distributions (2)",
+  "cont2.p1": "Consider the log-likelihood ratio:",
+  "cont2.eq1": "$$\\log\\frac{f_{\\theta_1}(X)}{f_{\\theta_0}(X)}=\\frac{\\theta_1-\\theta_0}{\\sigma^2}\\left(\\overline{X}_n-\\frac{\\theta_0+\\theta_1}{2}\\right)$$",
+  "cont2.p2": "If $f_{\\theta_1}(X)\\ge cf_{\\theta_0}(X)$ then",
+  "cont2.eq2": "$$\\log\\frac{f_{\\theta_1}(X)}{f_{\\theta_0}(X)}\\ge\\log c$$",
+  "cont2.eq3": "$$\\frac{\\theta_1-\\theta_0}{\\sigma^2}\\left(\\overline{X}_n-\\frac{\\theta_0+\\theta_1}{2}\\right)\\ge\\log c$$",
+
+  "cont3.title": "Continuous distributions (3)",
+  "cont3.eq1": "$$c' = \\frac{\\sigma^2}{\\theta_1-\\theta_0}\\log c + \\frac{\\theta_0+\\theta_1}{2}$$",
+  "cont3.eq2": "$$\\alpha = 1 - \\Phi\\left(\\frac{\\sqrt{n}(c'-\\theta_0)}{\\sigma}\\right)$$",
+  "cont3.eq3": "$$c' = \\theta_0 + z_\\alpha\\sigma/\\sqrt{n}$$",
+
+  "disc.title": "Discrete distributions",
+  "disc.ex1.title": "",
+  "disc.ex1.p1": "Let $X=(X_1,\\dots,X_n)$ be i.i.d. Bernoulli($\\theta$). Test $H_0: \\theta=\\theta_0$ vs $H_1: \\theta=\\theta_1\\,(>\\theta_0)$.",
+  "disc.ex1.eq1": "$$\\varphi(X)=\\begin{cases}1,&\\overline{X}_n>c'';\\\\\\gamma,&\\overline{X}_n=c'';\\\\0,&\\overline{X}_n<c''\\end{cases}$$",
+  "disc.ex1.p2": "Here $\\overline{X}_n$ is the optimal test statistic.",
+  "disc.ex1.eq2": "$$\\gamma\\text{ and }c''\\text{ will be determined later}$$",
+
+  "disc2.title": "Discrete distributions (2)",
+  "disc2.eq1": "$$\\log\\frac{f_{\\theta_1}(X)}{f_{\\theta_0}(X)}=\\overline{X}_n\\log\\frac{\\theta_1(1-\\theta_0)}{(1-\\theta_1)\\theta_0}+\\log\\frac{1-\\theta_1}{1-\\theta_0}$$",
+  "disc2.p1": "If $f_{\\theta_1}(X)\\ge cf_{\\theta_0}(X)$, then we obtain",
+  "disc2.eq2": "$$\\log\\frac{f_{\\theta_1}(X)}{f_{\\theta_0}(X)}\\ge\\log c$$",
+  "disc2.eq3": "$$\\overline{X}_n\\log\\frac{\\theta_1(1-\\theta_0)}{(1-\\theta_1)\\theta_0}+\\log\\frac{1-\\theta_1}{1-\\theta_0}\\ge\\log c$$",
+
+  "disc3.title": "Discrete distributions (3)",
+  "disc3.eq1": "$$c'=n\\,\\frac{\\log c - \\log\\frac{1-\\theta_1}{1-\\theta_0}}{\\log\\frac{\\theta_1(1-\\theta_0)}{(1-\\theta_1)\\theta_0}}$$",
+  "disc3.eq2": "$$\\alpha = \\sum_{k=c'+1}^n{n\\choose k}\\theta_0^k(1-\\theta_0)^{n-k}+\\gamma{n\\choose c'}\\theta_0^{c'}(1-\\theta_0)^{n-c'}$$",
+
+  "disc4.title": "Discrete distributions (4)",
+  "disc4.eq1": "$$\\sum_{k=c'+1}^n{n\\choose k}\\theta_0^k(1-\\theta_0)^{n-k}\\le\\alpha<\\sum_{k=c'}^n{n\\choose k}\\theta_0^k(1-\\theta_0)^{n-k}$$",
+  "disc4.eq2": "$$\\gamma=\\frac{\\alpha-\\sum_{k=c'+1}^n{n\\choose k}\\theta_0^k(1-\\theta_0)^{n-k}}{{n\\choose c'}\\theta_0^{c'}(1-\\theta_0)^{n-c'}}$$",
+
+  "pvalue.title": "p-values",
+  "pvalue.p1": "Consider rejection regions $S^\\alpha$ depending on the significance level $\\alpha$. Then, if $\\alpha<\\alpha'$, we have $S^\\alpha\\subset S^{\\alpha'}$.",
+  "pvalue.eq1": "$$p\\text{-value}=\\inf\\{\\alpha; X\\in S^\\alpha\\}$$",
+  "pvalue.eq2": "$$S^\\alpha\\subset S^{\\alpha'}\\;\\text{if}\\;\\alpha<\\alpha'$$",
+  "pvalue.eq3": "$$\\text{Reject }H_0\\text{ if }p\\text{-value}<\\alpha$$",
+  "pvalue.p2": "In general, a smaller p-value indicates stronger evidence against the null hypothesis.",
+
+  "rtest.title": "Hypothesis testing in R",
+  "rtest.code1": "set.seed(1203)\\nz <- rnorm(n = 10, mean = 10, sd = 1)\\nprint(z)"
+}

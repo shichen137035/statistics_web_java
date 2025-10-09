@@ -1,0 +1,53 @@
+{
+  "meta.title": "8.2 Properties of hypothesis test",
+  "intro.title": "Properties of hypothesis test",
+
+  "regions.title": "Regions",
+  "regions.p1": "Let the two possible decisions of a (nonrandomized) test be denoted by d_0 (accept H) and d_1 (reject H). A test assigns to each possible sample point x a decision, thereby partitioning the sample space into two complementary regions.",
+  "regions.p2": "We write S_0 for the acceptance region and S_1 for the rejection (critical) region.",
+  "regions.def.title": "Critical region (rejection region)",
+  "regions.def.p1": "The set S_1 of all sample points X for which we reject the null hypothesis H is called the critical (or rejection) region. Its complement S_0 is the acceptance region.",
+  "regions.eq1": "$$p \\notin [L, \\overline{L}] \\;\\Longleftrightarrow\\; X \\in S_1$$",
+  "regions.eq2": "$$X \\in S_0 \\;\\Longleftrightarrow\\; \\text{accept } H, \\qquad X \\in S_1 \\;\\Longleftrightarrow\\; \\text{reject } H$$",
+  "regions.p3": "In practice, we design S_1 to control the probability of rejecting H when H is true, while keeping good detection when H is false.",
+
+  "true.title": "When H is true: significance and size",
+  "true.p1": "If H is true but X falls in the rejection region S_1, we have made a false alarm. We want to keep this probability small.",
+  "true.sig.title": "Level of significance and size",
+  "true.sig.p1": "For a real number \\(\\alpha \\in (0,1)\\), a test has level (significance) \\(\\alpha\\) if under all parameters in the null, the rejection probability is at most \\(\\alpha\\):",
+  "true.sig.eq1": "$$P_\\theta\\big(X \\in S_1\\big) \\le \\alpha, \\qquad \\forall\\, \\theta \\in \\Theta_0.$$",
+  "true.sig.p2": "The quantity",
+  "true.sig.eq2": "$$\\sup_{\\theta \\in \\Theta_0} P_\\theta\\big(X \\in S_1\\big)$$",
+  "true.p2": "is called the size of the test (or of the critical region S_1). A good level-\\(\\alpha\\) test has size close to \\(\\alpha\\) but not exceeding it.",
+
+  "power.title": "When H is wrong: power",
+  "power.p1": "When the alternative is true, we would like the test to reject H with high probability.",
+  "power.p2": "For a given parameter value \\(\\theta \\in \\Theta_1\\), the power is the probability of correctly rejecting H:",
+  "power.eq1": "$$\\beta(\\theta) := P_\\theta\\big(X \\in S_1\\big), \\qquad \\theta \\in \\Theta_1.$$",
+
+  "stat.title": "Test statistic and critical function",
+  "stat.p1": "A test statistic T is a function of the sample that tends to be small when H is true and large when H is false (or vice versa).",
+  "stat.p2": "A critical value c is selected so that we reject H when, for example, \\(T(X) \\ge c\\) and accept otherwise (one–sided case).",
+  "stat.p3": "The critical function (or test function) of a nonrandomized test can be written as an indicator:",
+  "stat.eq1": "$$\\mathbf{1}_{\\{T \\ge c\\}}(x) = \\begin{cases} 1, & T(x) \\ge c, \\\\ 0, & \\text{otherwise.} \\end{cases}$$",
+
+  "err.title": "Errors",
+  "err.p0": "There are two types of error we can make (not simultaneously).",
+  "err.li1": "Type I error: H is true but \\(X \\in S_1\\) (we reject when we should accept).",
+  "err.li2": "Type II error: H is false but \\(X \\notin S_1\\) (we accept when we should reject).",
+  "err.p1": "By convention, we control the Type I error probability at level \\(\\alpha\\) and then design a test with as much power as possible against alternatives.",
+
+  "math.title": "Mathematical formulation",
+  "math.p1": "Let the data distribution under parameter \\(\\theta\\) be \\(P_\\theta\\), and let \\(\\varphi\\) denote the (possibly randomized) critical function with values in [0,1]. The probability of rejection is the expectation of \\(\\varphi\\):",
+  "math.eq1": "$$\\mathbb{E}_\\theta\\, \\varphi(X) = \\int \\varphi(x)\\, \\mathrm{d}P_\\theta(x).$$",
+  "math.p2": "We aim to maximize the power against alternatives:",
+  "math.eq2": "$$\\beta_\\varphi(\\theta) = \\mathbb{E}_\\theta\\, \\varphi(X), \\qquad \\forall\\, \\theta \\in \\Theta_1,$$",
+  "math.p3": "subject to the size constraint (level \\(\\alpha\\)) under the null:",
+  "math.eq3": "$$\\mathbb{E}_\\theta\\, \\varphi(X) \\le \\alpha, \\qquad \\forall\\, \\theta \\in \\Theta_0.$$",
+  "math.remark": "The maximizing test depends on the specified alternative; additional principles (e.g., monotone likelihood ratio, Neyman–Pearson) are used to characterize optimal procedures.",
+
+  "opt.title": "Optimality",
+  "opt.p1": "A level-\\(\\alpha\\) test \\(\\delta^*\\) is \\emph{uniformly most powerful} (U.M.P.) for testing \\(H: \\theta \\in \\Theta_0\\) versus \\(K: \\theta \\in \\Theta_1\\) if and only if",
+  "opt.eq1": "$$\\beta(\\theta; \\delta^*) \\ge \\beta(\\theta; \\delta), \\qquad \\forall\\, \\theta \\in \\Theta_1,$$",
+  "opt.p2": "for every other level-\\(\\alpha\\) test \\(\\delta\\). The corresponding test statistic is then said to be optimal."
+}
