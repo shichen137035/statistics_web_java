@@ -20,6 +20,7 @@
     --acc-corollary:  #10b981;   /* emerald-500 */
     --acc-remark:     #f59e0b;   /* amber-500 */
     --acc-example:    #ec4899;   /* pink-500 */
+    --acc-assumption: #f43f5e;   /* rose-500 */
 }
 
 /* ---- 深色主题自动适配 ---- */
@@ -35,7 +36,7 @@
 
 /* ---- 在主要容器里为各类语句建立计数器（纯CSS自动编号） ---- */
 main.container{
-    counter-reset: definition theorem lemma proposition corollary example;
+    counter-reset: definition theorem lemma proposition corollary example assumption;
 }
 
 /* ---- 统一卡片底座 ---- */
@@ -123,6 +124,18 @@ main.container{
     content: "Remark " attr(data-title);
     display: block; font-weight: 700; color: var(--acc-remark); margin-bottom: .35rem;
 }
+
+/* Assumption */
+.statement.assumption{ border-left-color: var(--acc-assumption); }
+.statement.assumption::before{
+    counter-increment: assumption;
+    content: "Assumption " attr(data-ch) "." counter(assumption) " " attr(data-title);
+    display: block;
+    font-weight: 700;
+    color: var(--acc-assumption);
+    margin-bottom: .35rem;
+}
+
 
 /* ---- 证明块 ---- */
 .proof{

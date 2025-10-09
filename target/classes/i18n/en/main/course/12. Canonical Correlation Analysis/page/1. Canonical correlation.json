@@ -1,6 +1,6 @@
 {
   "meta.title": "Canonical Correlation",
-  "intro.title": "12.1 Canonical Correlation",
+  "intro.title": "Canonical Correlation",
 
   "section.1.title": "Canonical Correlation",
   "section.1.text1": "Let us consider $\\mathbf{X} = (X_1,\\ldots,X_p)^\\top \\in \\mathbb{R}^p$ and $\\mathbf{Y} = (Y_1,\\ldots,Y_q)^\\top \\in \\mathbb{R}^q$. We are interested in the correlation between $\\mathbf{X}$ and $\\mathbf{Y}$.",
@@ -8,7 +8,7 @@
   "section.1.text2": "Assume $\\mathbf{Z}$ has mean zero and a positive definite covariance matrix",
   "section.1.eq2": "$$\\Sigma = \\begin{pmatrix} \\Sigma_{11} & \\Sigma_{12} \\\\ \\Sigma_{21} & \\Sigma_{22} \\end{pmatrix},$$",
   "section.1.text3": "where $\\Sigma_{11}$ is a $p\\times p$ matrix, $\\Sigma_{12}=\\Sigma_{21}^\\top$ is a $p\\times q$ matrix, and $\\Sigma_{22}$ is a $q\\times q$ matrix.",
-  "section.1.assumption.title": "Assumption 14.1",
+  "section.1.assumption.title": "",
   "section.1.assumption.item1": "(i) $\\mathrm{Var}[\\alpha^\\top\\mathbf{X}] = \\alpha^\\top \\Sigma_{11}\\alpha = 1$;",
   "section.1.assumption.item2": "(ii) $\\mathrm{Var}[\\beta^\\top\\mathbf{Y}] = \\beta^\\top \\Sigma_{22}\\beta = 1$.",
 
@@ -49,6 +49,7 @@
   "section.6.eq1": "$$S^\\circ = \\sum_{i=1}^n (Z_i - \\bar{Z})(Z_i - \\bar{Z})^\\top = \\begin{pmatrix}S_{11}^\\circ & S_{12}^\\circ\\\\ S_{21}^\\circ & S_{22}^\\circ\\end{pmatrix}.$$",
   "section.6.theorem.title": "",
   "section.6.theorem.text1": "Suppose $S^\\circ$ is distributed as $W_{p+q}(n,\\Sigma)$ where $p\\le q$ and $n\\ge p+q$. Let $r_1^2,\\ldots,r_p^2$ be the latent roots of $(S_{11}^\\circ)^{-1}S_{12}^\\circ(S_{22}^\\circ)^{-1}S_{21}^\\circ$. Then the joint probability density function of $r_1^2,\\ldots,r_p^2$ is",
-  "section.6.theorem.eq1": "$$\\prod_{i=1}^p (1-\\rho_i^2)^{n/2} {}_2F_1^{(p)}(n/2,n/2;q/2;P^2,R^2) \\frac{\\pi^{p^2/2}\\Gamma_p(n/2)}{\\Gamma_p(p/2)\\Gamma_p[(n-q)/2]\\Gamma_p(q/2)}\\prod_{i=1}^p[(r_i^2)^{(q-p-1)/2}(1-r_i^2)^{(n-p-q-1)/2}]\\prod_{i<j}(r_i^2-r_j^2).$$",
+  "section.6.theorem.eq1": "$$\\begin{aligned}&\\prod_{i=1}^p (1-\\rho_i^2)^{n/2} \\, {}_2F_1^{(p)}(n/2,n/2;q/2;P^2,R^2) \\\\&\\quad\\times \\frac{\\pi^{p^2/2}\\Gamma_p(n/2)}{\\Gamma_p(p/2)\\Gamma_p[(n-q)/2]\\Gamma_p(q/2)}\\prod_{i=1}^p[(r_i^2)^{(q-p-1)/2}(1-r_i^2)^{(n-p-q-1)/2}]\\prod_{i<j}(r_i^2-r_j^2)\\end{aligned}$$",
+
   "section.6.theorem.text2": "where $1>r_1^2>\\cdots>r_p^2>0$, $P^2=\\mathrm{diag}(\\rho_1^2,\\ldots,\\rho_p^2)$, and $R^2=\\mathrm{diag}(r_1^2,\\ldots,r_p^2)$."
 }
