@@ -1,0 +1,39 @@
+{
+  "meta.title": "Principal Component Analysis",
+
+  "section.1.title": "Principal Components",
+  "section.1.text1": "Suppose $\\mathbf{X} = (X_1, \\ldots, X_p)^{\\top}$ has a p.d.f. $f(x)$, where $\\mathbf{x} \\in \\mathbb{R}^p$ with mean $\\mathbf{0}$ and covariance matrix $\\Sigma$, which is positive definite.",
+  "section.1.prop.title": "Principal components definition",
+  "section.1.prop.text1": "There exists a $p \\times p$ orthogonal matrix $Q$ such that",
+  "section.1.prop.eq1": "$$\\boldsymbol{\\xi} = Q^{\\top} \\mathbf{X},$$",
+  "section.1.prop.text2": "and $\\mathrm{Var}(\\boldsymbol{\\xi})$ is a diagonal matrix.",
+  "section.1.text2": "Let $\\mathbf{q}_1, \\ldots, \\mathbf{q}_p$ be column vectors of the matrix $Q$. In other words, $Q = (\\mathbf{q}_1, \\ldots, \\mathbf{q}_p)$. Here,",
+  "section.1.eq1": "$$\\xi_i = \\mathbf{q}_i^{\\top} \\mathbf{X}.$$",
+  "section.1.text3": "The vector $\\mathbf{q}_i$ is typically called the $i$th principal component.",
+
+  "section.2.title": "Latent Roots",
+  "section.2.text1": "Let $\\Lambda := \\mathrm{Var}(\\boldsymbol{\\xi})$ with diagonal elements $\\lambda_1, \\ldots, \\lambda_p$. In other words, $\\lambda_1, \\ldots, \\lambda_p$ are latent roots of $\\Sigma$. By spectral decomposition, we have",
+  "section.2.eq1": "$$\\Sigma = \\lambda_1 \\mathbf{q}_1 \\mathbf{q}_1^{\\top} + \\cdots + \\lambda_p \\mathbf{q}_p \\mathbf{q}_p^{\\top}.$$",
+  "section.2.text2": "If the latent roots $\\lambda_1, \\ldots, \\lambda_p$ are distinct, then the orthogonal matrix $Q$ is unique up to sign changes of the first element in each column so that the principal components $\\mathbf{q}_i$ are unique up to sign changes.",
+  "section.2.eq2": "",
+  "section.2.text3": "",
+
+  "section.3.title": "Proposition I",
+  "section.3.text1": "Let $\\Lambda := \\mathrm{Var}(\\boldsymbol{\\xi})$ with diagonal elements $\\lambda_1, \\ldots, \\lambda_p$. In other words, $\\lambda_1, \\ldots, \\lambda_p$ are latent roots of $\\Sigma$. By spectral decomposition, we have",
+  "section.3.eq1": "$$\\Sigma = \\lambda_1 \\mathbf{q}_1 \\mathbf{q}_1^{\\top} + \\cdots + \\lambda_p \\mathbf{q}_p \\mathbf{q}_p^{\\top}.$$",
+  "section.3.text2": "If the latent roots $\\lambda_1, \\ldots, \\lambda_p$ are distinct, then the orthogonal matrix $Q$ is unique up to sign changes of the first element in each column so that the principal components $\\mathbf{q}_i$ are unique up to sign changes.",
+  "section.3.prop.title": "",
+  "section.3.prop.item1": "(i) $\\mathbb{E}[\\boldsymbol{\\xi}] = 0.$",
+  "section.3.prop.item2": "(ii) $\\mathbf{X} = \\xi_1 \\mathbf{q}_1 + \\cdots + \\xi_p \\mathbf{q}_p.$",
+  "section.3.prop.item3": "(iii) $\\mathrm{Cov}(\\mathbf{X}, \\xi_i) = \\lambda_i \\mathbf{q}_i.$",
+
+  "section.4.title": "Proposition II",
+  "section.4.prop1.title": "",
+  "section.4.prop1.text1": "Let $\\boldsymbol{\\xi}_P = P^{\\top} \\mathbf{X}$ and $\\Sigma_P = \\mathrm{Var}(\\boldsymbol{\\xi}_P)$. The determinant $\\det(\\Sigma_P)$ is maximized if $P = Q.$",
+  "section.4.text1": "The principal components can be computed from the following results.",
+  "section.4.prop2.title": "",
+  "section.4.prop2.text1": "The first principal component $\\mathbf{q}_1$ is the solution of the following constrained optimization problem:",
+  "section.4.prop2.eq1": "$$\\max_{\\boldsymbol{\\beta} \\in \\mathbb{R}^p} \\mathrm{Var}(\\boldsymbol{\\beta}^{\\top} \\mathbf{X}) \\quad \\text{subject to } \\|\\boldsymbol{\\beta}\\| = 1.$$",
+  "section.4.prop2.text2": "In addition, the $k$th principal component $\\mathbf{q}_k$ is the solution of the following constrained optimization problem:",
+  "section.4.prop2.eq2": "$$\\max_{\\boldsymbol{\\beta} \\in \\mathbb{R}^p} \\mathrm{Var}(\\boldsymbol{\\beta}^{\\top} \\mathbf{X}) \\quad \\text{subject to } \\|\\boldsymbol{\\beta}\\| = 1 \\text{ and } \\mathrm{Cov}(\\boldsymbol{\\beta}^{\\top}\\mathbf{X}, \\mathbf{q}_i^{\\top}\\mathbf{X}) = 0,\\ i = 1,\\ldots,k-1.$$"
+}

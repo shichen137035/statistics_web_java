@@ -1,0 +1,23 @@
+{
+  "meta.title": "9.1 Discovery Rate",
+  "intro.title": "Discovery Rate",
+
+  "fdr.title": "False Discovery Rate",
+  "fdr.def.title": "Definition of false discovery rate",
+  "fdr.def.p1": "Suppose that we test $m$ null hypotheses. Let $V$ be the number of true null hypotheses that are rejected, and $S$ the number of false null hypotheses that are rejected. The false discovery rate (FDR) is defined as",
+  "fdr.def.eq1": "$$E\\left[\\frac{V}{V+S}\\right]$$",
+
+  "fdr.ex.title": "Example",
+  "fdr.ex.p1": "When all null hypotheses are true, the false discovery rate coincides with the type I error rate. That is, it represents the probability of rejecting the true null hypothesis:",
+  "fdr.ex.eq1": "$$H_0 = \\bigcap_{1 \\le i \\le m} H_{0i}$$",
+
+  "bh.title": "Benjamini–Hochberg (BH) Method",
+  "bh.li1": "Fix the false discovery rate $\\alpha$ and let $p_{(1)} \\le p_{(2)} \\le \\cdots \\le p_{(m)}$ denote the ordered p-values.",
+  "bh.li2": "Find the largest index $L$ satisfying",
+  "bh.eq1": "$$L = \\max\\left\\{ j \\; ; \\; p_{(j)} < \\alpha \\cdot \\frac{j}{m} \\right\\}$$",
+  "bh.li3": "Reject all null hypotheses $H_{0j}$ for which $p_j \\le p_{(L)}$.",
+  "bh.note": "Other method for dependent cases: Benjamini–Yekutieli method.",
+
+  "estimation.title": "Estimation of False Discovery Rate",
+  "estimation.code1": "cutoff <- results2[pvals == sort(pvals)[10]]\\nperm2 <- function(j){\\n  bsamp <- sample(1:58)\\n  sim <- function(k){\\n    perno <- unlist(sen[k,bsamp[1:44]])\\n    persev <- unlist(sen[k,bsamp[45:58]])\\n    stat = t.test(perno, persev, var.equal = TRUE)$statistic\\n    return(stat)\\n  }\\n  bres <- sapply(1:12625, sim)\\n  num <- length(bres[abs(bres) > cutoff])\\n  return(num)\\n}\\nfdr <- sapply(1:50, perm2)"
+}

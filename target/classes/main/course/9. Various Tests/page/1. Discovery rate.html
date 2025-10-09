@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="meta.title"></title>
+</head>
+
+<body>
+<div id="language-switch"></div>
+<div id="course-nav"></div>
+<div id="pager"></div>
+
+<main class="container prose mx-auto">
+    <h1 data-i18n="intro.title"></h1>
+
+    <!-- 1. False Discovery Rate -->
+    <section id="fdr">
+        <h2 data-i18n="fdr.title"></h2>
+        <aside class="statement definition" data-ch="9.1" data-title-i18n="fdr.def.title">
+            <p data-i18n="fdr.def.p1"></p>
+            <div class="eq" data-i18n="fdr.def.eq1"></div>
+        </aside>
+
+        <aside class="statement example" data-ch="9.1" data-title-i18n="fdr.ex.title">
+            <p data-i18n="fdr.ex.p1"></p>
+            <div class="eq" data-i18n="fdr.ex.eq1"></div>
+        </aside>
+    </section>
+
+    <hr/>
+
+    <!-- 2. Benjamini–Hochberg Method -->
+    <section id="bh">
+        <h2 data-i18n="bh.title"></h2>
+        <ul>
+            <li data-i18n="bh.li1"></li>
+            <li data-i18n="bh.li2"></li>
+            <div class="eq" data-i18n="bh.eq1"></div>
+            <li data-i18n="bh.li3"></li>
+        </ul>
+        <p data-i18n="bh.note"></p>
+    </section>
+
+    <hr/>
+
+    <!-- 3. Estimation of FDR -->
+    <section id="estimation">
+        <h2 data-i18n="estimation.title"></h2>
+        <pre><code class="language-r" data-i18n="estimation.code1"></code></pre>
+    </section>
+
+</main>
+
+<script type="module" src="/common/js/course.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+{
+  "meta.title": "10.1 Discriminant Analysis",
+  "intro.title": "Discriminant Analysis",
+
+  "definition.title": "Discriminant Analysis",
+  "definition.box.title": "Definition of discriminant problem",
+  "definition.box.p1": "Suppose $\\mathbf{X} = (X_1, \\dots, X_m)^\\top$ has a p.d.f. $f(x)$ for $x \\in \\mathbb{R}^m$. The density $f(x)$ belongs to one of two categories $\\Pi_1$ or $\\Pi_2$:",
+  "definition.box.eq1": "$$\\Pi_1 : f(x) = f_1(x), \\quad \\Pi_2 : f(x) = f_2(x).$$",
+
+  "setting.title": "Problem Setting",
+  "setting.p1": "A classification rule is a partition $\\mathcal{R} = (R_1, R_2)$ of $\\mathbb{R}^m$ such that $\\mathbf{X}$ is assigned to $\\Pi_1$ if $x \\in R_1$ and to $\\Pi_2$ if $x \\in R_2$.",
+  "setting.eq1": "$$\\Pi_1 : f(x) = f_1(x), \\quad \\Pi_2 : f(x) = f_2(x).$$",
+  "setting.p2": "The misclassification probability is given by",
+  "setting.eq2": "$$P(j \\mid k) = \\int_{R_j} f_k(x) \\, dx,$$",
+  "setting.p3": "The optimal classification rule minimizes the sum of misclassification probabilities.",
+
+  "theorem.title": "Main Theorem",
+  "theorem.box.title": "Theorem of optimal discriminant",
+  "theorem.box.eq1": "$$R_1 = \\{ x \\in \\mathbb{R}^m \\; ; \\; f_1(x) \\ge f_2(x) \\}, \\quad R_2 = \\{ x \\in \\mathbb{R}^m \\; ; \\; f_1(x) < f_2(x) \\}.$$",
+
+  "lda1.title": "Linear Discriminant Analysis (I)",
+  "lda1.p1": "Let $f_1$ and $f_2$ be the densities of $\\mathcal{N}(\\mu^{(1)}, \\Sigma)$ and $\\mathcal{N}(\\mu^{(2)}, \\Sigma)$ respectively. Then the optimal classification rule is",
+  "lda1.eq1": "$$R_1 = \\{ x \\in \\mathbb{R}^m ; \\; x^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}) - \\tfrac{1}{2} (\\mu^{(1)} + \\mu^{(2)})^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}) \\ge 0 \\},$$",
+  "lda1.eq2": "$$R_2 = \\{ x \\in \\mathbb{R}^m ; \\; x^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}) - \\tfrac{1}{2} (\\mu^{(1)} + \\mu^{(2)})^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}) < 0 \\},$$",
+  "lda1.eq3": "$$D(\\mathbf{X}) = \\mathbf{X}^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}) - \\tfrac{1}{2} (\\mu^{(1)} + \\mu^{(2)})^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}), \\quad \\Delta = (\\mu^{(1)} - \\mu^{(2)})^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}).$$",
+
+  "lda2.title": "Linear Discriminant Analysis (II)",
+  "lda2.eq1": "$$D(\\mathbf{X}) = \\mathbf{X}^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}) - \\tfrac{1}{2} (\\mu^{(1)} + \\mu^{(2)})^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}),$$",
+  "lda2.eq2": "$$\\Delta = (\\mu^{(1)} - \\mu^{(2)})^\\top \\Sigma^{-1} (\\mu^{(1)} - \\mu^{(2)}),$$",
+  "lda2.eq3": "$$D(\\mathbf{X}) \\sim \\mathcal{N} \\left( (-1)^{j+1}\\tfrac{\\Delta}{2}, \\Delta \\right),$$",
+  "lda2.p1": "If $\\mathbf{X}$ is from $\\Pi_j$, the misclassification probabilities can be computed using these distributions.",
+
+  "qda.title": "Quadratic Discriminant Analysis",
+  "qda.p1": "Let $f_1$ and $f_2$ be the densities of $\\mathcal{N}(\\mu^{(1)}, \\Sigma^{(1)})$ and $\\mathcal{N}(\\mu^{(2)}, \\Sigma^{(2)})$, where $\\Sigma^{(1)} \\ne \\Sigma^{(2)}$. The optimal classification rule is",
+  "qda.eq1": "$$R_1 = \\{ x \\in \\mathbb{R}^m ; \\; \\log |\\Sigma^{(1)}| - \\log |\\Sigma^{(2)}| + (x - \\mu^{(1)})^\\top (\\Sigma^{(1)})^{-1} (x - \\mu^{(1)}) - (x - \\mu^{(2)})^\\top (\\Sigma^{(2)})^{-1} (x - \\mu^{(2)}) \\le 0 \\},$$",
+  "qda.eq2": "$$R_2 = \\{ x \\in \\mathbb{R}^m ; \\; \\log |\\Sigma^{(1)}| - \\log |\\Sigma^{(2)}| + (x - \\mu^{(1)})^\\top (\\Sigma^{(1)})^{-1} (x - \\mu^{(1)}) - (x - \\mu^{(2)})^\\top (\\Sigma^{(2)})^{-1} (x - \\mu^{(2)}) > 0 \\}.$$",
+
+  "sim1.title": "Numerical Examples (I) — Preparation",
+  "sim1.desc": "Load required packages and confirm the size of the classic Iris dataset used for LDA/QDA demonstrations.",
+  "sim1.code": "library(MASS)\nlibrary(klaR)\n\ndim(iris)\n## [1] 150   5",
+
+  "sim2.title": "Numerical Examples (II) — Dataset & Colors",
+  "sim2.desc": "Create a color vector for species to be reused in subsequent plots/partition displays: setosa → yellow, versicolor → cyan, virginica → magenta.",
+  "sim2.code": "cols <- character(nrow(iris))\ncols[] <- \"black\"\ncols[iris$Species == \"setosa\"] <- \"yellow\"\ncols[iris$Species == \"versicolor\"] <- \"cyan\"\ncols[iris$Species == \"virginica\"] <- \"magenta\"",
+
+  "sim3.title": "Numerical Examples (III) — LDA Prediction",
+  "sim3.desc": "Use the fitted LDA model to predict on the Iris data and display the confusion table (training resubstitution result in the slides).",
+  "sim3.code": "lda_pred <- predict(lda_fit, iris)\ntable(lda_pred$class, iris$Species)\n##             \n##             setosa versicolor virginica\n## setosa           50          0         0\n## versicolor        0         48         1\n## virginica         0          2        49"
+
+}

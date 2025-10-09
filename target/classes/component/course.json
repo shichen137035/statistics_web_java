@@ -128,13 +128,32 @@
   } ]
 }, {
   "name" : "9. Various Tests",
-  "type" : "folder"
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1. Discovery rate.html",
+    "type" : "file",
+    "path" : "9. Various Tests/page/1. Discovery rate.html"
+  } ]
 }, {
   "name" : "10. Discriminant Analysis",
-  "type" : "folder"
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1. Discriminant analysis.html",
+    "type" : "file",
+    "path" : "10. Discriminant Analysis/page/1. Discriminant analysis.html"
+  } ]
 }, {
   "name" : "11. Principal Component Analysis",
-  "type" : "folder"
+  "type" : "folder",
+  "children" : [ {
+    "name" : "1. Principal component.html",
+    "type" : "file",
+    "path" : "11. Principal Component Analysis/page/1. Principal component.html"
+  }, {
+    "name" : "2. Sample principal component.html",
+    "type" : "file",
+    "path" : "11. Principal Component Analysis/page/2. Sample principal component.html"
+  } ]
 }, {
   "name" : "12. Canonical Correlation Analysis",
   "type" : "folder"

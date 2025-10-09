@@ -32,6 +32,10 @@
   "catalogtitle.Interval estimation example": "Interval estimation example",
   "catalogtitle.Hypothesis test": "Hypothesis test",
   "catalogtitle.Properties of hypothesis test": "Properties of hypothesis test",
-  "catalogtitle.Neyman–Pearson lemma and UMP test": "Neyman–Pearson lemma and UMP test"
+  "catalogtitle.Neyman–Pearson lemma and UMP test": "Neyman–Pearson lemma and UMP test",
+  "catalogtitle.Discovery rate": "Discovery rate",
+  "catalogtitle.Discriminant analysis": "Discriminant analysis",
+  "catalogtitle.Principal component": "Principal component",
+  "catalogtitle.Sample principal component": "Sample principal component"
 }
 
