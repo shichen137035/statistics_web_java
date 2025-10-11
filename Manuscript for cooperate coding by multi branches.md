@@ -486,4 +486,5 @@ This is the newly opened interface, when there are no modifications.
 
 This is when there are some modifications.
 
-Before commi
+Please first commit your changes. Commit means record the changes on your local repository. Then, before we push, we should fetch origin first. If there is any changes, then
+
