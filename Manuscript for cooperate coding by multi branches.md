@@ -504,8 +504,16 @@ After we resolve the confliction manually or automatically, we could do the merg
 
 The following is some operation on branch.
 
-![图片7](.\assest\图片7.png)
+![图片7](.\assets\图片7.png)
 
 Here is three options for the merge.
 
-![图片9](./assets/图片9.png)
+![图片9](./assets/图片8.png)
+
+We could also raise pull request on own branch
+
+![图片12](./assets/图片12.png)
+
+And admit such merge on the github website
+
+![图片13](./assets/图片13.png)
