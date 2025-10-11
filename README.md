@@ -1,2 +1,3 @@
 # Introduction
-This is the project for the website of course-foundation of statistic.
+This is the project for the website of course-foundation of statistic. 
+It contains two main parts, course and concept.
