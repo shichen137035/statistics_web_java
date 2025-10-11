@@ -1,2 +1,2 @@
-# statistics_web_java
-Website for statistics course
+# Introduction
+This is the project for the website of course-foundation of statistic.
