@@ -476,4 +476,14 @@ Once both branches are in sync with the new main:
 - Resume independent work (step 2).
 - Repeat the cycle for the next update.
 
-#### Schematic diagram
+#### Interface Schematic Tutorial
+
+![image-20251010220443142](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251010220443142.png)
+
+This is the newly opened interface, when there are no modifications.
+
+![image-20251011101356586](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251011101356586.png)
+
+This is when there are some modifications.
+
+Before commi
