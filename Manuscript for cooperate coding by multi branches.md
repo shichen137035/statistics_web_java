@@ -494,5 +494,10 @@ After do the pull, we push our code
 
 ![图片4](C:\Users\shich\Downloads\图片4.png)
 
-Sometimes, our commit may meet confliction with current branch because of the last pull.
+Sometimes, the commit may meet confliction with current branch because of the last pull.
 
+![图片5](C:\Users\shich\Downloads\图片5.png)
+
+After we resolve the confliction manually or automatically, we could do the merge.
+
+![image-20251011132423516](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251011132423516.png)
