@@ -478,26 +478,34 @@ Once both branches are in sync with the new main:
 
 #### Interface Schematic Tutorial
 
-![image-20251010220443142](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251010220443142.png)
+![image-20251010220443142](./assets/image-20251010220443142.png)
 
 This is the newly opened interface, when there are no modifications.
 
-![image-20251011101356586](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251011101356586.png)
+![image-20251011101356586](./assets/image-20251011101356586.png)
 
 This is when there are some modifications.
 
 Please first commit your changes. Commit means record the changes on your local repository. Then, before we push, we should fetch origin first. If there is any changes, then
 
-![image-20251011105036725](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251011105036725.png)
+![image-20251011105036725](./assets/image-20251011105036725.png)
 
 After do the pull, we push our code
 
-![图片4](C:\Users\shich\Downloads\图片4.png)
+![图片4](assets/图片4.png)
 
 Sometimes, the commit may meet confliction with current branch because of the last pull.
 
-![图片5](C:\Users\shich\Downloads\图片5.png)
+![图片5](assets/图片5.png)
 
 After we resolve the confliction manually or automatically, we could do the merge.
 
-![image-20251011132423516](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251011132423516.png)
+![image-20251011132423516](assets/image-20251011132423516.png)
+
+The following is some operation on branch.
+
+![图片7](.\assest\图片7.png)
+
+Here is three options for the merge.
+
+![图片9](./assets/图片9.png)
