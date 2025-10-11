@@ -489,3 +489,10 @@ This is when there are some modifications.
 Please first commit your changes. Commit means record the changes on your local repository. Then, before we push, we should fetch origin first. If there is any changes, then
 
 ![image-20251011105036725](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251011105036725.png)
+
+After do the pull, we push our code
+
+![图片4](C:\Users\shich\Downloads\图片4.png)
+
+Sometimes, our commit may meet confliction with current branch because of the last pull.
+
