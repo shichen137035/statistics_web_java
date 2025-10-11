@@ -488,3 +488,4 @@ This is when there are some modifications.
 
 Please first commit your changes. Commit means record the changes on your local repository. Then, before we push, we should fetch origin first. If there is any changes, then
 
+![image-20251011105036725](C:\Users\shich\AppData\Roaming\Typora\typora-user-images\image-20251011105036725.png)
