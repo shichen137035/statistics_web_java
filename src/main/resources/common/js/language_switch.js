@@ -32,7 +32,7 @@
         if (p.endsWith('/')) p += 'index';
         p = p.replace(/\.html?$/i, '');
 
-        // ✅ 新增逻辑：把 URL 编码解码回来（如 %20 -> 空格）
+
         p = decodeURIComponent(p);
 
         return p;

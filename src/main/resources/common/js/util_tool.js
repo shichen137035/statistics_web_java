@@ -45,19 +45,26 @@ export async function injectJsSequential(jsFiles) {
 
 
 export async function loadComponent(url, targetId) {
-    const res = await fetch(url);
-    if (!res.ok) {
-        throw new Error(`无法加载组件: ${url} (status ${res.status})`);
-    }
-    const data = await res.text();
+    try {
+        const res = await fetch(url);
+        if (!res.ok) {
+            console.warn(`⚠️ 无法加载组件: ${url} (status ${res.status})`);
+            return;
+        }
 
-    const target = document.getElementById(targetId);
-    if (!target) {
-        throw new Error(`未找到目标容器: #${targetId}`);
-    }
+        const data = await res.text();
+        const target = document.getElementById(targetId);
 
-    target.innerHTML = data; // 同步注入
-    console.log(`组件 ${url} 已成功加载到 #${targetId}`);
+        if (!target) {
+            console.warn(`⚠️ 未找到目标容器: #${targetId}。组件内容未注入。`);
+            return;
+        }
+
+        target.innerHTML = data; // 同步注入
+        console.log(`✅ 组件 ${url} 已成功加载到 #${targetId}`);
+    } catch (err) {
+        console.warn(`⚠️ 加载组件时发生异常: ${url}`, err);
+    }
 }
 
 export function injectJs(jsFiles) {

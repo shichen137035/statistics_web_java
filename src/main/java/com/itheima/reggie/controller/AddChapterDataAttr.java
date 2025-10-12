@@ -60,20 +60,27 @@ public class AddChapterDataAttr {
     private static void updateHtmlFile(File htmlFile, String chapter) throws IOException {
         String content = readFile(htmlFile);
 
-        // 匹配 <aside class="statement ..."> 标签
+        // 匹配 <aside class="...statement...">（保留 aside 后的整段属性为 group(1)）
         Pattern pattern = Pattern.compile("<aside([^>]*class=\"[^\"]*statement[^\"]*\"[^>]*)>");
         Matcher matcher = pattern.matcher(content);
 
         StringBuffer sb = new StringBuffer();
         while (matcher.find()) {
             String tag = matcher.group(1);
-            // 如果已有 data-ch 属性则替换，否则添加
+
+            // 更新/添加 data-ch
             if (tag.contains("data-ch=")) {
                 tag = tag.replaceAll("data-ch=\"[^\"]*\"", "data-ch=\"" + chapter + "\"");
             } else {
-                tag = tag.trim() + " data-ch=\"" + chapter + "\"";
+                tag = tag + " data-ch=\"" + chapter + "\""; // 不 trim，保留内部空白
             }
-            matcher.appendReplacement(sb, "<aside" + tag + ">");
+
+            // 规范化：把属性串的前导空白变成“恰好一个空格”
+            String attrs = tag.replaceFirst("^\\s*", " ");
+
+            // 使用 quoteReplacement，避免 $ 或 \ 导致 appendReplacement 误解释
+            String replacement = "<aside" + attrs + ">";
+            matcher.appendReplacement(sb, Matcher.quoteReplacement(replacement));
         }
         matcher.appendTail(sb);
 
