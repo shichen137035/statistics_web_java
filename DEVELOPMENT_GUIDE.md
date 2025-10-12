@@ -353,3 +353,75 @@ This will create a code block automatically. the class should be "language-xx". 
 **Algorithm environment**
 
 if you want to use algorithm environment, please first make sure you have referred 'algorithm_style.css' in your html some where.
+
+```html
+<!-- ===== Example Algorithm ===== -->
+<div class="algo">
+    <div class="algo__header">Algorithm 1: Example Demonstration</div>
+
+    <div class="algo__io">
+        <span class="algo__label">Input:</span> A list of numbers \( x_1, x_2, \dots, x_n \)  
+        <br>
+        <span class="algo__label">Output:</span> The processed result \( y \)
+    </div>
+
+    <ol class="algo__steps">
+        <li>Initialize variables \( i \leftarrow 1 \), \( y \leftarrow 0 \).</li>
+
+        <li>
+            <div class="loop">
+                <div class="loop__header">
+                    <span class="loop__type">FOR</span>
+                    <span class="loop__cond">i = 1 to n</span>
+                </div>
+                <div class="loop__body">
+                    <ul>
+                        <li>Compute \( y \leftarrow y + x_i^2 \).</li>
+                        <li>Display intermediate result if necessary.</li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="loop">
+                <div class="loop__header">
+                    <span class="loop__type">WHILE</span>
+                    <span class="loop__cond">y &lt; 100</span>
+                </div>
+                <div class="loop__body">
+                    <ul>
+                        <li>Increase \( y \) by a constant value.</li>
+                        <li>Break if overflow occurs.</li>
+                    </ul>
+                </div>
+            </div>
+        </li>
+
+        <li>Return the final value \( y \).</li>
+    </ol>
+</div>
+
+```
+
+Here is the list of all the classes in this style:
+
+**.algo** — The main algorithm container with a blue border and padding.
+
+**.algo__header** — The header or title section of the algorithm.
+
+**.algo__io** — The section describing the algorithm’s input and output.
+
+**.algo__label** — Bold label text used for keywords like “Input” and “Output.”
+
+**.algo__steps** — Ordered list containing the algorithm’s main steps.
+
+**.loop** — A loop block inside the algorithm, highlighted with a pink border.
+
+**.loop__header** — The header line of a loop, showing type and condition.
+
+**.loop__type** — The keyword showing loop type (e.g., “FOR”, “WHILE”).
+
+**.loop__cond** — The loop condition or range expression.
+
+**.loop__body** — The content inside the loop, typically showing substeps.
