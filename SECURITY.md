@@ -15,7 +15,7 @@ If you discover a potential security issue or vulnerability, **please do not dis
 
 Instead, report it directly and privately to the project owner:
 
-> 📧 security@[your-team-or-domain].org  
+> shi.chen137035@akane.waseda.jp 
 > or contact the project maintainer listed in the repository.
 
 Please include:
