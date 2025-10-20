@@ -1,0 +1,6 @@
+{
+    "api_key": "AIzaSyBJtjNHg809pnB1p3WAvbojSd48SGmLRPc",
+    "language": "Japanese",
+    "prompt": "Translate the following JSON into the target language, keeping the same structure, keys, and formatting. Output valid JSON only. Keyword is wrapped by [[]], please do not translate them but put them in the position that is suitable for the target language."
+
+}

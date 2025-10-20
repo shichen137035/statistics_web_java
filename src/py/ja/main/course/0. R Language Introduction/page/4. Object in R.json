@@ -1,0 +1,22 @@
+{
+  "meta.title": "Rにおけるオブジェクト指向プログラミング (R6)",
+  "intro.title": "Rにおけるオブジェクト指向プログラミング",
+  "section.oop_overview.title": "概要: RにおけるOOP",
+  "section.oop_overview.desc": "Rは主に手続き型ですが、S3 (シンプルで広く使われています)、S4 (厳格で大規模なフレームワークで使われています)、そしてR6 (モダンで、従来のOOPに近いです) という3つのシステムを通じてオブジェクト指向プログラミングをサポートしています。このレッスンでは、他の言語と同様にクラス、オブジェクト、カプセル化、継承、ポリモーフィズムを提供するR6に焦点を当てます。",
+  "section.oop_overview.code1": "# Load R6 package\nlibrary(R6)",
+  "section.r6_class_object.title": "クラスとオブジェクト",
+  "section.r6_class_object.desc": "R6では、R6Class() を使ってクラスを定義し、new() メソッドを使ってオブジェクトを作成します。クラス定義には、フィールド (属性) とメソッドが含まれます。",
+  "section.r6_class_object.code1": "Person <- R6Class(\"Person\",\n  public = list(\n    name = NULL,\n    age = NULL,\n    initialize = function(name, age) {\n      self$name <- name\n      self$age <- age\n    },\n    greet = function() {\n      cat(\"Hi, I'm\", self$name, \"and I'm\", self$age, \"years old.\\n\")\n    }\n  )\n)\n\nalice <- Person$new(\"Alice\", 25)\nalice$greet()",
+  "section.r6_attributes.title": "属性",
+  "section.r6_attributes.desc": "属性 (フィールド) はオブジェクトに格納されます。R6のオブジェクトは参照セマンティクスを使用するため、直接変更できます。",
+  "section.r6_attributes.code1": "alice$age\n## [1] 25\nalice$age <- 26\nalice$greet()\n## Hi, I'm Alice and I'm 26 years old.",
+  "section.r6_encapsulation.title": "カプセル化",
+  "section.r6_encapsulation.desc": "R6は、フィールドとメソッドを public または private にすることでカプセル化をサポートします。private メンバーはクラス内からのみアクセスできます。",
+  "section.r6_encapsulation.code1": "SecurePerson <- R6Class(\"SecurePerson\",\n  public = list(\n    name = NULL,\n    initialize = function(name, password) {\n      self$name <- name\n      private$password <- password\n    },\n    checkPassword = function(p) {\n      p == private$password\n    }\n  ),\n  private = list(\n    password = NULL\n  )\n)\n\nbob <- SecurePerson$new(\"Bob\", \"1234\")\nbob$checkPassword(\"1234\")\n## [1] TRUE\nbob$password\n## Error: object 'password' not found",
+  "section.r6_inheritance.title": "継承",
+  "section.r6_inheritance.desc": "R6のクラスは継承をサポートしています。サブクラスは親クラスのメソッドを拡張したり、オーバーライドしたりできます。",
+  "section.r6_inheritance.code1": "Student <- R6Class(\"Student\",\n  inherit = Person,\n  public = list(\n    grade = NULL,\n    initialize = function(name, age, grade) {\n      super$initialize(name, age)\n      self$grade <- grade\n    },\n    greet = function() {\n      cat(\"Hi, I'm\", self$name, \", a\", self$grade, \"student.\\n\")\n    }\n  )\n)\n\ncharlie <- Student$new(\"Charlie\", 20, \"college\")\ncharlie$greet()",
+  "section.r6_polymorphism.title": "ポリモーフィズム",
+  "section.r6_polymorphism.desc": "ポリモーフィズムは、サブクラスがメソッドをオーバーライドし、オブジェクトのクラスに応じて同じメソッド呼び出しが異なる結果を生み出すときに実現されます。",
+  "section.r6_polymorphism.code1": "alice$greet()\n## Hi, I'm Alice and I'm 26 years old.\n\ncharlie$greet()\n## Hi, I'm Charlie, a college student."
+}

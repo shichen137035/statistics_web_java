@@ -1,0 +1,14 @@
+{
+  "name": "ページ",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"エラー: テストが指定されていません\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shichen137035/statistics_web_java.git"
+  },
+  "private": true
+}

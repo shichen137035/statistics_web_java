@@ -1,0 +1,23 @@
+{
+  "keyword.statistic": "統計",
+  "keyword.distribution": "分布",
+  "keyword.beta distribution": "ベータ分布",
+  "keyword.binomial distribution": "二項分布",
+  "keyword.Cauchy distribution": "コーシー分布",
+  "keyword.chi-squared distribution": "カイ二乗分布",
+  "keyword.exponential distribution": "指数分布",
+  "keyword.F distribution": "F分布",
+  "keyword.Gamma distribution": "ガンマ分布",
+  "keyword.geometric distribution": "幾何分布",
+  "keyword.hypergeometric distribution": "超幾何分布",
+  "keyword.log-normal distribution": "対数正規分布",
+  "keyword.logistic distribution": "ロジスティック分布",
+  "keyword.negative-binomial distribution": "負の二項分布",
+  "keyword.normal distribution": "正規分布",
+  "keyword.Poisson distribution": "ポアソン分布",
+  "keyword.signed-rank distribution": "符号順位分布",
+  "keyword.t distribution": "t分布",
+  "keyword.uniform distribution": "一様分布",
+  "keyword.Weibull distribution": "ワイブル分布",
+  "keyword.Wilcox distribution": "ウィルコクソン分布"
+}
