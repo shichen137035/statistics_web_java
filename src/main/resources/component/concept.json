@@ -4,42 +4,53 @@
   "children" : [ {
     "name" : "Concept introduction.html",
     "type" : "file",
-    "path" : "Introduction/page/Concept introduction.html"
-  } ]
+    "path" : "Introduction/page/Concept introduction.html",
+    "c_name" : "Concept introduction"
+  } ],
+  "c_name" : "Introduction"
 }, {
   "name" : "distribution_type",
   "type" : "folder",
   "children" : [ {
     "name" : "beta.html",
     "type" : "file",
-    "path" : "distribution_type/page/beta.html"
+    "path" : "distribution_type/page/beta.html",
+    "c_name" : "beta"
   }, {
     "name" : "binom.html",
     "type" : "file",
-    "path" : "distribution_type/page/binom.html"
+    "path" : "distribution_type/page/binom.html",
+    "c_name" : "binom"
   }, {
     "name" : "logis.html",
     "type" : "file",
-    "path" : "distribution_type/page/logis.html"
+    "path" : "distribution_type/page/logis.html",
+    "c_name" : "logis"
   }, {
     "name" : "nbinom.html",
     "type" : "file",
-    "path" : "distribution_type/page/nbinom.html"
+    "path" : "distribution_type/page/nbinom.html",
+    "c_name" : "nbinom"
   }, {
     "name" : "section_index.html",
     "type" : "file",
-    "path" : "distribution_type/page/section_index.html"
-  } ]
+    "path" : "distribution_type/page/section_index.html",
+    "c_name" : "section_index"
+  } ],
+  "c_name" : "distribution_type"
 }, {
   "name" : "statistic",
   "type" : "folder",
   "children" : [ {
     "name" : "section_index.html",
     "type" : "file",
-    "path" : "statistic/page/section_index.html"
+    "path" : "statistic/page/section_index.html",
+    "c_name" : "section_index"
   }, {
     "name" : "statistic.html",
     "type" : "file",
-    "path" : "statistic/page/statistic.html"
-  } ]
+    "path" : "statistic/page/statistic.html",
+    "c_name" : "statistic"
+  } ],
+  "c_name" : "statistic"
 } ]

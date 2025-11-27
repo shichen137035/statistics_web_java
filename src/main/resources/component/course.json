@@ -4,166 +4,248 @@
   "children" : [ {
     "name" : "Course introduction.html",
     "type" : "file",
-    "path" : "Introduction/page/Course introduction.html"
-  } ]
+    "path" : "Introduction/page/Course introduction.html",
+    "c_name" : "Course introduction"
+  } ],
+  "c_name" : "Introduction"
 }, {
   "name" : "0. R Language Introduction",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Introduction to R.html",
     "type" : "file",
-    "path" : "0. R Language Introduction/page/1. Introduction to R.html"
+    "path" : "0. R Language Introduction/page/1. Introduction to R.html",
+    "c_name" : "Introduction to R",
+    "number" : "0.1"
   }, {
     "name" : "2. Vector and Matrix.html",
     "type" : "file",
-    "path" : "0. R Language Introduction/page/2. Vector and Matrix.html"
+    "path" : "0. R Language Introduction/page/2. Vector and Matrix.html",
+    "c_name" : "Vector and Matrix",
+    "number" : "0.2"
   }, {
     "name" : "3. Function in R.html",
     "type" : "file",
-    "path" : "0. R Language Introduction/page/3. Function in R.html"
+    "path" : "0. R Language Introduction/page/3. Function in R.html",
+    "c_name" : "Function in R",
+    "number" : "0.3"
   }, {
     "name" : "4. Object in R.html",
     "type" : "file",
-    "path" : "0. R Language Introduction/page/4. Object in R.html"
-  } ]
+    "path" : "0. R Language Introduction/page/4. Object in R.html",
+    "c_name" : "Object in R",
+    "number" : "0.4"
+  } ],
+  "c_name" : "R Language Introduction",
+  "number" : "0"
 }, {
   "name" : "1. Random Samples",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Random variables.html",
     "type" : "file",
-    "path" : "1. Random Samples/page/1. Random variables.html"
+    "path" : "1. Random Samples/page/1. Random variables.html",
+    "c_name" : "Random variables",
+    "number" : "1.1"
   }, {
     "name" : "2. Inversion method for sampling.html",
     "type" : "file",
-    "path" : "1. Random Samples/page/2. Inversion method for sampling.html"
-  } ]
+    "path" : "1. Random Samples/page/2. Inversion method for sampling.html",
+    "c_name" : "Inversion method for sampling",
+    "number" : "1.2"
+  } ],
+  "c_name" : "Random Samples",
+  "number" : "1"
 }, {
   "name" : "2. Sufficient Statistic",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Sufficient statistic.html",
     "type" : "file",
-    "path" : "2. Sufficient Statistic/page/1. Sufficient statistic.html"
+    "path" : "2. Sufficient Statistic/page/1. Sufficient statistic.html",
+    "c_name" : "Sufficient statistic",
+    "number" : "2.1"
   }, {
     "name" : "2. Basu's theorem.html",
     "type" : "file",
-    "path" : "2. Sufficient Statistic/page/2. Basu's theorem.html"
-  } ]
+    "path" : "2. Sufficient Statistic/page/2. Basu's theorem.html",
+    "c_name" : "Basu's theorem",
+    "number" : "2.2"
+  } ],
+  "c_name" : "Sufficient Statistic",
+  "number" : "2"
 }, {
   "name" : "3. Estimator",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Biased and unbiased estimator.html",
     "type" : "file",
-    "path" : "3. Estimator/page/1. Biased and unbiased estimator.html"
+    "path" : "3. Estimator/page/1. Biased and unbiased estimator.html",
+    "c_name" : "Biased and unbiased estimator",
+    "number" : "3.1"
   }, {
     "name" : "2. Rao-Blackwell theorem and UMVUE.html",
     "type" : "file",
-    "path" : "3. Estimator/page/2. Rao-Blackwell theorem and UMVUE.html"
+    "path" : "3. Estimator/page/2. Rao-Blackwell theorem and UMVUE.html",
+    "c_name" : "Rao-Blackwell theorem and UMVUE",
+    "number" : "3.2"
   }, {
     "name" : "3. How to find UMVUE.html",
     "type" : "file",
-    "path" : "3. Estimator/page/3. How to find UMVUE.html"
-  } ]
+    "path" : "3. Estimator/page/3. How to find UMVUE.html",
+    "c_name" : "How to find UMVUE",
+    "number" : "3.3"
+  } ],
+  "c_name" : "Estimator",
+  "number" : "3"
 }, {
   "name" : "4. Efficient Estimators",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Variance comparison.html",
     "type" : "file",
-    "path" : "4. Efficient Estimators/page/1. Variance comparison.html"
+    "path" : "4. Efficient Estimators/page/1. Variance comparison.html",
+    "c_name" : "Variance comparison",
+    "number" : "4.1"
   }, {
     "name" : "2. Fisher information.html",
     "type" : "file",
-    "path" : "4. Efficient Estimators/page/2. Fisher information.html"
+    "path" : "4. Efficient Estimators/page/2. Fisher information.html",
+    "c_name" : "Fisher information",
+    "number" : "4.2"
   }, {
     "name" : "3. Regular estimating function.html",
     "type" : "file",
-    "path" : "4. Efficient Estimators/page/3. Regular estimating function.html"
-  } ]
+    "path" : "4. Efficient Estimators/page/3. Regular estimating function.html",
+    "c_name" : "Regular estimating function",
+    "number" : "4.3"
+  } ],
+  "c_name" : "Efficient Estimators",
+  "number" : "4"
 }, {
   "name" : "5. Asymptotic Efficient Estimators",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Central limit theorem and asymptotic estimator.html",
     "type" : "file",
-    "path" : "5. Asymptotic Efficient Estimators/page/1. Central limit theorem and asymptotic estimator.html"
-  } ]
+    "path" : "5. Asymptotic Efficient Estimators/page/1. Central limit theorem and asymptotic estimator.html",
+    "c_name" : "Central limit theorem and asymptotic estimator",
+    "number" : "5.1"
+  } ],
+  "c_name" : "Asymptotic Efficient Estimators",
+  "number" : "5"
 }, {
   "name" : "6. Maximum Likelihood Estimators",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Maximum likelihood estimator.html",
     "type" : "file",
-    "path" : "6. Maximum Likelihood Estimators/page/1. Maximum likelihood estimator.html"
-  } ]
+    "path" : "6. Maximum Likelihood Estimators/page/1. Maximum likelihood estimator.html",
+    "c_name" : "Maximum likelihood estimator",
+    "number" : "6.1"
+  } ],
+  "c_name" : "Maximum Likelihood Estimators",
+  "number" : "6"
 }, {
   "name" : "7. Interval Estimation",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Confidence interval.html",
     "type" : "file",
-    "path" : "7. Interval Estimation/page/1. Confidence interval.html"
+    "path" : "7. Interval Estimation/page/1. Confidence interval.html",
+    "c_name" : "Confidence interval",
+    "number" : "7.1"
   }, {
     "name" : "2. Interval estimation example.html",
     "type" : "file",
-    "path" : "7. Interval Estimation/page/2. Interval estimation example.html"
-  } ]
+    "path" : "7. Interval Estimation/page/2. Interval estimation example.html",
+    "c_name" : "Interval estimation example",
+    "number" : "7.2"
+  } ],
+  "c_name" : "Interval Estimation",
+  "number" : "7"
 }, {
   "name" : "8. Most Powerful Test",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Hypothesis test.html",
     "type" : "file",
-    "path" : "8. Most Powerful Test/page/1. Hypothesis test.html"
+    "path" : "8. Most Powerful Test/page/1. Hypothesis test.html",
+    "c_name" : "Hypothesis test",
+    "number" : "8.1"
   }, {
     "name" : "2. Properties of hypothesis test.html",
     "type" : "file",
-    "path" : "8. Most Powerful Test/page/2. Properties of hypothesis test.html"
+    "path" : "8. Most Powerful Test/page/2. Properties of hypothesis test.html",
+    "c_name" : "Properties of hypothesis test",
+    "number" : "8.2"
   }, {
     "name" : "3. Neyman–Pearson lemma and UMP test.html",
     "type" : "file",
-    "path" : "8. Most Powerful Test/page/3. Neyman–Pearson lemma and UMP test.html"
-  } ]
+    "path" : "8. Most Powerful Test/page/3. Neyman–Pearson lemma and UMP test.html",
+    "c_name" : "Neyman–Pearson lemma and UMP test",
+    "number" : "8.3"
+  } ],
+  "c_name" : "Most Powerful Test",
+  "number" : "8"
 }, {
   "name" : "9. Various Tests",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Discovery rate.html",
     "type" : "file",
-    "path" : "9. Various Tests/page/1. Discovery rate.html"
-  } ]
+    "path" : "9. Various Tests/page/1. Discovery rate.html",
+    "c_name" : "Discovery rate",
+    "number" : "9.1"
+  } ],
+  "c_name" : "Various Tests",
+  "number" : "9"
 }, {
   "name" : "10. Discriminant Analysis",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Discriminant analysis.html",
     "type" : "file",
-    "path" : "10. Discriminant Analysis/page/1. Discriminant analysis.html"
-  } ]
+    "path" : "10. Discriminant Analysis/page/1. Discriminant analysis.html",
+    "c_name" : "Discriminant analysis",
+    "number" : "10.1"
+  } ],
+  "c_name" : "Discriminant Analysis",
+  "number" : "10"
 }, {
   "name" : "11. Principal Component Analysis",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Principal component.html",
     "type" : "file",
-    "path" : "11. Principal Component Analysis/page/1. Principal component.html"
+    "path" : "11. Principal Component Analysis/page/1. Principal component.html",
+    "c_name" : "Principal component",
+    "number" : "11.1"
   }, {
     "name" : "2. Sample principal component.html",
     "type" : "file",
-    "path" : "11. Principal Component Analysis/page/2. Sample principal component.html"
-  } ]
+    "path" : "11. Principal Component Analysis/page/2. Sample principal component.html",
+    "c_name" : "Sample principal component",
+    "number" : "11.2"
+  } ],
+  "c_name" : "Principal Component Analysis",
+  "number" : "11"
 }, {
   "name" : "12. Canonical Correlation Analysis",
   "type" : "folder",
   "children" : [ {
     "name" : "1. Canonical correlation.html",
     "type" : "file",
-    "path" : "12. Canonical Correlation Analysis/page/1. Canonical correlation.html"
+    "path" : "12. Canonical Correlation Analysis/page/1. Canonical correlation.html",
+    "c_name" : "Canonical correlation",
+    "number" : "12.1"
   }, {
     "name" : "2. Numerical example for canonical correlation.html",
     "type" : "file",
-    "path" : "12. Canonical Correlation Analysis/page/2. Numerical example for canonical correlation.html"
-  } ]
+    "path" : "12. Canonical Correlation Analysis/page/2. Numerical example for canonical correlation.html",
+    "c_name" : "Numerical example for canonical correlation",
+    "number" : "12.2"
+  } ],
+  "c_name" : "Canonical Correlation Analysis",
+  "number" : "12"
 } ]

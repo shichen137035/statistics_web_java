@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import javax.annotation.PostConstruct;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.*;
@@ -60,10 +61,108 @@ public class CourseController {
     @GetMapping("/generateJson")
     public static String generateCoursejsonFile(Path file_root) throws IOException {
         Files.createDirectories(file_root.getParent());
+        addNumbersToCourseStructure(cachedStructure);
+
         ObjectMapper mapper = new ObjectMapper();
         mapper.writerWithDefaultPrettyPrinter().writeValue(file_root.toFile(), cachedStructure);
         return "课程目录 JSON 已生成: " + file_root.toAbsolutePath();
     }
+
+    private static void addNumbersToCourseStructure(List<Map<String, Object>> root) {
+        if (root == null) return;
+
+        for (Map<String, Object> node : root) {
+            String type = (String) node.get("type");
+            String rawName = (String) node.get("name");
+
+            if ("folder".equals(type)) {
+                // folder: 去掉前缀编号，得到 c_name
+                String cNameFolder = stripNumberPrefix(rawName);
+                node.put("c_name", cNameFolder);
+
+                String folderNumber = extractLeadingInteger(rawName);
+                if (folderNumber != null) {
+                    node.put("number", folderNumber);
+                }
+
+                @SuppressWarnings("unchecked")
+                List<Map<String, Object>> children =
+                        (List<Map<String, Object>>) node.get("children");
+                if (children == null) continue;
+
+                int fileIndex = 1;
+                for (Map<String, Object> child : children) {
+                    String childType = (String) child.get("type");
+                    String childName = (String) child.get("name");
+
+                    // file: 先去掉扩展名，再去掉前缀编号 → c_name
+                    String baseName = childName == null ? "" :
+                            childName.replaceFirst("\\.html?$", "").trim();
+                    String cNameChild = stripNumberPrefix(baseName);
+                    child.put("c_name", cNameChild);
+
+                    if ("file".equals(childType) && folderNumber != null) {
+                        String number = folderNumber + "." + fileIndex;
+                        child.put("number", number);
+                        fileIndex++;
+                    }
+                }
+
+            } else {
+                // 根层如果有 file 也统一处理一下
+                String baseName = rawName == null ? "" :
+                        rawName.replaceFirst("\\.html?$", "").trim();
+                String cName = stripNumberPrefix(baseName);
+                node.put("c_name", cName);
+
+                String selfNum = extractLeadingInteger(rawName);
+                if (selfNum != null) {
+                    node.put("number", selfNum);
+                }
+            }
+        }
+    }
+
+
+    /**
+     * 从名字前面提取连续数字，如：
+     *   "1. Random Samples"   → "1"
+     *   "12. Canonical ..."   → "12"
+     *   "0. R Language ..."   → "0"
+     *   "Introduction"        → null
+     */
+    private static String extractLeadingInteger(String name) {
+        if (name == null) return null;
+        String trimmed = name.trim();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < trimmed.length(); i++) {
+            char c = trimmed.charAt(i);
+            if (Character.isDigit(c)) {
+                sb.append(c);
+            } else {
+                break;
+            }
+        }
+        return sb.length() == 0 ? null : sb.toString();
+    }
+
+    /**
+     * 生成 c_name:
+     *  - folder: "1. Random Samples"          → "Random Samples"
+     *  - file:   "1. Random variables.html"   → "Random variables"
+     *  - "Introduction"                       → "Introduction"
+     */
+    private static String stripNumberPrefix(String name) {
+        if (name == null) return "";
+        String s = name.trim();
+
+        // 正则匹配：开头是若干数字，后面跟 . 或 )，再跟若干空格
+        return s.replaceFirst("^\\d+[\\.)]\\s*", "");
+    }
+
+
+
+
 
 
     @GetMapping("/generateConcept")
@@ -368,22 +467,21 @@ public class CourseController {
         String indent = repeat("    ", level);
 
         for (Map<String, Object> node : nodes) {
-            String type = (String) node.get("type");
-            String name = (String) node.get("name");
+            String type   = (String) node.get("type");
+            String name   = (String) node.get("name");   // 原始名字，还可以留着调试
+            String seq    = (String) node.get("number"); // 可能为 null，比如 Introduction
+            String cName  = (String) node.get("c_name"); // 去掉前缀数字后的纯标题
 
             if ("folder".equals(type)) {
                 sb.append(indent).append("<li class=\"course-nav__node is-folder\">\n");
                 sb.append(indent).append("    <div class=\"course-nav__row\">\n");
                 sb.append(indent).append("        <span class=\"course-nav__icon\"><span class=\"course-nav__caret\"></span></span>\n");
 
-                // —— 序号 + 标题 拆分 —— //
-                NameParts np = splitSeqAndTitle(name, false); // folder
-                String seq = np.seq;              // 可能为空
-                String title = np.title;          // 去掉序号后的标题
+                String title = (cName != null && !cName.isEmpty()) ? cName : name;
                 String i18nKey = "catalogtitle." + title;
 
                 sb.append(indent).append("        <span class=\"course-nav__name\">");
-                if (!seq.isEmpty()) {
+                if (seq != null && !seq.isEmpty()) {
                     sb.append("<span class=\"course-nav__seq\">")
                             .append(esc(seq)).append("</span> ");
                 }
@@ -403,22 +501,16 @@ public class CourseController {
 
             } else if ("file".equals(type)) {
                 String path = (String) node.get("path");
-                String rawName = name.replaceFirst("\\.html?$", "");
-
-                // —— 序号 + 标题 拆分 —— //
-                NameParts np = splitSeqAndTitle(rawName, true); // file
-                String seq = np.seq;
-                String title = np.title;
+                String title = (cName != null && !cName.isEmpty()) ? cName : name.replaceFirst("\\.html?$", "");
                 String i18nKey = "catalogtitle." + title;
 
                 sb.append(indent).append("<li class=\"course-nav__node is-file\">\n");
                 sb.append(indent).append("    <div class=\"course-nav__row\">\n");
                 sb.append(indent).append("        <span class=\"course-nav__icon\"></span>\n");
 
-                // ⬇️ 保留超链接；i18n 只绑在标题 span 上
                 sb.append(indent).append("        <a class=\"course-nav__link\" href=\"/main/course/")
                         .append(esc(path)).append("\">");
-                if (!seq.isEmpty()) {
+                if (seq != null && !seq.isEmpty()) {
                     sb.append("<span class=\"course-nav__seq\">")
                             .append(esc(seq)).append("</span> ");
                 }
@@ -465,5 +557,7 @@ public class CourseController {
                 .replace(">", "&gt;")
                 .replace("\"", "&quot;");
     }
+
+
 }
 
