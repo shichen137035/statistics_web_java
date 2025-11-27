@@ -9,7 +9,7 @@
   "intro.q1": "We seek a plausible range of true ratings for each restaurant, justified by the observed data.",
 
   "model.title": "Modeling and Sampling Variation",
-  "model.p1": "Treat each review as a Bernoulli trial. If the true positive rate is p and we observe n reviews with X positives, then",
+  "model.p1": "Treat each review as a Bernoulli trial. If the true positive rate is $p$ and we observe $n$ reviews with $X$ positives, then",
   "model.eq.1": "$$X \\sim \\mathrm{Binomial}(n,p), \\quad \\hat{p}=X/n.$$",
   "model.p2": "The estimator \\(\\hat{p}\\) is unbiased and its variance depends on both p and n:",
   "model.eq.2": "$$\\mathrm{Var}(\\hat{p})=\\frac{p(1-p)}{n}.$$",
