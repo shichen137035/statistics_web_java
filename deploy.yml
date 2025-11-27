@@ -1,0 +1,42 @@
+name: Deploy frontend to statb server
+
+on:
+  push:
+    branches: [ main ]   # 如果你不是用 main，而是 master 或别的分支，就改这里
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+      - uses: actions/checkout@v4
+
+      # 如果你的前端需要 build（比如 npm / yarn 之类），在这里加构建步骤
+      # 没有的话可以先删掉这一段
+      # - name: Build frontend
+      #   working-directory: frontend
+      #   run: |
+      #     npm install
+      #     npm run build
+
+      - name: Deploy via rsync
+        uses: burnett01/rsync-deployments@5.2
+        with:
+          # TODO: 这里改成你「要上传的本地目录」
+          path: src/main/resources
+
+          # TODO: 这里是服务器上的目标目录
+          # 如果你想放在 public 下面的子目录，比如 course_site：
+          remote_path: /www/statb_710/public/
+
+          remote_host: 35.190.225.93
+          remote_user: statb
+
+          # 这里用的就是你刚刚在 Secrets 里设置的 SSH_PRIVATE_KEY
+          remote_key: ${{ FOSB_SECRET_KEY }}
+
+          # rsync 同步参数
+          switches: >-
+            -avzr
+            --delete
