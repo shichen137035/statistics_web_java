@@ -1,11 +1,11 @@
 {
-  "meta.title": "コースホームページ",
-  "lang.label": "言語",
-  "title": "統計学の基礎",
-  "desc": "これは[[statistic]]の基礎のホームページです。コースの主要な内容に入るには左側のボタンを、このコースで扱われる概念を見るには右側のボタンをクリックしてください。",
-  "btn.course": "コース",
-  "btn.course.desc": "コースを順を追って学習するパスです。",
-  "btn.concept": "概念",
-  "btn.concept.desc": "コースで扱われる概念の辞書形式の説明です。",
-  "announcement": "Rを使って計算統計学を学ぶためのウェブサイトです。"
+  "meta.title": "Course Homepage",
+  "lang.label": "Language",
+  "title": "Foundations of Statistic",
+  "desc": "This is the homepage of foundations of [[statistic]]. Please click the button on the left to enter the main content of the course, or click the button on the right to view the concepts involved in this course.",
+  "btn.course": "Course",
+  "btn.course.desc": "A sequential learning path through the course.",
+  "btn.concept": "Concept",
+  "btn.concept.desc": "Dictionary-style explanations of the concepts covered in the course.",
+  "announcement": "A website for studying computational statistic by R."
 }
