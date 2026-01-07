@@ -62,6 +62,6 @@
 
   "section.pyt.desc": "As a simple example, we can compute values based on the Pythagorean theorem using R. This demonstrates how R can be used for mathematical calculations.",
 
-  "section.help.desc": "R includes an extensive help system. Use ?function_name or help(function_name) to open documentation, and help.search() to look for related topics."
+  "section.help.desc": "R includes an extensive help system. Use ?function_name or help(function_name) to open documentation, and help.search() to look for related topics. For example, we can use"
 
 }

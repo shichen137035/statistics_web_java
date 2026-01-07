@@ -40,7 +40,7 @@
   "section.sequences.title": "Sequences",
   "section.sequences.code1": "x = seq(1,15)\n\nx\n\n##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15",
   "section.sequences.code2": "x = 1:15\n\nx\n\n##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15",
-  "section.vector.desc": "A vector is the most basic data structure in R, used to store a sequence of elements of the same type. We create a vector x, copy it to y, and then modify the 4th element of y. Note that indexing in R starts from 1.",
+  "section.vector.desc": "A vector is the most basic data structure in R, used to store a sequence of elements of the same type. We create a vector $x$, copy it to $y$, and then modify the 4th element of $y$. Note that indexing in R starts from 1.",
 
   "section.vector_comp1.desc": "R supports vectorized operations. Adding two vectors of the same length performs element-wise addition. The function c() concatenates vectors to form new ones.",
   "section.vector_comp1.note": "Be careful: when two vectors have different lengths, R will recycle the shorter one. This may lead to unintended results.",
@@ -53,7 +53,7 @@
 
   "section.array.desc": "An array is a multi-dimensional extension of a matrix. Here we create a 2×3×2 array, which can be thought of as two stacked 2×3 matrices.",
 
-  "section.matrix_comp1.desc": "Arithmetic operations on matrices apply element-wise. For example, sqrt(x) computes the square root of each element, and x^2 squares each element.",
+  "section.matrix_comp1.desc": "Arithmetic operations on matrices apply element-wise. For example, sqrt(x) computes the square root of each element, and $x^2$ squares each element.",
 
   "section.matrix_comp2.desc": "Matrix operations include solve() to compute the inverse, and %*% for matrix multiplication. Multiplying a matrix by its inverse should yield the identity matrix, subject to small numerical errors.",
   "section.matrix_comp2.note": "Not all matrices are invertible. Singular matrices (determinant = 0) do not have an inverse.",

@@ -4,17 +4,17 @@
 
   "fdr.title": "False Discovery Rate",
   "fdr.def.title": "Definition of false discovery rate",
-  "fdr.def.p1": "Suppose that we test $m$ null hypotheses. Let $V$ be the number of true null hypotheses that are rejected, and $S$ the number of false null hypotheses that are rejected. The false discovery rate (FDR) is defined as",
-  "fdr.def.eq1": "$$E\\left[\\frac{V}{V+S}\\right]$$",
+  "fdr.def.p1": "Suppose that we test $m$ null hypotheses. Let $V$ be the number of true null hypotheses that are rejected, and $S$ be the number of false null hypotheses that are rejected. The false discovery rate (FDR) is defined as",
+  "fdr.def.eq1": "$$E\\left[\\frac{V}{V+S}\\right].$$",
 
   "fdr.ex.title": "Example",
   "fdr.ex.p1": "When all null hypotheses are true, the false discovery rate coincides with the type I error rate. That is, it represents the probability of rejecting the true null hypothesis:",
-  "fdr.ex.eq1": "$$H_0 = \\bigcap_{1 \\le i \\le m} H_{0i}$$",
+  "fdr.ex.eq1": "$$H_0 = \\bigcap_{1 \\le i \\le m} H_{0i}.$$",
 
   "bh.title": "Benjamini–Hochberg (BH) Method",
   "bh.li1": "Fix the false discovery rate $\\alpha$ and let $p_{(1)} \\le p_{(2)} \\le \\cdots \\le p_{(m)}$ denote the ordered p-values.",
   "bh.li2": "Find the largest index $L$ satisfying",
-  "bh.eq1": "$$L = \\max\\left\\{ j \\; ; \\; p_{(j)} < \\alpha \\cdot \\frac{j}{m} \\right\\}$$",
+  "bh.eq1": "$$L = \\max\\left\\{ j \\; ; \\; p_{(j)} < \\alpha \\cdot \\frac{j}{m} \\right\\}.$$",
   "bh.li3": "Reject all null hypotheses $H_{0j}$ for which $p_j \\le p_{(L)}$.",
   "bh.note": "Other method for dependent cases: Benjamini–Yekutieli method.",
 

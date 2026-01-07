@@ -1,6 +1,6 @@
 // /common/js/init_config.js
 import { injectCss, injectJsSequential } from "/common/js/util_tool.js";
-
+// await injectJsSequential(["/common/js/nocache.js"])
 
 // 注入全局 CSS
 injectCss([

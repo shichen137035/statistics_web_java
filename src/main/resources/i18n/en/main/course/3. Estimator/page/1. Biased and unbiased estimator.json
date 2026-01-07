@@ -7,7 +7,7 @@
   "sec.def.caption": "Unbiased Estimator",
   "sec.def.p1": "Let $X = (X_1, \\ldots, X_n)$ be a sample from $\\{ p(x \\mid \\theta); \\theta \\in \\Theta \\}.$",
   "sec.def.eq1": "$$\\mathbb{E}_\\theta[T(X)] = q(\\theta).$$",
-  "sec.def.p2": "An estimator $T(X)$ of $q(\\theta)$ is called <em>unbiased</em> if the equality holds. A parameter $q(\\theta)$ is <em>unbiasedly estimable</em> if such an estimator exists.",
+  "sec.def.p2": "An estimator $T(X)$ of $q(\\theta)$ is called unbiased if the equality holds. A parameter $q(\\theta)$ is unbiasedly estimable if such an estimator exists.",
 
   "sec.ex1.title": "Example of Unbiased and Biased Variance Estimators",
   "sec.ex1.caption": "Unbiased estimator",
@@ -27,8 +27,8 @@
 
   "sec.ustat.title": "U-statistics",
   "sec.ustat.caption": "U-statistic",
-  "sec.ustat.eq1": "$$U_n = \\binom{n}{m}^{-1} \\sum_c h(X_{i_1}, \\ldots, X_{i_m}),$$",
-  "sec.ustat.text1": "A statistic of this form is called a <em>U-statistic</em> with kernel $h$ of order $m$.",
+  "sec.ustat.eq1": "$$U_n = \\binom{n}{m}^{-1} \\sum_{1\\leq i_1< \\ldots < i_m\\leq n} h(X_{i_1}, \\ldots, X_{i_m}),$$",
+  "sec.ustat.text1": "A statistic of this form is called a U-statistic with kernel $h$ of order $m$.",
   "sec.ustat.ex.caption1": "",
   "sec.ustat.eq2": "$$h(x) = x \\quad \\text{(Sample mean)}.$$",
   "sec.ustat.eq3": "$$h(x) = \\mathbf{1}(x \\le t) \\quad \\text{(Sample distribution)}.$$",

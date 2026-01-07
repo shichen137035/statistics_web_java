@@ -36,7 +36,7 @@
 
 
   "section.quiz.title": "Quiz 1: Birthday Problem",
-  "section.quiz.question": "In a class of n students, what is the probability that at least two share a birthday (365 days, ignore leap years)?",
+  "section.quiz.question": "In a class of $n$ students, what is the probability that at least two share a birthday (365 days, ignore leap years)?",
   "section.quiz.desc1": "Compute by complement event:",
   "section.quiz.math1": "$$P(\\text{at least two}) = 1 - P(\\text{all distinct})$$",
   "section.quiz.desc2": "Probability all birthdays are distinct:",

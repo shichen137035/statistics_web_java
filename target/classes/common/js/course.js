@@ -1,6 +1,7 @@
 
 import {injectCss, injectJsSequential,loadComponent} from "/common/js/util_tool.js";
 
+// await injectJsSequential(["/common/js/nocache.js"])
 await injectJsSequential([
     "/common/js/global_config.js"
 ])

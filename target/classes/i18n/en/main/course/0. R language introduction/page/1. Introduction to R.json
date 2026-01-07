@@ -12,7 +12,7 @@
   "section.rstudio.title": "RStudio: The Integrated Development Environment (IDE)",
   "section.rstudio.lead": "RStudio is not R itself, but an IDE that provides:",
   "section.rstudio.li1": "A user-friendly interface to write and run R code.",
-  "section.rstudio.li2": "It provides a user-friendly interface to write and run R code, with built-in support for plotting, package management, and version control.",
+  "section.rstudio.li2": "With built-in support for plotting, package management, and version control.",
   "section.rstudio.li3": "While RStudio is widely used, R can also be run independently without RStudio.",
   "section.rstudio.quote": "If R is the engine, then RStudio is the cockpit where you control and monitor the engine.",
 

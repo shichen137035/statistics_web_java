@@ -26,18 +26,39 @@
     // -----------------------------
     // 1. 路径 & 文件加载逻辑（保持不变）
     function normalizePathname() {
-        let p = location.pathname || '/';
-        p = p.replace(/\/{2,}/g, '/');
-        if (p === '/') return '/index';
-        if (p.endsWith('/')) p += 'index';
-        p = p.replace(/\.html?$/i, '');
+        const keepFrom = ['common', 'component', 'home', 'i18n', 'main', 'subpage'];
 
+        let raw = location.pathname || '/';
+        raw = raw.replace(/\/{2,}/g, '/');
+
+        const segments = raw.split('/').filter(Boolean); // 去掉空段
+        let p;
+
+        // 找到第一个出现在 keepFrom 中的段
+        const idx = segments.findIndex(seg => keepFrom.includes(seg));
+
+        if (idx >= 0) {
+            // 从 keepFrom 那段重新开始拼接
+            p = '/' + segments.slice(idx).join('/');
+        } else {
+            // 完全没出现 keepFrom → 返回最后一个文件名（或目录名）
+            const last = segments[segments.length - 1] || '';
+            p = '/' + last;
+        }
+
+        // ==== 原本你的后处理逻辑 ====
+
+        if (p === '/' || p === '') return '/index';
+
+        if (p.endsWith('/')) p += 'index';
+
+        // 去掉 .html
+        p = p.replace(/\.html?$/i, '');
 
         p = decodeURIComponent(p);
 
         return p;
     }
-
 
     async function makePageI18nUrl(lang) {
         const p = normalizePathname();

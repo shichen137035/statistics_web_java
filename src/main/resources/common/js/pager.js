@@ -14,8 +14,8 @@ function flattenFiles(nodes, list = [], prefix = []) {
         if (node.type === "file") {
             list.push({
                 folder: prefix.join("/"),
-                path: node.path,
-                number: node.number || "",                 // e.g. "1.2"
+                path: node.path,                        // 相对路径，比如 "lec1.html" 或 "ch1/lec1.html"
+                number: node.number || "",              // e.g. "1.2"
                 title: node.c_name || cleanName(node.name) // 纯标题，用于 i18n
             });
         } else if (node.type === "folder" && node.children) {
@@ -31,22 +31,45 @@ function cleanName(name = "") {
     return name.replace(/\.html?$/i, "");
 }
 
-function getCurrentPath() {
-    // 去掉前缀，并把转义字符解码回来
-    const rawPath = location.pathname.replace(/^\/main\/course\//, "");
-    return decodeURIComponent(rawPath);
-}
+// 不再用固定前缀剪路径，而是直接在 pathname 里找哪个文件匹配
+function findPrevNext(files) {
+    let urlPath = location.pathname || "/";
+    urlPath = urlPath.replace(/\/{2,}/g, "/");
+    urlPath = decodeURIComponent(urlPath);
 
-// 返回的是“文件对象”而不是纯 path
-function findPrevNext(files, currentPath) {
-    const idx = files.findIndex(f => f.path === currentPath);
-    if (idx === -1) return { prev: null, next: null };
+    // 确定：当前页面对应 files 中的哪个条目，以及 URL 前缀
+    let idx = -1;
+    let prefix = "";
+
+    for (let i = 0; i < files.length; i++) {
+        const rel = files[i].path.replace(/^\/+/, ""); // 确保没有前导斜杠
+        const cand = "/" + rel;
+
+        if (urlPath === cand || urlPath.endsWith(cand)) {
+            idx = i;
+            // urlPath = prefix + rel
+            const diff = urlPath.length - rel.length;
+            prefix = urlPath.slice(0, diff);
+            // 比如 "/course_site/main/course/lec1.html"
+            // rel = "lec1.html"
+            // prefix = "/course_site/main/course/"
+            if (!prefix.endsWith("/")) {
+                prefix += "/";
+            }
+            break;
+        }
+    }
+
+    if (idx === -1) {
+        console.warn("Current path not found in course.json:", urlPath);
+        return { prev: null, next: null, prefix: "" };
+    }
 
     const current = files[idx];
     const folder = current.folder;
 
     const sameFolder = files.filter(f => f.folder === folder);
-    const localIdx = sameFolder.findIndex(f => f.path === currentPath);
+    const localIdx = sameFolder.findIndex(f => f.path === current.path);
 
     let prev = null, next = null;
 
@@ -76,15 +99,20 @@ function findPrevNext(files, currentPath) {
         }
     }
 
+    console.log("urlPath:", urlPath);
+    console.log("prefix:", prefix);
     console.log("prev:", prev);
     console.log("next:", next);
 
-    return { prev, next };
+    return { prev, next, prefix };
 }
 
-function setPagerButtons(prev, next) {
+function setPagerButtons(prev, next, prefix) {
     const prevBtn = document.getElementById("prev-btn");
     const nextBtn = document.getElementById("next-btn");
+
+    // 兜底：如果实在没拿到 prefix，就退回最原始的绝对前缀（可按你部署情况改）
+    const base = prefix || "/main/course/";
 
     // 上一页按钮
     if (prev) {
@@ -93,7 +121,8 @@ function setPagerButtons(prev, next) {
 
         prevBtn.disabled = false;
         prevBtn.onclick = () => {
-            location.href = "/main/course/" + prev.path;
+            const target = base.replace(/\/+$/, "/") + prev.path.replace(/^\/+/, "");
+            location.href = target;
         };
 
         prevBtn.innerHTML =
@@ -115,7 +144,8 @@ function setPagerButtons(prev, next) {
 
         nextBtn.disabled = false;
         nextBtn.onclick = () => {
-            location.href = "/main/course/" + next.path;
+            const target = base.replace(/\/+$/, "/") + next.path.replace(/^\/+/, "");
+            location.href = target;
         };
 
         nextBtn.innerHTML =
@@ -131,7 +161,6 @@ function setPagerButtons(prev, next) {
     }
 }
 
-
 // 简单 HTML 转义，免得哪天你标题里塞了 <>& 之类的
 function escapeHtml(str) {
     return String(str)
@@ -144,9 +173,8 @@ function escapeHtml(str) {
 async function initPager() {
     const courseData = await loadCourseJson();
     const files = flattenFiles(courseData);
-    const current = getCurrentPath();
-    const { prev, next } = findPrevNext(files, current);
-    setPagerButtons(prev, next);
+    const { prev, next, prefix } = findPrevNext(files);
+    setPagerButtons(prev, next, prefix);
 }
 
 // 直接执行
