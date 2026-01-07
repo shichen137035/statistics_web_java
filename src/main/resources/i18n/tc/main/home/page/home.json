@@ -1,0 +1,11 @@
+{
+  "meta.title": "課程首頁",
+  "lang.label": "語言",
+  "title": "統計學基礎",
+  "desc": "這是[[statistic]]基礎的課程首頁。請點擊左側按鈕進入課程主要內容，或點擊右側按鈕查看本課程涉及的概念。",
+  "btn.course": "課程",
+  "btn.course.desc": "循序漸進的課程學習路徑。",
+  "btn.concept": "概念",
+  "btn.concept.desc": "以字典形式解釋課程中所涵蓋的概念。",
+  "announcement": "一個使用 R 學習計算統計學的網站。"
+}

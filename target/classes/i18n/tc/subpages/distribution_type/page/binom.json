@@ -1,0 +1,13 @@
+{
+  "meta.title": "二項分佈 (子頁面)",
+  "binom.title": "二項分佈",
+  "binom.section1.title": "1. 定義",
+  "binom.section1.intro": "模擬 n 次獨立的伯努利(p)試驗中成功的次數。",
+  "binom.section1.rel1": "特殊情況：當 n=1 時，即為伯努利分佈。",
+  "binom.section2.title": "2. PMF 與 CDF",
+  "binom.section2.pmf": "PMF: $$P(X=k)=\\binom{n}{k}p^k(1-p)^{n-k}$$",
+  "binom.section2.cdf": "CDF: $$F(k)=\\sum_{i=0}^k \\binom{n}{i}p^i(1-p)^{n-i}$$",
+  "binom.section3.title": "3. 圖形",
+  "binom.section3.pmfcaption": "PMF",
+  "binom.section3.cdfcaption": "CDF"
+}

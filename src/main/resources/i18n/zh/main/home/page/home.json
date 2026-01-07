@@ -1,11 +1,11 @@
 {
-  "meta.title": "Course Homepage",
-  "lang.label": "Language",
-  "title": "Foundations of Statistic",
-  "desc": "This is the homepage of foundations of [[statistic]]. Please click the button on the left to enter the main content of the course, or click the button on the right to view the concepts involved in this course.",
-  "btn.course": "Course",
-  "btn.course.desc": "A sequential learning path through the course.",
-  "btn.concept": "Concept",
-  "btn.concept.desc": "Dictionary-style explanations of the concepts covered in the course.",
-  "announcement": "A website for studying computational statistic by R."
+  "meta.title": "课程主页",
+  "lang.label": "语言",
+  "title": "统计学基础",
+  "desc": "这是[[statistic]]学基础的主页。请点击左侧按钮进入课程主要内容，或点击右侧按钮查看本课程所涉及的概念。",
+  "btn.course": "课程",
+  "btn.course.desc": "课程的顺序学习路径。",
+  "btn.concept": "概念",
+  "btn.concept.desc": "以词典形式解释课程中涵盖的概念。",
+  "announcement": "一个用R语言学习计算统计的网站。"
 }

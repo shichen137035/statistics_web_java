@@ -1,13 +1,13 @@
 {
-  "meta.title": "Binomial Distribution (Subpage)",
-  "binom.title": "Binomial Distribution",
-  "binom.section1.title": "1. Definition",
-  "binom.section1.intro": "Models the number of successes in n independent Bernoulli(p) trials.",
-  "binom.section1.rel1": "Special case: n=1 gives the Bernoulli distribution.",
-  "binom.section2.title": "2. PMF and CDF",
-  "binom.section2.pmf": "PMF: $$P(X=k)=\\binom{n}{k}p^k(1-p)^{n-k}$$",
-  "binom.section2.cdf": "CDF: $$F(k)=\\sum_{i=0}^k \\binom{n}{i}p^i(1-p)^{n-i}$$",
-  "binom.section3.title": "3. Graphs",
-  "binom.section3.pmfcaption": "PMF",
-  "binom.section3.cdfcaption": "CDF"
+  "meta.title": "二項分布 (サブページ)",
+  "binom.title": "二項分布",
+  "binom.section1.title": "1. 定義",
+  "binom.section1.intro": "n回の独立したベルヌーイ(p)試行における成功回数をモデル化します。",
+  "binom.section1.rel1": "特殊なケース：n=1の場合、ベルヌーイ分布になります。",
+  "binom.section2.title": "2. 確率質量関数と累積分布関数",
+  "binom.section2.pmf": "確率質量関数：$$P(X=k)=\\binom{n}{k}p^k(1-p)^{n-k}$$",
+  "binom.section2.cdf": "累積分布関数：$$F(k)=\\sum_{i=0}^k \\binom{n}{i}p^i(1-p)^{n-i}$$",
+  "binom.section3.title": "3. グラフ",
+  "binom.section3.pmfcaption": "確率質量関数",
+  "binom.section3.cdfcaption": "累積分布関数"
 }

@@ -1,0 +1,19 @@
+{
+  "meta.title": "9.1 發現率",
+  "intro.title": "發現率",
+  "fdr.title": "錯誤發現率",
+  "fdr.def.title": "錯誤發現率的定義",
+  "fdr.def.p1": "假設我們檢驗 $m$ 個虛無假設。令 $V$ 為被拒絕的真實虛無假設數量，而 $S$ 為被拒絕的錯誤虛無假設數量。錯誤發現率 (FDR) 定義為",
+  "fdr.def.eq1": "$$E\\left[\\frac{V}{V+S}\\right].$$",
+  "fdr.ex.title": "範例",
+  "fdr.ex.p1": "當所有虛無假設皆為真時，錯誤發現率與第一型錯誤率一致。也就是說，它代表拒絕真實虛無假設的機率為：",
+  "fdr.ex.eq1": "$$H_0 = \\bigcap_{1 \\le i \\le m} H_{0i}.$$",
+  "bh.title": "Benjamini–Hochberg (BH) 方法",
+  "bh.li1": "設定錯誤發現率 $\\alpha$，並令 $p_{(1)} \\le p_{(2)} \\le \\cdots \\le p_{(m)}$ 表示排序後的 p 值。",
+  "bh.li2": "找到滿足以下條件的最大索引 $L$",
+  "bh.eq1": "$$L = \\max\\left\\{ j \\; ; \\; p_{(j)} < \\alpha \\cdot \\frac{j}{m} \\right\\}.$$",
+  "bh.li3": "拒絕所有滿足 $p_j \\le p_{(L)}$ 的虛無假設 $H_{0j}$。",
+  "bh.note": "適用於相關情況的其他方法：Benjamini–Yekutieli 方法。",
+  "estimation.title": "錯誤發現率的估計",
+  "estimation.code1": "cutoff <- results2[pvals == sort(pvals)[10]]\\nperm2 <- function(j){\\n  bsamp <- sample(1:58)\\n  sim <- function(k){\\n    perno <- unlist(sen[k,bsamp[1:44]])\\n    persev <- unlist(sen[k,bsamp[45:58]])\\n    stat = t.test(perno, persev, var.equal = TRUE)$statistic\\n    return(stat)\\n  }\\n  bres <- sapply(1:12625, sim)\\n  num <- length(bres[abs(bres) > cutoff])\\n  return(num)\\n}\\nfdr <- sapply(1:50, perm2)"
+}

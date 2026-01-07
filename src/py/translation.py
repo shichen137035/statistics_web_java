@@ -18,6 +18,7 @@ CONFIG_FILE = "config.json"
 
 LANG_ABBR = {
     "Chinese": "zh",
+    "Traditional Chinese": "tc",
     "English": "en",
     "Japanese": "ja",
     "Korean": "ko",
@@ -165,7 +166,7 @@ class JsonTranslatorApp(ctk.CTk):
         # Language
         ctk.CTkLabel(left, text="Target Language").pack(anchor="w", pady=(5,0))
         self.lang_option = ctk.CTkOptionMenu(left,
-        values=["Chinese","English","Japanese","Korean","French","German","Spanish"],
+        values=["Chinese", "Traditional Chinese","English","Japanese","Korean","French","German","Spanish"],
         width=200)
         self.lang_option.set(default_lang)
         self.lang_option.pack(fill="x", pady=(0,10))

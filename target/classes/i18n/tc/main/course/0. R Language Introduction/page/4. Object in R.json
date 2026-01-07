@@ -1,0 +1,22 @@
+{
+  "meta.title": "R 語言中的物件導向程式設計 ([[R6]])",
+  "intro.title": "R 語言中的物件導向程式設計",
+  "section.oop_overview.title": "概述：R 語言中的物件導向程式設計",
+  "section.oop_overview.desc": "儘管 R 語言主要是程序導向的，但它透過三種系統支援物件導向程式設計：S3 (簡單、廣泛使用)、S4 (嚴謹、用於大型框架) 以及 [[R6]] (現代、更接近傳統物件導向程式設計)。在本課程中，我們將專注於 [[R6]]，它提供了類似於其他語言的類別、物件、封裝、繼承和多型。",
+  "section.oop_overview.code1": "# 載入 [[R6]] 套件\nlibrary(R6)",
+  "section.r6_class_object.title": "類別與物件",
+  "section.r6_class_object.desc": "在 [[R6]] 中，類別使用 `R6Class()` 定義，物件則透過 `new()` 方法建立。類別定義包含欄位 (屬性) 和方法。",
+  "section.r6_class_object.code1": "Person <- R6Class(\"Person\",\n  public = list(\n    name = NULL,\n    age = NULL,\n    initialize = function(name, age) {\n      self$name <- name\n      self$age <- age\n    },\n    greet = function() {\n      cat(\"哈囉，我是\", self$name, \"，我\", self$age, \"歲了。\\n\")\n    }\n  )\n)\n\nalice <- Person$new(\"Alice\", 25)\nalice$greet()",
+  "section.r6_attributes.title": "屬性",
+  "section.r6_attributes.desc": "屬性 (欄位) 儲存在物件中。它們可以直接修改，因為 [[R6]] 中的物件使用參考語義。",
+  "section.r6_attributes.code1": "alice$age\n## [1] 25\nalice$age <- 26\nalice$greet()\n## 哈囉，我是 Alice，我 26 歲了。",
+  "section.r6_encapsulation.title": "封裝",
+  "section.r6_encapsulation.desc": "[[R6]] 支援封裝，透過允許欄位和方法設定為公開或私有。私有成員只能在類別內部存取。",
+  "section.r6_encapsulation.code1": "SecurePerson <- R6Class(\"SecurePerson\",\n  public = list(\n    name = NULL,\n    initialize = function(name, password) {\n      self$name <- name\n      private$password <- password\n    },\n    checkPassword = function(p) {\n      p == private$password\n    }\n  ),\n  private = list(\n    password = NULL\n  )\n)\n\nbob <- SecurePerson$new(\"Bob\", \"1234\")\nbob$checkPassword(\"1234\")\n## [1] TRUE\nbob$password\n## 錯誤：找不到物件 'password'",
+  "section.r6_inheritance.title": "繼承",
+  "section.r6_inheritance.desc": "[[R6]] 類別支援繼承。子類別可以擴充或覆寫其父類別的方法。",
+  "section.r6_inheritance.code1": "Student <- R6Class(\"Student\",\n  inherit = Person,\n  public = list(\n    grade = NULL,\n    initialize = function(name, age, grade) {\n      super$initialize(name, age)\n      self$grade <- grade\n    },\n    greet = function() {\n      cat(\"哈囉，我是\", self$name, \"，是一位\", self$grade, \"學生。\\n\")\n    }\n  )\n)\n\ncharlie <- Student$new(\"Charlie\", 20, \"college\")\ncharlie$greet()",
+  "section.r6_polymorphism.title": "多型",
+  "section.r6_polymorphism.desc": "當子類別覆寫方法時，就實現了多型，相同的呼叫會根據物件的類別產生不同的結果。",
+  "section.r6_polymorphism.code1": "alice$greet()\n## 哈囉，我是 Alice，我 26 歲了。\n\ncharlie$greet()\n## 哈囉，我是 Charlie，是一位 college 學生。"
+}

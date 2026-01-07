@@ -1,8 +1,8 @@
 {
-  "COM_logo": "Foundations of Statistic",
-  "course_nav_button": "Catalog",
-  "prev-btn": "&laquo; Prev",
-  "next-btn": "Next &raquo;",
-  "Course Catalog Title": "Course Catalog",
-  "lang select title": "Language"
+  "COM_logo": "統計学の基礎",
+  "course_nav_button": "カタログ",
+  "prev-btn": "&laquo; 前へ",
+  "next-btn": "次へ &raquo;",
+  "Course Catalog Title": "コースカタログ",
+  "lang select title": "言語"
 }

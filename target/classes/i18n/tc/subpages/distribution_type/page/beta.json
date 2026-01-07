@@ -1,0 +1,12 @@
+{
+  "beta.title": "貝他分佈",
+  "beta.section1.title": "1. 定義",
+  "beta.section1.intro": "貝他分佈是一種定義在 $(0,1)$ 區間上，具有兩個形狀參數 $\\alpha$ 和 $\\beta$ 的連續分佈，常用於模擬比例或機率。",
+  "beta.section1.rel1": "當 $\\alpha = \\beta = 1$ 時，它退化為均勻分佈$(0,1)$。",
+  "beta.section2.title": "2. PDF 與 CDF",
+  "beta.section2.pdf": "機率密度函數： $$f(x;\\alpha,\\beta) = \\tfrac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha,\\beta)}, \\; 0<x<1$$",
+  "beta.section2.cdf": "累積分佈函數： $$F(x;\\alpha,\\beta) = I_x(\\alpha,\\beta)$$",
+  "beta.section3.title": "3. 圖形",
+  "beta.section3.pdfcaption": "機率密度函數",
+  "beta.section3.cdfcaption": "累積分佈函數"
+}

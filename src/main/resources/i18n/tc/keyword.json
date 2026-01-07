@@ -1,0 +1,23 @@
+{
+  "keyword.statistic": "統計",
+  "keyword.distribution": "分佈",
+  "keyword.beta distribution": "貝他分佈",
+  "keyword.binomial distribution": "二項分佈",
+  "keyword.Cauchy distribution": "柯西分佈",
+  "keyword.chi-squared distribution": "卡方分佈",
+  "keyword.exponential distribution": "指數分佈",
+  "keyword.F distribution": "F分佈",
+  "keyword.Gamma distribution": "伽瑪分佈",
+  "keyword.geometric distribution": "幾何分佈",
+  "keyword.hypergeometric distribution": "超幾何分佈",
+  "keyword.log-normal distribution": "對數常態分佈",
+  "keyword.logistic distribution": "邏輯斯諦分佈",
+  "keyword.negative-binomial distribution": "負二項分佈",
+  "keyword.normal distribution": "常態分佈",
+  "keyword.Poisson distribution": "卜瓦松分佈",
+  "keyword.signed-rank distribution": "符號秩分佈",
+  "keyword.t distribution": "t分佈",
+  "keyword.uniform distribution": "均勻分佈",
+  "keyword.Weibull distribution": "威布爾分佈",
+  "keyword.Wilcox distribution": "威爾科克斯分佈"
+}

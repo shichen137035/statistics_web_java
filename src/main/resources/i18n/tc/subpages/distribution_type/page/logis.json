@@ -1,0 +1,13 @@
+{
+  "meta.title": "羅吉斯分佈 (子頁面)",
+  "logis.title": "羅吉斯分佈",
+  "logis.section1.title": "1. 定義",
+  "logis.section1.intro": "定義在 $\\mathbb{R}$ 上的位置-尺度分佈，其累積分佈函數 (CDF) 為 $F(x)=\\tfrac{1}{1+e^{-(x-\\mu)/s}}$；尾部比常態分佈更重。",
+  "logis.section1.rel1": "當 $\\mu=0, s=1$ 時為標準羅吉斯分佈。",
+  "logis.section2.title": "2. 機率密度函數 (PDF) 與累積分佈函數 (CDF)",
+  "logis.section2.pdf": "機率密度函數 (PDF): $$f(x)=\\frac{e^{-(x-\\mu)/s}}{s\\,[1+e^{-(x-\\mu)/s}]^{2}}$$",
+  "logis.section2.cdf": "累積分佈函數 (CDF): $$F(x)=\\frac{1}{1+e^{-(x-\\mu)/s}}$$",
+  "logis.section3.title": "3. 圖形",
+  "logis.section3.pdfcaption": "機率密度函數圖",
+  "logis.section3.cdfcaption": "累積分佈函數圖"
+}

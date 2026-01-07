@@ -1,4 +1,23 @@
 {
-  "keyword.statistic": "统计学",
-  "keyword.distribution": "分布"
+  "keyword.statistic": "统计",
+  "keyword.distribution": "分布",
+  "keyword.beta distribution": "贝塔分布",
+  "keyword.binomial distribution": "二项分布",
+  "keyword.Cauchy distribution": "柯西分布",
+  "keyword.chi-squared distribution": "卡方分布",
+  "keyword.exponential distribution": "指数分布",
+  "keyword.F distribution": "F分布",
+  "keyword.Gamma distribution": "伽马分布",
+  "keyword.geometric distribution": "几何分布",
+  "keyword.hypergeometric distribution": "超几何分布",
+  "keyword.log-normal distribution": "对数正态分布",
+  "keyword.logistic distribution": "逻辑斯蒂分布",
+  "keyword.negative-binomial distribution": "负二项分布",
+  "keyword.normal distribution": "正态分布",
+  "keyword.Poisson distribution": "泊松分布",
+  "keyword.signed-rank distribution": "符号秩分布",
+  "keyword.t distribution": "t分布",
+  "keyword.uniform distribution": "均匀分布",
+  "keyword.Weibull distribution": "威布尔分布",
+  "keyword.Wilcox distribution": "威尔科克斯分布"
 }

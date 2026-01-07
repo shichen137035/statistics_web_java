@@ -47,5 +47,5 @@
   "section.packages.other_sources.title": "Installing from Other Sources",
   "section.packages.other_sources.code": "# From GitHub (requires remotes package)\ninstall.packages(\"remotes\")\nremotes::install_github(\"tidyverse/ggplot2\")\n\n# From Bioconductor (bioinformatics focus)\nif (!requireNamespace(\"BiocManager\", quietly = TRUE))\n    install.packages(\"BiocManager\")\nBiocManager::install(\"GenomicFeatures\")",
 
-  "section.packages.tip": "Tip: Always check the package documentation with ?function_name or help(package = \"pkgname\")."
+  "section.packages.tip": "Tip: Always check the package documentation with ?function_name or help(package = \"pkgname\"). For example, use ?sum to check how to use function sum."
 }

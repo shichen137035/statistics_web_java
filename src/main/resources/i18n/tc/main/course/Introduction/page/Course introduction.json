@@ -1,0 +1,14 @@
+{
+  "meta.title": "統計學基礎 B",
+  "intro.title": "課程介紹",
+  "intro.p1": "本課程從統計推斷的基礎到多變量方法，提供了一趟緊湊的學習旅程，結合了理論與基於 R 語言的計算以及實務練習。",
+  "intro.includes.title": "本課程將包括：",
+  "intro.includes.l1": "隨機樣本、機率空間以及隨機變數的生成（反演法、二分法）。",
+  "intro.includes.l2": "充分且完備統計量、不偏估計量、UMVUE 以及通過 Cramér–Rao 界限衡量效率。",
+  "intro.includes.l3": "漸近工具，例如大數法則、中央極限定理和漸近效率。",
+  "intro.includes.l4": "最大概似估計、區間估計以及假設檢定，包括 Neyman–Pearson 引理、檢定力與 p 值。",
+  "intro.includes.l5": "各種檢定程序的擴展、偽發現率控制以及在真實數據集上的應用。",
+  "intro.includes.l6": "多變量分析：判別分析、主成分分析和典型相關分析。",
+  "intro.end": "完成本課程後，學生將獲得嚴謹的理論基礎以及現代統計分析所需的計算工具。",
+  "course_plan.title": "課程列表"
+}

@@ -1,8 +1,8 @@
 {
-  "COM_logo" : "統計学基礎",
-  "course_nav_button": "目次",
-  "prev-btn": "&laquo; 先",
-  "next-btn": "次 &raquo;",
-  "Course Catalog Title": "コース目次",
+  "COM_logo": "統計学の基礎",
+  "course_nav_button": "カタログ",
+  "prev-btn": "&laquo; 前へ",
+  "next-btn": "次へ &raquo;",
+  "Course Catalog Title": "コースカタログ",
   "lang select title": "言語"
 }

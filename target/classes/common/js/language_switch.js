@@ -12,7 +12,7 @@
         const browserLang = (navigator.language || navigator.userLanguage || "en").slice(0,2).toLowerCase();
 
         // 支持的语言列表（可以根据你项目调整）
-        const supported = ["en", "ja", "zh"];
+        const supported = ["en", "ja", "zh","tc"];
         // if (supported.includes(browserLang)) {
         //     return browserLang;
         // }

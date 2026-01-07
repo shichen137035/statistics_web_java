@@ -1,14 +1,14 @@
 {
-  "meta.title": "Foundations of Statistics B",
-  "intro.title": "Course Introduction",
-  "intro.p1": "This course provides a compact journey from the foundations of statistical inference to multivariate methods, combining theory with R-based computation and practical exercises.",
-  "intro.includes.title": "This course will include:",
-  "intro.includes.l1": "Random samples, probability spaces, and generation of random variables (inversion, bisection).",
-  "intro.includes.l2": "Sufficient and complete statistics, unbiased estimators, UMVUE, and efficiency through the Cramér–Rao bound.",
-  "intro.includes.l3": "Asymptotic tools such as the law of large numbers, central limit theorem, and asymptotic efficiency.",
-  "intro.includes.l4": "Maximum likelihood estimation, interval estimation, and hypothesis testing including Neyman–Pearson lemma, power, and p-values.",
-  "intro.includes.l5": "Extensions to various testing procedures, false discovery rate control, and applications to real datasets.",
-  "intro.includes.l6": "Multivariate analysis: discriminant analysis, principal component analysis, and canonical correlation analysis.",
-  "intro.end": "By completing this course, students will gain both a rigorous theoretical foundation and the computational tools needed for modern statistical analysis.",
-  "course_plan.title": "Course list"
+  "meta.title": "統計学の基礎B",
+  "intro.title": "コース紹介",
+  "intro.p1": "本コースでは、統計的推論の基礎から多変量解析までを網羅し、理論とRを用いた計算、実践的な演習を組み合わせながらコンパクトに学習します。",
+  "intro.includes.title": "本コースの内容：",
+  "intro.includes.l1": "無作為標本、確率空間、および乱数生成（逆変換法、二分法）。",
+  "intro.includes.l2": "十分統計量と完備統計量、不偏推定量、UMVUE、およびクラメール・ラオの不等式による効率。",
+  "intro.includes.l3": "大数の法則、中心極限定理、漸近効率などの漸近的ツール。",
+  "intro.includes.l4": "最尤推定、区間推定、およびネイマン・ピアソンの補題、検出力、p値を含む仮説検定。",
+  "intro.includes.l5": "様々な検定手続きへの拡張、FDR（偽発見率）制御、および実データセットへの応用。",
+  "intro.includes.l6": "多変量解析：判別分析、主成分分析、正準相関分析。",
+  "intro.end": "本コースを修了することで、受講生は現代の統計解析に必要な厳密な理論的基礎と計算ツールを習得します。",
+  "course_plan.title": "コース一覧"
 }

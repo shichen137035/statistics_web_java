@@ -1,12 +1,12 @@
 {
   "beta.title": "ベータ分布",
   "beta.section1.title": "1. 定義",
-  "beta.section1.intro": "ベータ分布は、2つの形状パラメータ$\\alpha$と$\\beta$を持つ$(0,1)$上の連続分布であり、比率や確率をモデル化するためによく用いられます。",
-  "beta.section1.rel1": "$\\alpha = \\beta = 1$の場合、一様分布 Uniform$(0,1)$に帰着します。",
-  "beta.section2.title": "2. 確率密度関数と累積分布関数",
-  "beta.section2.pdf": "確率密度関数：$$f(x;\\alpha,\\beta) = \\tfrac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha,\\beta)}, \\; 0<x<1$$",
-  "beta.section2.cdf": "累積分布関数：$$F(x;\\alpha,\\beta) = I_x(\\alpha,\\beta)$$",
+  "beta.section1.intro": "ベータ分布は、(0,1)区間上の連続分布であり、2つの形状パラメータ$\\alpha$と$\\beta$を持ち、割合や確率のモデル化によく用いられます。",
+  "beta.section1.rel1": "$\\alpha = \\beta = 1$の場合、一様分布Uniform$(0,1)$になります。",
+  "beta.section2.title": "2. 確率密度関数 (PDF) と累積分布関数 (CDF)",
+  "beta.section2.pdf": "確率密度関数 (PDF): $$f(x;\\alpha,\\beta) = \\tfrac{x^{\\alpha-1}(1-x)^{\\beta-1}}{B(\\alpha,\\beta)}, \\; 0<x<1$$",
+  "beta.section2.cdf": "累積分布関数 (CDF): $$F(x;\\alpha,\\beta) = I_x(\\alpha,\\beta)$$",
   "beta.section3.title": "3. グラフ",
-  "beta.section3.pdfcaption": "確率密度関数",
-  "beta.section3.cdfcaption": "累積分布関数"
+  "beta.section3.pdfcaption": "確率密度関数 (PDF)",
+  "beta.section3.cdfcaption": "累積分布関数 (CDF)"
 }

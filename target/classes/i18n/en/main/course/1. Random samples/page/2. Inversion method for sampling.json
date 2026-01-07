@@ -43,16 +43,16 @@
   "algo.bisect.output.label": "Output:",
   "algo.bisect.output": "Approximate root $c$",
 
-  "algo.bisect.step.init": "Initialize $\\delta_1 := +\\infty$, $k := 0$",
+  "algo.bisect.step.init": "Initialize $\\delta_1 := +\\infty$, $k := 0$.",
 
   "algo.bisect.loop.type": "while",
-  "algo.bisect.loop.cond": "$\\delta_1 \\geq \\delta$ and $k < N$",
-  "algo.bisect.loop.step.midpoint": "Compute $c := (a+b)/2$",
-  "algo.bisect.loop.step.eval": "Set $\\delta_1 := |f(c)|$",
-  "algo.bisect.loop.step.update": "If $f(a)f(c)<0$ then $b := c$ else $a := c$",
-  "algo.bisect.loop.step.iter": "Set $k := k+1$",
+  "algo.bisect.loop.cond": "$\\delta_1 \\geq \\delta$ and $k < N$.",
+  "algo.bisect.loop.step.midpoint": "Compute $c := (a+b)/2$.",
+  "algo.bisect.loop.step.eval": "Set $\\delta_1 := |f(c)|$.",
+  "algo.bisect.loop.step.update": "If $f(a)f(c)<0$ then $b := c$ else $a := c$.",
+  "algo.bisect.loop.step.iter": "Set $k := k+1$.",
 
-  "algo.bisect.step.return": "Return $c$",
+  "algo.bisect.step.return": "Return $c$.",
 
   "proof.title": "Proof of inversion method",
   "theorem.label": "Theorem of inversion method",
