@@ -38,5 +38,5 @@
   "sec.exp.text1": "An estimator $T(X)$ is efficient if it achieves the Cramér–Rao lower bound. The equality holds in the Cauchy–Schwarz inequality when $T(X)$ and $\\frac{\\partial}{\\partial \\theta}\\log f_\\theta(X)$ are linearly related. That is,",
   "sec.exp.eq1": "$$T(X) = a_1(\\theta) \\frac{\\partial}{\\partial \\theta}\\log f_\\theta(X) + a_2(\\theta).$$",
   "sec.exp.eq2": "$$\\Rightarrow f_\\theta(x) = \\exp\\left\\{\\int \\frac{T(x) - a_2(\\theta)}{a_1(\\theta)} d\\theta \\right\\}.$$",
-  "sec.exp.eq3": "$$\\therefore f_\\theta(x) \\text{ belongs to an exponential family, and } T(X) \\text{ is sufficient.}$$"
+  "sec.exp.eq3": "$$f_\\theta(x) \\text{ belongs to an exponential family, and } T(X) \\text{ is sufficient.}$$"
 }

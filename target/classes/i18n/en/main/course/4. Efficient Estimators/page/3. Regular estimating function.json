@@ -44,7 +44,7 @@
   "sec.ex3.eq2": "$$\\hat{\\mu}_n=-\\frac{d'(\\hat{\\mu}_n)}{c'(\\hat{\\mu}_n)}=\\frac{1}{n}\\sum_{i=1}^n X_i.$$",
   "sec.ex3.text3": "For the normal distribution,",
   "sec.ex3.eq3": "$$f(x\\mid\\mu)=\\exp\\left\\{-\\frac{1}{2}\\left(\\frac{x-\\mu}{\\sigma}\\right)^2 - \\log(\\sqrt{2\\pi}\\sigma)\\right\\}.$$",
-  "sec.ex3.text4": "Here $T(x)=x$, $c(\\mu)=\\mu/\\sigma^2$, and $d(\\mu)=-\\mu^2/(2\\sigma^2)$. The MLE is",
+  "sec.ex3.text4": "$T(x)=x$, $c(\\mu)=\\mu/\\sigma^2$, and $d(\\mu)=-\\mu^2/(2\\sigma^2)$. The MLE is",
   "sec.ex3.eq4": "$$\\hat{\\mu}_n=-\\frac{d'(\\hat{\\mu}_n)}{c'(\\hat{\\mu}_n)}=\\frac{1}{n}\\sum_{i=1}^n X_i.$$",
-  "sec.ex3.eq5": "$$\\therefore\\; \\text{all four distributions lead to MLE as the sample mean.}$$"
+  "sec.ex3.eq5": "$$ \\text{So all four distributions lead to MLE as the sample mean.}$$"
 }

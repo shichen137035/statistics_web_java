@@ -129,7 +129,7 @@ function setPagerButtons(prev, next, prefix) {
             `&laquo; ` +   // 左箭头始终在最前面
             (seq ? `<span class="page-btn-seq">${escapeHtml(seq)}</span> ` : "") +
             `<span class="page-btn-title" data-i18n="catalogtitle.${escapeHtml(title)}">`
-            + escapeHtml(title) +
+             +
             `</span>`;
     } else {
         prevBtn.disabled = true;
@@ -151,7 +151,7 @@ function setPagerButtons(prev, next, prefix) {
         nextBtn.innerHTML =
             (seq ? `<span class="page-btn-seq">${escapeHtml(seq)}</span> ` : "") +
             `<span class="page-btn-title" data-i18n="catalogtitle.${escapeHtml(title)}">`
-            + escapeHtml(title) +
+             +
             `</span>` +
             ` &raquo;`;   // 右箭头永远在最后面
     } else {
@@ -161,7 +161,7 @@ function setPagerButtons(prev, next, prefix) {
     }
 }
 
-// 简单 HTML 转义，免得哪天你标题里塞了 <>& 之类的
+
 function escapeHtml(str) {
     return String(str)
         .replace(/&/g, "&amp;")

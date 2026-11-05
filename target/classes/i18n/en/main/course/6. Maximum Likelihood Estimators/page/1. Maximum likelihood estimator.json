@@ -49,11 +49,11 @@
 
   "sec.rprep.title": "Preparation for R Exercise",
   "sec.rprep.desc": "Before running the MLE examples, ensure that the required R package is installed and loaded.",
-  "sec.rprep.pkg": "We use the <code>EstimationTools</code> package, which provides user-friendly functions for likelihood-based estimation.",
+  "sec.rprep.pkg": "We use the EstimationTools package, which provides user-friendly functions for likelihood-based estimation.",
   "sec.rprep.code1": "install.packages('EstimationTools')\nlibrary(EstimationTools)",
 
   "sec.rcode1.title": "MLE in R (1) — Basic Estimation",
-  "sec.rcode1.desc": "We start by generating normal samples and estimating the parameters μ and σ using the <code>maxlogL()</code> function.",
+  "sec.rcode1.desc": "We start by generating normal samples and estimating the parameters μ and σ using the maxlogL() function.",
   "sec.rcode1.code": "# Generate normal samples and perform MLE\nset.seed(1000)\nz <- rnorm(n = 1000, mean = 10, sd = 1)\nfit1 <- maxlogL(x = z, dist = 'dnorm', start = c(2, 3), lower = c(-15, 0))",
 
   "sec.rcode2.title": "MLE in R (2) — Output and Warnings",
