@@ -13,10 +13,20 @@
     function bindFolderEvents() {
         console.log("build event.")
         tree.querySelectorAll(".course-nav__node.is-folder > .course-nav__row").forEach((row) => {
-            row.addEventListener("click", () => {
+            row.setAttribute("role", "button");
+            row.setAttribute("tabindex", "0");
+            const toggleFolder = () => {
                 const li = row.parentElement;
                 li.classList.toggle("is-open");
+                row.setAttribute("aria-expanded", String(li.classList.contains("is-open")));
                 saveState();
+            };
+            row.addEventListener("click", toggleFolder);
+            row.addEventListener("keydown", event => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    toggleFolder();
+                }
             });
         });
     }
@@ -58,11 +68,15 @@
     // ------------------------------
     function showNav() {
         nav_aside.classList.add("is-visible");
+        nav_aside.setAttribute("aria-hidden", "false");
+        toggleBtn?.setAttribute("aria-expanded", "true");
         if (mask) mask.classList.add("is-visible");
     }
 
     function hideNav() {
         nav_aside.classList.remove("is-visible");
+        nav_aside.setAttribute("aria-hidden", "true");
+        toggleBtn?.setAttribute("aria-expanded", "false");
         if (mask) mask.classList.remove("is-visible");
     }
 
@@ -72,5 +86,16 @@
 
     bindFolderEvents();
     restoreState();
+    tree.querySelectorAll(".course-nav__node.is-folder > .course-nav__row").forEach(row => {
+        row.setAttribute("aria-expanded", String(row.parentElement.classList.contains("is-open")));
+    });
+    toggleBtn?.setAttribute("aria-controls", "courseNav");
+    toggleBtn?.setAttribute("aria-expanded", "false");
+    document.addEventListener("keydown", event => {
+        if (event.key === "Escape" && nav_aside.classList.contains("is-visible")) {
+            hideNav();
+            toggleBtn?.focus();
+        }
+    });
 
 })();

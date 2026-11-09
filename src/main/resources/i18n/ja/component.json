@@ -1,8 +1,10 @@
 {
   "COM_logo": "統計学の基礎",
-  "course_nav_button": "カタログ",
+  "course_nav_button": "コースメニュー",
   "prev-btn": "&laquo; 前へ",
   "next-btn": "次へ &raquo;",
-  "Course Catalog Title": "コースカタログ",
-  "lang select title": "言語"
+  "Course Catalog Title": "コースメニュー",
+  "lang select title": "言語",
+  "theme.dark": "ダークモード",
+  "nav.home": "ホーム"
 }

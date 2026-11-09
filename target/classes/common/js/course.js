@@ -22,7 +22,7 @@ injectCss([
     "/common/css/algorithm_style.css",
     "/common/css/theorem_style.css",
     "/common/css/table.css",
-    "/common/css/pager.css"
+    "/common/css/pager.css?v=10"
 ]);
 
 document.addEventListener("i18nApplied", () => {
@@ -40,7 +40,7 @@ injectJsSequential([
     // "/common/js/add_pager.js",
     "/common/js/language_switch.js",
     "/common/js/keyword_popup.js",
-    "/common/js/pager.js",
+    "/common/js/pager.js?v=10",
     "/common/js/course_nav_event_controller.js",
 
     // "/common/js/course_nav.js"

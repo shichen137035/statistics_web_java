@@ -1,5 +1,23 @@
 {
   "concept-title.distribution_type": "分布",
   "concept-section.beta": "ベータ分布",
-  "concept-title.statistic": "統計基礎"
+  "concept-title.statistic": "統計基礎",
+  "concept-section.binom": "二項分布",
+  "concept-section.logis": "ロジスティック分布",
+  "concept-section.nbinom": "負の二項分布",
+  "concept-section.norm": "正規分布",
+  "concept-section.unif": "一様分布",
+  "concept-section.bernoulli": "ベルヌーイ分布",
+  "concept-section.exp": "指数分布",
+  "concept-section.pois": "ポアソン分布",
+  "concept-section.chisq": "カイ二乗分布",
+  "concept-section.t": "スチューデントのt分布",
+  "concept-section.wishart": "ウィシャート分布",
+  "group.sampling": "標本抽出",
+  "group.counts": "試行と計数",
+  "group.intervals": "信頼区間",
+  "group.multivariate": "多変量解析",
+  "group.models": "その他のモデル",
+  "crumb.home": "概念",
+  "concept-section.statistic": "統計量"
 }

@@ -1,0 +1,19 @@
+{
+  "distribution.title": "Poisson distribution",
+  "distribution.definition_heading": "Definition",
+  "distribution.intro": "The Poisson distribution models a nonnegative count with parameter \\(\\lambda>0\\), often the count of events in a fixed interval under a constant-rate independent-increments model.",
+  "distribution.formula_heading": "Probability model",
+  "distribution.formula": "For \\(k=0,1,2,\\ldots\\), \\(P(X=k)=e^{-\\lambda}\\lambda^k/k!\\).",
+  "distribution.properties_heading": "Properties",
+  "distribution.properties": "Both the mean and variance are \\(\\lambda\\). The sum of independent Poisson variables is Poisson with parameter equal to the sum of their parameters.",
+  "distribution.plots": "Example plots",
+  "distribution.density_caption": "Example probability mass function",
+  "distribution.cdf_caption": "Example cumulative distribution function",
+  "distribution.course_heading": "In the course",
+  "distribution.course": "The course uses the sum of Poisson observations as a sufficient statistic and gives a Poisson estimating-function example.",
+  "distribution.course_link": "Explore sufficiency in the Poisson model",
+  "distribution.r_heading": "In R",
+  "distribution.r_intro": "These examples use functions from R’s stats package. For functions with d, p, q, and r prefixes, they compute a density or mass, cumulative probability, quantile, and random samples, respectively.",
+  "distribution.r_code": "dpois(2, lambda = 3)\nppois(2, lambda = 3)\nqpois(0.5, lambda = 3)\nrpois(100, lambda = 3)",
+  "distribution.reference": "R documentation"
+}

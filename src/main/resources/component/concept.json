@@ -1,56 +1,119 @@
-[ {
-  "name" : "Introduction",
-  "type" : "folder",
-  "children" : [ {
-    "name" : "Concept introduction.html",
-    "type" : "file",
-    "path" : "Introduction/page/Concept introduction.html",
-    "c_name" : "Concept introduction"
-  } ],
-  "c_name" : "Introduction"
-}, {
-  "name" : "distribution_type",
-  "type" : "folder",
-  "children" : [ {
-    "name" : "beta.html",
-    "type" : "file",
-    "path" : "distribution_type/page/beta.html",
-    "c_name" : "beta"
-  }, {
-    "name" : "binom.html",
-    "type" : "file",
-    "path" : "distribution_type/page/binom.html",
-    "c_name" : "binom"
-  }, {
-    "name" : "logis.html",
-    "type" : "file",
-    "path" : "distribution_type/page/logis.html",
-    "c_name" : "logis"
-  }, {
-    "name" : "nbinom.html",
-    "type" : "file",
-    "path" : "distribution_type/page/nbinom.html",
-    "c_name" : "nbinom"
-  }, {
-    "name" : "section_index.html",
-    "type" : "file",
-    "path" : "distribution_type/page/section_index.html",
-    "c_name" : "section_index"
-  } ],
-  "c_name" : "distribution_type"
-}, {
-  "name" : "statistic",
-  "type" : "folder",
-  "children" : [ {
-    "name" : "section_index.html",
-    "type" : "file",
-    "path" : "statistic/page/section_index.html",
-    "c_name" : "section_index"
-  }, {
-    "name" : "statistic.html",
-    "type" : "file",
-    "path" : "statistic/page/statistic.html",
-    "c_name" : "statistic"
-  } ],
-  "c_name" : "statistic"
-} ]
+[
+  {
+    "name": "Introduction",
+    "type": "folder",
+    "children": [
+      {
+        "name": "Concept introduction.html",
+        "type": "file",
+        "path": "Introduction/page/Concept introduction.html",
+        "c_name": "Concept introduction"
+      }
+    ],
+    "c_name": "Introduction"
+  },
+  {
+    "name": "distribution_type",
+    "type": "folder",
+    "children": [
+      {
+        "name": "bernoulli.html",
+        "type": "file",
+        "path": "distribution_type/page/bernoulli.html",
+        "c_name": "bernoulli"
+      },
+      {
+        "name": "beta.html",
+        "type": "file",
+        "path": "distribution_type/page/beta.html",
+        "c_name": "beta"
+      },
+      {
+        "name": "binom.html",
+        "type": "file",
+        "path": "distribution_type/page/binom.html",
+        "c_name": "binom"
+      },
+      {
+        "name": "chisq.html",
+        "type": "file",
+        "path": "distribution_type/page/chisq.html",
+        "c_name": "chisq"
+      },
+      {
+        "name": "exp.html",
+        "type": "file",
+        "path": "distribution_type/page/exp.html",
+        "c_name": "exp"
+      },
+      {
+        "name": "logis.html",
+        "type": "file",
+        "path": "distribution_type/page/logis.html",
+        "c_name": "logis"
+      },
+      {
+        "name": "nbinom.html",
+        "type": "file",
+        "path": "distribution_type/page/nbinom.html",
+        "c_name": "nbinom"
+      },
+      {
+        "name": "norm.html",
+        "type": "file",
+        "path": "distribution_type/page/norm.html",
+        "c_name": "norm"
+      },
+      {
+        "name": "pois.html",
+        "type": "file",
+        "path": "distribution_type/page/pois.html",
+        "c_name": "pois"
+      },
+      {
+        "name": "t.html",
+        "type": "file",
+        "path": "distribution_type/page/t.html",
+        "c_name": "t"
+      },
+      {
+        "name": "unif.html",
+        "type": "file",
+        "path": "distribution_type/page/unif.html",
+        "c_name": "unif"
+      },
+      {
+        "name": "wishart.html",
+        "type": "file",
+        "path": "distribution_type/page/wishart.html",
+        "c_name": "wishart"
+      },
+      {
+        "name": "section_index.html",
+        "type": "file",
+        "path": "distribution_type/page/section_index.html",
+        "c_name": "section_index"
+      }
+    ],
+    "c_name": "distribution_type"
+  },
+  {
+    "name": "statistic",
+    "type": "folder",
+    "children": [
+      {
+        "name": "section_index.html",
+        "type": "file",
+        "path": "statistic/page/section_index.html",
+        "c_name": "section_index"
+      },
+      {
+        "name": "statistic.html",
+        "type": "file",
+        "path": "statistic/page/statistic.html",
+        "c_name": "statistic"
+      }
+    ],
+    "c_name": "statistic"
+  }
+]

@@ -1,0 +1,19 @@
+{
+  "distribution.title": "Student's t-distribution",
+  "distribution.definition_heading": "Definition",
+  "distribution.intro": "The t-distribution with \\(\\nu>0\\) degrees of freedom is symmetric around zero and has heavier tails than the standard normal distribution.",
+  "distribution.formula_heading": "Probability model",
+  "distribution.formula": "If \\(Z\\sim N(0,1)\\) and \\(V\\sim\\chi^2_\\nu\\) are independent, then \\(T=Z/\\sqrt{V/\\nu}\\sim t_\\nu\\). Its density is \\(\\frac{\\Gamma((\\nu+1)/2)}{\\sqrt{\\nu\\pi}\\Gamma(\\nu/2)}(1+x^2/\\nu)^{-(\\nu+1)/2}\\).",
+  "distribution.properties_heading": "Properties",
+  "distribution.properties": "The mean is zero for \\(\\nu>1\\), and the variance is \\(\\nu/(\\nu-2)\\) for \\(\\nu>2\\). As \\(\\nu\\) increases, the distribution approaches the standard normal.",
+  "distribution.plots": "Example plots",
+  "distribution.density_caption": "Example probability density",
+  "distribution.cdf_caption": "Example cumulative distribution function",
+  "distribution.course_heading": "In the course",
+  "distribution.course": "The course uses a t distribution with n−1 degrees of freedom for a confidence interval for a normal mean when the variance is unknown.",
+  "distribution.course_link": "Build a confidence interval with unknown variance",
+  "distribution.r_heading": "In R",
+  "distribution.r_intro": "These examples use functions from R’s stats package. For functions with d, p, q, and r prefixes, they compute a density or mass, cumulative probability, quantile, and random samples, respectively.",
+  "distribution.r_code": "dt(1, df = 9)\npt(1, df = 9)\nqt(0.975, df = 9)\nrt(100, df = 9)",
+  "distribution.reference": "R documentation"
+}

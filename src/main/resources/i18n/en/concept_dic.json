@@ -1,5 +1,23 @@
 {
   "concept-title.distribution_type": "Distribution",
   "concept-section.beta": "Beta distribution",
-  "concept-title.statistic": "Statistic foundation"
+  "concept-title.statistic": "Statistic foundation",
+  "concept-section.binom": "Binomial distribution",
+  "concept-section.logis": "Logistic distribution",
+  "concept-section.nbinom": "Negative binomial distribution",
+  "concept-section.norm": "Normal distribution",
+  "concept-section.unif": "Uniform distribution",
+  "concept-section.bernoulli": "Bernoulli distribution",
+  "concept-section.exp": "Exponential distribution",
+  "concept-section.pois": "Poisson distribution",
+  "concept-section.chisq": "Chi-squared distribution",
+  "concept-section.t": "Student’s t-distribution",
+  "concept-section.wishart": "Wishart distribution",
+  "group.sampling": "Sampling",
+  "group.counts": "Trials and counts",
+  "group.intervals": "Confidence intervals",
+  "group.multivariate": "Multivariate analysis",
+  "group.models": "Other models",
+  "crumb.home": "Concepts",
+  "concept-section.statistic": "Statistic"
 }

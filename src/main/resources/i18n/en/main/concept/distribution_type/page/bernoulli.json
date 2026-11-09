@@ -1,0 +1,19 @@
+{
+  "distribution.title": "Bernoulli distribution",
+  "distribution.definition_heading": "Definition",
+  "distribution.intro": "A Bernoulli random variable models one trial with success probability \\(p\\), where \\(0\\le p\\le1\\). It equals 1 for success and 0 for failure.",
+  "distribution.formula_heading": "Probability model",
+  "distribution.formula": "For \\(x\\in\\{0,1\\}\\), \\(P(X=x)=p^x(1-p)^{1-x}\\).",
+  "distribution.properties_heading": "Properties",
+  "distribution.properties": "The mean is \\(p\\) and the variance is \\(p(1-p)\\). The sum of \\(n\\) independent Bernoulli trials with common probability \\(p\\) has a binomial distribution.",
+  "distribution.plots": "Example plots",
+  "distribution.density_caption": "Example probability density",
+  "distribution.cdf_caption": "Example cumulative distribution function",
+  "distribution.course_heading": "In the course",
+  "distribution.course": "The course uses Bernoulli samples to illustrate sufficient statistics, unbiased estimation, and hypothesis tests.",
+  "distribution.course_link": "Find a sufficient statistic for Bernoulli trials",
+  "distribution.r_heading": "In R",
+  "distribution.r_intro": "These examples use functions from R’s stats package. For functions with d, p, q, and r prefixes, they compute a density or mass, cumulative probability, quantile, and random samples, respectively.",
+  "distribution.r_code": "dbinom(1, size = 1, prob = 0.3)\npbinom(0, size = 1, prob = 0.3)\nqbinom(0.5, size = 1, prob = 0.3)\nrbinom(100, size = 1, prob = 0.3)",
+  "distribution.reference": "R documentation"
+}

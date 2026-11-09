@@ -1,8 +1,10 @@
 {
   "COM_logo": "Foundations of Statistic",
-  "course_nav_button": "Catalog",
+  "course_nav_button": "課程目錄",
   "prev-btn": "&laquo; Prev",
   "next-btn": "Next &raquo;",
-  "Course Catalog Title": "Course Catalog",
-  "lang select title": "Language"
+  "Course Catalog Title": "課程目錄",
+  "lang select title": "Language",
+  "theme.dark": "深色模式",
+  "nav.home": "首頁"
 }

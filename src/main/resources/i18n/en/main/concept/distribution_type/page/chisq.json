@@ -1,0 +1,19 @@
+{
+  "distribution.title": "Chi-squared distribution",
+  "distribution.definition_heading": "Definition",
+  "distribution.intro": "A chi-squared variable with \\(\\nu\\) positive integer degrees of freedom is the sum of squares of \\(\\nu\\) independent standard normal variables. The distribution also extends to positive real degrees of freedom.",
+  "distribution.formula_heading": "Probability model",
+  "distribution.formula": "For \\(x>0\\), \\(f(x)=x^{\\nu/2-1}e^{-x/2}/(2^{\\nu/2}\\Gamma(\\nu/2))\\).",
+  "distribution.properties_heading": "Properties",
+  "distribution.properties": "Its mean is \\(\\nu\\), its variance is \\(2\\nu\\), and its support is nonnegative. For a normal sample, \\((n-1)S^2/\\sigma^2\\sim\\chi^2_{n-1}\\), where \\(S^2\\) uses denominator \\(n-1\\).",
+  "distribution.plots": "Example plots",
+  "distribution.density_caption": "Example probability density",
+  "distribution.cdf_caption": "Example cumulative distribution function",
+  "distribution.course_heading": "In the course",
+  "distribution.course": "The course uses the chi-squared distribution to construct a confidence interval for the variance of a normal population.",
+  "distribution.course_link": "Build a confidence interval for a variance",
+  "distribution.r_heading": "In R",
+  "distribution.r_intro": "These examples use functions from R’s stats package. For functions with d, p, q, and r prefixes, they compute a density or mass, cumulative probability, quantile, and random samples, respectively.",
+  "distribution.r_code": "dchisq(3, df = 4)\npchisq(3, df = 4)\nqchisq(0.95, df = 4)\nrchisq(100, df = 4)",
+  "distribution.reference": "R documentation"
+}

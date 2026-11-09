@@ -1,3 +1,20 @@
+<style>
+  .page-nav .page-btn,
+  .page-nav .page-btn:hover,
+  .page-nav .page-btn:active {
+    background: #202c3b !important;
+    background-image: none !important;
+    border: 1px solid #465569 !important;
+    box-shadow: none !important;
+    color: #e2ebf7 !important;
+    transform: none !important;
+  }
+  .page-nav .page-btn:hover:not(:disabled) { background: #263547 !important; color: #fff !important; }
+  html[data-theme="light"] .page-nav .page-btn { background: #fff !important; color: #304765 !important; border-color:#d7e1ed !important; }
+  html[data-theme="light"] .page-nav .page-btn:hover:not(:disabled) { background: #f2f6fb !important; color: #203f69 !important; }
+  .page-nav .page-btn::before,
+  .page-nav .page-btn::after { content: none !important; }
+</style>
 <div class="page-nav">
   <button id="prev-btn" class="page-btn prev">&laquo; Prev</button>
   <button id="next-btn" class="page-btn next">Next &raquo;</button>

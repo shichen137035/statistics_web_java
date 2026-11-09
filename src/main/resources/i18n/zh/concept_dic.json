@@ -1,5 +1,23 @@
 {
   "concept-title.distribution_type": "分布",
   "concept-section.beta": "贝塔分布",
-  "concept-title.statistic": "统计基础"
+  "concept-title.statistic": "统计基础",
+  "concept-section.binom": "二项分布",
+  "concept-section.logis": "逻辑斯蒂分布",
+  "concept-section.nbinom": "负二项分布",
+  "concept-section.norm": "正态分布",
+  "concept-section.unif": "均匀分布",
+  "concept-section.bernoulli": "伯努利分布",
+  "concept-section.exp": "指数分布",
+  "concept-section.pois": "泊松分布",
+  "concept-section.chisq": "卡方分布",
+  "concept-section.t": "学生t分布",
+  "concept-section.wishart": "威沙特分布",
+  "group.sampling": "抽样",
+  "group.counts": "试验与计数",
+  "group.intervals": "置信区间",
+  "group.multivariate": "多元分析",
+  "group.models": "其他模型",
+  "crumb.home": "概念",
+  "concept-section.statistic": "统计量"
 }

@@ -1,3 +1,9 @@
+const typography = document.createElement("link");
+typography.rel = "stylesheet";
+typography.href = "/common/css/typography.css?v=2";
+document.head.appendChild(typography);
+
+import "./theme.js";
 (async function () {
     const select = document.getElementById('lang-select');
     const STORAGE_KEY = "globalLang";
@@ -146,6 +152,50 @@
         });
     }
 
+    // Link English course prose to the corresponding dictionary entry.
+    const dictionaryLinks = location.pathname.toLowerCase().startsWith("/main/course/")
+        ? await fetch("/common/json/course_dictionary_links.json").then(response => response.ok ? response.json() : {}).catch(() => ({}))
+        : {};
+    const genericTerms = new Set(["vector", "matrix", "array", "functions", "loops", "sampling", "classification", "bias", "consistency", "likelihood"]);
+    const terms = Object.keys(dictionaryLinks).filter(term => !genericTerms.has(term.toLowerCase())).sort((a, b) => b.length - a.length);
+    const termLookup = Object.fromEntries(terms.map(term => [term.toLowerCase(), dictionaryLinks[term]]));
+    const termPattern = terms.length ? new RegExp(`(?<![\\p{L}\\p{N}])(?:${terms.map(term => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})(?![\\p{L}\\p{N}])`, "giu") : null;
+
+    function linkCourseTerms(lang) {
+        if (lang !== "en" || !termPattern) return;
+        document.querySelectorAll("main [data-i18n]").forEach(element => {
+            if (element.closest("a, pre, code, h1, h2, h3, h4, button")) return;
+            const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
+                acceptNode(node) {
+                    return node.parentElement.closest("a, pre, code, script, style, mjx-container") ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+                }
+            });
+            const nodes = [];
+            while (walker.nextNode()) nodes.push(walker.currentNode);
+            nodes.forEach(node => {
+                const parts = node.data.split(/(\\\[[\s\S]*?\\\]|\\\([\s\S]*?\\\)|\$\$[\s\S]*?\$\$|\$[^$\n]*\$)/g);
+                const fragment = document.createDocumentFragment();
+                let changed = false;
+                parts.forEach((part, index) => {
+                    if (index % 2) { fragment.append(document.createTextNode(part)); return; }
+                    let position = 0;
+                    for (const match of part.matchAll(termPattern)) {
+                        fragment.append(document.createTextNode(part.slice(position, match.index)));
+                        const link = document.createElement("a");
+                        link.href = termLookup[match[0].toLowerCase()];
+                        link.textContent = match[0];
+                        link.className = "dictionary-link";
+                        fragment.append(link);
+                        position = match.index + match[0].length;
+                        changed = true;
+                    }
+                    fragment.append(document.createTextNode(part.slice(position)));
+                });
+                if (changed) node.replaceWith(fragment);
+            });
+        });
+    }
+
     // -----------------------------
     // 5. 应用翻译
     function apply(dict, lang) {
@@ -182,6 +232,8 @@
                 }
             }
         });
+
+        linkCourseTerms(lang);
 
         // --- 更新标题与语言属性 ---
         if (dict['meta.title']) document.title = dict['meta.title'];

@@ -1,5 +1,23 @@
 {
   "concept-title.distribution_type": "分佈",
   "concept-section.beta": "貝他分佈",
-  "concept-title.statistic": "統計基礎"
+  "concept-title.statistic": "統計基礎",
+  "concept-section.binom": "二項分佈",
+  "concept-section.logis": "邏輯斯蒂分佈",
+  "concept-section.nbinom": "負二項分佈",
+  "concept-section.norm": "常態分佈",
+  "concept-section.unif": "均勻分佈",
+  "concept-section.bernoulli": "白努利分佈",
+  "concept-section.exp": "指數分佈",
+  "concept-section.pois": "卜瓦松分佈",
+  "concept-section.chisq": "卡方分佈",
+  "concept-section.t": "學生t分佈",
+  "concept-section.wishart": "威沙特分佈",
+  "group.sampling": "抽樣",
+  "group.counts": "試驗與計數",
+  "group.intervals": "信賴區間",
+  "group.multivariate": "多變量分析",
+  "group.models": "其他模型",
+  "crumb.home": "概念",
+  "concept-section.statistic": "統計量"
 }

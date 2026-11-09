@@ -1,0 +1,79 @@
+.theme-toggle { cursor:pointer; border:1px solid #adb8c8; border-radius:.6rem; padding:.45rem .7rem; background:#fff; color:#23334a; font:inherit; font-size:.9rem }
+html[data-theme=dark] {color-scheme:dark; background:#101722; color:#e1e8f0}
+html[data-theme=dark] body {background:#101722; color:#e1e8f0}
+html[data-theme=dark] :is(h1,h2,h3,h4,strong,figcaption,.description-text,.footer-text,.language-switch label) {color:#e1e8f0}
+html[data-theme=dark] :is(.site-header,.site-footer,.concept-group,figure,blockquote,th,td,.statement,.algo,.theme-toggle,.lang-select,.btn-card,.chapter-btn,.page-btn) {background:#202c3b; border-color:#465569; color:#e1e8f0}
+html[data-theme=dark] :is(a,.brand-text,.keyword,.concept-sub-btn,.concept-btn) {color:#9bcaff}
+html[data-theme=dark] :is(.theme-toggle[aria-pressed=true],a:hover) {color:#c4deff}
+html[data-theme=dark] :is(pre,code[class*=language-],pre[class*=language-]) {background:#172231; color:#e1e8f0; text-shadow:none}
+html[data-theme=dark] .course-nav {--nav-bg:#202c3b; --nav-hover:#334458; --nav-text:#e1e8f0}
+@media(max-width:560px) {
+ body:has(.site-header) {padding-top:110px}
+ .language-switch .lang-select {min-width:0}
+}
+
+/* Match the catalog to the selected theme, including when it differs from the system setting. */
+html[data-theme=light] .course-nav {
+    --nav-bg: #fff;
+    --nav-fg: #24344b;
+    --nav-border: #dce4ee;
+    --nav-hover: #edf3fa;
+}
+html[data-theme=dark] .course-nav {
+    --nav-bg: #202c3b;
+    --nav-fg: #e8eef8;
+    --nav-border: #465569;
+    --nav-hover: #334458;
+}
+html[data-theme=dark] .course-nav__toggle {
+    background: #202c3b;
+    border-color: #465569;
+    color: #e8eef8;
+}
+html[data-theme=dark] .course-nav__toggle:hover { background: #334458; color: #fff; }
+html[data-theme=dark] .header-home:hover { background: #334458; color: #fff; }
+
+/* Keep Prism's syntax colors readable against each theme's code background. */
+html[data-theme] .code-block { border: 1px solid #ccd7e3; background: #f4f7fb; }
+html[data-theme] .code-header { background: #e8eef6; color: #26384e; border-color: #ccd7e3; }
+html[data-theme] .code-block pre,
+html[data-theme] pre[class*="language-"],
+html[data-theme] code[class*="language-"] { background: #f4f7fb !important; color: #202e40; text-shadow: none; }
+html[data-theme] .token.comment { color: #536579; }
+html[data-theme] .token.keyword, html[data-theme] .token.atrule { color: #713c9e; }
+html[data-theme] .token.string, html[data-theme] .token.char { color: #176545; }
+html[data-theme] .token.number, html[data-theme] .token.boolean, html[data-theme] .token.constant { color: #974019; }
+html[data-theme] .token.function, html[data-theme] .token.class-name { color: #165ea0; }
+html[data-theme] .token.operator, html[data-theme] .token.punctuation { color: #34475d; background: transparent; }
+html[data-theme=dark] .code-block { border-color: #43546b; background: #172231; }
+html[data-theme=dark] .code-header { background: #263447; color: #e4edf8; border-color: #43546b; }
+html[data-theme=dark] .code-block pre,
+html[data-theme=dark] pre[class*="language-"],
+html[data-theme=dark] code[class*="language-"] { background: #172231 !important; color: #e4edf8; text-shadow: none; }
+html[data-theme=dark] .token.comment { color: #aabbd0; }
+html[data-theme=dark] .token.keyword, html[data-theme=dark] .token.atrule { color: #d1b7fa; }
+html[data-theme=dark] .token.string, html[data-theme=dark] .token.char { color: #a8dfbd; }
+html[data-theme=dark] .token.number, html[data-theme=dark] .token.boolean, html[data-theme=dark] .token.constant { color: #ffbd8b; }
+html[data-theme=dark] .token.function, html[data-theme=dark] .token.class-name { color: #a9ceff; }
+html[data-theme=dark] .token.operator, html[data-theme=dark] .token.punctuation { color: #d3e0ef; background: transparent; }
+html[data-theme=dark] .code-header .copy-btn img { filter: invert(1); }
+
+html[data-theme=dark] .course-nav__toggle { background: #202c3b; color: #e8eef8; border-color: #465569; box-shadow: 0 3px 12px rgba(0,0,0,.28); }
+html[data-theme=dark] .course-nav__toggle:hover { background: #334458; color: #fff; border-color: #465569; }
+
+/* Keep the course landing page chapter buttons flat and consistent. */
+.course-grid .chapter-btn,
+html[data-theme=dark] .course-grid .chapter-btn {
+    background-image: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    transform: none;
+}
+.course-grid .chapter-btn::before,
+.course-grid .chapter-btn::after { content: none !important; }
+.course-grid .chapter-btn:hover:not(:disabled),
+html[data-theme=dark] .course-grid .chapter-btn:hover:not(:disabled) {
+    background-image: none !important;
+    box-shadow: none !important;
+    transform: none;
+}

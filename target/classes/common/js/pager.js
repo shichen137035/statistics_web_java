@@ -116,6 +116,7 @@ function setPagerButtons(prev, next, prefix) {
 
     // 上一页按钮
     if (prev) {
+        prevBtn.hidden = false;
         const seq = prev.number || "";
         const title = prev.title || "";
 
@@ -133,12 +134,14 @@ function setPagerButtons(prev, next, prefix) {
             `</span>`;
     } else {
         prevBtn.disabled = true;
+        prevBtn.hidden = true;
         prevBtn.onclick = null;
         prevBtn.innerHTML = "";    // 空内容
     }
 
     // 下一页按钮
     if (next) {
+        nextBtn.hidden = false;
         const seq = next.number || "";
         const title = next.title || "";
 
@@ -156,9 +159,31 @@ function setPagerButtons(prev, next, prefix) {
             ` &raquo;`;   // 右箭头永远在最后面
     } else {
         nextBtn.disabled = true;
+        nextBtn.hidden = true;
         nextBtn.onclick = null;
         nextBtn.innerHTML = "";    // 空内容
     }
+
+    // Keep a lone next button on the right when the first page has no previous page.
+    nextBtn.style.marginLeft = !prev && next ? "auto" : "";
+
+    // These are the two bottom navigation buttons shown on every course page.
+    // Apply the same flat surface as the dark course list cards directly to
+    // the elements so older cached stylesheets cannot restore gradients/glows.
+    [prevBtn, nextBtn].forEach((button) => {
+        const paint = (hovered = false) => {
+            const dark = document.documentElement.dataset.theme !== "light";
+            button.style.setProperty("background", dark ? (hovered ? "#263547" : "#202c3b") : (hovered ? "#f2f6fb" : "#fff"), "important");
+            button.style.setProperty("background-image", "none", "important");
+            button.style.setProperty("border", dark ? "1px solid #465569" : "1px solid #d7e1ed", "important");
+            button.style.setProperty("box-shadow", "none", "important");
+            button.style.setProperty("transform", "none", "important");
+            button.style.setProperty("color", dark ? (hovered ? "#fff" : "#e2ebf7") : (hovered ? "#203f69" : "#304765"), "important");
+        };
+        paint();
+        button.addEventListener("mouseenter", () => paint(true));
+        button.addEventListener("mouseleave", () => paint(false));
+    });
 }
 
 

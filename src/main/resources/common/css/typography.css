@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap');
+
+/* Use the same typeface for reading and navigation on every page. */
+html body,
+body .site-header__inner,
+body .brand-text,
+body .course-nav,
+body .course-nav__title,
+body .concept-crumbs,
+body .algo,
+body h1, body h2, body h3, body h4, body h5, body h6,
+body figcaption, body .site-footer p,
+body .description-text, body .footer-text,
+body button, body select, body input, body textarea {
+    font-family: "Source Sans 3", "Noto Sans", sans-serif;
+}
+
+/* Preserve a monospaced face for code and leave MathJax fonts untouched. */
+body pre, body code, body pre[class*="language-"], body code[class*="language-"] {
+    font-family: "IBM Plex Mono", monospace;
+}

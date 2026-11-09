@@ -71,3 +71,18 @@ figure figcaption {
     color: #6b7280; /* slate-500 */
     margin-top: 0.5rem;
 }
+#concept-list-domain, main.container:has(.distribution-page) {max-width:56rem; margin:1.5rem auto 3rem; padding:0 1rem; text-align:start}
+.distribution-page :is(p, ul, pre) {max-width:70ch}
+.distribution-page p {line-height:1.65}
+.distribution-page mjx-container[display=true] {max-width:100%; overflow-x:auto; padding-block:.4rem}
+.topic-list {display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,16rem),1fr)); gap:1rem}
+.topic-list section {padding:.75rem 1rem; border:1px solid #8796aa70; border-radius:.55rem}
+.topic-list h3 {margin:0}
+.topic-list a {display:inline-block; padding:.22rem 0}
+.distribution-page .plots {display:grid; grid-template-columns:repeat(2,minmax(0,1fr))}
+.distribution-page .plots figure {max-width:none; margin:.5rem 0}
+@media(max-width:600px){.distribution-page .plots {grid-template-columns:1fr}}
+
+/* Keep linked dictionary entries visible below the fixed header. */
+#statistic-keywords a[id] { scroll-margin-top: 120px; }
+#statistic-keywords a[id]:target { outline: 2px solid #6294d6; outline-offset: 4px; border-radius: 2px; }

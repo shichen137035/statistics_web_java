@@ -1,0 +1,19 @@
+{
+  "distribution.title": "Wishart distribution",
+  "distribution.definition_heading": "Definition",
+  "distribution.intro": "The Wishart distribution is a distribution on positive semidefinite matrices. It generalizes the chi-squared distribution and describes sums of outer products of multivariate normal vectors.",
+  "distribution.formula_heading": "Probability model",
+  "distribution.formula": "If \\(Z_1,\\ldots,Z_n\\) are independent \\(N_m(0,\\Sigma)\\) vectors, then \\(A=\\sum_{i=1}^{n} Z_i Z_i^\\mathsf{T}\\sim W_m(n,\\Sigma)\\).",
+  "distribution.properties_heading": "Properties",
+  "distribution.properties": "The mean matrix is \\(E[A]=n\\Sigma\\). In one dimension with \\(\\Sigma=1\\), this reduces to \\(\\chi^2_n\\). When \\(n<m\\), the resulting matrix is singular.",
+  "distribution.plots": "Example plots",
+  "distribution.density_caption": "Example probability density",
+  "distribution.cdf_caption": "Example cumulative distribution function",
+  "distribution.course_heading": "In the course",
+  "distribution.course": "The canonical correlation analysis chapter defines the Wishart distribution in its discussion of multivariate normal samples.",
+  "distribution.course_link": "See the Wishart matrix in canonical correlation analysis",
+  "distribution.r_heading": "In R",
+  "distribution.r_intro": "R’s stats package can generate Wishart random matrices:",
+  "distribution.r_code": "rwishart(1, df = 5, Sigma = diag(2))",
+  "distribution.reference": "R documentation"
+}

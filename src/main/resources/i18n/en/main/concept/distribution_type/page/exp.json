@@ -1,0 +1,19 @@
+{
+  "distribution.title": "Exponential distribution",
+  "distribution.definition_heading": "Definition",
+  "distribution.intro": "The exponential distribution models a nonnegative waiting time with constant rate \\(\\lambda>0\\).",
+  "distribution.formula_heading": "Probability model",
+  "distribution.formula": "For \\(x\\ge0\\), its density is \\(f(x)=\\lambda e^{-\\lambda x}\\) and its CDF is \\(F(x)=1-e^{-\\lambda x}\\).",
+  "distribution.properties_heading": "Properties",
+  "distribution.properties": "Its mean is \\(1/\\lambda\\), its variance is \\(1/\\lambda^2\\), and it has the memoryless property: \\(P(X>s+t\\mid X>s)=P(X>t)\\) for nonnegative \\(s,t\\).",
+  "distribution.plots": "Example plots",
+  "distribution.density_caption": "Example probability density",
+  "distribution.cdf_caption": "Example cumulative distribution function",
+  "distribution.course_heading": "In the course",
+  "distribution.course": "The course derives an exponential sample using the inversion method and uses the distribution in an estimating-function example.",
+  "distribution.course_link": "Generate exponential samples by inversion",
+  "distribution.r_heading": "In R",
+  "distribution.r_intro": "These examples use functions from R’s stats package. For functions with d, p, q, and r prefixes, they compute a density or mass, cumulative probability, quantile, and random samples, respectively.",
+  "distribution.r_code": "dexp(1, rate = 2)\npexp(1, rate = 2)\nqexp(0.5, rate = 2)\nrexp(100, rate = 2)",
+  "distribution.reference": "R documentation"
+}
