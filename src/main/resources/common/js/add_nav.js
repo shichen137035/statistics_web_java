@@ -1,6 +1,6 @@
 // 加载 nav
-import {loadComponent} from "/common/js/util_tool.js";
+import {loadComponent} from "./util_tool.js?v=2";
 (function () {
     console.log("loading nav.");
-    void loadComponent("/component/course_nav_rendered.html","course-nav");
+    void loadComponent("component/course_nav_rendered.html?v=2","course-nav");
 })();

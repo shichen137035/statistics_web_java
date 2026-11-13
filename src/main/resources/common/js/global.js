@@ -1,17 +1,17 @@
 // /common/js/init_config.js
-import { injectCss, injectJsSequential, loadComponent } from "/common/js/util_tool.js";
+import { injectCss, injectJsSequential, loadComponent } from "./util_tool.js?v=2";
 // import "./add_header.js";
-// await injectJsSequential(["/common/js/nocache.js"])
+// await injectJsSequential(["common/js/nocache.js"])
 await injectJsSequential([
-    "/common/js/global_config.js"
+    "common/js/global_config.js?v=2"
 ])
-await loadComponent("/component/language_switch.html?v=4", "language-switch");
+await loadComponent("component/language_switch.html?v=5", "language-switch");
 
 (function () {
     // 注入全局 CSS
     injectCss([
-        "/common/css/global_style.css?v=11",
-        "/common/css/popup_style.css?v=11"
+        "common/css/global_style.css?v=11",
+        "common/css/popup_style.css?v=11"
     ]);
 
     let pageEnhancementsStarted = false;
@@ -19,8 +19,8 @@ await loadComponent("/component/language_switch.html?v=4", "language-switch");
         if (!pageEnhancementsStarted) {
             pageEnhancementsStarted = true;
             void injectJsSequential([
-                "/common/js/mathjax.js",
-                "/common/js/code_highlight.js"
+                "common/js/mathjax.js",
+                "common/js/code_highlight.js?v=2"
             ]);
             return;
         }
@@ -29,9 +29,9 @@ await loadComponent("/component/language_switch.html?v=4", "language-switch");
 
     // 注入全局 JS
     void injectJsSequential([
-        // "/common/js/add_header.js",
-        "/common/js/language_switch.js?v=5",
-        "/common/js/keyword_popup.js"
+        // "common/js/add_header.js",
+        "common/js/language_switch.js?v=6",
+        "common/js/keyword_popup.js"
     ]);
 
 

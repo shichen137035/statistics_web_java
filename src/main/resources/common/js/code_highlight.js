@@ -1,3 +1,5 @@
+import { siteUrl } from "./site_url.js";
+
 // 配置并动态加载 Prism.js
 (function () {
     // 1. 注入 Prism.js VSCode(okaidia) 风格 CSS
@@ -31,8 +33,8 @@
     };
     document.head.appendChild(script);
 
-    const COPY_ICON = "/common/img/code_paste.png";
-    const DONE_ICON = "/common/img/paste_finish.png";
+    const COPY_ICON = siteUrl("common/img/code_paste.png");
+    const DONE_ICON = siteUrl("common/img/paste_finish.png");
 
     function wrapCodeBlocks() {
         document.querySelectorAll("pre > code").forEach(code => {

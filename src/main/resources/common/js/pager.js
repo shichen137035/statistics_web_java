@@ -1,6 +1,8 @@
+import { siteUrl } from "./site_url.js";
+
 async function loadCourseJson() {
     try {
-        const res = await fetch("/component/course.json", { cache: "no-store" });
+        const res = await fetch(siteUrl("component/course.json"), { cache: "no-store" });
         return await res.json();
     } catch (e) {
         console.error("Failed to load course.json:", e);
@@ -112,7 +114,7 @@ function setPagerButtons(prev, next, prefix) {
     const nextBtn = document.getElementById("next-btn");
 
     // 兜底：如果实在没拿到 prefix，就退回最原始的绝对前缀（可按你部署情况改）
-    const base = prefix || "/main/course/";
+    const base = prefix || siteUrl("main/course/");
 
     // 上一页按钮
     if (prev) {
@@ -203,4 +205,4 @@ async function initPager() {
 }
 
 // 直接执行
-void initPager();
+await initPager();

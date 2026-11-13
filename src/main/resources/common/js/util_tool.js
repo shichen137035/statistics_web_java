@@ -1,3 +1,5 @@
+import { siteUrl } from "./site_url.js";
+
 /**
  * 批量注入 CSS 文件
  * 注入的 link 永远排在现有 link 标签之前（优先级更低）
@@ -10,7 +12,7 @@ export function injectCss(cssFiles) {
     cssFiles.forEach(href => {
         const link = document.createElement("link");
         link.rel = "stylesheet";
-        link.href = href;
+        link.href = siteUrl(href);
 
         if (firstLink) {
             // 插入到第一个 link 之前
@@ -33,7 +35,7 @@ export async function injectJsSequential(jsFiles) {
     for (const src of jsFiles) {
         await new Promise((resolve, reject) => {
             const script = document.createElement("script");
-            script.src = src;
+            script.src = siteUrl(src);
             script.type = "module";    // 建议强制用 module，避免依赖顺序问题
             script.async = false;      // 禁止异步执行
             script.onload = () => resolve();
@@ -46,13 +48,13 @@ export async function injectJsSequential(jsFiles) {
 
 export async function loadComponent(url, targetId) {
     try {
-        const res = await fetch(url);
+        const componentUrl = siteUrl(url);
+        const res = await fetch(componentUrl);
         if (!res.ok) {
             console.warn(`⚠️ 无法加载组件: ${url} (status ${res.status})`);
             return;
         }
 
-        const data = await res.text();
         const target = document.getElementById(targetId);
 
         if (!target) {
@@ -60,7 +62,17 @@ export async function loadComponent(url, targetId) {
             return;
         }
 
-        target.innerHTML = data; // 同步注入
+        const template = document.createElement("template");
+        template.innerHTML = await res.text();
+        for (const element of template.content.querySelectorAll("[href], [src]")) {
+            for (const attr of ["href", "src"]) {
+                const value = element.getAttribute(attr);
+                if (value && !value.startsWith("#")) {
+                    element.setAttribute(attr, new URL(value, componentUrl).href);
+                }
+            }
+        }
+        target.replaceChildren(template.content);
         console.log(`✅ 组件 ${url} 已成功加载到 #${targetId}`);
     } catch (err) {
         console.warn(`⚠️ 加载组件时发生异常: ${url}`, err);
@@ -74,7 +86,7 @@ export function injectJs(jsFiles) {
 
     jsFiles.forEach(src => {
         const script = document.createElement("script");
-        script.src = src;
+        script.src = siteUrl(src);
         script.defer = true;
 
         if (firstScript) {

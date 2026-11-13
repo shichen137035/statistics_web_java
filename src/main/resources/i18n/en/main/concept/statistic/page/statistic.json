@@ -1,14 +1,3 @@
 {
-  "name": "page",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/shichen137035/statistics_web_java.git"
-  },
-  "private": true
+  "desc": "Statistics is the discipline concerned with the collection, organization, analysis, and interpretation of data. It encompasses descriptive statistics (summarizing features of data), statistical inference (drawing conclusions about populations from samples), and probability theory as its mathematical foundation. Core concepts include random variable, [[distribution]], estimator, hypothesis testing, confidence intervals, regression, and asymptotic theory, which together provide a framework for reasoning under uncertainty."
 }

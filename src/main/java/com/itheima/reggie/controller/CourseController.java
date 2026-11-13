@@ -198,7 +198,7 @@ public class CourseController {
                 String folderPath = basePath.substring(0, basePath.lastIndexOf("/"));
                 String sectionIndexPath = folderPath + "/section_index.html";
 
-                sb.append("    <a href=\"/main/concept/")
+                sb.append("    <a href=\"../main/concept/")
                         .append(esc(sectionIndexPath))
                         .append("\" class=\"btn-link\">")
                         .append("<button class=\"concept-btn\" data-i18n=\"concept-title.")
@@ -216,7 +216,7 @@ public class CourseController {
 
                     String fileBaseName = filePath.substring(filePath.lastIndexOf("/") + 1).replace(".html", "");
 
-                    sb.append("      <a href=\"/main/concept/")
+                    sb.append("      <a href=\"../main/concept/")
                             .append(esc(filePath))
                             .append("\" class=\"btn-link sub-btn\">")
                             .append("<button class=\"concept-sub-btn\" data-i18n=\"concept-section.")
@@ -280,8 +280,9 @@ public class CourseController {
             if (filePath.endsWith("section_index.html")) continue;
 
             String fileBaseName = filePath.substring(filePath.lastIndexOf("/") + 1).replace(".html", "");
-            innerHtml.append("  <li><a href=\"/main/concept/")
-                    .append(esc(filePath))
+            Path relativePath = Paths.get(folderName, "page").relativize(Paths.get(filePath));
+            innerHtml.append("  <li><a href=\"")
+                    .append(esc(relativePath.toString().replace('\\', '/')))
                     .append("\" data-i18n=\"concept-section.")
                     .append(esc(fileBaseName))
                     .append("\"></a></li>\n");
@@ -370,7 +371,7 @@ public class CourseController {
 
             if (hasContent) {
                 // 正常按钮（带链接）
-                sb.append("  <a href=\"/main/course/")
+                sb.append("  <a href=\"../main/course/")
                         .append(esc(path)).append("\" class=\"btn-link\">")
                         .append("<button class=\"chapter-btn\">");
             } else {
@@ -508,7 +509,7 @@ public class CourseController {
                 sb.append(indent).append("    <div class=\"course-nav__row\">\n");
                 sb.append(indent).append("        <span class=\"course-nav__icon\"></span>\n");
 
-                sb.append(indent).append("        <a class=\"course-nav__link\" href=\"/main/course/")
+                sb.append(indent).append("        <a class=\"course-nav__link\" href=\"../main/course/")
                         .append(esc(path)).append("\">");
                 if (seq != null && !seq.isEmpty()) {
                     sb.append("<span class=\"course-nav__seq\">")

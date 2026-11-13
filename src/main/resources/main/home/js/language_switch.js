@@ -1,8 +1,10 @@
+import { sitePathname, siteUrl } from "../../../common/js/site_url.js";
+
 (function(){
     const select = document.getElementById('lang-select');
 
     function normalizePathname() {
-        let p = location.pathname || '/';
+        let p = sitePathname();
         p = p.replace(/\/{2,}/g, '/');      // 清理重复斜杠
         if (p === '/') return '/index';
         if (p.endsWith('/')) p += 'index';  // 目录 → index
@@ -14,19 +16,12 @@
     function makeI18nUrl(lang) {
         const p = normalizePathname();
 
-        // case 1: /frontend/ 开头 → 插入 i18n/{lang}/
-        if (p.startsWith('/frontend/')) {
-            const rest = p.slice('/frontend/'.length);
-            return `/frontend/i18n/${lang}/${rest}.json`;
-        }
-
-        // case 2: 其他路径 → 前置 /i18n/{lang}
-        return `/i18n/${lang}${p}.json`;
+        return `i18n/${lang}${p}.json`;
     }
 
     async function loadDict(lang){
         const url = makeI18nUrl(lang);
-        const res = await fetch(url, { cache: 'no-store' });
+        const res = await fetch(siteUrl(url), { cache: 'no-store' });
         if (!res.ok) throw new Error(`Cannot load: ${url}`);
         return res.json();
     }

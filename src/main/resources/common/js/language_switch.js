@@ -1,9 +1,11 @@
+import { sitePathname, siteUrl } from "./site_url.js";
+import "./theme.js";
+
 const typography = document.createElement("link");
 typography.rel = "stylesheet";
-typography.href = "/common/css/typography.css?v=4";
+typography.href = siteUrl("common/css/typography.css?v=4");
 document.head.appendChild(typography);
 
-import "./theme.js";
 (async function () {
     const select = document.getElementById('lang-select');
     const STORAGE_KEY = "globalLang";
@@ -30,64 +32,11 @@ import "./theme.js";
     }
 
     // -----------------------------
-    // 1. 路径 & 文件加载逻辑（保持不变）
-    function normalizePathname() {
-        const keepFrom = ['common', 'component', 'home', 'i18n', 'main', 'subpage'];
-
-        let raw = location.pathname || '/';
-        raw = raw.replace(/\/{2,}/g, '/');
-
-        const segments = raw.split('/').filter(Boolean); // 去掉空段
-        let p;
-
-        // 找到第一个出现在 keepFrom 中的段
-        const idx = segments.findIndex(seg => keepFrom.includes(seg));
-
-        if (idx >= 0) {
-            // 从 keepFrom 那段重新开始拼接
-            p = '/' + segments.slice(idx).join('/');
-        } else {
-            // 完全没出现 keepFrom → 返回最后一个文件名（或目录名）
-            const last = segments[segments.length - 1] || '';
-            p = '/' + last;
-        }
-
-        // ==== 原本你的后处理逻辑 ====
-
-        if (p === '/' || p === '') return '/index';
-
-        if (p.endsWith('/')) p += 'index';
-
-        // 去掉 .html
-        p = p.replace(/\.html?$/i, '');
-
-        p = decodeURIComponent(p);
-
-        return p;
-    }
-
-    async function makePageI18nUrl(lang) {
-        const p = normalizePathname();
-        console.log("path:",p)
-        let pp = `/i18n/${lang}${p}.json`;
-
-        try {
-            // 尝试获取文件 (仅 HEAD 请求即可)
-            const res = await fetch(pp, { method: 'HEAD' });
-            if (res.ok) {
-                return pp;  // 文件存在
-            } else {
-                console.warn(`i18n file not found: ${pp}, fallback to English`);
-                return `/i18n/en${p}.json`;
-            }
-        } catch (e) {
-            console.error(`Error checking i18n file ${pp}:`, e);
-            return `/i18n/en${p}.json`;
-        }
-    }
+    const pathname = sitePathname();
+    const page = pathname.endsWith("/") ? pathname + "index" : pathname.replace(/\.html?$/i, "");
 
     async function fetchJson(url) {
-        const res = await fetch(url, { cache: 'no-store' });
+        const res = await fetch(siteUrl(url), { cache: 'no-store' });
         if (!res.ok) throw new Error(`Cannot load: ${url} (${res.status})`);
         return res.json();
     }
@@ -95,11 +44,7 @@ import "./theme.js";
     // -----------------------------
     // 2. 加载所有字典
     async function loadAllDicts(lang) {
-        const base = `/i18n/${lang}`;
-        const pp = await makePageI18nUrl(lang);
-
-        // 获取当前页面路径
-        const pathname = window.location.pathname || "";
+        const base = `i18n/${lang}`;
 
         // 固定的几个字典
         const urls = [
@@ -108,19 +53,19 @@ import "./theme.js";
         ];
 
         // 根据路径动态追加
-        if (pathname.startsWith("/main/course")) {
+        if (pathname.startsWith("/main/course/")) {
             urls.push(`${base}/catalog.json`);
-        } else if (pathname.startsWith("/main/concept")) {
+        } else if (pathname.startsWith("/main/concept/")) {
             urls.push(`${base}/concept_dic.json`);
         }
 
-        // 页面专属字典（最高优先级）
-        urls.push(pp);
-
-        console.log("加载的字典列表:", urls);
-
-        const results = await Promise.allSettled(urls.map(fetchJson));
-        const dicts = results.map(r => (r.status === "fulfilled" ? r.value : {}));
+        // Section index labels come from the shared concept dictionary.
+        if (!page.endsWith("/section_index")) {
+            urls.push(`${base}${page}.json`);
+        }
+        const dicts = await Promise.all(urls.map(url => fetchJson(url).catch(() =>
+            lang === "en" ? {} : fetchJson(url.replace(base, "i18n/en")).catch(() => ({}))
+        )));
 
         // 合并所有字典
         return Object.assign({}, ...dicts);
@@ -131,8 +76,7 @@ import "./theme.js";
     let keywordMeta = {};
     async function loadKeywordMeta() {
         try {
-            const res = await fetch('/common/json/keyword.json', { cache: 'no-store' });
-            keywordMeta = await res.json();
+            keywordMeta = await fetchJson("common/json/keyword.json?v=2");
         } catch (e) {
             console.warn('Cannot load keyword meta:', e);
         }
@@ -145,16 +89,16 @@ import "./theme.js";
             const info = keywordDict[key];
             if (info) {
                 const translated = dict[info.i18nKey] || key;
-                const subpage = info.subpage || info.mainPage || "";
-                return `<a href="${info.mainPage}" class="keyword" data-subpage="${subpage}">${translated}</a>`;
+                const preview = info.subpage ? ` data-subpage="${siteUrl(info.subpage)}"` : "";
+                return `<a href="${siteUrl(info.mainPage)}" class="keyword"${preview}>${translated}</a>`;
             }
-            return key;
+            return dict[`keyword.${key}`] || key;
         });
     }
 
     // Link English course prose to the corresponding dictionary entry.
-    const dictionaryLinks = location.pathname.toLowerCase().startsWith("/main/course/")
-        ? await fetch("/common/json/course_dictionary_links.json").then(response => response.ok ? response.json() : {}).catch(() => ({}))
+    const dictionaryLinks = pathname.startsWith("/main/course/")
+        ? await fetchJson("common/json/course_dictionary_links.json?v=2").catch(() => ({}))
         : {};
     const genericTerms = new Set(["vector", "matrix", "array", "functions", "loops", "sampling", "classification", "bias", "consistency", "likelihood"]);
     const terms = Object.keys(dictionaryLinks).filter(term => !genericTerms.has(term.toLowerCase())).sort((a, b) => b.length - a.length);
@@ -182,7 +126,7 @@ import "./theme.js";
                     for (const match of part.matchAll(termPattern)) {
                         fragment.append(document.createTextNode(part.slice(position, match.index)));
                         const link = document.createElement("a");
-                        link.href = termLookup[match[0].toLowerCase()];
+                        link.href = siteUrl(termLookup[match[0].toLowerCase()]);
                         link.textContent = match[0];
                         link.className = "dictionary-link";
                         fragment.append(link);

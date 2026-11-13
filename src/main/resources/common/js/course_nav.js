@@ -1,6 +1,6 @@
-// import {loadComponent} from "/common/js/util_tool.js";
+import { siteUrl } from "./site_url.js";
 (function () {
-    // void loadComponent("/component/course_nav_rendered.html","course-nav");
+    // void loadComponent("component/course_nav_rendered.html?v=2","course-nav");
     const nav = document.getElementById("course-nav");
     // console.log("nav:",nav)
     const nav_aside = document.getElementById("courseNav");
@@ -19,7 +19,7 @@
     async function loadCourseJson() {
         console.log("Start loading json.")
         try {
-            const res = await fetch("/component/course.json", { cache: "no-store" });
+            const res = await fetch(siteUrl("component/course.json"), { cache: "no-store" });
             const data = await res.json();
             console.log("data:",data)
             // console.log("tree:",tree)
@@ -71,7 +71,7 @@
                 const link = document.createElement("a");
                 link.className = "course-nav__link";
                 link.textContent = node.name;
-                link.href = "/main/course/" + node.path;
+                link.href = siteUrl("main/course/" + node.path);
 
                 row.appendChild(icon);
                 row.appendChild(link);

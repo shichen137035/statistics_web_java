@@ -1,12 +1,12 @@
 [
   {
-    "name": "Introduction",
+    "name": "introduction",
     "type": "folder",
     "children": [
       {
         "name": "Concept introduction.html",
         "type": "file",
-        "path": "Introduction/page/Concept introduction.html",
+        "path": "introduction/page/Concept introduction.html",
         "c_name": "Concept introduction"
       }
     ],
