@@ -1,0 +1,17 @@
+{
+  "meta.title": "Bayesian updating",
+  "reference.title": "Further reading",
+  "reference.text": "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari and Donald B. Rubin, Bayesian Data Analysis, 3rd ed., CRC Press, 2013, chapters 1–2.",
+  "content.0": "Suppose we want to estimate the probability $p$ that a coin lands heads. Before tossing it, we are uncertain about $p$, though we may have some prior information. After observing several tosses, we update that uncertainty.",
+  "content.1": "Bayesian inference combines what we knew before collecting data with what the new data tell us. A prior distribution represents uncertainty about an unknown parameter before observing the data; the posterior distribution represents uncertainty after the data are observed.",
+  "content.2": "Bayes’ theorem",
+  "content.3": "For events $A$ and $B$, Bayes’ theorem is",
+  "content.4": "$$P(A\\mid B)=\\frac{P(B\\mid A)P(A)}{P(B)}.$$",
+  "content.5": "For an unknown parameter $\\theta$ and data $x$, the same idea gives",
+  "content.6": "$$\\pi(\\theta\\mid x)=\\frac{f(x\\mid\\theta)\\pi(\\theta)}{m(x)}\\propto f(x\\mid\\theta)\\pi(\\theta).$$",
+  "content.7": "Here $\\pi(\\theta)$ is the prior, $f(x\\mid\\theta)$ is the likelihood, and $\\pi(\\theta\\mid x)$ is the posterior. The normalizing constant $m(x)$ makes the posterior integrate to one. In words: posterior is proportional to likelihood times prior.",
+  "content.8": "A discrete example",
+  "content.9": "Suppose a coin is equally likely to be fair or double-headed. Let $H$ be the hypothesis that it is double-headed. Before a toss, $P(H)=1/2$. If heads is observed, $P(\\text{heads}\\mid H)=1$ and $P(\\text{heads}\\mid H^c)=1/2$.",
+  "content.10": "$$P(H\\mid\\text{heads})=\\frac{1\\cdot(1/2)}{1\\cdot(1/2)+(1/2)\\cdot(1/2)}=\\frac23.$$",
+  "content.11": "The observation raises the probability of the double-headed hypothesis from one half to two thirds. The next page extends this idea to a continuous parameter."
+}

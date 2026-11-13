@@ -38,5 +38,11 @@
   "catalogtitle.Principal component": "主成分",
   "catalogtitle.Sample principal component": "標本主成分",
   "catalogtitle.Canonical correlation": "正準相関",
-  "catalogtitle.Numerical example for canonical correlation": "正準相関の数値例"
+  "catalogtitle.Numerical example for canonical correlation": "正準相関の数値例",
+  "catalogtitle.Bayesian Inference": "ベイズ推論",
+  "catalogtitle.Bayesian updating": "ベイズ更新",
+  "catalogtitle.Beta-Binomial model": "ベータ二項モデル",
+  "catalogtitle.Understanding the posterior": "事後分布の理解",
+  "catalogtitle.More conjugate models": "その他の共役モデル",
+  "catalogtitle.Choosing a prior": "事前分布の選択"
 }

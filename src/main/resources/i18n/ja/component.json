@@ -6,5 +6,7 @@
   "Course Catalog Title": "コースメニュー",
   "lang select title": "言語",
   "theme.dark": "ダークモード",
-  "nav.home": "ホーム"
+  "nav.home": "ホーム",
+  "concept.search.label": "概念を検索",
+  "concept.search.placeholder": "分布と統計用語を検索"
 }

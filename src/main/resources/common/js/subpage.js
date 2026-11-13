@@ -4,23 +4,28 @@ import { injectCss, injectJsSequential } from "/common/js/util_tool.js";
 
 // 注入全局 CSS
 injectCss([
-    "/common/css/subpage_style.css",
-    "/common/css/popup_style.css",
-    "/common/css/algorithm_style.css",
-    "/common/css/code_style.css"
+    "/common/css/subpage_style.css?v=11",
+    "/common/css/popup_style.css?v=11",
+    "/common/css/algorithm_style.css?v=11",
+    "/common/css/code_style.css?v=11"
 ]);
 
+let pageEnhancementsStarted = false;
 document.addEventListener("i18nApplied", () => {
-    console.log("✅ All JSON loaded and applied");
-    injectJsSequential([
-        "/common/js/mathjax.js",
-        "/common/js/code_highlight.js"
-    ])
+    if (!pageEnhancementsStarted) {
+        pageEnhancementsStarted = true;
+        void injectJsSequential([
+            "/common/js/mathjax.js",
+            "/common/js/code_highlight.js"
+        ]);
+        return;
+    }
+    window.MathJax?.typesetPromise?.();
 });
 
 // 注入全局 JS
 injectJsSequential([
-    "/common/js/language_switch.js",
+    "/common/js/language_switch.js?v=5",
     "/common/js/subpage_keyword_listener.js",
 
     "/common/js/adjust_subpage_size.js"

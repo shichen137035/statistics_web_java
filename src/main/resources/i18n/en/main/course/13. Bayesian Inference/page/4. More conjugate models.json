@@ -1,0 +1,21 @@
+{
+  "meta.title": "More conjugate models",
+  "reference.title": "Further reading",
+  "reference.text": "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari and Donald B. Rubin, Bayesian Data Analysis, 3rd ed., CRC Press, 2013, chapters 1–2.",
+  "content.0": "Normal prior and Normal data",
+  "content.1": "Suppose the observations are independent, with unknown mean $\\mu$ and known variance $\\sigma^2$. We represent prior uncertainty about the mean with a Normal distribution:",
+  "content.2": "$$X_i\\mid\\mu\\sim\\operatorname{Normal}(\\mu,\\sigma^2),\\qquad \\mu\\sim\\operatorname{Normal}(\\mu_0,\\tau_0^2).$$",
+  "content.3": "After observing $n$ values with sample mean $\\bar{x}$, the posterior is $\\operatorname{Normal}(\\mu_n,\\tau_n^2)$, where",
+  "content.4": "$$\\tau_n^2=\\left(\\frac{1}{\\tau_0^2}+\\frac{n}{\\sigma^2}\\right)^{-1},$$",
+  "content.5": "$$\\mu_n=\\tau_n^2\\left(\\frac{\\mu_0}{\\tau_0^2}+\\frac{n\\bar{x}}{\\sigma^2}\\right).$$",
+  "content.6": "The posterior mean combines the prior mean and the sample mean. The more precise source of information receives more weight.",
+  "content.7": "For example, let $\\mu\\sim N(0,4)$, $\\sigma^2=4$, and observe $n=4$ values with $\\bar{x}=3$. Then $\\tau_n^2=0.8$ and $\\mu_n=2.4$, so $\\mu\\mid x\\sim N(2.4,0.8)$.",
+  "content.8": "Gamma prior and Poisson data",
+  "content.9": "Suppose events occur according to a Poisson process with unknown rate $\\lambda$. For an observation period of length $E$, the total count follows",
+  "content.10": "$$X\\mid\\lambda\\sim\\operatorname{Poisson}(E\\lambda),\\qquad \\lambda\\sim\\operatorname{Gamma}(\\alpha,\\beta).$$",
+  "content.11": "The Gamma distribution is parameterized here by shape $\\alpha$ and rate $\\beta$. After observing $x$ events over exposure $E$, the posterior is",
+  "content.12": "$$\\lambda\\mid x\\sim\\operatorname{Gamma}(\\alpha+x,\\,\\beta+E).$$",
+  "content.13": "For example, use a $\\operatorname{Gamma}(2,1)$ prior and observe 7 events over 2 units of time. Then",
+  "content.14": "$$\\lambda\\mid x=7\\sim\\operatorname{Gamma}(9,3).$$",
+  "content.15": "The posterior mean rate is $9/3=3$ events per unit of time."
+}

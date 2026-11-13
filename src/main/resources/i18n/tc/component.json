@@ -6,5 +6,7 @@
   "Course Catalog Title": "課程目錄",
   "lang select title": "Language",
   "theme.dark": "深色模式",
-  "nav.home": "首頁"
+  "nav.home": "首頁",
+  "concept.search.label": "搜尋概念",
+  "concept.search.placeholder": "搜尋分佈與統計術語"
 }

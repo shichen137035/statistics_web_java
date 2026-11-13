@@ -1,0 +1,18 @@
+{
+  "meta.title": "Beta-Binomial model",
+  "reference.title": "Further reading",
+  "reference.text": "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari and Donald B. Rubin, Bayesian Data Analysis, 3rd ed., CRC Press, 2013, chapters 1–2.",
+  "content.0": "Suppose $X$ is the number of successes in $n$ independent trials, each with success probability $p$.",
+  "content.1": "$$X\\mid p\\sim\\operatorname{Binomial}(n,p),\\qquad p\\sim\\operatorname{Beta}(\\alpha,\\beta).$$",
+  "content.2": "For observed $x$ successes, the likelihood is proportional to $p^x(1-p)^{n-x}$ as a function of $p$. The Beta prior density is proportional to $p^{\\alpha-1}(1-p)^{\\beta-1}$, for $\\alpha,\\beta>0$.",
+  "content.3": "Deriving the posterior",
+  "content.4": "$$\\pi(p\\mid x)\\propto p^x(1-p)^{n-x}p^{\\alpha-1}(1-p)^{\\beta-1}=p^{\\alpha+x-1}(1-p)^{\\beta+n-x-1}.$$",
+  "content.5": "We use a Beta distribution as the prior. After observing $x$ successes, the posterior is",
+  "content.6": "$$p\\mid x\\sim\\operatorname{Beta}(\\alpha+x,\\,\\beta+n-x).$$",
+  "content.7": "For example, start with $p\\sim\\operatorname{Beta}(2,2)$ and observe 8 successes in 10 trials. The posterior becomes",
+  "content.8": "$$p\\mid x=8\\sim\\operatorname{Beta}(10,4).$$",
+  "content.9": "Its posterior mean is $10/14\\approx0.714$, while the observed proportion is $8/10=0.8$. The Beta prior is conjugate to the Binomial likelihood because the posterior is also a Beta distribution.",
+  "content.10": "Plotting the update in R",
+  "content.11": "Compare the prior with the posterior. Change the observed counts to see how new data affect the distribution.",
+  "content.12": "p <- seq(0, 1, length.out = 500)\nplot(p, dbeta(p, 2, 2), type = \"l\", lwd = 2,\n     xlab = \"Probability of success\", ylab = \"Density\")\nlines(p, dbeta(p, 10, 4), col = \"steelblue\", lwd = 2)\nlegend(\"topright\", c(\"Prior\", \"Posterior\"),\n       col = c(\"black\", \"steelblue\"), lwd = 2)"
+}

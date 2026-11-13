@@ -1,21 +1,53 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
 
-/* Use the same typeface for reading and navigation on every page. */
-html body,
-body .site-header__inner,
-body .brand-text,
-body .course-nav,
-body .course-nav__title,
-body .concept-crumbs,
-body .algo,
+/* Shared typography with dependable local fallbacks for each writing system. */
+:root {
+    --font-latin: "Source Sans 3", "Noto Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-ja: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+    --font-zh: "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+    --font-tc: "Noto Sans CJK TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+html, body,
+body button, body select, body input, body textarea,
+body .site-header__inner, body .brand-text, body .course-nav,
+body .concept-crumbs, body .algo,
 body h1, body h2, body h3, body h4, body h5, body h6,
-body figcaption, body .site-footer p,
-body .description-text, body .footer-text,
-body button, body select, body input, body textarea {
-    font-family: "Source Sans 3", "Noto Sans", sans-serif;
+body figcaption, body .site-footer p {
+    font-family: var(--font-latin);
 }
 
-/* Preserve a monospaced face for code and leave MathJax fonts untouched. */
+body { text-rendering: optimizeLegibility; }
 body pre, body code, body pre[class*="language-"], body code[class*="language-"] {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
 }
+
+html:lang(ja), html:lang(ja) body,
+html:lang(ja) body button, html:lang(ja) body select, html:lang(ja) body input,
+html:lang(ja) body textarea, html:lang(ja) body h1, html:lang(ja) body h2,
+html:lang(ja) body h3, html:lang(ja) body h4, html:lang(ja) body h5,
+html:lang(ja) body h6 { font-family: var(--font-ja); }
+
+html:lang(zh), html:lang(zh) body,
+html:lang(zh) body button, html:lang(zh) body select, html:lang(zh) body input,
+html:lang(zh) body textarea, html:lang(zh) body h1, html:lang(zh) body h2,
+html:lang(zh) body h3, html:lang(zh) body h4, html:lang(zh) body h5,
+html:lang(zh) body h6 { font-family: var(--font-zh); }
+
+html:lang(tc), html:lang(tc) body,
+html:lang(tc) body button, html:lang(tc) body select, html:lang(tc) body input,
+html:lang(tc) body textarea, html:lang(tc) body h1, html:lang(tc) body h2,
+html:lang(tc) body h3, html:lang(tc) body h4, html:lang(tc) body h5,
+html:lang(tc) body h6 { font-family: var(--font-tc); }
+
+html:lang(ja) body, html:lang(zh) body, html:lang(tc) body {
+    line-height: 1.8;
+    letter-spacing: normal;
+    overflow-wrap: anywhere;
+}
+html:lang(ja) body :is(h1,h2,h3,h4),
+html:lang(zh) body :is(h1,h2,h3,h4),
+html:lang(tc) body :is(h1,h2,h3,h4) { line-height: 1.45; }
+
+body :is(h1,h2,h3,h4) { overflow-wrap: anywhere; }
+body :is(button,select,input,textarea) { font-size: max(0.92rem, 1em); }

@@ -6,5 +6,7 @@
   "Course Catalog Title": "Course menu",
   "lang select title": "Language",
   "theme.dark": "Dark mode",
-  "nav.home": "Home"
+  "nav.home": "Home",
+  "concept.search.label": "Search concepts",
+  "concept.search.placeholder": "Search distributions and statistic terms"
 }

@@ -38,5 +38,11 @@
   "catalogtitle.Principal component": "主成分",
   "catalogtitle.Sample principal component": "样本主成分",
   "catalogtitle.Canonical correlation": "典型相关",
-  "catalogtitle.Numerical example for canonical correlation": "典型相关的数值示例"
+  "catalogtitle.Numerical example for canonical correlation": "典型相关的数值示例",
+  "catalogtitle.Bayesian Inference": "贝叶斯推断",
+  "catalogtitle.Bayesian updating": "贝叶斯更新",
+  "catalogtitle.Beta-Binomial model": "贝塔二项模型",
+  "catalogtitle.Understanding the posterior": "理解后验分布",
+  "catalogtitle.More conjugate models": "更多共轭模型",
+  "catalogtitle.Choosing a prior": "选择先验分布"
 }

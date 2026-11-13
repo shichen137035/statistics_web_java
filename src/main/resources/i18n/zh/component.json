@@ -6,5 +6,7 @@
   "Course Catalog Title": "课程目录",
   "lang select title": "语言",
   "theme.dark": "深色模式",
-  "nav.home": "首页"
+  "nav.home": "首页",
+  "concept.search.label": "搜索概念",
+  "concept.search.placeholder": "搜索分布和统计术语"
 }

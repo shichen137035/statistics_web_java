@@ -1,0 +1,14 @@
+{
+  "meta.title": "Understanding the posterior",
+  "reference.title": "Further reading",
+  "reference.text": "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari and Donald B. Rubin, Bayesian Data Analysis, 3rd ed., CRC Press, 2013, chapters 1–2.",
+  "content.0": "The posterior $\\operatorname{Beta}(10,4)$ describes uncertainty about the coin’s success probability after the data are observed. A summary makes this distribution easier to interpret, but does not replace the distribution itself.",
+  "content.1": "Point estimates",
+  "content.2": "The posterior mean is $10/14\\approx0.714$. The posterior mode, the maximum a posteriori estimate, is $(10-1)/(10+4-2)=0.75$. The posterior mean minimizes expected squared error loss; the appropriate summary depends on the decision and its loss function.",
+  "content.3": "Credible intervals",
+  "content.4": "An equal-tailed 95% credible interval uses the 2.5% and 97.5% posterior quantiles. Conditional on the chosen model, prior and observed data, the posterior probability that $p$ lies within this interval is 0.95.",
+  "content.5": "qbeta(c(0.025, 0.975), shape1 = 10, shape2 = 4)",
+  "content.6": "A frequentist 95% confidence interval uses a procedure that covers a fixed parameter in 95% of repeated samples under its assumptions. See the course’s confidence interval lesson for that interpretation.",
+  "content.7": "Predicting another trial",
+  "content.8": "The posterior predictive probability of success on the next trial is $E[p\\mid x]=10/14\\approx0.714$. This prediction averages over posterior uncertainty about $p$."
+}

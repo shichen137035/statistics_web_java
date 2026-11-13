@@ -1,0 +1,13 @@
+{
+  "meta.title": "Choosing a prior",
+  "reference.title": "Further reading",
+  "reference.text": "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari and Donald B. Rubin, Bayesian Data Analysis, 3rd ed., CRC Press, 2013, chapters 1–2.",
+  "content.0": "A prior describes uncertainty about a parameter before considering the current data. It can use previous studies, subject knowledge or practical constraints; its implications should be checked on the scale of the problem.",
+  "content.1": "Different levels of prior information",
+  "content.2": "An informative prior concentrates probability in a narrower region. A weakly informative prior rules out or downweights implausible values while allowing a wide range. A noninformative prior attempts to contribute relatively little information, but its properties depend on the parameterization and problem.",
+  "content.3": "Some noninformative priors are improper: their densities do not integrate to one. Such a prior can only be used for posterior inference when the resulting posterior is proper.",
+  "content.4": "Compare priors",
+  "content.5": "With the same data, 8 successes in 10 trials, a $\\operatorname{Beta}(1,1)$ prior produces a $\\operatorname{Beta}(9,3)$ posterior with mean $0.75$. A $\\operatorname{Beta}(10,10)$ prior produces $\\operatorname{Beta}(18,12)$ with mean $0.6$. The more concentrated second prior has a stronger influence on this small sample.",
+  "content.6": "p <- seq(0, 1, length.out = 500)\nplot(p, dbeta(p, 9, 3), type = \"l\", lwd = 2,\n     xlab = \"Probability of success\", ylab = \"Posterior density\")\nlines(p, dbeta(p, 18, 12), col = \"steelblue\", lwd = 2)\nlegend(\"topright\", c(\"Beta(1,1) prior\", \"Beta(10,10) prior\"),\n       col = c(\"black\", \"steelblue\"), lwd = 2)",
+  "content.7": "Comparing reasonable priors is a sensitivity analysis. If conclusions change substantially, report that dependence and consider what additional information could help choose a prior."
+}

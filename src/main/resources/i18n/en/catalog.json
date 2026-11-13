@@ -38,6 +38,11 @@
   "catalogtitle.Principal component": "Principal component",
   "catalogtitle.Sample principal component": "Sample principal component",
   "catalogtitle.Canonical correlation": "Canonical correlation",
-  "catalogtitle.Numerical example for canonical correlation": "Numerical example for canonical correlation"
+  "catalogtitle.Numerical example for canonical correlation": "Numerical example for canonical correlation",
+  "catalogtitle.Bayesian Inference": "Bayesian Inference",
+  "catalogtitle.Bayesian updating": "Bayesian updating",
+  "catalogtitle.Beta-Binomial model": "Beta-Binomial model",
+  "catalogtitle.Understanding the posterior": "Understanding the posterior",
+  "catalogtitle.More conjugate models": "More conjugate models",
+  "catalogtitle.Choosing a prior": "Choosing a prior"
 }
-

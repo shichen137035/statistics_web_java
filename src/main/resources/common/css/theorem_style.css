@@ -23,15 +23,13 @@
     --acc-assumption: #f43f5e;   /* rose-500 */
 }
 
-/* ---- 深色主题自动适配 ---- */
-@media (prefers-color-scheme: dark){
-    :root{
-        --stmt-bg: #0b1220;
-        --stmt-fg: #e5e7eb;
-        --stmt-border: #1f2937;
-        --stmt-shadow: 0 2px 12px rgba(0,0,0,.35);
-        --stmt-muted: #9aa7b2;
-    }
+/* The in-page theme toggle, rather than the OS preference, controls these cards. */
+html[data-theme="dark"] {
+    --stmt-bg: #202c3b;
+    --stmt-fg: #e1e8f0;
+    --stmt-border: #465569;
+    --stmt-shadow: 0 2px 12px rgba(0,0,0,.24);
+    --stmt-muted: #aabbd0;
 }
 
 /* ---- 在主要容器里为各类语句建立计数器（纯CSS自动编号） ---- */

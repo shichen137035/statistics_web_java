@@ -1,6 +1,6 @@
 const typography = document.createElement("link");
 typography.rel = "stylesheet";
-typography.href = "/common/css/typography.css?v=2";
+typography.href = "/common/css/typography.css?v=4";
 document.head.appendChild(typography);
 
 import "./theme.js";
@@ -242,10 +242,14 @@ import "./theme.js";
 
     // -----------------------------
     // 6. 设置语言
+    let languageRequest = 0;
     async function setLang(lang) {
+        const requestId = ++languageRequest;
         try {
-            await loadKeywordMeta();
-            const dict = await loadAllDicts(lang);
+            const [_, dict] = await Promise.all([loadKeywordMeta(), loadAllDicts(lang)]);
+            // Rapid changes can finish fetching out of order. Only the latest
+            // requested language may update the page or persisted preference.
+            if (requestId !== languageRequest) return;
             apply(dict, lang);
             storeLang(lang); // 保存全局语言
             if (select) select.value = lang; // 同步下拉框
@@ -260,7 +264,6 @@ import "./theme.js";
     const initialLang = getStoredLang();
     await setLang(initialLang);
     console.log("json file loaded");
-    document.dispatchEvent(new Event("i18nApplied"));
 
     if (select) {
         select.value = initialLang; // 页面有下拉框 → 初始值同步
