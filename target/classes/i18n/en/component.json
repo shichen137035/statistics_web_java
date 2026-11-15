@@ -1,8 +1,12 @@
 {
-  "COM_logo" : "Foundations of Statistic",
-  "course_nav_button": "Catalog",
+  "COM_logo": "Foundations of Statistic",
+  "course_nav_button": "Course menu",
   "prev-btn": "&laquo; Prev",
   "next-btn": "Next &raquo;",
-  "Course Catalog Title": "Course Catalog",
-  "lang select title": "Language"
+  "Course Catalog Title": "Course menu",
+  "lang select title": "Language",
+  "theme.dark": "Dark mode",
+  "nav.home": "Home",
+  "concept.search.label": "Search concepts",
+  "concept.search.placeholder": "Search distributions and statistic terms"
 }
